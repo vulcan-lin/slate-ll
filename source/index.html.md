@@ -37,13 +37,13 @@ Base URLs:
 
 ```shell
 # You can also use wget
-curl -X GET http://68.183.232.22:4928/api/v1/phrases/search \
+curl -X GET http://68.183.232.22:4928/api/v1/phrases/search?phrase=string \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://68.183.232.22:4928/api/v1/phrases/search HTTP/1.1
+GET http://68.183.232.22:4928/api/v1/phrases/search?phrase=string HTTP/1.1
 Host: 68.183.232.22:4928
 Accept: application/json
 
@@ -55,7 +55,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/phrases/search',
+fetch('http://68.183.232.22:4928/api/v1/phrases/search?phrase=string',
 {
   method: 'GET',
 
@@ -79,7 +79,8 @@ headers = {
 
 result = RestClient.get 'http://68.183.232.22:4928/api/v1/phrases/search',
   params: {
-  }, headers: headers
+  'phrase' => 'string'
+}, headers: headers
 
 p JSON.parse(result)
 
@@ -91,7 +92,9 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://68.183.232.22:4928/api/v1/phrases/search', headers = headers)
+r = requests.get('http://68.183.232.22:4928/api/v1/phrases/search', params={
+  'phrase': 'string'
+}, headers = headers)
 
 print(r.json())
 
@@ -129,7 +132,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/phrases/search");
+URL obj = new URL("http://68.183.232.22:4928/api/v1/phrases/search?phrase=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -178,7 +181,7 @@ return a video clips
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|phrase|query|string|false|Phrase|
+|phrase|query|string|true|Phrase|
 |page_current|query|integer|false|current page index|
 |page_size|query|integer|false|size of page|
 
