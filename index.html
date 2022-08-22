@@ -372,10 +372,10 @@
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET http://68.183.232.22:4928/api/v1/phrases/search <span class="se">\</span>
+curl <span class="nt">-X</span> GET http://68.183.232.22:4928/api/v1/phrases/search?phrase<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">http://68.183.232.22:4928/api/v1/phrases/search</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre></div><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">http://68.183.232.22:4928/api/v1/phrases/search?phrase=string</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">68.183.232.22:4928</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -384,7 +384,7 @@ curl <span class="nt">-X</span> GET http://68.183.232.22:4928/api/v1/phrases/sea
   <span class="dl">'</span><span class="s1">Accept</span><span class="dl">'</span><span class="p">:</span><span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://68.183.232.22:4928/api/v1/phrases/search</span><span class="dl">'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://68.183.232.22:4928/api/v1/phrases/search?phrase=string</span><span class="dl">'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
 
@@ -405,7 +405,8 @@ curl <span class="nt">-X</span> GET http://68.183.232.22:4928/api/v1/phrases/sea
 
 <span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'http://68.183.232.22:4928/api/v1/phrases/search'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
-  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+  <span class="s1">'phrase'</span> <span class="o">=&gt;</span> <span class="s1">'string'</span>
+<span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
@@ -414,7 +415,9 @@ curl <span class="nt">-X</span> GET http://68.183.232.22:4928/api/v1/phrases/sea
   <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://68.183.232.22:4928/api/v1/phrases/search'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://68.183.232.22:4928/api/v1/phrases/search'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+  <span class="s">'phrase'</span><span class="p">:</span> <span class="s">'string'</span>
+<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
@@ -446,7 +449,7 @@ curl <span class="nt">-X</span> GET http://68.183.232.22:4928/api/v1/phrases/sea
 
  <span class="c1">// ...</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"http://68.183.232.22:4928/api/v1/phrases/search"</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"http://68.183.232.22:4928/api/v1/phrases/search?phrase=string"</span><span class="o">);</span>
 <span class="nc">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -502,7 +505,7 @@ curl <span class="nt">-X</span> GET http://68.183.232.22:4928/api/v1/phrases/sea
 <td>phrase</td>
 <td>query</td>
 <td>string</td>
-<td>false</td>
+<td>true</td>
 <td>Phrase</td>
 </tr>
 <tr>
