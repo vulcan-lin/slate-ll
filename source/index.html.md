@@ -27,7 +27,7 @@ Welcome to the LearnByUse  API! You can use our API to access LearnByUse  API en
 
 Base URLs:
 
-* <a href="http://localhost:4928/api/v1">http://localhost:4928/api/v1</a>
+* <a href="http://68.183.232.22:4928/api/v1">http://68.183.232.22:4928/api/v1</a>
 
 <h1 id="learnbyuse-api-phrase">Phrase</h1>
 
@@ -37,14 +37,14 @@ Base URLs:
 
 ```shell
 # You can also use wget
-curl -X GET http://localhost:4928/api/v1/phrases/search \
+curl -X GET http://68.183.232.22:4928/api/v1/phrases/search \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://localhost:4928/api/v1/phrases/search HTTP/1.1
-Host: localhost:4928
+GET http://68.183.232.22:4928/api/v1/phrases/search HTTP/1.1
+Host: 68.183.232.22:4928
 Accept: application/json
 
 ```
@@ -55,7 +55,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://localhost:4928/api/v1/phrases/search',
+fetch('http://68.183.232.22:4928/api/v1/phrases/search',
 {
   method: 'GET',
 
@@ -77,7 +77,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://localhost:4928/api/v1/phrases/search',
+result = RestClient.get 'http://68.183.232.22:4928/api/v1/phrases/search',
   params: {
   }, headers: headers
 
@@ -91,7 +91,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://localhost:4928/api/v1/phrases/search', headers = headers)
+r = requests.get('http://68.183.232.22:4928/api/v1/phrases/search', headers = headers)
 
 print(r.json())
 
@@ -112,7 +112,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','http://localhost:4928/api/v1/phrases/search', array(
+    $response = $client->request('GET','http://68.183.232.22:4928/api/v1/phrases/search', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -129,7 +129,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://localhost:4928/api/v1/phrases/search");
+URL obj = new URL("http://68.183.232.22:4928/api/v1/phrases/search");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -160,7 +160,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://localhost:4928/api/v1/phrases/search", data)
+    req, err := http.NewRequest("GET", "http://68.183.232.22:4928/api/v1/phrases/search", data)
     req.Header = headers
 
     client := &http.Client{}
