@@ -404,7 +404,11 @@ user login
 
 ```json
 {
-  "token": "string"
+  "code": 0,
+  "data": {
+    "token": "string"
+  },
+  "msg": "string"
 }
 ```
 
@@ -412,7 +416,7 @@ user login
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[LoginResp](#schemaloginresp)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[LoginResponse](#schemaloginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -653,6 +657,32 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |token|string|false|none|none|
+
+<h2 id="tocS_LoginResponse">LoginResponse</h2>
+
+<a id="schemaloginresponse"></a>
+<a id="schema_LoginResponse"></a>
+<a id="tocSloginresponse"></a>
+<a id="tocsloginresponse"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "token": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[LoginResp](#schemaloginresp)|false|none|none|
+|msg|string|false|none|none|
 
 <h2 id="tocS_Pagination">Pagination</h2>
 
