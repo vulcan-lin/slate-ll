@@ -593,7 +593,9 @@ user register
 
 ```json
 {
-  "token": "string"
+  "code": 0,
+  "data": null,
+  "msg": "string"
 }
 ```
 
@@ -601,7 +603,7 @@ user register
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[LoginResp](#schemaloginresp)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
