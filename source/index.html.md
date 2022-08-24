@@ -228,7 +228,431 @@ return a video clips
 This operation does not require authentication
 </aside>
 
+<h1 id="learnbyuse-api-authorization">Authorization</h1>
+
+## post__user_login
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST http://68.183.232.22:4928/api/v1/user/login \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST http://68.183.232.22:4928/api/v1/user/login HTTP/1.1
+Host: 68.183.232.22:4928
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+const inputBody = '{
+  "password": "string",
+  "user_name": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+};
+
+fetch('http://68.183.232.22:4928/api/v1/user/login',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://68.183.232.22:4928/api/v1/user/login',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://68.183.232.22:4928/api/v1/user/login', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://68.183.232.22:4928/api/v1/user/login', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://68.183.232.22:4928/api/v1/user/login");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://68.183.232.22:4928/api/v1/user/login", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /user/login`
+
+user login
+
+> Body parameter
+
+```json
+{
+  "password": "string",
+  "user_name": "string"
+}
+```
+
+<h3 id="post__user_login-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[LoginReq](#schemaloginreq)|true|login with user and password|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "token": "string"
+}
+```
+
+<h3 id="post__user_login-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[LoginResp](#schemaloginresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__user_register
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST http://68.183.232.22:4928/api/v1/user/register \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST http://68.183.232.22:4928/api/v1/user/register HTTP/1.1
+Host: 68.183.232.22:4928
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+const inputBody = '{
+  "email": "string",
+  "password": "string",
+  "user_name": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+};
+
+fetch('http://68.183.232.22:4928/api/v1/user/register',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://68.183.232.22:4928/api/v1/user/register',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://68.183.232.22:4928/api/v1/user/register', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://68.183.232.22:4928/api/v1/user/register', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://68.183.232.22:4928/api/v1/user/register");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://68.183.232.22:4928/api/v1/user/register", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /user/register`
+
+user register
+
+> Body parameter
+
+```json
+{
+  "email": "string",
+  "password": "string",
+  "user_name": "string"
+}
+```
+
+<h3 id="post__user_register-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[UserRegisterReq](#schemauserregisterreq)|true|user register|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "token": "string"
+}
+```
+
+<h3 id="post__user_register-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[LoginResp](#schemaloginresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 # Schemas
+
+<h2 id="tocS_LoginReq">LoginReq</h2>
+
+<a id="schemaloginreq"></a>
+<a id="schema_LoginReq"></a>
+<a id="tocSloginreq"></a>
+<a id="tocsloginreq"></a>
+
+```json
+{
+  "password": "string",
+  "user_name": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|password|string|true|none|none|
+|user_name|string|true|none|none|
+
+<h2 id="tocS_LoginResp">LoginResp</h2>
+
+<a id="schemaloginresp"></a>
+<a id="schema_LoginResp"></a>
+<a id="tocSloginresp"></a>
+<a id="tocsloginresp"></a>
+
+```json
+{
+  "token": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|token|string|false|none|none|
 
 <h2 id="tocS_Pagination">Pagination</h2>
 
@@ -365,6 +789,30 @@ This operation does not require authentication
 |data|[Phrases](#schemaphrases)|false|none|none|
 |msg|string|false|none|none|
 |pagination|[Pagination](#schemapagination)|false|none|分页|
+
+<h2 id="tocS_UserRegisterReq">UserRegisterReq</h2>
+
+<a id="schemauserregisterreq"></a>
+<a id="schema_UserRegisterReq"></a>
+<a id="tocSuserregisterreq"></a>
+<a id="tocsuserregisterreq"></a>
+
+```json
+{
+  "email": "string",
+  "password": "string",
+  "user_name": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|email|string|true|none|none|
+|password|string|true|none|none|
+|user_name|string|true|none|none|
 
 <h2 id="tocS_VideoInfo">VideoInfo</h2>
 
