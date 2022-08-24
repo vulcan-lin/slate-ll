@@ -396,7 +396,7 @@ user login
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[LoginReq](#schemaloginreq)|true|login with user and password|
+|body|body|[LoginReq](#schemaloginreq)|true|login with email and password|
 
 > Example responses
 
