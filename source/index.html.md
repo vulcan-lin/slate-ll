@@ -252,8 +252,8 @@ Accept: application/json
 
 ```javascript
 const inputBody = '{
-  "password": "string",
-  "user_name": "string"
+  "email": "string",
+  "password": "string"
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -387,8 +387,8 @@ user login
 
 ```json
 {
-  "password": "string",
-  "user_name": "string"
+  "email": "string",
+  "password": "string"
 }
 ```
 
@@ -442,8 +442,7 @@ Accept: application/json
 ```javascript
 const inputBody = '{
   "email": "string",
-  "password": "string",
-  "user_name": "string"
+  "password": "string"
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -578,8 +577,7 @@ user register
 ```json
 {
   "email": "string",
-  "password": "string",
-  "user_name": "string"
+  "password": "string"
 }
 ```
 
@@ -621,8 +619,8 @@ This operation does not require authentication
 
 ```json
 {
-  "password": "string",
-  "user_name": "string"
+  "email": "string",
+  "password": "string"
 }
 
 ```
@@ -631,8 +629,8 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|email|string|true|none|none|
 |password|string|true|none|none|
-|user_name|string|true|none|none|
 
 <h2 id="tocS_LoginResp">LoginResp</h2>
 
@@ -800,8 +798,7 @@ This operation does not require authentication
 ```json
 {
   "email": "string",
-  "password": "string",
-  "user_name": "string"
+  "password": "string"
 }
 
 ```
@@ -812,7 +809,6 @@ This operation does not require authentication
 |---|---|---|---|---|
 |email|string|true|none|none|
 |password|string|true|none|none|
-|user_name|string|true|none|none|
 
 <h2 id="tocS_VideoInfo">VideoInfo</h2>
 
