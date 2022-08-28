@@ -27,7 +27,7 @@ Welcome to the LearnByUse  API! You can use our API to access LearnByUse  API en
 
 Base URLs:
 
-* <a href="http://68.183.232.22:4928/api/v1">http://68.183.232.22:4928/api/v1</a>
+* <a href="http://https://test-api.learnbyuse.app/api/v1">http://https://test-api.learnbyuse.app/api/v1</a>
 
 <h1 id="learnbyuse-api-group">Group</h1>
 
@@ -37,14 +37,14 @@ Base URLs:
 
 ```shell
 # You can also use wget
-curl -X GET http://68.183.232.22:4928/api/v1/groups \
+curl -X GET http://https:/test-api.learnbyuse.app/api/v1/groups \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://68.183.232.22:4928/api/v1/groups HTTP/1.1
-Host: 68.183.232.22:4928
+GET http://https:/test-api.learnbyuse.app/api/v1/groups HTTP/1.1
+Host: https
 Accept: application/json
 
 ```
@@ -55,7 +55,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/groups',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups',
 {
   method: 'GET',
 
@@ -77,7 +77,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://68.183.232.22:4928/api/v1/groups',
+result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v1/groups',
   params: {
   }, headers: headers
 
@@ -91,7 +91,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://68.183.232.22:4928/api/v1/groups', headers = headers)
+r = requests.get('http://https:/test-api.learnbyuse.app/api/v1/groups', headers = headers)
 
 print(r.json())
 
@@ -112,7 +112,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','http://68.183.232.22:4928/api/v1/groups', array(
+    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v1/groups', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -129,7 +129,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/groups");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -160,7 +160,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://68.183.232.22:4928/api/v1/groups", data)
+    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v1/groups", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -203,15 +203,15 @@ group list
 
 ```shell
 # You can also use wget
-curl -X POST http://68.183.232.22:4928/api/v1/groups \
+curl -X POST http://https:/test-api.learnbyuse.app/api/v1/groups \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://68.183.232.22:4928/api/v1/groups HTTP/1.1
-Host: 68.183.232.22:4928
+POST http://https:/test-api.learnbyuse.app/api/v1/groups HTTP/1.1
+Host: https
 Content-Type: application/json
 Accept: application/json
 
@@ -226,7 +226,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/groups',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups',
 {
   method: 'POST',
   body: inputBody,
@@ -249,7 +249,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://68.183.232.22:4928/api/v1/groups',
+result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/groups',
   params: {
   }, headers: headers
 
@@ -264,7 +264,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('http://68.183.232.22:4928/api/v1/groups', headers = headers)
+r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/groups', headers = headers)
 
 print(r.json())
 
@@ -286,7 +286,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','http://68.183.232.22:4928/api/v1/groups', array(
+    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v1/groups', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -303,7 +303,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/groups");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -335,7 +335,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://68.183.232.22:4928/api/v1/groups", data)
+    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v1/groups", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -392,14 +392,14 @@ group create
 
 ```shell
 # You can also use wget
-curl -X DELETE http://68.183.232.22:4928/api/v1/groups/{group_id} \
+curl -X DELETE http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-DELETE http://68.183.232.22:4928/api/v1/groups/{group_id} HTTP/1.1
-Host: 68.183.232.22:4928
+DELETE http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id} HTTP/1.1
+Host: https
 Accept: application/json
 
 ```
@@ -410,7 +410,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/groups/{group_id}',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}',
 {
   method: 'DELETE',
 
@@ -432,7 +432,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.delete 'http://68.183.232.22:4928/api/v1/groups/{group_id}',
+result = RestClient.delete 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}',
   params: {
   }, headers: headers
 
@@ -446,7 +446,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.delete('http://68.183.232.22:4928/api/v1/groups/{group_id}', headers = headers)
+r = requests.delete('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}', headers = headers)
 
 print(r.json())
 
@@ -467,7 +467,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('DELETE','http://68.183.232.22:4928/api/v1/groups/{group_id}', array(
+    $response = $client->request('DELETE','http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -484,7 +484,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/groups/{group_id}");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -515,7 +515,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://68.183.232.22:4928/api/v1/groups/{group_id}", data)
+    req, err := http.NewRequest("DELETE", "http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -564,14 +564,14 @@ group delete
 
 ```shell
 # You can also use wget
-curl -X GET http://68.183.232.22:4928/api/v1/groups/{group_id}/cards \
+curl -X GET http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://68.183.232.22:4928/api/v1/groups/{group_id}/cards HTTP/1.1
-Host: 68.183.232.22:4928
+GET http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards HTTP/1.1
+Host: https
 Accept: application/json
 
 ```
@@ -582,7 +582,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards',
 {
   method: 'GET',
 
@@ -604,7 +604,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://68.183.232.22:4928/api/v1/groups/{group_id}/cards',
+result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards',
   params: {
   }, headers: headers
 
@@ -618,7 +618,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards', headers = headers)
+r = requests.get('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards', headers = headers)
 
 print(r.json())
 
@@ -639,7 +639,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','http://68.183.232.22:4928/api/v1/groups/{group_id}/cards', array(
+    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -656,7 +656,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/groups/{group_id}/cards");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -687,7 +687,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://68.183.232.22:4928/api/v1/groups/{group_id}/cards", data)
+    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -743,15 +743,15 @@ card list
 
 ```shell
 # You can also use wget
-curl -X POST http://68.183.232.22:4928/api/v1/groups/{group_id}/cards \
+curl -X POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://68.183.232.22:4928/api/v1/groups/{group_id}/cards HTTP/1.1
-Host: 68.183.232.22:4928
+POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards HTTP/1.1
+Host: https
 Content-Type: application/json
 Accept: application/json
 
@@ -768,7 +768,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards',
 {
   method: 'POST',
   body: inputBody,
@@ -791,7 +791,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://68.183.232.22:4928/api/v1/groups/{group_id}/cards',
+result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards',
   params: {
   }, headers: headers
 
@@ -806,7 +806,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards', headers = headers)
+r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards', headers = headers)
 
 print(r.json())
 
@@ -828,7 +828,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','http://68.183.232.22:4928/api/v1/groups/{group_id}/cards', array(
+    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -845,7 +845,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/groups/{group_id}/cards");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -877,7 +877,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://68.183.232.22:4928/api/v1/groups/{group_id}/cards", data)
+    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -942,14 +942,14 @@ card create
 
 ```shell
 # You can also use wget
-curl -X DELETE http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id} \
+curl -X DELETE http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-DELETE http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id} HTTP/1.1
-Host: 68.183.232.22:4928
+DELETE http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id} HTTP/1.1
+Host: https
 Accept: application/json
 
 ```
@@ -960,7 +960,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}',
 {
   method: 'DELETE',
 
@@ -982,7 +982,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.delete 'http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}',
+result = RestClient.delete 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}',
   params: {
   }, headers: headers
 
@@ -996,7 +996,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.delete('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}', headers = headers)
+r = requests.delete('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}', headers = headers)
 
 print(r.json())
 
@@ -1017,7 +1017,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('DELETE','http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}', array(
+    $response = $client->request('DELETE','http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1034,7 +1034,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -1065,7 +1065,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}", data)
+    req, err := http.NewRequest("DELETE", "http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1117,14 +1117,14 @@ card delete
 
 ```shell
 # You can also use wget
-curl -X GET http://68.183.232.22:4928/api/v1/phrases/search?phrase=string \
+curl -X GET http://https:/test-api.learnbyuse.app/api/v1/phrases/search?phrase=string \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://68.183.232.22:4928/api/v1/phrases/search?phrase=string HTTP/1.1
-Host: 68.183.232.22:4928
+GET http://https:/test-api.learnbyuse.app/api/v1/phrases/search?phrase=string HTTP/1.1
+Host: https
 Accept: application/json
 
 ```
@@ -1135,7 +1135,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/phrases/search?phrase=string',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/phrases/search?phrase=string',
 {
   method: 'GET',
 
@@ -1157,7 +1157,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://68.183.232.22:4928/api/v1/phrases/search',
+result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v1/phrases/search',
   params: {
   'phrase' => 'string'
 }, headers: headers
@@ -1172,7 +1172,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://68.183.232.22:4928/api/v1/phrases/search', params={
+r = requests.get('http://https:/test-api.learnbyuse.app/api/v1/phrases/search', params={
   'phrase': 'string'
 }, headers = headers)
 
@@ -1195,7 +1195,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','http://68.183.232.22:4928/api/v1/phrases/search', array(
+    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v1/phrases/search', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1212,7 +1212,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/phrases/search?phrase=string");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/phrases/search?phrase=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1243,7 +1243,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://68.183.232.22:4928/api/v1/phrases/search", data)
+    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v1/phrases/search", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1316,15 +1316,15 @@ return a video clips
 
 ```shell
 # You can also use wget
-curl -X POST http://68.183.232.22:4928/api/v1/user/login \
+curl -X POST http://https:/test-api.learnbyuse.app/api/v1/user/login \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://68.183.232.22:4928/api/v1/user/login HTTP/1.1
-Host: 68.183.232.22:4928
+POST http://https:/test-api.learnbyuse.app/api/v1/user/login HTTP/1.1
+Host: https
 Content-Type: application/json
 Accept: application/json
 
@@ -1340,7 +1340,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/user/login',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/user/login',
 {
   method: 'POST',
   body: inputBody,
@@ -1363,7 +1363,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://68.183.232.22:4928/api/v1/user/login',
+result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/user/login',
   params: {
   }, headers: headers
 
@@ -1378,7 +1378,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('http://68.183.232.22:4928/api/v1/user/login', headers = headers)
+r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/user/login', headers = headers)
 
 print(r.json())
 
@@ -1400,7 +1400,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','http://68.183.232.22:4928/api/v1/user/login', array(
+    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v1/user/login', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1417,7 +1417,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/user/login");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/user/login");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1449,7 +1449,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://68.183.232.22:4928/api/v1/user/login", data)
+    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v1/user/login", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1509,15 +1509,15 @@ user login
 
 ```shell
 # You can also use wget
-curl -X POST http://68.183.232.22:4928/api/v1/user/register \
+curl -X POST http://https:/test-api.learnbyuse.app/api/v1/user/register \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://68.183.232.22:4928/api/v1/user/register HTTP/1.1
-Host: 68.183.232.22:4928
+POST http://https:/test-api.learnbyuse.app/api/v1/user/register HTTP/1.1
+Host: https
 Content-Type: application/json
 Accept: application/json
 
@@ -1534,7 +1534,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/user/register',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/user/register',
 {
   method: 'POST',
   body: inputBody,
@@ -1557,7 +1557,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://68.183.232.22:4928/api/v1/user/register',
+result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/user/register',
   params: {
   }, headers: headers
 
@@ -1572,7 +1572,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('http://68.183.232.22:4928/api/v1/user/register', headers = headers)
+r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/user/register', headers = headers)
 
 print(r.json())
 
@@ -1594,7 +1594,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','http://68.183.232.22:4928/api/v1/user/register', array(
+    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v1/user/register', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1611,7 +1611,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/user/register");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/user/register");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1643,7 +1643,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://68.183.232.22:4928/api/v1/user/register", data)
+    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v1/user/register", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1704,14 +1704,14 @@ user register
 
 ```shell
 # You can also use wget
-curl -X GET http://68.183.232.22:4928/api/v1/videos/{fid} \
+curl -X GET http://https:/test-api.learnbyuse.app/api/v1/videos/{fid} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://68.183.232.22:4928/api/v1/videos/{fid} HTTP/1.1
-Host: 68.183.232.22:4928
+GET http://https:/test-api.learnbyuse.app/api/v1/videos/{fid} HTTP/1.1
+Host: https
 Accept: application/json
 
 ```
@@ -1722,7 +1722,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://68.183.232.22:4928/api/v1/videos/{fid}',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/videos/{fid}',
 {
   method: 'GET',
 
@@ -1744,7 +1744,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://68.183.232.22:4928/api/v1/videos/{fid}',
+result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v1/videos/{fid}',
   params: {
   }, headers: headers
 
@@ -1758,7 +1758,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://68.183.232.22:4928/api/v1/videos/{fid}', headers = headers)
+r = requests.get('http://https:/test-api.learnbyuse.app/api/v1/videos/{fid}', headers = headers)
 
 print(r.json())
 
@@ -1779,7 +1779,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','http://68.183.232.22:4928/api/v1/videos/{fid}', array(
+    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v1/videos/{fid}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1796,7 +1796,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://68.183.232.22:4928/api/v1/videos/{fid}");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/videos/{fid}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1827,7 +1827,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://68.183.232.22:4928/api/v1/videos/{fid}", data)
+    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v1/videos/{fid}", data)
     req.Header = headers
 
     client := &http.Client{}
