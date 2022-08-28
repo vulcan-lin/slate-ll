@@ -172,7 +172,7 @@ func main() {
 
 `GET /groups`
 
-group list
+查询分组列表
 
 > Example responses
 
@@ -347,7 +347,7 @@ func main() {
 
 `POST /groups`
 
-group create
+创建分组
 
 > Body parameter
 
@@ -527,7 +527,7 @@ func main() {
 
 `DELETE /groups/{group_id}`
 
-group delete
+删除分组
 
 <h3 id="delete__groups_{group_id}-parameters">Parameters</h3>
 
@@ -699,7 +699,7 @@ func main() {
 
 `GET /groups/{group_id}/cards`
 
-card list
+查询分组下的卡片列表
 
 <h3 id="get__groups_{group_id}_cards-parameters">Parameters</h3>
 
@@ -889,7 +889,7 @@ func main() {
 
 `POST /groups/{group_id}/cards`
 
-card create
+创建分组所属卡片
 
 > Body parameter
 
@@ -1077,7 +1077,7 @@ func main() {
 
 `DELETE /groups/{group_id}/cards/{card_id}`
 
-card delete
+删除分组下的卡片
 
 <h3 id="delete__groups_{group_id}_cards_{card_id}-parameters">Parameters</h3>
 
