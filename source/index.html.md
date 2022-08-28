@@ -29,6 +29,1086 @@ Base URLs:
 
 * <a href="http://68.183.232.22:4928/api/v1">http://68.183.232.22:4928/api/v1</a>
 
+<h1 id="learnbyuse-api-group">Group</h1>
+
+## get__groups
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://68.183.232.22:4928/api/v1/groups \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET http://68.183.232.22:4928/api/v1/groups HTTP/1.1
+Host: 68.183.232.22:4928
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://68.183.232.22:4928/api/v1/groups',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://68.183.232.22:4928/api/v1/groups',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://68.183.232.22:4928/api/v1/groups', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://68.183.232.22:4928/api/v1/groups', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://68.183.232.22:4928/api/v1/groups");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://68.183.232.22:4928/api/v1/groups", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /groups`
+
+group list
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__groups-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
+## post__groups
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST http://68.183.232.22:4928/api/v1/groups \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST http://68.183.232.22:4928/api/v1/groups HTTP/1.1
+Host: 68.183.232.22:4928
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+const inputBody = '{
+  "name": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+};
+
+fetch('http://68.183.232.22:4928/api/v1/groups',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://68.183.232.22:4928/api/v1/groups',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://68.183.232.22:4928/api/v1/groups', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://68.183.232.22:4928/api/v1/groups', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://68.183.232.22:4928/api/v1/groups");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://68.183.232.22:4928/api/v1/groups", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /groups`
+
+group create
+
+> Body parameter
+
+```json
+{
+  "name": "string"
+}
+```
+
+<h3 id="post__groups-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[GroupCreateReq](#schemagroupcreatereq)|true|group create|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="post__groups-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
+## delete__groups_{group_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE http://68.183.232.22:4928/api/v1/groups/{group_id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+DELETE http://68.183.232.22:4928/api/v1/groups/{group_id} HTTP/1.1
+Host: 68.183.232.22:4928
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://68.183.232.22:4928/api/v1/groups/{group_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.delete 'http://68.183.232.22:4928/api/v1/groups/{group_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.delete('http://68.183.232.22:4928/api/v1/groups/{group_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('DELETE','http://68.183.232.22:4928/api/v1/groups/{group_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://68.183.232.22:4928/api/v1/groups/{group_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "http://68.183.232.22:4928/api/v1/groups/{group_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`DELETE /groups/{group_id}`
+
+group delete
+
+<h3 id="delete__groups_{group_id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|group_id|path|integer|true|group id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="delete__groups_{group_id}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
+## get__groups_{group_id}_cards
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://68.183.232.22:4928/api/v1/groups/{group_id}/cards \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET http://68.183.232.22:4928/api/v1/groups/{group_id}/cards HTTP/1.1
+Host: 68.183.232.22:4928
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://68.183.232.22:4928/api/v1/groups/{group_id}/cards',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://68.183.232.22:4928/api/v1/groups/{group_id}/cards', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://68.183.232.22:4928/api/v1/groups/{group_id}/cards");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://68.183.232.22:4928/api/v1/groups/{group_id}/cards", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /groups/{group_id}/cards`
+
+card list
+
+<h3 id="get__groups_{group_id}_cards-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|group_id|path|integer|true|group id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "answer": "string",
+      "card_id": 0,
+      "phrase_id": "string",
+      "phrase_text": "string"
+    }
+  ],
+  "msg": "string"
+}
+```
+
+<h3 id="get__groups_{group_id}_cards-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[CardListResp](#schemacardlistresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
+## post__groups_{group_id}_cards
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST http://68.183.232.22:4928/api/v1/groups/{group_id}/cards \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST http://68.183.232.22:4928/api/v1/groups/{group_id}/cards HTTP/1.1
+Host: 68.183.232.22:4928
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+const inputBody = '{
+  "answer": "string",
+  "phrase_id": "string",
+  "phrase_text": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+};
+
+fetch('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://68.183.232.22:4928/api/v1/groups/{group_id}/cards',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://68.183.232.22:4928/api/v1/groups/{group_id}/cards', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://68.183.232.22:4928/api/v1/groups/{group_id}/cards");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://68.183.232.22:4928/api/v1/groups/{group_id}/cards", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /groups/{group_id}/cards`
+
+card create
+
+> Body parameter
+
+```json
+{
+  "answer": "string",
+  "phrase_id": "string",
+  "phrase_text": "string"
+}
+```
+
+<h3 id="post__groups_{group_id}_cards-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|group_id|path|integer|true|group id|
+|body|body|[api_service.UserRegisterReq](#schemaapi_service.userregisterreq)|true|card create|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "answer": "string",
+    "card_id": 0,
+    "phrase_id": "string",
+    "phrase_text": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="post__groups_{group_id}_cards-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[CardCreateResp](#schemacardcreateresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
+## delete__groups_{group_id}_cards_{card_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X DELETE http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+DELETE http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id} HTTP/1.1
+Host: 68.183.232.22:4928
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.delete 'http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.delete('http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('DELETE','http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "http://68.183.232.22:4928/api/v1/groups/{group_id}/cards/{card_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`DELETE /groups/{group_id}/cards/{card_id}`
+
+card delete
+
+<h3 id="delete__groups_{group_id}_cards_{card_id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|group_id|path|integer|true|group id|
+|card_id|path|integer|true|card id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="delete__groups_{group_id}_cards_{card_id}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
 <h1 id="learnbyuse-api-phrase">Phrase</h1>
 
 ## get__phrases_search
@@ -225,10 +1305,10 @@ return a video clips
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
-This operation does not require authentication
+ 
 </aside>
 
-<h1 id="learnbyuse-api-authorization">Authorization</h1>
+<h1 id="learnbyuse-api-user">User</h1>
 
 ## post__user_login
 
@@ -420,7 +1500,7 @@ user login
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
-This operation does not require authentication
+ 
 </aside>
 
 ## post__user_register
@@ -445,8 +1525,9 @@ Accept: application/json
 
 ```javascript
 const inputBody = '{
-  "email": "string",
-  "password": "string"
+  "answer": "string",
+  "phrase_id": "string",
+  "phrase_text": "string"
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -580,8 +1661,9 @@ user register
 
 ```json
 {
-  "email": "string",
-  "password": "string"
+  "answer": "string",
+  "phrase_id": "string",
+  "phrase_text": "string"
 }
 ```
 
@@ -589,7 +1671,7 @@ user register
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[UserRegisterReq](#schemauserregisterreq)|true|user register|
+|body|body|[api_service.UserRegisterReq](#schemaapi_service.userregisterreq)|true|user register|
 
 > Example responses
 
@@ -611,10 +1693,290 @@ user register
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
-This operation does not require authentication
+ 
+</aside>
+
+<h1 id="learnbyuse-api-videos">Videos</h1>
+
+## get__videos_{fid}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://68.183.232.22:4928/api/v1/videos/{fid} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET http://68.183.232.22:4928/api/v1/videos/{fid} HTTP/1.1
+Host: 68.183.232.22:4928
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://68.183.232.22:4928/api/v1/videos/{fid}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://68.183.232.22:4928/api/v1/videos/{fid}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://68.183.232.22:4928/api/v1/videos/{fid}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://68.183.232.22:4928/api/v1/videos/{fid}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://68.183.232.22:4928/api/v1/videos/{fid}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://68.183.232.22:4928/api/v1/videos/{fid}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /videos/{fid}`
+
+download a video
+
+<h3 id="get__videos_{fid}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|fid|path|string|true|file id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__videos_{fid}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
 </aside>
 
 # Schemas
+
+<h2 id="tocS_CardCreateResp">CardCreateResp</h2>
+
+<a id="schemacardcreateresp"></a>
+<a id="schema_CardCreateResp"></a>
+<a id="tocScardcreateresp"></a>
+<a id="tocscardcreateresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "answer": "string",
+    "card_id": 0,
+    "phrase_id": "string",
+    "phrase_text": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[CardItem](#schemacarditem)|false|none|none|
+|msg|string|false|none|none|
+
+<h2 id="tocS_CardItem">CardItem</h2>
+
+<a id="schemacarditem"></a>
+<a id="schema_CardItem"></a>
+<a id="tocScarditem"></a>
+<a id="tocscarditem"></a>
+
+```json
+{
+  "answer": "string",
+  "card_id": 0,
+  "phrase_id": "string",
+  "phrase_text": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|answer|string|false|none|none|
+|card_id|integer|false|none|none|
+|phrase_id|string|false|none|none|
+|phrase_text|string|false|none|none|
+
+<h2 id="tocS_CardListResp">CardListResp</h2>
+
+<a id="schemacardlistresp"></a>
+<a id="schema_CardListResp"></a>
+<a id="tocScardlistresp"></a>
+<a id="tocscardlistresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "answer": "string",
+      "card_id": 0,
+      "phrase_id": "string",
+      "phrase_text": "string"
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[CardItem](#schemacarditem)]|false|none|none|
+|msg|string|false|none|none|
+
+<h2 id="tocS_GroupCreateReq">GroupCreateReq</h2>
+
+<a id="schemagroupcreatereq"></a>
+<a id="schema_GroupCreateReq"></a>
+<a id="tocSgroupcreatereq"></a>
+<a id="tocsgroupcreatereq"></a>
+
+```json
+{
+  "name": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|name|string|true|none|none|
 
 <h2 id="tocS_LoginReq">LoginReq</h2>
 
@@ -820,28 +2182,6 @@ This operation does not require authentication
 |msg|string|false|none|none|
 |pagination|[Pagination](#schemapagination)|false|none|分页|
 
-<h2 id="tocS_UserRegisterReq">UserRegisterReq</h2>
-
-<a id="schemauserregisterreq"></a>
-<a id="schema_UserRegisterReq"></a>
-<a id="tocSuserregisterreq"></a>
-<a id="tocsuserregisterreq"></a>
-
-```json
-{
-  "email": "string",
-  "password": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|email|string|true|none|none|
-|password|string|true|none|none|
-
 <h2 id="tocS_VideoInfo">VideoInfo</h2>
 
 <a id="schemavideoinfo"></a>
@@ -863,6 +2203,30 @@ This operation does not require authentication
 |---|---|---|---|---|
 |imdb|string|false|none|imdb id|
 |string|string|false|none|电影名称|
+
+<h2 id="tocS_api_service.UserRegisterReq">api_service.UserRegisterReq</h2>
+
+<a id="schemaapi_service.userregisterreq"></a>
+<a id="schema_api_service.UserRegisterReq"></a>
+<a id="tocSapi_service.userregisterreq"></a>
+<a id="tocsapi_service.userregisterreq"></a>
+
+```json
+{
+  "answer": "string",
+  "phrase_id": "string",
+  "phrase_text": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|answer|string|true|none|none|
+|phrase_id|string|true|none|none|
+|phrase_text|string|true|none|none|
 
 <h2 id="tocS_commonResponse">commonResponse</h2>
 
