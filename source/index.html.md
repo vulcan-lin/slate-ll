@@ -1898,7 +1898,7 @@ download a video
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |code|integer|false|none|none|
-|data|[CardItem](#schemacarditem)|false|none|none|
+|data|[CardItem](#schemacarditem)|false|none|卡片|
 |msg|string|false|none|none|
 
 <h2 id="tocS_CardItem">CardItem</h2>
@@ -1922,10 +1922,10 @@ download a video
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|answer|string|false|none|none|
-|card_id|integer|false|none|none|
-|phrase_id|string|false|none|none|
-|phrase_text|string|false|none|none|
+|answer|string|false|none|短语答案|
+|card_id|integer|false|none|卡片ID|
+|phrase_id|string|false|none|短语ID, 从search phrase继承而来|
+|phrase_text|string|false|none|短语文本|
 
 <h2 id="tocS_CardListResp">CardListResp</h2>
 
@@ -1955,7 +1955,7 @@ download a video
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |code|integer|false|none|none|
-|data|[[CardItem](#schemacarditem)]|false|none|none|
+|data|[[CardItem](#schemacarditem)]|false|none|分组所属卡片列表|
 |msg|string|false|none|none|
 
 <h2 id="tocS_GroupCreateReq">GroupCreateReq</h2>
@@ -1976,7 +1976,7 @@ download a video
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|name|string|true|none|none|
+|name|string|true|none|分组名称|
 
 <h2 id="tocS_LoginReq">LoginReq</h2>
 
@@ -1997,8 +1997,8 @@ download a video
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|email|string|true|none|none|
-|password|string|true|none|none|
+|email|string|true|none|用户email地址|
+|password|string|true|none|用户密码|
 
 <h2 id="tocS_LoginResp">LoginResp</h2>
 
@@ -2018,7 +2018,7 @@ download a video
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|token|string|false|none|none|
+|token|string|false|none|用户token|
 
 <h2 id="tocS_LoginResponse">LoginResponse</h2>
 
@@ -2224,9 +2224,9 @@ download a video
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|answer|string|true|none|none|
-|phrase_id|string|true|none|none|
-|phrase_text|string|true|none|none|
+|answer|string|true|none|短语答案|
+|phrase_id|string|true|none|短语ID, 从search phrase继承而来|
+|phrase_text|string|true|none|短语文本|
 
 <h2 id="tocS_commonResponse">commonResponse</h2>
 
