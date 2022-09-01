@@ -1618,7 +1618,7 @@ func main() {
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |card_id|query|integer|true|card id|
-|review_score|query|integer|true|review score|
+|review_score|query|integer|true|review score 枚举:[again, hard, good, easy]|
 
 > Example responses
 
