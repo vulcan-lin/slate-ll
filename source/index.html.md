@@ -895,7 +895,8 @@ func main() {
       "answer": "string",
       "card_id": 0,
       "phrase_id": "string",
-      "phrase_text": "string"
+      "phrase_text": "string",
+      "video-url": "string"
     }
   ],
   "msg": "string"
@@ -1095,7 +1096,8 @@ func main() {
     "answer": "string",
     "card_id": 0,
     "phrase_id": "string",
-    "phrase_text": "string"
+    "phrase_text": "string",
+    "video-url": "string"
   },
   "msg": "string"
 }
@@ -1448,7 +1450,8 @@ func main() {
       "answer": "string",
       "card_id": 0,
       "phrase_id": "string",
-      "phrase_text": "string"
+      "phrase_text": "string",
+      "video-url": "string"
     }
   ],
   "msg": "string"
@@ -1472,13 +1475,13 @@ func main() {
 
 ```shell
 # You can also use wget
-curl -X POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=0 \
+curl -X POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=0 HTTP/1.1
+POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string HTTP/1.1
 Host: https
 Accept: application/json
 
@@ -1490,7 +1493,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=0',
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string',
 {
   method: 'POST',
 
@@ -1515,7 +1518,7 @@ headers = {
 result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn',
   params: {
   'card_id' => 'integer',
-'review_score' => 'integer'
+'review_score' => 'string'
 }, headers: headers
 
 p JSON.parse(result)
@@ -1529,7 +1532,7 @@ headers = {
 }
 
 r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn', params={
-  'card_id': '0',  'review_score': '0'
+  'card_id': '0',  'review_score': 'string'
 }, headers = headers)
 
 print(r.json())
@@ -1568,7 +1571,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=0");
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1618,7 +1621,7 @@ func main() {
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |card_id|query|integer|true|card id|
-|review_score|query|integer|true|review score 枚举:[again, hard, good, easy]|
+|review_score|query|string|true|review score 枚举:[again, hard, good, easy]|
 
 > Example responses
 
@@ -1631,7 +1634,8 @@ func main() {
     "answer": "string",
     "card_id": 0,
     "phrase_id": "string",
-    "phrase_text": "string"
+    "phrase_text": "string",
+    "video-url": "string"
   },
   "msg": "string"
 }
@@ -2425,7 +2429,8 @@ download a video
     "answer": "string",
     "card_id": 0,
     "phrase_id": "string",
-    "phrase_text": "string"
+    "phrase_text": "string",
+    "video-url": "string"
   },
   "msg": "string"
 }
@@ -2452,7 +2457,8 @@ download a video
   "answer": "string",
   "card_id": 0,
   "phrase_id": "string",
-  "phrase_text": "string"
+  "phrase_text": "string",
+  "video-url": "string"
 }
 
 ```
@@ -2465,6 +2471,7 @@ download a video
 |card_id|integer|false|none|卡片ID|
 |phrase_id|string|false|none|短语ID, 从search phrase继承而来|
 |phrase_text|string|false|none|短语文本|
+|video-url|string|false|none|视频片段下载地址|
 
 <h2 id="tocS_CardListResp">CardListResp</h2>
 
@@ -2481,7 +2488,8 @@ download a video
       "answer": "string",
       "card_id": 0,
       "phrase_id": "string",
-      "phrase_text": "string"
+      "phrase_text": "string",
+      "video-url": "string"
     }
   ],
   "msg": "string"
@@ -2584,7 +2592,8 @@ download a video
       "answer": "string",
       "card_id": 0,
       "phrase_id": "string",
-      "phrase_text": "string"
+      "phrase_text": "string",
+      "video-url": "string"
     }
   ],
   "msg": "string"
@@ -2773,7 +2782,8 @@ download a video
     "answer": "string",
     "card_id": 0,
     "phrase_id": "string",
-    "phrase_text": "string"
+    "phrase_text": "string",
+    "video-url": "string"
   },
   "msg": "string"
 }
