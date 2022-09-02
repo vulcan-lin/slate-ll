@@ -1428,7 +1428,7 @@ func main() {
 
 `GET /groups/{group_id}/learn`
 
-获取本次推荐学习卡片列表
+[闪记卡片]获取本次推荐学习卡片列表
 
 <h3 id="get__groups_{group_id}_learn-parameters">Parameters</h3>
 
@@ -1611,7 +1611,7 @@ func main() {
 
 `POST /groups/{group_id}/learn`
 
-卡片打分
+[闪记卡片]卡片打分
 
 <h3 id="post__groups_{group_id}_learn-parameters">Parameters</h3>
 
