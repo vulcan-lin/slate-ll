@@ -1459,7 +1459,7 @@ func main() {
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|LearnGroupCardsResp|[api_service.LearnGroupCardsResp](#schemaapi_service.learngroupcardsresp)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|LearnGroupCardsResp|[LearnGroupCardsResp](#schemalearngroupcardsresp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -1627,14 +1627,12 @@ func main() {
 ```json
 {
   "code": 0,
-  "data": [
-    {
-      "answer": "string",
-      "card_id": 0,
-      "phrase_id": "string",
-      "phrase_text": "string"
-    }
-  ],
+  "data": {
+    "answer": "string",
+    "card_id": 0,
+    "phrase_id": "string",
+    "phrase_text": "string"
+  },
   "msg": "string"
 }
 ```
@@ -1643,7 +1641,7 @@ func main() {
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[api_service.LearnGroupCardsResp](#schemaapi_service.learngroupcardsresp)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[RatingCardsResp](#schemaratingcardsresp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -2571,6 +2569,37 @@ download a video
 |group_id|integer|true|none|分组ID|
 |group_name|string|true|none|分组名称|
 
+<h2 id="tocS_LearnGroupCardsResp">LearnGroupCardsResp</h2>
+
+<a id="schemalearngroupcardsresp"></a>
+<a id="schema_LearnGroupCardsResp"></a>
+<a id="tocSlearngroupcardsresp"></a>
+<a id="tocslearngroupcardsresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "answer": "string",
+      "card_id": 0,
+      "phrase_id": "string",
+      "phrase_text": "string"
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[CardItem](#schemacarditem)]|false|none|本次推荐学习的卡片列表|
+|msg|string|false|none|none|
+
 <h2 id="tocS_LoginReq">LoginReq</h2>
 
 <a id="schemaloginreq"></a>
@@ -2730,6 +2759,35 @@ download a video
 |count|integer|false|none|短语搜索结果数量|
 |phrases|[[Phrase](#schemaphrase)]|false|none|视频片段数组|
 
+<h2 id="tocS_RatingCardsResp">RatingCardsResp</h2>
+
+<a id="schemaratingcardsresp"></a>
+<a id="schema_RatingCardsResp"></a>
+<a id="tocSratingcardsresp"></a>
+<a id="tocsratingcardsresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "answer": "string",
+    "card_id": 0,
+    "phrase_id": "string",
+    "phrase_text": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[CardItem](#schemacarditem)|false|none|下一张卡片|
+|msg|string|false|none|none|
+
 <h2 id="tocS_SearchPhraseResp">SearchPhraseResp</h2>
 
 <a id="schemasearchphraseresp"></a>
@@ -2796,37 +2854,6 @@ download a video
 |---|---|---|---|---|
 |imdb|string|false|none|imdb id|
 |string|string|false|none|电影名称|
-
-<h2 id="tocS_api_service.LearnGroupCardsResp">api_service.LearnGroupCardsResp</h2>
-
-<a id="schemaapi_service.learngroupcardsresp"></a>
-<a id="schema_api_service.LearnGroupCardsResp"></a>
-<a id="tocSapi_service.learngroupcardsresp"></a>
-<a id="tocsapi_service.learngroupcardsresp"></a>
-
-```json
-{
-  "code": 0,
-  "data": [
-    {
-      "answer": "string",
-      "card_id": 0,
-      "phrase_id": "string",
-      "phrase_text": "string"
-    }
-  ],
-  "msg": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|code|integer|false|none|none|
-|data|[[CardItem](#schemacarditem)]|false|none|本次推荐学习的卡片列表|
-|msg|string|false|none|none|
 
 <h2 id="tocS_api_service.UserRegisterReq">api_service.UserRegisterReq</h2>
 
