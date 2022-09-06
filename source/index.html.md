@@ -896,6 +896,10 @@ func main() {
       "card_id": 0,
       "phrase_id": "string",
       "phrase_text": "string",
+      "scores": {
+        "property1": "string",
+        "property2": "string"
+      },
       "video-url": "string"
     }
   ],
@@ -1097,6 +1101,10 @@ func main() {
     "card_id": 0,
     "phrase_id": "string",
     "phrase_text": "string",
+    "scores": {
+      "property1": "string",
+      "property2": "string"
+    },
     "video-url": "string"
   },
   "msg": "string"
@@ -1451,6 +1459,10 @@ func main() {
       "card_id": 0,
       "phrase_id": "string",
       "phrase_text": "string",
+      "scores": {
+        "property1": "string",
+        "property2": "string"
+      },
       "video-url": "string"
     }
   ],
@@ -1635,6 +1647,10 @@ func main() {
     "card_id": 0,
     "phrase_id": "string",
     "phrase_text": "string",
+    "scores": {
+      "property1": "string",
+      "property2": "string"
+    },
     "video-url": "string"
   },
   "msg": "string"
@@ -2430,6 +2446,10 @@ download a video
     "card_id": 0,
     "phrase_id": "string",
     "phrase_text": "string",
+    "scores": {
+      "property1": "string",
+      "property2": "string"
+    },
     "video-url": "string"
   },
   "msg": "string"
@@ -2458,6 +2478,10 @@ download a video
   "card_id": 0,
   "phrase_id": "string",
   "phrase_text": "string",
+  "scores": {
+    "property1": "string",
+    "property2": "string"
+  },
   "video-url": "string"
 }
 
@@ -2471,6 +2495,8 @@ download a video
 |card_id|integer|false|none|卡片ID|
 |phrase_id|string|false|none|短语ID, 从search phrase继承而来|
 |phrase_text|string|false|none|短语文本|
+|scores|object|false|none|评分对应复习时间|
+|» **additionalProperties**|string|false|none|none|
 |video-url|string|false|none|视频片段下载地址|
 
 <h2 id="tocS_CardListResp">CardListResp</h2>
@@ -2489,6 +2515,10 @@ download a video
       "card_id": 0,
       "phrase_id": "string",
       "phrase_text": "string",
+      "scores": {
+        "property1": "string",
+        "property2": "string"
+      },
       "video-url": "string"
     }
   ],
@@ -2593,6 +2623,10 @@ download a video
       "card_id": 0,
       "phrase_id": "string",
       "phrase_text": "string",
+      "scores": {
+        "property1": "string",
+        "property2": "string"
+      },
       "video-url": "string"
     }
   ],
@@ -2783,6 +2817,10 @@ download a video
     "card_id": 0,
     "phrase_id": "string",
     "phrase_text": "string",
+    "scores": {
+      "property1": "string",
+      "property2": "string"
+    },
     "video-url": "string"
   },
   "msg": "string"
