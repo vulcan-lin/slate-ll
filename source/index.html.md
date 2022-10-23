@@ -29,6 +29,566 @@ Base URLs:
 
 * <a href="http://https://test-api.learnbyuse.app/api/v1">http://https://test-api.learnbyuse.app/api/v1</a>
 
+<h1 id="learnbyuse-api-learn">Learn</h1>
+
+## post__
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST http://https:/test-api.learnbyuse.app/api/v1/?card_id=0&review_score=string \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST http://https:/test-api.learnbyuse.app/api/v1/?card_id=0&review_score=string HTTP/1.1
+Host: https
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://https:/test-api.learnbyuse.app/api/v1/?card_id=0&review_score=string',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/',
+  params: {
+  'card_id' => 'integer',
+'review_score' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/', params={
+  'card_id': '0',  'review_score': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v1/', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/?card_id=0&review_score=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v1/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /`
+
+英语词汇量评测
+
+<h3 id="post__-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|card_id|query|integer|true|card id|
+|review_score|query|string|true|review score 枚举:[again, hard, good, easy]|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "answer": "string",
+    "card_id": 0,
+    "phrase_id": "string",
+    "phrase_text": "string",
+    "scores": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "video-url": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="post__-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[RatingCardsResp](#schemaratingcardsresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
+## get__groups_{group_id}_learn
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn HTTP/1.1
+Host: https
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /groups/{group_id}/learn`
+
+[闪记卡片]获取本次推荐学习卡片列表
+
+<h3 id="get__groups_{group_id}_learn-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|group_id|path|integer|true|group id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "answer": "string",
+      "card_id": 0,
+      "phrase_id": "string",
+      "phrase_text": "string",
+      "scores": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "video-url": "string"
+    }
+  ],
+  "msg": "string"
+}
+```
+
+<h3 id="get__groups_{group_id}_learn-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|LearnGroupCardsResp|[LearnGroupCardsResp](#schemalearngroupcardsresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
+## post__groups_{group_id}_learn
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string HTTP/1.1
+Host: https
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn',
+  params: {
+  'card_id' => 'integer',
+'review_score' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn', params={
+  'card_id': '0',  'review_score': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /groups/{group_id}/learn`
+
+[闪记卡片]卡片打分
+
+<h3 id="post__groups_{group_id}_learn-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|card_id|query|integer|true|card id|
+|review_score|query|string|true|review score 枚举:[again, hard, good, easy]|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "answer": "string",
+    "card_id": 0,
+    "phrase_id": "string",
+    "phrase_text": "string",
+    "scores": {
+      "property1": "string",
+      "property2": "string"
+    },
+    "video-url": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="post__groups_{group_id}_learn-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[RatingCardsResp](#schemaratingcardsresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
 <h1 id="learnbyuse-api-group">Group</h1>
 
 ## get__groups
@@ -1122,6 +1682,179 @@ func main() {
  
 </aside>
 
+## get__groups_{group_id}_cards_{card_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id} HTTP/1.1
+Host: https
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/cards/{card_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /groups/{group_id}/cards/{card_id}`
+
+获取分组下的单一卡片
+
+<h3 id="get__groups_{group_id}_cards_{card_id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|group_id|path|integer|true|group id|
+|card_id|path|integer|true|card id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__groups_{group_id}_cards_{card_id}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
 ## delete__groups_{group_id}_cards_{card_id}
 
 > Code samples
@@ -1289,379 +2022,6 @@ func main() {
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
-
-<aside class="success">
- 
-</aside>
-
-<h1 id="learnbyuse-api-learn">Learn</h1>
-
-## get__groups_{group_id}_learn
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn \
-  -H 'Accept: application/json'
-
-```
-
-```http
-GET http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn HTTP/1.1
-Host: https
-Accept: application/json
-
-```
-
-```javascript
-
-const headers = {
-  'Accept':'application/json'
-};
-
-fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json'
-}
-
-result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json'
-}
-
-r = requests.get('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn', headers = headers)
-
-print(r.json())
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```java
-URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`GET /groups/{group_id}/learn`
-
-[闪记卡片]获取本次推荐学习卡片列表
-
-<h3 id="get__groups_{group_id}_learn-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|group_id|path|integer|true|group id|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "code": 0,
-  "data": [
-    {
-      "answer": "string",
-      "card_id": 0,
-      "phrase_id": "string",
-      "phrase_text": "string",
-      "scores": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "video-url": "string"
-    }
-  ],
-  "msg": "string"
-}
-```
-
-<h3 id="get__groups_{group_id}_learn-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|LearnGroupCardsResp|[LearnGroupCardsResp](#schemalearngroupcardsresp)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
-
-<aside class="success">
- 
-</aside>
-
-## post__groups_{group_id}_learn
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string \
-  -H 'Accept: application/json'
-
-```
-
-```http
-POST http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string HTTP/1.1
-Host: https
-Accept: application/json
-
-```
-
-```javascript
-
-const headers = {
-  'Accept':'application/json'
-};
-
-fetch('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string',
-{
-  method: 'POST',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json'
-}
-
-result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn',
-  params: {
-  'card_id' => 'integer',
-'review_score' => 'string'
-}, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json'
-}
-
-r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn', params={
-  'card_id': '0',  'review_score': 'string'
-}, headers = headers)
-
-print(r.json())
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```java
-URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn?card_id=0&review_score=string");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v1/groups/{group_id}/learn", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`POST /groups/{group_id}/learn`
-
-[闪记卡片]卡片打分
-
-<h3 id="post__groups_{group_id}_learn-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|card_id|query|integer|true|card id|
-|review_score|query|string|true|review score 枚举:[again, hard, good, easy]|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "code": 0,
-  "data": {
-    "answer": "string",
-    "card_id": 0,
-    "phrase_id": "string",
-    "phrase_text": "string",
-    "scores": {
-      "property1": "string",
-      "property2": "string"
-    },
-    "video-url": "string"
-  },
-  "msg": "string"
-}
-```
-
-<h3 id="post__groups_{group_id}_learn-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[RatingCardsResp](#schemaratingcardsresp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -2602,6 +2962,527 @@ download a video
  
 </aside>
 
+<h1 id="learnbyuse-api-word">Word</h1>
+
+## get__vocab_test
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET http://https:/test-api.learnbyuse.app/api/v1/vocab/test \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET http://https:/test-api.learnbyuse.app/api/v1/vocab/test HTTP/1.1
+Host: https
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://https:/test-api.learnbyuse.app/api/v1/vocab/test',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v1/vocab/test',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://https:/test-api.learnbyuse.app/api/v1/vocab/test', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v1/vocab/test', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/vocab/test");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v1/vocab/test", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /vocab/test`
+
+[词汇量测试]初始化,开始测试
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": "string",
+  "msg": "string"
+}
+```
+
+<h3 id="get__vocab_test-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|WordTestResp|[WordTestResp](#schemawordtestresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
+## post__vocab_test_nextword
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST http://https:/test-api.learnbyuse.app/api/v1/vocab/test/nextword?answer=string \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST http://https:/test-api.learnbyuse.app/api/v1/vocab/test/nextword?answer=string HTTP/1.1
+Host: https
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://https:/test-api.learnbyuse.app/api/v1/vocab/test/nextword?answer=string',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/vocab/test/nextword',
+  params: {
+  'answer' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/vocab/test/nextword', params={
+  'answer': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v1/vocab/test/nextword', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/vocab/test/nextword?answer=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v1/vocab/test/nextword", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /vocab/test/nextword`
+
+[词汇量测试]下一个单词
+
+<h3 id="post__vocab_test_nextword-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|answer|query|string|true|yes/no|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": "string",
+  "msg": "string"
+}
+```
+
+<h3 id="post__vocab_test_nextword-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|WordTestResp|[WordTestResp](#schemawordtestresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
+## post__vocab_upload
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST http://https:/test-api.learnbyuse.app/api/v1/vocab/upload \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST http://https:/test-api.learnbyuse.app/api/v1/vocab/upload HTTP/1.1
+Host: https
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('http://https:/test-api.learnbyuse.app/api/v1/vocab/upload',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v1/vocab/upload',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://https:/test-api.learnbyuse.app/api/v1/vocab/upload', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v1/vocab/upload', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v1/vocab/upload");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v1/vocab/upload", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /vocab/upload`
+
+[完形填空] 上存txt文本生成完形填空
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "answer": "string",
+      "card_id": 0,
+      "phrase_id": "string",
+      "phrase_text": "string",
+      "scores": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "video-url": "string"
+    }
+  ],
+  "msg": "string"
+}
+```
+
+<h3 id="post__vocab_upload-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ClozeTestResp|[ClozeTestResp](#schemaclozetestresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+ 
+</aside>
+
 # Schemas
 
 <h2 id="tocS_CardCreateResp">CardCreateResp</h2>
@@ -2678,6 +3559,42 @@ download a video
 <a id="schema_CardListResp"></a>
 <a id="tocScardlistresp"></a>
 <a id="tocscardlistresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "answer": "string",
+      "card_id": 0,
+      "phrase_id": "string",
+      "phrase_text": "string",
+      "scores": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "video-url": "string"
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[CardItem](#schemacarditem)]|false|none|分组所属卡片列表|
+|msg|string|false|none|none|
+
+<h2 id="tocS_ClozeTestResp">ClozeTestResp</h2>
+
+<a id="schemaclozetestresp"></a>
+<a id="schema_ClozeTestResp"></a>
+<a id="tocSclozetestresp"></a>
+<a id="tocsclozetestresp"></a>
 
 ```json
 {
@@ -3075,6 +3992,30 @@ download a video
 |---|---|---|---|---|
 |imdb|string|false|none|imdb id|
 |string|string|false|none|电影名称|
+
+<h2 id="tocS_WordTestResp">WordTestResp</h2>
+
+<a id="schemawordtestresp"></a>
+<a id="schema_WordTestResp"></a>
+<a id="tocSwordtestresp"></a>
+<a id="tocswordtestresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": "string",
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|string|false|none|本次推荐学习的卡片列表|
+|msg|string|false|none|none|
 
 <h2 id="tocS_api_service.UserRegisterReq">api_service.UserRegisterReq</h2>
 
