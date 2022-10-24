@@ -3455,19 +3455,7 @@ func main() {
 ```json
 {
   "code": 0,
-  "data": [
-    {
-      "answer": "string",
-      "card_id": 0,
-      "phrase_id": "string",
-      "phrase_text": "string",
-      "scores": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "video-url": "string"
-    }
-  ],
+  "data": null,
   "msg": "string"
 }
 ```
@@ -3476,7 +3464,7 @@ func main() {
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ClozeTestResp|[ClozeTestResp](#schemaclozetestresp)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -3559,42 +3547,6 @@ func main() {
 <a id="schema_CardListResp"></a>
 <a id="tocScardlistresp"></a>
 <a id="tocscardlistresp"></a>
-
-```json
-{
-  "code": 0,
-  "data": [
-    {
-      "answer": "string",
-      "card_id": 0,
-      "phrase_id": "string",
-      "phrase_text": "string",
-      "scores": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "video-url": "string"
-    }
-  ],
-  "msg": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|code|integer|false|none|none|
-|data|[[CardItem](#schemacarditem)]|false|none|分组所属卡片列表|
-|msg|string|false|none|none|
-
-<h2 id="tocS_ClozeTestResp">ClozeTestResp</h2>
-
-<a id="schemaclozetestresp"></a>
-<a id="schema_ClozeTestResp"></a>
-<a id="tocSclozetestresp"></a>
-<a id="tocsclozetestresp"></a>
 
 ```json
 {
