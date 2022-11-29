@@ -42,7 +42,7 @@
         },
         "/books/upload": {
             "post": {
-                "description": "上存pdf/mobi book",
+                "description": "上存txt pdf/mobi book",
                 "consumes": [
                     "application/json"
                 ],
@@ -50,7 +50,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Word"
+                    "book"
                 ],
                 "responses": {
                     "200": {
