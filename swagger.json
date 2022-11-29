@@ -7,10 +7,10 @@
         "description": "Welcome to the LearnByUse  API! You can use our API to access LearnByUse  API endpoints.",
         "title": "LearnByUse API",
         "contact": {},
-        "version": "v1"
+        "version": "v2"
     },
     "host": "https://test-api.learnbyuse.app",
-    "basePath": "/api/v1",
+    "basePath": "/api/v2",
     "paths": {
         "/books": {
             "get": {
