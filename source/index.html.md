@@ -370,7 +370,7 @@ download book
 This operation does not require authentication
 </aside>
 
-<h1 id="learnbyuse-api-word">Word</h1>
+<h1 id="learnbyuse-api-book">book</h1>
 
 ## post__books_upload
 
@@ -513,7 +513,7 @@ func main() {
 
 `POST /books/upload`
 
-上存pdf/mobi book
+上存txt pdf/mobi book
 
 > Example responses
 
