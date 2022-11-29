@@ -1,0 +1,305 @@
+{
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "Welcome to the LearnByUse  API! You can use our API to access LearnByUse  API endpoints.",
+        "title": "LearnByUse API",
+        "contact": {},
+        "version": "v1"
+    },
+    "host": "https://test-api.learnbyuse.app",
+    "basePath": "/api/v1",
+    "paths": {
+        "/books": {
+            "get": {
+                "description": "查看用户book列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ListBooksResp",
+                        "schema": {
+                            "$ref": "#/definitions/ListBookResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/books/upload": {
+            "post": {
+                "description": "上存pdf/mobi book",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Word"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/books/{fid}": {
+            "get": {
+                "description": "download book",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "post": {
+                "description": "user login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "description": "login with email and password",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LoginReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login response",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/register": {
+            "post": {
+                "description": "user register",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "description": "user register",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserRegisterReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "BookItem": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "description": "Book's Author",
+                    "type": "string"
+                },
+                "book_id": {
+                    "description": "Book ID",
+                    "type": "integer"
+                },
+                "fid": {
+                    "description": "book 文件ID",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Book name",
+                    "type": "string"
+                }
+            }
+        },
+        "ListBookResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "Book列表",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BookItem"
+                    }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "LoginReq": {
+            "type": "object",
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "description": "用户email地址",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "用户密码",
+                    "type": "string"
+                }
+            }
+        },
+        "LoginResp": {
+            "type": "object",
+            "required": [
+                "email",
+                "nick_name"
+            ],
+            "properties": {
+                "email": {
+                    "description": "用户email地址",
+                    "type": "string"
+                },
+                "nick_name": {
+                    "description": "用户昵称",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "用户token",
+                    "type": "string"
+                }
+            }
+        },
+        "LoginResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/LoginResp"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "UserRegisterReq": {
+            "type": "object",
+            "required": [
+                "email",
+                "nick_name",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "description": "用户email地址",
+                    "type": "string"
+                },
+                "nick_name": {
+                    "description": "用户nick_named",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "用户密码",
+                    "type": "string"
+                }
+            }
+        },
+        "commonResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "msg": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
