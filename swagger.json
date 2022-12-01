@@ -1,6 +1,6 @@
 {
     "schemes": [
-        "http"
+        "https"
     ],
     "swagger": "2.0",
     "info": {
@@ -9,7 +9,7 @@
         "contact": {},
         "version": "v2"
     },
-    "host": "https://test-api.learnbyuse.app",
+    "host": "test-api.learnbyuse.app",
     "basePath": "/api/v2",
     "paths": {
         "/books": {

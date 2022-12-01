@@ -27,7 +27,7 @@ Welcome to the LearnByUse  API! You can use our API to access LearnByUse  API en
 
 Base URLs:
 
-* <a href="http://https://test-api.learnbyuse.app/api/v2">http://https://test-api.learnbyuse.app/api/v2</a>
+* <a href="https://test-api.learnbyuse.app/api/v2">https://test-api.learnbyuse.app/api/v2</a>
 
 <h1 id="learnbyuse-api-book">Book</h1>
 
@@ -37,14 +37,14 @@ Base URLs:
 
 ```shell
 # You can also use wget
-curl -X GET http://https:/test-api.learnbyuse.app/api/v2/books \
+curl -X GET https://test-api.learnbyuse.app/api/v2/books \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://https:/test-api.learnbyuse.app/api/v2/books HTTP/1.1
-Host: https
+GET https://test-api.learnbyuse.app/api/v2/books HTTP/1.1
+Host: test-api.learnbyuse.app
 Accept: application/json
 
 ```
@@ -55,7 +55,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://https:/test-api.learnbyuse.app/api/v2/books',
+fetch('https://test-api.learnbyuse.app/api/v2/books',
 {
   method: 'GET',
 
@@ -77,7 +77,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v2/books',
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books',
   params: {
   }, headers: headers
 
@@ -91,7 +91,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://https:/test-api.learnbyuse.app/api/v2/books', headers = headers)
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books', headers = headers)
 
 print(r.json())
 
@@ -112,7 +112,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v2/books', array(
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -129,7 +129,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v2/books");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -160,7 +160,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v2/books", data)
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -210,14 +210,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST http://https:/test-api.learnbyuse.app/api/v2/books/upload \
+curl -X POST https://test-api.learnbyuse.app/api/v2/books/upload \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://https:/test-api.learnbyuse.app/api/v2/books/upload HTTP/1.1
-Host: https
+POST https://test-api.learnbyuse.app/api/v2/books/upload HTTP/1.1
+Host: test-api.learnbyuse.app
 Accept: application/json
 
 ```
@@ -228,7 +228,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://https:/test-api.learnbyuse.app/api/v2/books/upload',
+fetch('https://test-api.learnbyuse.app/api/v2/books/upload',
 {
   method: 'POST',
 
@@ -250,7 +250,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v2/books/upload',
+result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/books/upload',
   params: {
   }, headers: headers
 
@@ -264,7 +264,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('http://https:/test-api.learnbyuse.app/api/v2/books/upload', headers = headers)
+r = requests.post('https://test-api.learnbyuse.app/api/v2/books/upload', headers = headers)
 
 print(r.json())
 
@@ -285,7 +285,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v2/books/upload', array(
+    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/books/upload', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -302,7 +302,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v2/books/upload");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/upload");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -333,7 +333,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v2/books/upload", data)
+    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/books/upload", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -376,14 +376,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X GET http://https:/test-api.learnbyuse.app/api/v2/books/{fid} \
+curl -X GET https://test-api.learnbyuse.app/api/v2/books/{fid} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET http://https:/test-api.learnbyuse.app/api/v2/books/{fid} HTTP/1.1
-Host: https
+GET https://test-api.learnbyuse.app/api/v2/books/{fid} HTTP/1.1
+Host: test-api.learnbyuse.app
 Accept: application/json
 
 ```
@@ -394,7 +394,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://https:/test-api.learnbyuse.app/api/v2/books/{fid}',
+fetch('https://test-api.learnbyuse.app/api/v2/books/{fid}',
 {
   method: 'GET',
 
@@ -416,7 +416,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://https:/test-api.learnbyuse.app/api/v2/books/{fid}',
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{fid}',
   params: {
   }, headers: headers
 
@@ -430,7 +430,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('http://https:/test-api.learnbyuse.app/api/v2/books/{fid}', headers = headers)
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{fid}', headers = headers)
 
 print(r.json())
 
@@ -451,7 +451,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','http://https:/test-api.learnbyuse.app/api/v2/books/{fid}', array(
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{fid}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -468,7 +468,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v2/books/{fid}");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{fid}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -499,7 +499,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "http://https:/test-api.learnbyuse.app/api/v2/books/{fid}", data)
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{fid}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -544,15 +544,15 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST http://https:/test-api.learnbyuse.app/api/v2/user/login \
+curl -X POST https://test-api.learnbyuse.app/api/v2/user/login \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://https:/test-api.learnbyuse.app/api/v2/user/login HTTP/1.1
-Host: https
+POST https://test-api.learnbyuse.app/api/v2/user/login HTTP/1.1
+Host: test-api.learnbyuse.app
 Content-Type: application/json
 Accept: application/json
 
@@ -568,7 +568,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://https:/test-api.learnbyuse.app/api/v2/user/login',
+fetch('https://test-api.learnbyuse.app/api/v2/user/login',
 {
   method: 'POST',
   body: inputBody,
@@ -591,7 +591,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v2/user/login',
+result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/user/login',
   params: {
   }, headers: headers
 
@@ -606,7 +606,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('http://https:/test-api.learnbyuse.app/api/v2/user/login', headers = headers)
+r = requests.post('https://test-api.learnbyuse.app/api/v2/user/login', headers = headers)
 
 print(r.json())
 
@@ -628,7 +628,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v2/user/login', array(
+    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/user/login', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -645,7 +645,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v2/user/login");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/user/login");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -677,7 +677,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v2/user/login", data)
+    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/user/login", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -739,15 +739,15 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST http://https:/test-api.learnbyuse.app/api/v2/user/register \
+curl -X POST https://test-api.learnbyuse.app/api/v2/user/register \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST http://https:/test-api.learnbyuse.app/api/v2/user/register HTTP/1.1
-Host: https
+POST https://test-api.learnbyuse.app/api/v2/user/register HTTP/1.1
+Host: test-api.learnbyuse.app
 Content-Type: application/json
 Accept: application/json
 
@@ -764,7 +764,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('http://https:/test-api.learnbyuse.app/api/v2/user/register',
+fetch('https://test-api.learnbyuse.app/api/v2/user/register',
 {
   method: 'POST',
   body: inputBody,
@@ -787,7 +787,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://https:/test-api.learnbyuse.app/api/v2/user/register',
+result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/user/register',
   params: {
   }, headers: headers
 
@@ -802,7 +802,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('http://https:/test-api.learnbyuse.app/api/v2/user/register', headers = headers)
+r = requests.post('https://test-api.learnbyuse.app/api/v2/user/register', headers = headers)
 
 print(r.json())
 
@@ -824,7 +824,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','http://https:/test-api.learnbyuse.app/api/v2/user/register', array(
+    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/user/register', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -841,7 +841,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://https:/test-api.learnbyuse.app/api/v2/user/register");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/user/register");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -873,7 +873,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://https:/test-api.learnbyuse.app/api/v2/user/register", data)
+    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/user/register", data)
     req.Header = headers
 
     client := &http.Client{}
