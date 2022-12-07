@@ -68,6 +68,80 @@
                 }
             }
         },
+        "/books/{book_id}/cards": {
+            "get": {
+                "description": "查询Book下的问题卡片列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book id",
+                        "name": "book_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/CardListResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/books/{book_id}/exercise": {
+            "post": {
+                "description": "生成Book 练习",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book id",
+                        "name": "book_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/CardListResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/books/{fid}": {
             "get": {
                 "description": "download book",
@@ -173,6 +247,71 @@
                     }
                 }
             }
+        },
+        "/vocab/test": {
+            "get": {
+                "description": "[词汇量测试]初始化,开始测试",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Word"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "WordTestResp",
+                        "schema": {
+                            "$ref": "#/definitions/WordTestResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/vocab/test/nextword": {
+            "post": {
+                "description": "[词汇量测试]下一个单词",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Word"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "yes/no",
+                        "name": "answer",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "WordTestResp",
+                        "schema": {
+                            "$ref": "#/definitions/WordTestResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -193,6 +332,41 @@
                 },
                 "name": {
                     "description": "Book name",
+                    "type": "string"
+                }
+            }
+        },
+        "CardItem": {
+            "type": "object",
+            "properties": {
+                "answer": {
+                    "description": "短语答案",
+                    "type": "string"
+                },
+                "card_id": {
+                    "description": "卡片ID",
+                    "type": "integer"
+                },
+                "question": {
+                    "description": "短语文本",
+                    "type": "string"
+                }
+            }
+        },
+        "CardListResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "分组所属卡片列表",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CardItem"
+                    }
+                },
+                "msg": {
                     "type": "string"
                 }
             }
@@ -285,6 +459,21 @@
                 },
                 "password": {
                     "description": "用户密码",
+                    "type": "string"
+                }
+            }
+        },
+        "WordTestResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "本次推荐学习的卡片列表",
+                    "type": "string"
+                },
+                "msg": {
                     "type": "string"
                 }
             }
