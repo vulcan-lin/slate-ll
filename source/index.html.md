@@ -511,7 +511,7 @@ func main() {
 
 `GET /books/{book_id}/cards`
 
-查询Book下的问题卡片列表
+查询Book下的练习卡片
 
 <h3 id="get__books_{book_id}_cards-parameters">Parameters</h3>
 
@@ -689,7 +689,7 @@ func main() {
 
 `POST /books/{book_id}/exercise`
 
-生成Book 练习
+生成Book练习
 
 <h3 id="post__books_{book_id}_exercise-parameters">Parameters</h3>
 

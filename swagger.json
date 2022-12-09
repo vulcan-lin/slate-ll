@@ -70,7 +70,7 @@
         },
         "/books/{book_id}/cards": {
             "get": {
-                "description": "查询Book下的问题卡片列表",
+                "description": "查询Book下的练习卡片",
                 "consumes": [
                     "application/json"
                 ],
@@ -107,7 +107,7 @@
         },
         "/books/{book_id}/exercise": {
             "post": {
-                "description": "生成Book 练习",
+                "description": "生成Book练习",
                 "consumes": [
                     "application/json"
                 ],
