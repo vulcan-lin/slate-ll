@@ -1283,7 +1283,7 @@ user register
 This operation does not require authentication
 </aside>
 
-<h1 id="learnbyuse-api-word">Word</h1>
+<h1 id="learnbyuse-api-vocab">Vocab</h1>
 
 ## get__vocab_test
 

@@ -258,7 +258,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Word"
+                    "Vocab"
                 ],
                 "responses": {
                     "200": {
@@ -286,7 +286,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Word"
+                    "Vocab"
                 ],
                 "parameters": [
                     {
