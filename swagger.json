@@ -350,6 +350,10 @@
                 "question": {
                     "description": "短语文本",
                     "type": "string"
+                },
+                "tips": {
+                    "description": "答案提示",
+                    "type": "string"
                 }
             }
         },
