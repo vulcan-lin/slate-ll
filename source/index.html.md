@@ -530,7 +530,8 @@ func main() {
     {
       "answer": "string",
       "card_id": 0,
-      "question": "string"
+      "question": "string",
+      "tips": "string"
     }
   ],
   "msg": "string"
@@ -708,7 +709,8 @@ func main() {
     {
       "answer": "string",
       "card_id": 0,
-      "question": "string"
+      "question": "string",
+      "tips": "string"
     }
   ],
   "msg": "string"
@@ -1665,7 +1667,8 @@ This operation does not require authentication
 {
   "answer": "string",
   "card_id": 0,
-  "question": "string"
+  "question": "string",
+  "tips": "string"
 }
 
 ```
@@ -1677,6 +1680,7 @@ This operation does not require authentication
 |answer|string|false|none|短语答案|
 |card_id|integer|false|none|卡片ID|
 |question|string|false|none|短语文本|
+|tips|string|false|none|答案提示|
 
 <h2 id="tocS_CardListResp">CardListResp</h2>
 <!-- backwards compatibility -->
@@ -1692,7 +1696,8 @@ This operation does not require authentication
     {
       "answer": "string",
       "card_id": 0,
-      "question": "string"
+      "question": "string",
+      "tips": "string"
     }
   ],
   "msg": "string"
