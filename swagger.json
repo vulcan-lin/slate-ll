@@ -68,6 +68,43 @@
                 }
             }
         },
+        "/books/{book_id}": {
+            "get": {
+                "description": "download book",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book id",
+                        "name": "book_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/books/{book_id}/cards": {
             "get": {
                 "description": "查询Book下的练习卡片",
@@ -131,34 +168,6 @@
                         "description": "Common response",
                         "schema": {
                             "$ref": "#/definitions/CardListResp"
-                        }
-                    },
-                    "400": {
-                        "description": "Common response",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    }
-                }
-            }
-        },
-        "/books/{fid}": {
-            "get": {
-                "description": "download book",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Book"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Common response",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
                         }
                     },
                     "400": {
