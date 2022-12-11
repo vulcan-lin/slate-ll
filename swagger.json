@@ -40,6 +40,43 @@
                 }
             }
         },
+        "/books/download/{book_id}": {
+            "get": {
+                "description": "download book",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book id",
+                        "name": "book_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/books/upload": {
             "post": {
                 "description": "上存txt pdf/mobi book",
@@ -70,7 +107,7 @@
         },
         "/books/{book_id}": {
             "get": {
-                "description": "download book",
+                "description": "Get book item",
                 "consumes": [
                     "application/json"
                 ],
