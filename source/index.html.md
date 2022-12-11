@@ -896,19 +896,19 @@ This operation does not require authentication
 
 <h1 id="learnbyuse-api-share">Share</h1>
 
-## get__s_{book_memo}
+## get__s_{book_uuid}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_memo} \
+curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://test-api.learnbyuse.app/api/v2/s/{book_memo} HTTP/1.1
+GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid} HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
 
@@ -920,7 +920,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.learnbyuse.app/api/v2/s/{book_memo}',
+fetch('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}',
 {
   method: 'GET',
 
@@ -942,7 +942,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_memo}',
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_uuid}',
   params: {
   }, headers: headers
 
@@ -956,7 +956,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_memo}', headers = headers)
+r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}', headers = headers)
 
 print(r.json())
 
@@ -977,7 +977,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_memo}', array(
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_uuid}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -994,7 +994,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_memo}");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_uuid}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1025,7 +1025,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_memo}", data)
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_uuid}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1035,15 +1035,15 @@ func main() {
 
 ```
 
-`GET /s/{book_memo}`
+`GET /s/{book_uuid}`
 
 Get share book
 
-<h3 id="get__s_{book_memo}-parameters">Parameters</h3>
+<h3 id="get__s_{book_uuid}-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|book_memo|path|integer|true|book 分享信息|
+|book_uuid|path|integer|true|book 分享信息|
 
 > Example responses
 
@@ -1057,7 +1057,7 @@ Get share book
 }
 ```
 
-<h3 id="get__s_{book_memo}-responses">Responses</h3>
+<h3 id="get__s_{book_uuid}-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -1068,19 +1068,19 @@ Get share book
 This operation does not require authentication
 </aside>
 
-## get__s_{book_memo}_exercise
+## get__s_{book_uuid}_exercise
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_memo}/exercise \
+curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://test-api.learnbyuse.app/api/v2/s/{book_memo}/exercise HTTP/1.1
+GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
 
@@ -1092,7 +1092,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.learnbyuse.app/api/v2/s/{book_memo}/exercise',
+fetch('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise',
 {
   method: 'GET',
 
@@ -1114,7 +1114,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_memo}/exercise',
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise',
   params: {
   }, headers: headers
 
@@ -1128,7 +1128,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_memo}/exercise', headers = headers)
+r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise', headers = headers)
 
 print(r.json())
 
@@ -1149,7 +1149,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_memo}/exercise', array(
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1166,7 +1166,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_memo}/exercise");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1197,7 +1197,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_memo}/exercise", data)
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1207,15 +1207,15 @@ func main() {
 
 ```
 
-`GET /s/{book_memo}/exercise`
+`GET /s/{book_uuid}/exercise`
 
 获取分享文本的练习题列表
 
-<h3 id="get__s_{book_memo}_exercise-parameters">Parameters</h3>
+<h3 id="get__s_{book_uuid}_exercise-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|book_memo|path|integer|true|book 分享信息|
+|book_uuid|path|integer|true|book 分享信息|
 
 > Example responses
 
@@ -1229,7 +1229,7 @@ func main() {
 }
 ```
 
-<h3 id="get__s_{book_memo}_exercise-responses">Responses</h3>
+<h3 id="get__s_{book_uuid}_exercise-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
