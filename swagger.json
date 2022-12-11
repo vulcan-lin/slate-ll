@@ -180,7 +180,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Book"
+                    "Share"
                 ],
                 "parameters": [
                     {
@@ -217,7 +217,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Book"
+                    "Share"
                 ],
                 "parameters": [
                     {
@@ -254,7 +254,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Book"
+                    "Share"
                 ],
                 "parameters": [
                     {

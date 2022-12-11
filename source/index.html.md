@@ -894,6 +894,8 @@ download book
 This operation does not require authentication
 </aside>
 
+<h1 id="learnbyuse-api-share">Share</h1>
+
 ## get__s_{book_memo}
 
 > Code samples
