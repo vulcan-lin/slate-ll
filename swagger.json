@@ -170,7 +170,7 @@
                 }
             }
         },
-        "/s/{book_memo}": {
+        "/s/{book_uuid}": {
             "get": {
                 "description": "Get share book",
                 "consumes": [
@@ -186,7 +186,7 @@
                     {
                         "type": "integer",
                         "description": "book 分享信息",
-                        "name": "book_memo",
+                        "name": "book_uuid",
                         "in": "path",
                         "required": true
                     }
@@ -207,7 +207,7 @@
                 }
             }
         },
-        "/s/{book_memo}/exercise": {
+        "/s/{book_uuid}/exercise": {
             "get": {
                 "description": "获取分享文本的练习题列表",
                 "consumes": [
@@ -223,7 +223,7 @@
                     {
                         "type": "integer",
                         "description": "book 分享信息",
-                        "name": "book_memo",
+                        "name": "book_uuid",
                         "in": "path",
                         "required": true
                     }
