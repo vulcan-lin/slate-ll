@@ -255,7 +255,7 @@
         },
         "/s/{book_uuid}": {
             "get": {
-                "description": "Get share book",
+                "description": "用户请求重定向",
                 "consumes": [
                     "application/json"
                 ],
@@ -263,7 +263,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Share"
+                    "Redirect"
                 ],
                 "parameters": [
                     {
