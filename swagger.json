@@ -216,6 +216,43 @@
                 }
             }
         },
+        "/s/download/{book_uuid}": {
+            "get": {
+                "description": "下载分享文档原文",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Share"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book uuid",
+                        "name": "book_uuid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/s/{book_uuid}": {
             "get": {
                 "description": "Get share book",
@@ -231,7 +268,7 @@
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "book 分享信息",
+                        "description": "book uuid",
                         "name": "book_uuid",
                         "in": "path",
                         "required": true
@@ -268,7 +305,7 @@
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "book 分享信息",
+                        "description": "book uuid",
                         "name": "book_uuid",
                         "in": "path",
                         "required": true
