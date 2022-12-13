@@ -599,7 +599,7 @@
                     "type": "string"
                 },
                 "status": {
-                    "description": "Book状态",
+                    "description": "Book状态, BookNew, BookInBuilding, BookBuildEnd",
                     "type": "string"
                 }
             }
