@@ -1072,7 +1072,6 @@ func main() {
 This operation does not require authentication
 </aside>
 
-<<<<<<< HEAD
 ## get__s_{book_id}_info
 
 > Code samples
@@ -1245,8 +1244,6 @@ func main() {
 This operation does not require authentication
 </aside>
 
-=======
->>>>>>> 35a509274fa44e16638ea5853a5f9470f9861031
 <h1 id="learnbyuse-api-redirect">Redirect</h1>
 
 ## get__s_{book_uuid}
