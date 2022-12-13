@@ -2889,7 +2889,7 @@ This operation does not require authentication
 |author|string|false|none|Book's Author|
 |id|integer|false|none|Book ID|
 |name|string|false|none|Book name|
-|status|string|false|none|Book状态|
+|status|string|false|none|Book状态, BookNew, BookInBuilding, BookBuildEnd|
 
 <h2 id="tocS_BookItem">BookItem</h2>
 <!-- backwards compatibility -->
