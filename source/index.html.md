@@ -204,6 +204,178 @@ func main() {
 This operation does not require authentication
 </aside>
 
+## get__books_download_{book_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/books/download/{book_id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/books/download/{book_id} HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/books/download/{book_id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/download/{book_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books/download/{book_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/download/{book_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/download/{book_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/download/{book_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /books/download/{book_id}`
+
+download book
+
+<h3 id="get__books_download_{book_id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|book_id|path|integer|true|book id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__books_download_{book_id}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 ## post__books_upload
 
 > Code samples
@@ -360,6 +532,178 @@ func main() {
 ```
 
 <h3 id="post__books_upload-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## get__books_{book_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/books/{book_id} HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{book_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{book_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /books/{book_id}`
+
+Get book item
+
+<h3 id="get__books_{book_id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|book_id|path|integer|true|book id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__books_{book_id}-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -728,19 +1072,19 @@ func main() {
 This operation does not require authentication
 </aside>
 
-## get__books_{fid}
+## get__s_{book_id}_info
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://test-api.learnbyuse.app/api/v2/books/{fid} \
+curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_id}/info \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://test-api.learnbyuse.app/api/v2/books/{fid} HTTP/1.1
+GET https://test-api.learnbyuse.app/api/v2/s/{book_id}/info HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
 
@@ -752,7 +1096,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.learnbyuse.app/api/v2/books/{fid}',
+fetch('https://test-api.learnbyuse.app/api/v2/s/{book_id}/info',
 {
   method: 'GET',
 
@@ -774,7 +1118,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{fid}',
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_id}/info',
   params: {
   }, headers: headers
 
@@ -788,7 +1132,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{fid}', headers = headers)
+r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_id}/info', headers = headers)
 
 print(r.json())
 
@@ -809,7 +1153,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{fid}', array(
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_id}/info', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -826,7 +1170,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{fid}");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_id}/info");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -857,7 +1201,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{fid}", data)
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_id}/info", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -867,9 +1211,15 @@ func main() {
 
 ```
 
-`GET /books/{fid}`
+`GET /s/{book_id}/info`
 
-download book
+获取Book的信息
+
+<h3 id="get__s_{book_id}_info-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|book_id|path|integer|true|book id|
 
 > Example responses
 
@@ -883,7 +1233,871 @@ download book
 }
 ```
 
-<h3 id="get__books_{fid}-responses">Responses</h3>
+<h3 id="get__s_{book_id}_info-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="learnbyuse-api-redirect">Redirect</h1>
+
+## get__s_{book_uuid}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid} HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_uuid}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_uuid}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_uuid}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_uuid}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /s/{book_uuid}`
+
+用户请求重定向
+
+<h3 id="get__s_{book_uuid}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|book_uuid|path|integer|true|book uuid|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__s_{book_uuid}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="learnbyuse-api-share">Share</h1>
+
+## get__s_{book_uuid}_download
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/download \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/download HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/download',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/download',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/download', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/download', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/download");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/download", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /s/{book_uuid}/download`
+
+下载分享文档原文
+
+<h3 id="get__s_{book_uuid}_download-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|book_uuid|path|integer|true|book uuid|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__s_{book_uuid}_download-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## get__s_{book_uuid}_exercise
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/exercise", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /s/{book_uuid}/exercise`
+
+获取分享文本的练习题列表
+
+<h3 id="get__s_{book_uuid}_exercise-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|book_uuid|path|integer|true|book uuid|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__s_{book_uuid}_exercise-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## get__s_{book_uuid}_info
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/info \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/info HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/info',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/info',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/info', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/info', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/info");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/info", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /s/{book_uuid}/info`
+
+获取分享Book的信息
+
+<h3 id="get__s_{book_uuid}_info-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|book_uuid|path|integer|true|book uuid|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__s_{book_uuid}_info-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__share_{book_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://test-api.learnbyuse.app/api/v2/share/{book_id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://test-api.learnbyuse.app/api/v2/share/{book_id} HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/share/{book_id}',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/share/{book_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://test-api.learnbyuse.app/api/v2/share/{book_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/share/{book_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/share/{book_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/share/{book_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /share/{book_id}`
+
+share book
+
+<h3 id="post__share_{book_id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|book_id|path|integer|true|book id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="post__share_{book_id}-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
