@@ -1077,19 +1077,19 @@ func main() {
 This operation does not require authentication
 </aside>
 
-## get__s_{book_id}_info
+## get__books_{book_id}_info
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_id}/info \
+curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/info \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://test-api.learnbyuse.app/api/v2/s/{book_id}/info HTTP/1.1
+GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/info HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
 
@@ -1101,7 +1101,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.learnbyuse.app/api/v2/s/{book_id}/info',
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/info',
 {
   method: 'GET',
 
@@ -1123,7 +1123,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_id}/info',
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/info',
   params: {
   }, headers: headers
 
@@ -1137,7 +1137,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_id}/info', headers = headers)
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/info', headers = headers)
 
 print(r.json())
 
@@ -1158,7 +1158,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_id}/info', array(
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{book_id}/info', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1175,7 +1175,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_id}/info");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/info");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1206,7 +1206,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_id}/info", data)
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/info", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1216,11 +1216,11 @@ func main() {
 
 ```
 
-`GET /s/{book_id}/info`
+`GET /books/{book_id}/info`
 
 获取Book的信息
 
-<h3 id="get__s_{book_id}_info-parameters">Parameters</h3>
+<h3 id="get__books_{book_id}_info-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1243,7 +1243,7 @@ func main() {
 }
 ```
 
-<h3 id="get__s_{book_id}_info-responses">Responses</h3>
+<h3 id="get__books_{book_id}_info-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|

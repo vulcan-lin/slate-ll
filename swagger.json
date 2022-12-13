@@ -216,7 +216,7 @@
                 }
             }
         },
-        "/s/{book_id}/info": {
+        "/books/{book_id}/info": {
             "get": {
                 "description": "获取Book的信息",
                 "consumes": [
