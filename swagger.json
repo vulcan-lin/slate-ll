@@ -40,6 +40,43 @@
                 }
             }
         },
+        "/books/download/{book_id}": {
+            "get": {
+                "description": "download book",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book id",
+                        "name": "book_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/books/upload": {
             "post": {
                 "description": "上存txt pdf/mobi book",
@@ -51,6 +88,43 @@
                 ],
                 "tags": [
                     "Book"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/books/{book_id}": {
+            "get": {
+                "description": "Get book item",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book id",
+                        "name": "book_id",
+                        "in": "path",
+                        "required": true
+                    }
                 ],
                 "responses": {
                     "200": {
@@ -142,9 +216,9 @@
                 }
             }
         },
-        "/books/{fid}": {
+        "/s/{book_id}/info": {
             "get": {
-                "description": "download book",
+                "description": "获取Book的信息",
                 "consumes": [
                     "application/json"
                 ],
@@ -153,6 +227,200 @@
                 ],
                 "tags": [
                     "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book id",
+                        "name": "book_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/s/{book_uuid}": {
+            "get": {
+                "description": "用户请求重定向",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Redirect"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book uuid",
+                        "name": "book_uuid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/s/{book_uuid}/download": {
+            "get": {
+                "description": "下载分享文档原文",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Share"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book uuid",
+                        "name": "book_uuid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/s/{book_uuid}/exercise": {
+            "get": {
+                "description": "获取分享文本的练习题列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Share"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book uuid",
+                        "name": "book_uuid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/s/{book_uuid}/info": {
+            "get": {
+                "description": "获取分享Book的信息",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Share"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book uuid",
+                        "name": "book_uuid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/share/{book_id}": {
+            "post": {
+                "description": "share book",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Share"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book id",
+                        "name": "book_id",
+                        "in": "path",
+                        "required": true
+                    }
                 ],
                 "responses": {
                     "200": {
