@@ -698,7 +698,12 @@ Get book item
 ```json
 {
   "code": 0,
-  "data": null,
+  "data": {
+    "author": "string",
+    "book_id": 0,
+    "fid": "string",
+    "name": "string"
+  },
   "msg": "string"
 }
 ```
@@ -707,7 +712,7 @@ Get book item
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|GetBooksResp response|[GetBookResp](#schemagetbookresp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -1228,7 +1233,12 @@ func main() {
 ```json
 {
   "code": 0,
-  "data": null,
+  "data": {
+    "author": "string",
+    "id": 0,
+    "name": "string",
+    "status": "string"
+  },
   "msg": "string"
 }
 ```
@@ -1237,7 +1247,7 @@ func main() {
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|GetBookInfoResp response|[GetBookInfoResp](#schemagetbookinforesp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -1748,7 +1758,14 @@ func main() {
 ```json
 {
   "code": 0,
-  "data": null,
+  "data": [
+    {
+      "answer": "string",
+      "card_id": 0,
+      "question": "string",
+      "tips": "string"
+    }
+  ],
   "msg": "string"
 }
 ```
@@ -1757,7 +1774,7 @@ func main() {
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|CardListResp response|[CardListResp](#schemacardlistresp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -1920,7 +1937,11 @@ func main() {
 ```json
 {
   "code": 0,
-  "data": null,
+  "data": {
+    "author": "string",
+    "name": "string",
+    "share_user": "string"
+  },
   "msg": "string"
 }
 ```
@@ -1929,7 +1950,7 @@ func main() {
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|GetShareBookInfoResp response|[GetShareBookInfoResp](#schemagetsharebookinforesp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -2844,6 +2865,32 @@ This operation does not require authentication
 
 # Schemas
 
+<h2 id="tocS_BookInfo">BookInfo</h2>
+<!-- backwards compatibility -->
+<a id="schemabookinfo"></a>
+<a id="schema_BookInfo"></a>
+<a id="tocSbookinfo"></a>
+<a id="tocsbookinfo"></a>
+
+```json
+{
+  "author": "string",
+  "id": 0,
+  "name": "string",
+  "status": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|author|string|false|none|Book's Author|
+|id|integer|false|none|Book ID|
+|name|string|false|none|Book name|
+|status|string|false|none|Book状态|
+
 <h2 id="tocS_BookItem">BookItem</h2>
 <!-- backwards compatibility -->
 <a id="schemabookitem"></a>
@@ -2925,6 +2972,92 @@ This operation does not require authentication
 |---|---|---|---|---|
 |code|integer|false|none|none|
 |data|[[CardItem](#schemacarditem)]|false|none|分组所属卡片列表|
+|msg|string|false|none|none|
+
+<h2 id="tocS_GetBookInfoResp">GetBookInfoResp</h2>
+<!-- backwards compatibility -->
+<a id="schemagetbookinforesp"></a>
+<a id="schema_GetBookInfoResp"></a>
+<a id="tocSgetbookinforesp"></a>
+<a id="tocsgetbookinforesp"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "author": "string",
+    "id": 0,
+    "name": "string",
+    "status": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[BookInfo](#schemabookinfo)|false|none|none|
+|msg|string|false|none|none|
+
+<h2 id="tocS_GetBookResp">GetBookResp</h2>
+<!-- backwards compatibility -->
+<a id="schemagetbookresp"></a>
+<a id="schema_GetBookResp"></a>
+<a id="tocSgetbookresp"></a>
+<a id="tocsgetbookresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "author": "string",
+    "book_id": 0,
+    "fid": "string",
+    "name": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[BookItem](#schemabookitem)|false|none|none|
+|msg|string|false|none|none|
+
+<h2 id="tocS_GetShareBookInfoResp">GetShareBookInfoResp</h2>
+<!-- backwards compatibility -->
+<a id="schemagetsharebookinforesp"></a>
+<a id="schema_GetShareBookInfoResp"></a>
+<a id="tocSgetsharebookinforesp"></a>
+<a id="tocsgetsharebookinforesp"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "author": "string",
+    "name": "string",
+    "share_user": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[ShareBookInfo](#schemasharebookinfo)|false|none|none|
 |msg|string|false|none|none|
 
 <h2 id="tocS_ListBookResp">ListBookResp</h2>
@@ -3034,6 +3167,30 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|[LoginResp](#schemaloginresp)|false|none|none|
 |msg|string|false|none|none|
+
+<h2 id="tocS_ShareBookInfo">ShareBookInfo</h2>
+<!-- backwards compatibility -->
+<a id="schemasharebookinfo"></a>
+<a id="schema_ShareBookInfo"></a>
+<a id="tocSsharebookinfo"></a>
+<a id="tocssharebookinfo"></a>
+
+```json
+{
+  "author": "string",
+  "name": "string",
+  "share_user": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|author|string|false|none|Book's Author|
+|name|string|false|none|Book name|
+|share_user|string|false|none|分享该文档的用户|
 
 <h2 id="tocS_UserRegisterReq">UserRegisterReq</h2>
 <!-- backwards compatibility -->

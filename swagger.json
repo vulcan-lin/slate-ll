@@ -128,9 +128,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Common response",
+                        "description": "GetBooksResp response",
                         "schema": {
-                            "$ref": "#/definitions/commonResponse"
+                            "$ref": "#/definitions/GetBookResp"
                         }
                     },
                     "400": {
@@ -239,9 +239,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Common response",
+                        "description": "GetBookInfoResp response",
                         "schema": {
-                            "$ref": "#/definitions/commonResponse"
+                            "$ref": "#/definitions/GetBookInfoResp"
                         }
                     },
                     "400": {
@@ -350,9 +350,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Common response",
+                        "description": "CardListResp response",
                         "schema": {
-                            "$ref": "#/definitions/commonResponse"
+                            "$ref": "#/definitions/CardListResp"
                         }
                     },
                     "400": {
@@ -387,9 +387,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Common response",
+                        "description": "GetShareBookInfoResp response",
                         "schema": {
-                            "$ref": "#/definitions/commonResponse"
+                            "$ref": "#/definitions/GetShareBookInfoResp"
                         }
                     },
                     "400": {
@@ -583,6 +583,27 @@
         }
     },
     "definitions": {
+        "BookInfo": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "description": "Book's Author",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Book ID",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Book name",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Book状态",
+                    "type": "string"
+                }
+            }
+        },
         "BookItem": {
             "type": "object",
             "properties": {
@@ -637,6 +658,51 @@
                     "items": {
                         "$ref": "#/definitions/CardItem"
                     }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetBookInfoResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "Book info",
+                    "$ref": "#/definitions/BookInfo"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetBookResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "Book item",
+                    "$ref": "#/definitions/BookItem"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "GetShareBookInfoResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "Share Book info",
+                    "$ref": "#/definitions/ShareBookInfo"
                 },
                 "msg": {
                     "type": "string"
@@ -713,6 +779,23 @@
                     "$ref": "#/definitions/LoginResp"
                 },
                 "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "ShareBookInfo": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "description": "Book's Author",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Book name",
+                    "type": "string"
+                },
+                "share_user": {
+                    "description": "分享该文档的用户",
                     "type": "string"
                 }
             }
