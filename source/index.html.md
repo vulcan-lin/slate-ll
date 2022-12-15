@@ -2984,7 +2984,7 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |code|integer|false|none|none|
-|data|[[CardItem](#schemacarditem)]|false|none|分组所属卡片列表|
+|data|[[CardItem](#schemacarditem)]|false|none|book卡片列表|
 |msg|string|false|none|none|
 |pagination|[Pagination](#schemapagination)|false|none|none|
 
