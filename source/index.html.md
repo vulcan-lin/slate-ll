@@ -931,6 +931,7 @@ func main() {
     {
       "answer": "string",
       "card_id": 0,
+      "frq": 0,
       "question": "string",
       "tips": "string"
     }
@@ -1833,6 +1834,7 @@ func main() {
     {
       "answer": "string",
       "card_id": 0,
+      "frq": 0,
       "question": "string",
       "tips": "string"
     }
@@ -3033,6 +3035,7 @@ This operation does not require authentication
 {
   "answer": "string",
   "card_id": 0,
+  "frq": 0,
   "question": "string",
   "tips": "string"
 }
@@ -3045,6 +3048,7 @@ This operation does not require authentication
 |---|---|---|---|---|
 |answer|string|false|none|短语答案|
 |card_id|integer|false|none|卡片ID|
+|frq|integer|false|none|词频|
 |question|string|false|none|短语文本|
 |tips|string|false|none|答案提示|
 
@@ -3062,6 +3066,7 @@ This operation does not require authentication
     {
       "answer": "string",
       "card_id": 0,
+      "frq": 0,
       "question": "string",
       "tips": "string"
     }
