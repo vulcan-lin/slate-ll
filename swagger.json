@@ -164,13 +164,13 @@
                     },
                     {
                         "type": "integer",
-                        "description": "current page index",
+                        "description": "current page index, 从1开始",
                         "name": "page_current",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "description": "size of page",
+                        "description": "size of page, 默认值: 15",
                         "name": "page_size",
                         "in": "query"
                     }
