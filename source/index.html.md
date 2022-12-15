@@ -883,7 +883,12 @@ func main() {
       "tips": "string"
     }
   ],
-  "msg": "string"
+  "msg": "string",
+  "pagination": {
+    "current": 0,
+    "size": 0,
+    "total": 0
+  }
 }
 ```
 
@@ -1054,14 +1059,12 @@ func main() {
 ```json
 {
   "code": 0,
-  "data": [
-    {
-      "answer": "string",
-      "card_id": 0,
-      "question": "string",
-      "tips": "string"
-    }
-  ],
+  "data": {
+    "author": "string",
+    "id": 0,
+    "name": "string",
+    "status": "string"
+  },
   "msg": "string"
 }
 ```
@@ -1070,7 +1073,7 @@ func main() {
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[CardListResp](#schemacardlistresp)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|GetBookInfoResp response|[GetBookInfoResp](#schemagetbookinforesp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -1766,7 +1769,12 @@ func main() {
       "tips": "string"
     }
   ],
-  "msg": "string"
+  "msg": "string",
+  "pagination": {
+    "current": 0,
+    "size": 0,
+    "total": 0
+  }
 }
 ```
 
@@ -2961,7 +2969,12 @@ This operation does not require authentication
       "tips": "string"
     }
   ],
-  "msg": "string"
+  "msg": "string",
+  "pagination": {
+    "current": 0,
+    "size": 0,
+    "total": 0
+  }
 }
 
 ```
@@ -2973,6 +2986,7 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|[[CardItem](#schemacarditem)]|false|none|分组所属卡片列表|
 |msg|string|false|none|none|
+|pagination|[Pagination](#schemapagination)|false|none|none|
 
 <h2 id="tocS_GetBookInfoResp">GetBookInfoResp</h2>
 <!-- backwards compatibility -->
@@ -3167,6 +3181,30 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|[LoginResp](#schemaloginresp)|false|none|none|
 |msg|string|false|none|none|
+
+<h2 id="tocS_Pagination">Pagination</h2>
+<!-- backwards compatibility -->
+<a id="schemapagination"></a>
+<a id="schema_Pagination"></a>
+<a id="tocSpagination"></a>
+<a id="tocspagination"></a>
+
+```json
+{
+  "current": 0,
+  "size": 0,
+  "total": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|current|integer|false|none|none|
+|size|integer|false|none|none|
+|total|integer|false|none|none|
 
 <h2 id="tocS_ShareBookInfo">ShareBookInfo</h2>
 <!-- backwards compatibility -->

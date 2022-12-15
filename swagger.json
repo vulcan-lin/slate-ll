@@ -202,9 +202,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Common response",
+                        "description": "GetBookInfoResp response",
                         "schema": {
-                            "$ref": "#/definitions/CardListResp"
+                            "$ref": "#/definitions/GetBookInfoResp"
                         }
                     },
                     "400": {
@@ -661,6 +661,9 @@
                 },
                 "msg": {
                     "type": "string"
+                },
+                "pagination": {
+                    "$ref": "#/definitions/Pagination"
                 }
             }
         },
@@ -780,6 +783,20 @@
                 },
                 "msg": {
                     "type": "string"
+                }
+            }
+        },
+        "Pagination": {
+            "type": "object",
+            "properties": {
+                "current": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
                 }
             }
         },
