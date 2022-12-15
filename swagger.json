@@ -653,7 +653,7 @@
                     "type": "integer"
                 },
                 "data": {
-                    "description": "分组所属卡片列表",
+                    "description": "book卡片列表",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/CardItem"
