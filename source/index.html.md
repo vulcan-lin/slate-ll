@@ -38,7 +38,8 @@ Base URLs:
 ```shell
 # You can also use wget
 curl -X GET https://test-api.learnbyuse.app/api/v2/books \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -46,13 +47,15 @@ curl -X GET https://test-api.learnbyuse.app/api/v2/books \
 GET https://test-api.learnbyuse.app/api/v2/books HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/books',
@@ -74,7 +77,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books',
@@ -88,7 +92,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.get('https://test-api.learnbyuse.app/api/v2/books', headers = headers)
@@ -104,6 +109,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -157,6 +163,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -173,6 +180,12 @@ func main() {
 `GET /books`
 
 查看用户book列表
+
+<h3 id="get__books-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 
 > Example responses
 
@@ -211,7 +224,8 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X GET https://test-api.learnbyuse.app/api/v2/books/download/{book_id} \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -219,13 +233,15 @@ curl -X GET https://test-api.learnbyuse.app/api/v2/books/download/{book_id} \
 GET https://test-api.learnbyuse.app/api/v2/books/download/{book_id} HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/books/download/{book_id}',
@@ -247,7 +263,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/download/{book_id}',
@@ -261,7 +278,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.get('https://test-api.learnbyuse.app/api/v2/books/download/{book_id}', headers = headers)
@@ -277,6 +295,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -330,6 +349,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -351,6 +371,7 @@ download book
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 |book_id|path|integer|true|book id|
 
 > Example responses
@@ -383,7 +404,8 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X POST https://test-api.learnbyuse.app/api/v2/books/upload \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -391,13 +413,15 @@ curl -X POST https://test-api.learnbyuse.app/api/v2/books/upload \
 POST https://test-api.learnbyuse.app/api/v2/books/upload HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/books/upload',
@@ -419,7 +443,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/books/upload',
@@ -433,7 +458,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.post('https://test-api.learnbyuse.app/api/v2/books/upload', headers = headers)
@@ -449,6 +475,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -502,6 +529,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -518,6 +546,12 @@ func main() {
 `POST /books/upload`
 
 上存txt pdf/mobi book
+
+<h3 id="post__books_upload-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 
 > Example responses
 
@@ -549,7 +583,8 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id} \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -557,13 +592,15 @@ curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id} \
 GET https://test-api.learnbyuse.app/api/v2/books/{book_id} HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}',
@@ -585,7 +622,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}',
@@ -599,7 +637,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}', headers = headers)
@@ -615,6 +654,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -668,6 +708,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -689,6 +730,7 @@ Get book item
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 |book_id|path|integer|true|book id|
 
 > Example responses
@@ -726,7 +768,8 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/cards \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -734,13 +777,15 @@ curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/cards \
 GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/cards HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/cards',
@@ -762,7 +807,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/cards',
@@ -776,7 +822,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/cards', headers = headers)
@@ -792,6 +839,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -845,6 +893,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -866,6 +915,7 @@ func main() {
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 |book_id|path|integer|true|book id|
 |page_current|query|integer|false|current page index, 从1开始|
 |page_size|query|integer|false|size of page, 默认值: 15|
@@ -912,7 +962,8 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/exercise \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -920,13 +971,15 @@ curl -X POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/exercise \
 POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/exercise HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/exercise',
@@ -948,7 +1001,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/exercise',
@@ -962,7 +1016,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.post('https://test-api.learnbyuse.app/api/v2/books/{book_id}/exercise', headers = headers)
@@ -978,6 +1033,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -1031,6 +1087,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -1052,6 +1109,7 @@ func main() {
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 |book_id|path|integer|true|book id|
 
 > Example responses
@@ -1089,7 +1147,8 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/info \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -1097,13 +1156,15 @@ curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/info \
 GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/info HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/info',
@@ -1125,7 +1186,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/info',
@@ -1139,7 +1201,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/info', headers = headers)
@@ -1155,6 +1218,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -1208,6 +1272,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -1229,6 +1294,7 @@ func main() {
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 |book_id|path|integer|true|book id|
 
 > Example responses
@@ -1974,7 +2040,8 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X POST https://test-api.learnbyuse.app/api/v2/share/{book_id} \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -1982,13 +2049,15 @@ curl -X POST https://test-api.learnbyuse.app/api/v2/share/{book_id} \
 POST https://test-api.learnbyuse.app/api/v2/share/{book_id} HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/share/{book_id}',
@@ -2010,7 +2079,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/share/{book_id}',
@@ -2024,7 +2094,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.post('https://test-api.learnbyuse.app/api/v2/share/{book_id}', headers = headers)
@@ -2040,6 +2111,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -2093,6 +2165,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -2114,6 +2187,7 @@ share book
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 |book_id|path|integer|true|book id|
 
 > Example responses
@@ -2539,7 +2613,8 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X GET https://test-api.learnbyuse.app/api/v2/vocab/test \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -2547,13 +2622,15 @@ curl -X GET https://test-api.learnbyuse.app/api/v2/vocab/test \
 GET https://test-api.learnbyuse.app/api/v2/vocab/test HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/vocab/test',
@@ -2575,7 +2652,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/vocab/test',
@@ -2589,7 +2667,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.get('https://test-api.learnbyuse.app/api/v2/vocab/test', headers = headers)
@@ -2605,6 +2684,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -2658,6 +2738,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -2674,6 +2755,12 @@ func main() {
 `GET /vocab/test`
 
 [词汇量测试]初始化,开始测试
+
+<h3 id="get__vocab_test-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 
 > Example responses
 
@@ -2705,7 +2792,8 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X POST https://test-api.learnbyuse.app/api/v2/vocab/test/nextword?answer=string \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
 
 ```
 
@@ -2713,13 +2801,15 @@ curl -X POST https://test-api.learnbyuse.app/api/v2/vocab/test/nextword?answer=s
 POST https://test-api.learnbyuse.app/api/v2/vocab/test/nextword?answer=string HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
+Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'string'
 };
 
 fetch('https://test-api.learnbyuse.app/api/v2/vocab/test/nextword?answer=string',
@@ -2741,7 +2831,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
 }
 
 result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/vocab/test/nextword',
@@ -2756,7 +2847,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'string'
 }
 
 r = requests.post('https://test-api.learnbyuse.app/api/v2/vocab/test/nextword', params={
@@ -2774,6 +2866,7 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
+    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -2827,6 +2920,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -2848,6 +2942,7 @@ func main() {
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
 |answer|query|string|true|yes/no|
 
 > Example responses
