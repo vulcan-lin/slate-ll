@@ -867,6 +867,8 @@ func main() {
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |book_id|path|integer|true|book id|
+|page_current|query|integer|false|current page index|
+|page_size|query|integer|false|size of page|
 
 > Example responses
 

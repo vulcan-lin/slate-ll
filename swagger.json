@@ -161,6 +161,18 @@
                         "name": "book_id",
                         "in": "path",
                         "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "current page index",
+                        "name": "page_current",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "size of page",
+                        "name": "page_size",
+                        "in": "query"
                     }
                 ],
                 "responses": {
