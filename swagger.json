@@ -320,7 +320,7 @@
         },
         "/books/{book_id}/learn": {
             "get": {
-                "description": "查询Book下的练习卡片",
+                "description": "开始学习Book下的练习卡片",
                 "consumes": [
                     "application/json"
                 ],
