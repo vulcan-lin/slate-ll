@@ -932,6 +932,7 @@ func main() {
       "answer": "string",
       "card_id": 0,
       "frq": 0,
+      "proficiency": 0,
       "question": "string",
       "tips": "string"
     }
@@ -1320,6 +1321,190 @@ func main() {
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|GetBookInfoResp response|[GetBookInfoResp](#schemagetbookinforesp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__cards_{card_id}_learn
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0 \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0 HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn',
+  params: {
+  'card_id' => 'integer',
+'proficiency' => 'integer'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', params={
+  'card_id': '0',  'proficiency': '0'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /cards/{card_id}/learn`
+
+[闪记卡片]卡片打分
+
+<h3 id="post__cards_{card_id}_learn-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|card_id|query|integer|true|card id|
+|proficiency|query|integer|true|熟练度 打分|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "answer": "string",
+    "card_id": 0,
+    "frq": 0,
+    "proficiency": 0,
+    "question": "string",
+    "tips": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="post__cards_{card_id}_learn-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[RatingCardsResp](#schemaratingcardsresp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -1835,6 +2020,7 @@ func main() {
       "answer": "string",
       "card_id": 0,
       "frq": 0,
+      "proficiency": 0,
       "question": "string",
       "tips": "string"
     }
@@ -3036,6 +3222,7 @@ This operation does not require authentication
   "answer": "string",
   "card_id": 0,
   "frq": 0,
+  "proficiency": 0,
   "question": "string",
   "tips": "string"
 }
@@ -3049,6 +3236,7 @@ This operation does not require authentication
 |answer|string|false|none|短语答案|
 |card_id|integer|false|none|卡片ID|
 |frq|integer|false|none|词频|
+|proficiency|integer|false|none|熟练度|
 |question|string|false|none|短语文本|
 |tips|string|false|none|答案提示|
 
@@ -3067,6 +3255,7 @@ This operation does not require authentication
       "answer": "string",
       "card_id": 0,
       "frq": 0,
+      "proficiency": 0,
       "question": "string",
       "tips": "string"
     }
@@ -3307,6 +3496,37 @@ This operation does not require authentication
 |current|integer|false|none|none|
 |size|integer|false|none|none|
 |total|integer|false|none|none|
+
+<h2 id="tocS_RatingCardsResp">RatingCardsResp</h2>
+<!-- backwards compatibility -->
+<a id="schemaratingcardsresp"></a>
+<a id="schema_RatingCardsResp"></a>
+<a id="tocSratingcardsresp"></a>
+<a id="tocsratingcardsresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "answer": "string",
+    "card_id": 0,
+    "frq": 0,
+    "proficiency": 0,
+    "question": "string",
+    "tips": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[CardItem](#schemacarditem)|false|none|none|
+|msg|string|false|none|none|
 
 <h2 id="tocS_ShareBookInfo">ShareBookInfo</h2>
 <!-- backwards compatibility -->
