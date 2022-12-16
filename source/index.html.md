@@ -932,6 +932,7 @@ func main() {
       "answer": "string",
       "card_id": 0,
       "frq": 0,
+      "learn_times": 0,
       "proficiency": 0,
       "question": "string",
       "tips": "string"
@@ -1327,6 +1328,201 @@ func main() {
 This operation does not require authentication
 </aside>
 
+## get__books_{book_id}_learn
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/learn \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/learn HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/learn',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/learn',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/learn', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{book_id}/learn', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/learn");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/learn", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /books/{book_id}/learn`
+
+查询Book下的练习卡片
+
+<h3 id="get__books_{book_id}_learn-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
+|book_id|path|integer|true|book id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "answer": "string",
+      "card_id": 0,
+      "frq": 0,
+      "learn_times": 0,
+      "proficiency": 0,
+      "question": "string",
+      "tips": "string"
+    }
+  ],
+  "msg": "string",
+  "pagination": {
+    "current": 0,
+    "size": 0,
+    "total": 0
+  }
+}
+```
+
+<h3 id="get__books_{book_id}_learn-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[CardListResp](#schemacardlistresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 ## post__cards_{card_id}_learn
 
 > Code samples
@@ -1492,6 +1688,7 @@ func main() {
     "answer": "string",
     "card_id": 0,
     "frq": 0,
+    "learn_times": 0,
     "proficiency": 0,
     "question": "string",
     "tips": "string"
@@ -2020,6 +2217,7 @@ func main() {
       "answer": "string",
       "card_id": 0,
       "frq": 0,
+      "learn_times": 0,
       "proficiency": 0,
       "question": "string",
       "tips": "string"
@@ -3222,6 +3420,7 @@ This operation does not require authentication
   "answer": "string",
   "card_id": 0,
   "frq": 0,
+  "learn_times": 0,
   "proficiency": 0,
   "question": "string",
   "tips": "string"
@@ -3236,7 +3435,8 @@ This operation does not require authentication
 |answer|string|false|none|短语答案|
 |card_id|integer|false|none|卡片ID|
 |frq|integer|false|none|词频|
-|proficiency|integer|false|none|熟练度|
+|learn_times|integer|false|none|单词学习次数|
+|proficiency|integer|false|none|当前熟练度|
 |question|string|false|none|短语文本|
 |tips|string|false|none|答案提示|
 
@@ -3255,6 +3455,7 @@ This operation does not require authentication
       "answer": "string",
       "card_id": 0,
       "frq": 0,
+      "learn_times": 0,
       "proficiency": 0,
       "question": "string",
       "tips": "string"
@@ -3511,6 +3712,7 @@ This operation does not require authentication
     "answer": "string",
     "card_id": 0,
     "frq": 0,
+    "learn_times": 0,
     "proficiency": 0,
     "question": "string",
     "tips": "string"

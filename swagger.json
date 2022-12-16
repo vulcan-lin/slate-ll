@@ -318,6 +318,50 @@
                 }
             }
         },
+        "/books/{book_id}/learn": {
+            "get": {
+                "description": "查询Book下的练习卡片",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "book id",
+                        "name": "book_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/CardListResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/cards/{card_id}/learn": {
             "post": {
                 "description": "[闪记卡片]卡片打分",
@@ -772,8 +816,12 @@
                     "description": "词频",
                     "type": "integer"
                 },
+                "learn_times": {
+                    "description": "单词学习次数",
+                    "type": "integer"
+                },
                 "proficiency": {
-                    "description": "熟练度",
+                    "description": "当前熟练度",
                     "type": "integer"
                 },
                 "question": {
