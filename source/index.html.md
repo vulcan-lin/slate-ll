@@ -1476,7 +1476,7 @@ func main() {
 
 `GET /books/{book_id}/learn`
 
-查询Book下的练习卡片
+开始学习Book下的练习卡片
 
 <h3 id="get__books_{book_id}_learn-parameters">Parameters</h3>
 
