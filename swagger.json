@@ -318,6 +318,50 @@
                 }
             }
         },
+        "/cards/{card_id}/learn": {
+            "post": {
+                "description": "[闪记卡片]卡片打分",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "card id",
+                        "name": "card_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "熟练度 打分",
+                        "name": "proficiency",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/RatingCardsResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/s/{book_uuid}": {
             "get": {
                 "description": "用户请求重定向",
@@ -728,6 +772,10 @@
                     "description": "词频",
                     "type": "integer"
                 },
+                "proficiency": {
+                    "description": "熟练度",
+                    "type": "integer"
+                },
                 "question": {
                     "description": "短语文本",
                     "type": "string"
@@ -889,6 +937,21 @@
                 },
                 "total": {
                     "type": "integer"
+                }
+            }
+        },
+        "RatingCardsResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "下一张卡片",
+                    "$ref": "#/definitions/CardItem"
+                },
+                "msg": {
+                    "type": "string"
                 }
             }
         },
