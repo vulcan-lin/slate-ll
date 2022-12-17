@@ -1708,7 +1708,7 @@ func main() {
 This operation does not require authentication
 </aside>
 
-<h1 id="learnbyuse-api-redirect">Redirect</h1>
+<h1 id="learnbyuse-api-share">Share</h1>
 
 ## get__s_{book_uuid}
 
@@ -1881,8 +1881,6 @@ func main() {
 <aside class="success">
 This operation does not require authentication
 </aside>
-
-<h1 id="learnbyuse-api-share">Share</h1>
 
 ## get__s_{book_uuid}_download
 
