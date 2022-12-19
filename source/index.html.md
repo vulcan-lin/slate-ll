@@ -1529,28 +1529,33 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0 \
+curl -X POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn \
+  -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0 HTTP/1.1
+POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn HTTP/1.1
 Host: test-api.learnbyuse.app
+Content-Type: application/json
 Accept: application/json
 
 ```
 
 ```javascript
-
+const inputBody = '{
+  "proficiency": 0
+}';
 const headers = {
+  'Content-Type':'application/json',
   'Accept':'application/json'
 };
 
-fetch('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0',
+fetch('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn',
 {
   method: 'POST',
-
+  body: inputBody,
   headers: headers
 })
 .then(function(res) {
@@ -1566,14 +1571,13 @@ require 'rest-client'
 require 'json'
 
 headers = {
+  'Content-Type' => 'application/json',
   'Accept' => 'application/json'
 }
 
 result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn',
   params: {
-  'card_id' => 'integer',
-'proficiency' => 'integer'
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 
@@ -1582,12 +1586,11 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
+  'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-r = requests.post('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', params={
-  'card_id': '0',  'proficiency': '0'
-}, headers = headers)
+r = requests.post('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', headers = headers)
 
 print(r.json())
 
@@ -1599,6 +1602,7 @@ print(r.json())
 require 'vendor/autoload.php';
 
 $headers = array(
+    'Content-Type' => 'application/json',
     'Accept' => 'application/json',
 );
 
@@ -1625,7 +1629,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1652,6 +1656,7 @@ import (
 func main() {
 
     headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
         "Accept": []string{"application/json"},
     }
 
@@ -1670,12 +1675,20 @@ func main() {
 
 [闪记卡片]卡片打分
 
+> Body parameter
+
+```json
+{
+  "proficiency": 0
+}
+```
+
 <h3 id="post__cards_{card_id}_learn-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|card_id|query|integer|true|card id|
-|proficiency|query|integer|true|熟练度 打分|
+|card_id|path|integer|true|card id|
+|body|body|[RatingCardsRequest](#schemaratingcardsrequest)|true|Rating card request|
 
 > Example responses
 
@@ -3695,6 +3708,26 @@ This operation does not require authentication
 |current|integer|false|none|none|
 |size|integer|false|none|none|
 |total|integer|false|none|none|
+
+<h2 id="tocS_RatingCardsRequest">RatingCardsRequest</h2>
+<!-- backwards compatibility -->
+<a id="schemaratingcardsrequest"></a>
+<a id="schema_RatingCardsRequest"></a>
+<a id="tocSratingcardsrequest"></a>
+<a id="tocsratingcardsrequest"></a>
+
+```json
+{
+  "proficiency": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|proficiency|integer|true|none|回答次数|
 
 <h2 id="tocS_RatingCardsResp">RatingCardsResp</h2>
 <!-- backwards compatibility -->
