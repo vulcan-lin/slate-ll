@@ -445,6 +445,55 @@
                 }
             }
         },
+        "/s/{book_uuid}/cards": {
+            "get": {
+                "description": "查询Book下的练习卡片",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Share"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book uuid",
+                        "name": "book_uuid",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "current page index, 从1开始",
+                        "name": "page_current",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "size of page, 默认值: 15",
+                        "name": "page_size",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/CardListResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/s/{book_uuid}/download": {
             "get": {
                 "description": "下载分享文档原文",
