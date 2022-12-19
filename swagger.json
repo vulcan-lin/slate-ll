@@ -379,15 +379,17 @@
                         "type": "integer",
                         "description": "card id",
                         "name": "card_id",
-                        "in": "query",
+                        "in": "path",
                         "required": true
                     },
                     {
-                        "type": "integer",
-                        "description": "熟练度 打分",
-                        "name": "proficiency",
-                        "in": "query",
-                        "required": true
+                        "description": "Rating card request",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RatingCardsRequest"
+                        }
                     }
                 ],
                 "responses": {
@@ -984,6 +986,18 @@
                     "type": "integer"
                 },
                 "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "RatingCardsRequest": {
+            "type": "object",
+            "required": [
+                "proficiency"
+            ],
+            "properties": {
+                "proficiency": {
+                    "description": "回答次数",
                     "type": "integer"
                 }
             }
