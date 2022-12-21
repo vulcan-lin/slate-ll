@@ -379,15 +379,17 @@
                         "type": "integer",
                         "description": "card id",
                         "name": "card_id",
-                        "in": "query",
+                        "in": "path",
                         "required": true
                     },
                     {
-                        "type": "integer",
-                        "description": "熟练度 打分",
-                        "name": "proficiency",
-                        "in": "query",
-                        "required": true
+                        "description": "Rating card request",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RatingCardsRequest"
+                        }
                     }
                 ],
                 "responses": {
@@ -416,7 +418,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Redirect"
+                    "Share"
                 ],
                 "parameters": [
                     {
@@ -432,6 +434,55 @@
                         "description": "Common response",
                         "schema": {
                             "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/s/{book_uuid}/cards": {
+            "get": {
+                "description": "查询Book下的练习卡片",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Share"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book uuid",
+                        "name": "book_uuid",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "current page index, 从1开始",
+                        "name": "page_current",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "size of page, 默认值: 15",
+                        "name": "page_size",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/CardListResp"
                         }
                     },
                     "400": {
@@ -984,6 +1035,18 @@
                     "type": "integer"
                 },
                 "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "RatingCardsRequest": {
+            "type": "object",
+            "required": [
+                "proficiency"
+            ],
+            "properties": {
+                "proficiency": {
+                    "description": "回答次数",
                     "type": "integer"
                 }
             }
