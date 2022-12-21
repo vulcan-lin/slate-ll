@@ -1529,28 +1529,33 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0 \
+curl -X POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn \
+  -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0 HTTP/1.1
+POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn HTTP/1.1
 Host: test-api.learnbyuse.app
+Content-Type: application/json
 Accept: application/json
 
 ```
 
 ```javascript
-
+const inputBody = '{
+  "proficiency": 0
+}';
 const headers = {
+  'Content-Type':'application/json',
   'Accept':'application/json'
 };
 
-fetch('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0',
+fetch('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn',
 {
   method: 'POST',
-
+  body: inputBody,
   headers: headers
 })
 .then(function(res) {
@@ -1566,14 +1571,13 @@ require 'rest-client'
 require 'json'
 
 headers = {
+  'Content-Type' => 'application/json',
   'Accept' => 'application/json'
 }
 
 result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn',
   params: {
-  'card_id' => 'integer',
-'proficiency' => 'integer'
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 
@@ -1582,12 +1586,11 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
+  'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-r = requests.post('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', params={
-  'card_id': '0',  'proficiency': '0'
-}, headers = headers)
+r = requests.post('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', headers = headers)
 
 print(r.json())
 
@@ -1599,6 +1602,7 @@ print(r.json())
 require 'vendor/autoload.php';
 
 $headers = array(
+    'Content-Type' => 'application/json',
     'Accept' => 'application/json',
 );
 
@@ -1625,7 +1629,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn?card_id=0&proficiency=0");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1652,6 +1656,7 @@ import (
 func main() {
 
     headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
         "Accept": []string{"application/json"},
     }
 
@@ -1670,12 +1675,20 @@ func main() {
 
 [闪记卡片]卡片打分
 
+> Body parameter
+
+```json
+{
+  "proficiency": 0
+}
+```
+
 <h3 id="post__cards_{card_id}_learn-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|card_id|query|integer|true|card id|
-|proficiency|query|integer|true|熟练度 打分|
+|card_id|path|integer|true|card id|
+|body|body|[RatingCardsRequest](#schemaratingcardsrequest)|true|Rating card request|
 
 > Example responses
 
@@ -1708,7 +1721,7 @@ func main() {
 This operation does not require authentication
 </aside>
 
-<h1 id="learnbyuse-api-redirect">Redirect</h1>
+<h1 id="learnbyuse-api-share">Share</h1>
 
 ## get__s_{book_uuid}
 
@@ -1882,7 +1895,194 @@ func main() {
 This operation does not require authentication
 </aside>
 
-<h1 id="learnbyuse-api-share">Share</h1>
+## get__s_{book_uuid}_cards
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/cards \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/cards HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/cards',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/cards',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/cards', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/cards', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/cards");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/s/{book_uuid}/cards", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /s/{book_uuid}/cards`
+
+查询Book下的练习卡片
+
+<h3 id="get__s_{book_uuid}_cards-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|book_uuid|path|integer|true|book uuid|
+|page_current|query|integer|false|current page index, 从1开始|
+|page_size|query|integer|false|size of page, 默认值: 15|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "answer": "string",
+      "card_id": 0,
+      "frq": 0,
+      "learn_times": 0,
+      "proficiency": 0,
+      "question": "string",
+      "tips": "string"
+    }
+  ],
+  "msg": "string",
+  "pagination": {
+    "current": 0,
+    "size": 0,
+    "total": 0
+  }
+}
+```
+
+<h3 id="get__s_{book_uuid}_cards-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[CardListResp](#schemacardlistresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
 
 ## get__s_{book_uuid}_download
 
@@ -3697,6 +3897,26 @@ This operation does not require authentication
 |current|integer|false|none|none|
 |size|integer|false|none|none|
 |total|integer|false|none|none|
+
+<h2 id="tocS_RatingCardsRequest">RatingCardsRequest</h2>
+<!-- backwards compatibility -->
+<a id="schemaratingcardsrequest"></a>
+<a id="schema_RatingCardsRequest"></a>
+<a id="tocSratingcardsrequest"></a>
+<a id="tocsratingcardsrequest"></a>
+
+```json
+{
+  "proficiency": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|proficiency|integer|true|none|回答次数|
 
 <h2 id="tocS_RatingCardsResp">RatingCardsResp</h2>
 <!-- backwards compatibility -->
