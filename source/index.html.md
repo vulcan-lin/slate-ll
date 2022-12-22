@@ -197,9 +197,11 @@ func main() {
   "data": [
     {
       "author": "string",
-      "book_id": 0,
-      "fid": "string",
-      "name": "string"
+      "format": "string",
+      "id": 0,
+      "name": "string",
+      "status": "string",
+      "uri": "string"
     }
   ],
   "msg": "string"
@@ -742,9 +744,11 @@ Get book item
   "code": 0,
   "data": {
     "author": "string",
-    "book_id": 0,
-    "fid": "string",
-    "name": "string"
+    "format": "string",
+    "id": 0,
+    "name": "string",
+    "status": "string",
+    "uri": "string"
   },
   "msg": "string"
 }
@@ -1124,9 +1128,11 @@ func main() {
   "code": 0,
   "data": {
     "author": "string",
+    "format": "string",
     "id": 0,
     "name": "string",
-    "status": "string"
+    "status": "string",
+    "uri": "string"
   },
   "msg": "string"
 }
@@ -1309,9 +1315,11 @@ func main() {
   "code": 0,
   "data": {
     "author": "string",
+    "format": "string",
     "id": 0,
     "name": "string",
-    "status": "string"
+    "status": "string",
+    "uri": "string"
   },
   "msg": "string"
 }
@@ -3566,9 +3574,11 @@ This operation does not require authentication
 ```json
 {
   "author": "string",
+  "format": "string",
   "id": 0,
   "name": "string",
-  "status": "string"
+  "status": "string",
+  "uri": "string"
 }
 
 ```
@@ -3578,35 +3588,11 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |author|string|false|none|Book's Author|
+|format|string|false|none|Book format type [html, txt, pdf, epub, mobi]|
 |id|integer|false|none|Book ID|
 |name|string|false|none|Book name|
 |status|string|false|none|Book状态, BookNew, BookInBuilding, BookBuildEnd|
-
-<h2 id="tocS_BookItem">BookItem</h2>
-<!-- backwards compatibility -->
-<a id="schemabookitem"></a>
-<a id="schema_BookItem"></a>
-<a id="tocSbookitem"></a>
-<a id="tocsbookitem"></a>
-
-```json
-{
-  "author": "string",
-  "book_id": 0,
-  "fid": "string",
-  "name": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|author|string|false|none|Book's Author|
-|book_id|integer|false|none|Book ID|
-|fid|string|false|none|book 文件ID|
-|name|string|false|none|Book name|
+|uri|string|false|none|Book's HTML URI'|
 
 <h2 id="tocS_CardItem">CardItem</h2>
 <!-- backwards compatibility -->
@@ -3692,9 +3678,11 @@ This operation does not require authentication
   "code": 0,
   "data": {
     "author": "string",
+    "format": "string",
     "id": 0,
     "name": "string",
-    "status": "string"
+    "status": "string",
+    "uri": "string"
   },
   "msg": "string"
 }
@@ -3721,9 +3709,11 @@ This operation does not require authentication
   "code": 0,
   "data": {
     "author": "string",
-    "book_id": 0,
-    "fid": "string",
-    "name": "string"
+    "format": "string",
+    "id": 0,
+    "name": "string",
+    "status": "string",
+    "uri": "string"
   },
   "msg": "string"
 }
@@ -3735,7 +3725,7 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |code|integer|false|none|none|
-|data|[BookItem](#schemabookitem)|false|none|none|
+|data|[BookInfo](#schemabookinfo)|false|none|none|
 |msg|string|false|none|none|
 
 <h2 id="tocS_GetShareBookInfoResp">GetShareBookInfoResp</h2>
@@ -3779,9 +3769,11 @@ This operation does not require authentication
   "data": [
     {
       "author": "string",
-      "book_id": 0,
-      "fid": "string",
-      "name": "string"
+      "format": "string",
+      "id": 0,
+      "name": "string",
+      "status": "string",
+      "uri": "string"
     }
   ],
   "msg": "string"
@@ -3794,7 +3786,7 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |code|integer|false|none|none|
-|data|[[BookItem](#schemabookitem)]|false|none|Book列表|
+|data|[[BookInfo](#schemabookinfo)]|false|none|Book列表|
 |msg|string|false|none|none|
 
 <h2 id="tocS_LoginReq">LoginReq</h2>

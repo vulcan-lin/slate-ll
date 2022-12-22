@@ -817,6 +817,10 @@
                     "description": "Book's Author",
                     "type": "string"
                 },
+                "format": {
+                    "description": "Book format type [html, txt, pdf, epub, mobi]",
+                    "type": "string"
+                },
                 "id": {
                     "description": "Book ID",
                     "type": "integer"
@@ -828,26 +832,9 @@
                 "status": {
                     "description": "Book状态, BookNew, BookInBuilding, BookBuildEnd",
                     "type": "string"
-                }
-            }
-        },
-        "BookItem": {
-            "type": "object",
-            "properties": {
-                "author": {
-                    "description": "Book's Author",
-                    "type": "string"
                 },
-                "book_id": {
-                    "description": "Book ID",
-                    "type": "integer"
-                },
-                "fid": {
-                    "description": "book 文件ID",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "Book name",
+                "uri": {
+                    "description": "Book's HTML URI'",
                     "type": "string"
                 }
             }
@@ -928,8 +915,8 @@
                     "type": "integer"
                 },
                 "data": {
-                    "description": "Book item",
-                    "$ref": "#/definitions/BookItem"
+                    "description": "Book Info",
+                    "$ref": "#/definitions/BookInfo"
                 },
                 "msg": {
                     "type": "string"
@@ -961,7 +948,7 @@
                     "description": "Book列表",
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/BookItem"
+                        "$ref": "#/definitions/BookInfo"
                     }
                 },
                 "msg": {
