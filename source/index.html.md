@@ -4204,10 +4204,10 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|content|string|false|none|none|
+|content|string|true|none|none|
 |paragraph_id|string|false|none|段落id, 目前非必需|
-|source_lang|string|false|none|eg: "en"|
-|target_lang|string|false|none|eg: "zh-CN"|
+|source_lang|string|true|none|eg: "en"|
+|target_lang|string|true|none|eg: "zh-CN"|
 
 <h2 id="tocS_CardItem">CardItem</h2>
 <!-- backwards compatibility -->

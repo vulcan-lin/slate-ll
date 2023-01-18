@@ -963,6 +963,11 @@
         },
         "BookTranslateReq": {
             "type": "object",
+            "required": [
+                "content",
+                "source_lang",
+                "target_lang"
+            ],
             "properties": {
                 "content": {
                     "type": "string"
