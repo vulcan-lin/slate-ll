@@ -362,6 +362,52 @@
                 }
             }
         },
+        "/books/{book_id}/translate": {
+            "post": {
+                "description": "查看用户book列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "BookTranslateReq",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BookTranslateReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "BookTranslateResp",
+                        "schema": {
+                            "$ref": "#/definitions/ListBookResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/cards/{card_id}/learn": {
             "post": {
                 "description": "[闪记卡片]卡片打分",
@@ -764,6 +810,45 @@
                 }
             }
         },
+        "/users": {
+            "get": {
+                "description": "user list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "description": "list users",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LoginReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login response",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/vocab/test": {
             "get": {
                 "description": "[词汇量测试]初始化,开始测试",
@@ -872,6 +957,26 @@
                 },
                 "uri": {
                     "description": "Book's HTML URI'",
+                    "type": "string"
+                }
+            }
+        },
+        "BookTranslateReq": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "paragraph_id": {
+                    "description": "段落id, 目前非必需",
+                    "type": "string"
+                },
+                "source_lang": {
+                    "description": "eg: \"en\"",
+                    "type": "string"
+                },
+                "target_lang": {
+                    "description": "eg: \"zh-CN\"",
                     "type": "string"
                 }
             }
