@@ -339,6 +339,9 @@
                     <a href="#get_books-book_id-_learn" class="toc-h2 toc-link" data-title="get_books{book_id}_learn">get_<em>books</em>{book_id}_learn</a>
                   </li>
                   <li>
+                    <a href="#get_books-book_id-_translate" class="toc-h2 toc-link" data-title="get_books{book_id}_translate">get_<em>books</em>{book_id}_translate</a>
+                  </li>
+                  <li>
                     <a href="#post_books-book_id-_translate" class="toc-h2 toc-link" data-title="post_books{book_id}_translate">post_<em>books</em>{book_id}_translate</a>
                   </li>
                   <li>
@@ -409,7 +412,7 @@
                     <a href="#tocS_BookInfo" class="toc-h2 toc-link" data-title="BookInfo">BookInfo</a>
                   </li>
                   <li>
-                    <a href="#tocS_BookTranslateReq" class="toc-h2 toc-link" data-title="BookTranslateReq">BookTranslateReq</a>
+                    <a href="#tocS_BookTranslateResp" class="toc-h2 toc-link" data-title="BookTranslateResp">BookTranslateResp</a>
                   </li>
                   <li>
                     <a href="#tocS_CardItem" class="toc-h2 toc-link" data-title="CardItem">CardItem</a>
@@ -428,6 +431,9 @@
                   </li>
                   <li>
                     <a href="#tocS_ListBookResp" class="toc-h2 toc-link" data-title="ListBookResp">ListBookResp</a>
+                  </li>
+                  <li>
+                    <a href="#tocS_ListBookTranslateResp" class="toc-h2 toc-link" data-title="ListBookTranslateResp">ListBookTranslateResp</a>
                   </li>
                   <li>
                     <a href="#tocS_LoginReq" class="toc-h2 toc-link" data-title="LoginReq">LoginReq</a>
@@ -451,10 +457,16 @@
                     <a href="#tocS_ShareBookInfo" class="toc-h2 toc-link" data-title="ShareBookInfo">ShareBookInfo</a>
                   </li>
                   <li>
+                    <a href="#tocS_TranslateItem" class="toc-h2 toc-link" data-title="TranslateItem">TranslateItem</a>
+                  </li>
+                  <li>
                     <a href="#tocS_UserRegisterReq" class="toc-h2 toc-link" data-title="UserRegisterReq">UserRegisterReq</a>
                   </li>
                   <li>
                     <a href="#tocS_WordTestResp" class="toc-h2 toc-link" data-title="WordTestResp">WordTestResp</a>
+                  </li>
+                  <li>
+                    <a href="#tocS_api_service.BookTranslateReq" class="toc-h2 toc-link" data-title="api_service.BookTranslateReq">api_service.BookTranslateReq</a>
                   </li>
                   <li>
                     <a href="#tocS_commonResponse" class="toc-h2 toc-link" data-title="commonResponse">commonResponse</a>
@@ -1412,7 +1424,7 @@ curl <span class="nt">-X</span> GET https://test-api.learnbyuse.app/api/v2/books
 <td>query</td>
 <td>integer</td>
 <td>false</td>
-<td>current page index, 从1开始</td>
+<td>current page index, 从0开始</td>
 </tr>
 <tr>
 <td>page_size</td>
@@ -2081,6 +2093,239 @@ curl <span class="nt">-X</span> GET https://test-api.learnbyuse.app/api/v2/books
 <aside class="success">
 This operation does not require authentication
 </aside>
+<h2 id='get_books-book_id-_translate'>get_<em>books</em>{book_id}_translate</h2>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> GET https://test-api.learnbyuse.app/api/v2/books/<span class="o">{</span>book_id<span class="o">}</span>/translate <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">test-api.learnbyuse.app</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">string</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">inputBody</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">{
+  "content": "string",
+  "paragraph_id": "string",
+  "source_lang": "string",
+  "target_lang": "string"
+}</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span><span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">Accept</span><span class="dl">'</span><span class="p">:</span><span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span><span class="dl">'</span><span class="s1">string</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">inputBody</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'string'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'string'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+
+<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'string'</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="err">\</span><span class="nf">GuzzleHttp\Client</span><span class="p">();</span>
+
+<span class="c1">// Define array of request body.</span>
+<span class="nv">$request_body</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nf">request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span><span class="s1">'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="nv">$headers</span><span class="p">,</span>
+        <span class="s1">'json'</span> <span class="o">=&gt;</span> <span class="nv">$request_body</span><span class="p">,</span>
+       <span class="p">)</span>
+    <span class="p">);</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="nf">getBody</span><span class="p">()</span><span class="o">-&gt;</span><span class="nf">getContents</span><span class="p">());</span>
+ <span class="p">}</span>
+ <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">GuzzleHttp\Exception\BadResponseException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// handle exception or api errors.</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="nf">getMessage</span><span class="p">());</span>
+ <span class="p">}</span>
+
+ <span class="c1">// ...</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate"</span><span class="o">);</span>
+<span class="nc">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
+<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span>
+    <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+<span class="nc">String</span> <span class="n">inputLine</span><span class="o">;</span>
+<span class="nc">StringBuffer</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuffer</span><span class="o">();</span>
+<span class="k">while</span> <span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">response</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+       <span class="s">"bytes"</span>
+       <span class="s">"net/http"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">headers</span> <span class="o">:=</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span>
+        <span class="s">"Content-Type"</span><span class="o">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span>
+        <span class="s">"Accept"</span><span class="o">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span>
+        <span class="s">"Authorization"</span><span class="o">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"string"</span><span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">:=</span> <span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span>
+    <span class="n">req</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="s">"https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">Header</span> <span class="o">=</span> <span class="n">headers</span>
+
+    <span class="n">client</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span>
+    <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+    <span class="c">// ...</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p><code>GET /books/{book_id}/translate</code></p>
+
+<p>查看用户book翻译列表</p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"paragraph_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"source_lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"target_lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<h3 id="get__books_{book_id}_translate-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page_current</td>
+<td>query</td>
+<td>integer</td>
+<td>false</td>
+<td>current page index, 从1开始</td>
+</tr>
+<tr>
+<td>page_size</td>
+<td>query</td>
+<td>integer</td>
+<td>false</td>
+<td>size of page, 默认值: 15</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>header</td>
+<td>string</td>
+<td>true</td>
+<td>Authorization</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td><a href="#schemaapi_service.booktranslatereq">api_service.BookTranslateReq</a></td>
+<td>true</td>
+<td>ListBookTranslateReq</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<h3 id="get__books_{book_id}_translate-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>ListBookTranslateResp</td>
+<td><a href="#schemalistbooktranslateresp">ListBookTranslateResp</a></td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Common response</td>
+<td><a href="#schemacommonresponse">commonResponse</a></td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
 <h2 id='post_books-book_id-_translate'>post_<em>books</em>{book_id}_translate</h2>
 <blockquote>
 <p>Code samples</p>
@@ -2218,7 +2463,7 @@ curl <span class="nt">-X</span> POST https://test-api.learnbyuse.app/api/v2/book
 </code></pre></div>
 <p><code>POST /books/{book_id}/translate</code></p>
 
-<p>查看用户book列表</p>
+<p>书本翻译</p>
 
 <blockquote>
 <p>Body parameter</p>
@@ -2251,7 +2496,7 @@ curl <span class="nt">-X</span> POST https://test-api.learnbyuse.app/api/v2/book
 <tr>
 <td>body</td>
 <td>body</td>
-<td><a href="#schemabooktranslatereq">BookTranslateReq</a></td>
+<td><a href="#schemaapi_service.booktranslatereq">api_service.BookTranslateReq</a></td>
 <td>true</td>
 <td>BookTranslateReq</td>
 </tr>
@@ -2264,16 +2509,7 @@ curl <span class="nt">-X</span> POST https://test-api.learnbyuse.app/api/v2/book
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -2291,7 +2527,7 @@ curl <span class="nt">-X</span> POST https://test-api.learnbyuse.app/api/v2/book
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
 <td>BookTranslateResp</td>
-<td><a href="#schemalistbookresp">ListBookResp</a></td>
+<td><a href="#schemabooktranslateresp">BookTranslateResp</a></td>
 </tr>
 <tr>
 <td>400</td>
@@ -4888,19 +5124,18 @@ This operation does not require authentication
 </tr>
 </tbody></table>
 
-<h2 id="tocS_BookTranslateReq">BookTranslateReq</h2>
+<h2 id="tocS_BookTranslateResp">BookTranslateResp</h2>
 
 <!-- backwards compatibility -->
 
-<p><a id="schemabooktranslatereq"></a>
-<a id="schema_BookTranslateReq"></a>
-<a id="tocSbooktranslatereq"></a>
-<a id="tocsbooktranslatereq"></a></p>
+<p><a id="schemabooktranslateresp"></a>
+<a id="schema_BookTranslateResp"></a>
+<a id="tocSbooktranslateresp"></a>
+<a id="tocsbooktranslateresp"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paragraph_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"source_lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"target_lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div><h3 id='properties-2'>Properties</h3>
@@ -4914,32 +5149,25 @@ This operation does not require authentication
 </tr>
 </thead><tbody>
 <tr>
-<td>content</td>
-<td>string</td>
-<td>true</td>
+<td>code</td>
+<td>integer</td>
+<td>false</td>
 <td>none</td>
 <td>none</td>
 </tr>
 <tr>
-<td>paragraph_id</td>
+<td>data</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>段落id, 目前非必需</td>
+<td>none</td>
 </tr>
 <tr>
-<td>source_lang</td>
+<td>msg</td>
 <td>string</td>
-<td>true</td>
+<td>false</td>
 <td>none</td>
-<td>eg: &quot;en&quot;</td>
-</tr>
-<tr>
-<td>target_lang</td>
-<td>string</td>
-<td>true</td>
 <td>none</td>
-<td>eg: &quot;zh-CN&quot;</td>
 </tr>
 </tbody></table>
 
@@ -5306,6 +5534,58 @@ This operation does not require authentication
 </tr>
 </tbody></table>
 
+<h2 id="tocS_ListBookTranslateResp">ListBookTranslateResp</h2>
+
+<!-- backwards compatibility -->
+
+<p><a id="schemalistbooktranslateresp"></a>
+<a id="schema_ListBookTranslateResp"></a>
+<a id="tocSlistbooktranslateresp"></a>
+<a id="tocslistbooktranslateresp"></a></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='properties-9'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>data</td>
+<td>[<a href="#schematranslateitem">TranslateItem</a>]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocS_LoginReq">LoginReq</h2>
 
 <!-- backwards compatibility -->
@@ -5319,7 +5599,7 @@ This operation does not require authentication
   </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-9'>Properties</h3>
+</span></code></pre></div><h3 id='properties-10'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5360,7 +5640,7 @@ This operation does not require authentication
   </span><span class="nl">"vocablevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-10'>Properties</h3>
+</span></code></pre></div><h3 id='properties-11'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5419,7 +5699,7 @@ This operation does not require authentication
   </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-11'>Properties</h3>
+</span></code></pre></div><h3 id='properties-12'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5466,7 +5746,7 @@ This operation does not require authentication
   </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-12'>Properties</h3>
+</span></code></pre></div><h3 id='properties-13'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5511,7 +5791,7 @@ This operation does not require authentication
   </span><span class="nl">"proficiency"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-13'>Properties</h3>
+</span></code></pre></div><h3 id='properties-14'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5552,7 +5832,7 @@ This operation does not require authentication
   </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-14'>Properties</h3>
+</span></code></pre></div><h3 id='properties-15'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5599,7 +5879,7 @@ This operation does not require authentication
   </span><span class="nl">"share_user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-15'>Properties</h3>
+</span></code></pre></div><h3 id='properties-16'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5632,6 +5912,45 @@ This operation does not require authentication
 </tr>
 </tbody></table>
 
+<h2 id="tocS_TranslateItem">TranslateItem</h2>
+
+<!-- backwards compatibility -->
+
+<p><a id="schematranslateitem"></a>
+<a id="schema_TranslateItem"></a>
+<a id="tocStranslateitem"></a>
+<a id="tocstranslateitem"></a></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='properties-17'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>index</td>
+<td>integer</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocS_UserRegisterReq">UserRegisterReq</h2>
 
 <!-- backwards compatibility -->
@@ -5646,7 +5965,7 @@ This operation does not require authentication
   </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-16'>Properties</h3>
+</span></code></pre></div><h3 id='properties-18'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5693,7 +6012,7 @@ This operation does not require authentication
   </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-17'>Properties</h3>
+</span></code></pre></div><h3 id='properties-19'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5726,6 +6045,61 @@ This operation does not require authentication
 </tr>
 </tbody></table>
 
+<h2 id="tocS_api_service.BookTranslateReq">api_service.BookTranslateReq</h2>
+
+<!-- backwards compatibility -->
+
+<p><a id="schemaapi_service.booktranslatereq"></a>
+<a id="schema_api_service.BookTranslateReq"></a>
+<a id="tocSapi_service.booktranslatereq"></a>
+<a id="tocsapi_service.booktranslatereq"></a></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"paragraph_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"source_lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"target_lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='properties-20'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>paragraph_id</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>段落id, 目前非必需</td>
+</tr>
+<tr>
+<td>source_lang</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>eg: &quot;en&quot;</td>
+</tr>
+<tr>
+<td>target_lang</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>eg: &quot;zh-CN&quot;</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocS_commonResponse">commonResponse</h2>
 
 <!-- backwards compatibility -->
@@ -5740,7 +6114,7 @@ This operation does not require authentication
   </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-18'>Properties</h3>
+</span></code></pre></div><h3 id='properties-21'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
