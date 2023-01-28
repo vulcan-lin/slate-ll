@@ -203,7 +203,7 @@
                     },
                     {
                         "type": "integer",
-                        "description": "current page index, 从1开始",
+                        "description": "current page index, 从0开始",
                         "name": "page_current",
                         "in": "query"
                     },
@@ -363,8 +363,64 @@
             }
         },
         "/books/{book_id}/translate": {
+            "get": {
+                "description": "查看用户book翻译列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "current page index, 从1开始",
+                        "name": "page_current",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "size of page, 默认值: 15",
+                        "name": "page_size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "ListBookTranslateReq",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_service.BookTranslateReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ListBookTranslateResp",
+                        "schema": {
+                            "$ref": "#/definitions/ListBookTranslateResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            },
             "post": {
-                "description": "查看用户book列表",
+                "description": "书本翻译",
                 "consumes": [
                     "application/json"
                 ],
@@ -388,7 +444,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/BookTranslateReq"
+                            "$ref": "#/definitions/api_service.BookTranslateReq"
                         }
                     }
                 ],
@@ -396,7 +452,7 @@
                     "200": {
                         "description": "BookTranslateResp",
                         "schema": {
-                            "$ref": "#/definitions/ListBookResp"
+                            "$ref": "#/definitions/BookTranslateResp"
                         }
                     },
                     "400": {
@@ -961,27 +1017,16 @@
                 }
             }
         },
-        "BookTranslateReq": {
+        "BookTranslateResp": {
             "type": "object",
-            "required": [
-                "content",
-                "source_lang",
-                "target_lang"
-            ],
             "properties": {
-                "content": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
                     "type": "string"
                 },
-                "paragraph_id": {
-                    "description": "段落id, 目前非必需",
-                    "type": "string"
-                },
-                "source_lang": {
-                    "description": "eg: \"en\"",
-                    "type": "string"
-                },
-                "target_lang": {
-                    "description": "eg: \"zh-CN\"",
+                "msg": {
                     "type": "string"
                 }
             }
@@ -1103,6 +1148,23 @@
                 }
             }
         },
+        "ListBookTranslateResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TranslateItem"
+                    }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
         "LoginReq": {
             "type": "object",
             "required": [
@@ -1217,6 +1279,17 @@
                 }
             }
         },
+        "TranslateItem": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "index": {
+                    "type": "integer"
+                }
+            }
+        },
         "UserRegisterReq": {
             "type": "object",
             "required": [
@@ -1250,6 +1323,31 @@
                     "type": "string"
                 },
                 "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "api_service.BookTranslateReq": {
+            "type": "object",
+            "required": [
+                "content",
+                "source_lang",
+                "target_lang"
+            ],
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "paragraph_id": {
+                    "description": "段落id, 目前非必需",
+                    "type": "string"
+                },
+                "source_lang": {
+                    "description": "eg: \"en\"",
+                    "type": "string"
+                },
+                "target_lang": {
+                    "description": "eg: \"zh-CN\"",
                     "type": "string"
                 }
             }

@@ -921,7 +921,7 @@ func main() {
 |---|---|---|---|---|
 |Authorization|header|string|true|Authorization|
 |book_id|path|integer|true|book id|
-|page_current|query|integer|false|current page index, 从1开始|
+|page_current|query|integer|false|current page index, 从0开始|
 |page_size|query|integer|false|size of page, 默认值: 15|
 
 > Example responses
@@ -1531,6 +1531,216 @@ func main() {
 This operation does not require authentication
 </aside>
 
+## get__books_{book_id}_translate
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate HTTP/1.1
+Host: test-api.learnbyuse.app
+Content-Type: application/json
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+const inputBody = '{
+  "content": "string",
+  "paragraph_id": "string",
+  "source_lang": "string",
+  "target_lang": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
+{
+  method: 'GET',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /books/{book_id}/translate`
+
+查看用户book翻译列表
+
+> Body parameter
+
+```json
+{
+  "content": "string",
+  "paragraph_id": "string",
+  "source_lang": "string",
+  "target_lang": "string"
+}
+```
+
+<h3 id="get__books_{book_id}_translate-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|page_current|query|integer|false|current page index, 从1开始|
+|page_size|query|integer|false|size of page, 默认值: 15|
+|Authorization|header|string|true|Authorization|
+|body|body|[api_service.BookTranslateReq](#schemaapi_service.booktranslatereq)|true|ListBookTranslateReq|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "content": "string",
+      "index": 0
+    }
+  ],
+  "msg": "string"
+}
+```
+
+<h3 id="get__books_{book_id}_translate-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ListBookTranslateResp|[ListBookTranslateResp](#schemalistbooktranslateresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 ## post__books_{book_id}_translate
 
 > Code samples
@@ -1691,7 +1901,7 @@ func main() {
 
 `POST /books/{book_id}/translate`
 
-查看用户book列表
+书本翻译
 
 > Body parameter
 
@@ -1709,7 +1919,7 @@ func main() {
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |Authorization|header|string|true|Authorization|
-|body|body|[BookTranslateReq](#schemabooktranslatereq)|true|BookTranslateReq|
+|body|body|[api_service.BookTranslateReq](#schemaapi_service.booktranslatereq)|true|BookTranslateReq|
 
 > Example responses
 
@@ -1718,16 +1928,7 @@ func main() {
 ```json
 {
   "code": 0,
-  "data": [
-    {
-      "author": "string",
-      "format": "string",
-      "id": 0,
-      "name": "string",
-      "status": "string",
-      "uri": "string"
-    }
-  ],
+  "data": "string",
   "msg": "string"
 }
 ```
@@ -1736,7 +1937,7 @@ func main() {
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|BookTranslateResp|[ListBookResp](#schemalistbookresp)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|BookTranslateResp|[BookTranslateResp](#schemabooktranslateresp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -4183,19 +4384,18 @@ This operation does not require authentication
 |status|string|false|none|Book状态, BookNew, BookInBuilding, BookBuildEnd|
 |uri|string|false|none|Book's HTML URI'|
 
-<h2 id="tocS_BookTranslateReq">BookTranslateReq</h2>
+<h2 id="tocS_BookTranslateResp">BookTranslateResp</h2>
 <!-- backwards compatibility -->
-<a id="schemabooktranslatereq"></a>
-<a id="schema_BookTranslateReq"></a>
-<a id="tocSbooktranslatereq"></a>
-<a id="tocsbooktranslatereq"></a>
+<a id="schemabooktranslateresp"></a>
+<a id="schema_BookTranslateResp"></a>
+<a id="tocSbooktranslateresp"></a>
+<a id="tocsbooktranslateresp"></a>
 
 ```json
 {
-  "content": "string",
-  "paragraph_id": "string",
-  "source_lang": "string",
-  "target_lang": "string"
+  "code": 0,
+  "data": "string",
+  "msg": "string"
 }
 
 ```
@@ -4204,10 +4404,9 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|content|string|true|none|none|
-|paragraph_id|string|false|none|段落id, 目前非必需|
-|source_lang|string|true|none|eg: "en"|
-|target_lang|string|true|none|eg: "zh-CN"|
+|code|integer|false|none|none|
+|data|string|false|none|none|
+|msg|string|false|none|none|
 
 <h2 id="tocS_CardItem">CardItem</h2>
 <!-- backwards compatibility -->
@@ -4404,6 +4603,35 @@ This operation does not require authentication
 |data|[[BookInfo](#schemabookinfo)]|false|none|Book列表|
 |msg|string|false|none|none|
 
+<h2 id="tocS_ListBookTranslateResp">ListBookTranslateResp</h2>
+<!-- backwards compatibility -->
+<a id="schemalistbooktranslateresp"></a>
+<a id="schema_ListBookTranslateResp"></a>
+<a id="tocSlistbooktranslateresp"></a>
+<a id="tocslistbooktranslateresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "content": "string",
+      "index": 0
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[TranslateItem](#schematranslateitem)]|false|none|none|
+|msg|string|false|none|none|
+
 <h2 id="tocS_LoginReq">LoginReq</h2>
 <!-- backwards compatibility -->
 <a id="schemaloginreq"></a>
@@ -4581,6 +4809,28 @@ This operation does not require authentication
 |name|string|false|none|Book name|
 |share_user|string|false|none|分享该文档的用户|
 
+<h2 id="tocS_TranslateItem">TranslateItem</h2>
+<!-- backwards compatibility -->
+<a id="schematranslateitem"></a>
+<a id="schema_TranslateItem"></a>
+<a id="tocStranslateitem"></a>
+<a id="tocstranslateitem"></a>
+
+```json
+{
+  "content": "string",
+  "index": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|content|string|false|none|none|
+|index|integer|false|none|none|
+
 <h2 id="tocS_UserRegisterReq">UserRegisterReq</h2>
 <!-- backwards compatibility -->
 <a id="schemauserregisterreq"></a>
@@ -4628,6 +4878,32 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|string|false|none|本次推荐学习的卡片列表|
 |msg|string|false|none|none|
+
+<h2 id="tocS_api_service.BookTranslateReq">api_service.BookTranslateReq</h2>
+<!-- backwards compatibility -->
+<a id="schemaapi_service.booktranslatereq"></a>
+<a id="schema_api_service.BookTranslateReq"></a>
+<a id="tocSapi_service.booktranslatereq"></a>
+<a id="tocsapi_service.booktranslatereq"></a>
+
+```json
+{
+  "content": "string",
+  "paragraph_id": "string",
+  "source_lang": "string",
+  "target_lang": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|content|string|true|none|none|
+|paragraph_id|string|false|none|段落id, 目前非必需|
+|source_lang|string|true|none|eg: "en"|
+|target_lang|string|true|none|eg: "zh-CN"|
 
 <h2 id="tocS_commonResponse">commonResponse</h2>
 <!-- backwards compatibility -->
