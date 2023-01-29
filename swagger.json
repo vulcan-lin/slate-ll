@@ -400,7 +400,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/api_service.BookTranslateReq"
+                            "$ref": "#/definitions/ListBookTranslateReq"
                         }
                     }
                 ],
@@ -444,7 +444,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/api_service.BookTranslateReq"
+                            "$ref": "#/definitions/BookTranslateReq"
                         }
                     }
                 ],
@@ -1017,6 +1017,32 @@
                 }
             }
         },
+        "BookTranslateReq": {
+            "type": "object",
+            "required": [
+                "content",
+                "paragraph_id",
+                "source_lang",
+                "target_lang"
+            ],
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "paragraph_id": {
+                    "description": "段落id",
+                    "type": "integer"
+                },
+                "source_lang": {
+                    "description": "eg: \"en\"",
+                    "type": "string"
+                },
+                "target_lang": {
+                    "description": "eg: \"zh-CN\"",
+                    "type": "string"
+                }
+            }
+        },
         "BookTranslateResp": {
             "type": "object",
             "properties": {
@@ -1141,6 +1167,23 @@
                     }
                 },
                 "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "ListBookTranslateReq": {
+            "type": "object",
+            "required": [
+                "source_lang",
+                "target_lang"
+            ],
+            "properties": {
+                "source_lang": {
+                    "description": "eg: \"en\"",
+                    "type": "string"
+                },
+                "target_lang": {
+                    "description": "eg: \"zh-CN\"",
                     "type": "string"
                 }
             }
@@ -1323,32 +1366,6 @@
                     "type": "string"
                 },
                 "msg": {
-                    "type": "string"
-                }
-            }
-        },
-        "api_service.BookTranslateReq": {
-            "type": "object",
-            "required": [
-                "content",
-                "paragraph_id",
-                "source_lang",
-                "target_lang"
-            ],
-            "properties": {
-                "content": {
-                    "type": "string"
-                },
-                "paragraph_id": {
-                    "description": "段落id",
-                    "type": "integer"
-                },
-                "source_lang": {
-                    "description": "eg: \"en\"",
-                    "type": "string"
-                },
-                "target_lang": {
-                    "description": "eg: \"zh-CN\"",
                     "type": "string"
                 }
             }

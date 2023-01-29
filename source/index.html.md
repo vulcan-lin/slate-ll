@@ -1545,8 +1545,6 @@ Authorization: string
 
 ```javascript
 const inputBody = '{
-  "content": "string",
-  "paragraph_id": 0,
   "source_lang": "string",
   "target_lang": "string"
 }';
@@ -1687,8 +1685,6 @@ func main() {
 
 ```json
 {
-  "content": "string",
-  "paragraph_id": 0,
   "source_lang": "string",
   "target_lang": "string"
 }
@@ -1701,7 +1697,7 @@ func main() {
 |page_current|query|integer|false|current page index, 从1开始|
 |page_size|query|integer|false|size of page, 默认值: 15|
 |Authorization|header|string|true|Authorization|
-|body|body|[api_service.BookTranslateReq](#schemaapi_service.booktranslatereq)|true|ListBookTranslateReq|
+|body|body|[ListBookTranslateReq](#schemalistbooktranslatereq)|true|ListBookTranslateReq|
 
 > Example responses
 
@@ -1914,7 +1910,7 @@ func main() {
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |Authorization|header|string|true|Authorization|
-|body|body|[api_service.BookTranslateReq](#schemaapi_service.booktranslatereq)|true|BookTranslateReq|
+|body|body|[BookTranslateReq](#schemabooktranslatereq)|true|BookTranslateReq|
 
 > Example responses
 
@@ -4369,6 +4365,32 @@ This operation does not require authentication
 |status|string|false|none|Book状态, BookNew, BookInBuilding, BookBuildEnd|
 |uri|string|false|none|Book's HTML URI'|
 
+<h2 id="tocS_BookTranslateReq">BookTranslateReq</h2>
+<!-- backwards compatibility -->
+<a id="schemabooktranslatereq"></a>
+<a id="schema_BookTranslateReq"></a>
+<a id="tocSbooktranslatereq"></a>
+<a id="tocsbooktranslatereq"></a>
+
+```json
+{
+  "content": "string",
+  "paragraph_id": 0,
+  "source_lang": "string",
+  "target_lang": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|content|string|true|none|none|
+|paragraph_id|integer|true|none|段落id|
+|source_lang|string|true|none|eg: "en"|
+|target_lang|string|true|none|eg: "zh-CN"|
+
 <h2 id="tocS_BookTranslateResp">BookTranslateResp</h2>
 <!-- backwards compatibility -->
 <a id="schemabooktranslateresp"></a>
@@ -4581,6 +4603,28 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|[[BookInfo](#schemabookinfo)]|false|none|Book列表|
 |msg|string|false|none|none|
+
+<h2 id="tocS_ListBookTranslateReq">ListBookTranslateReq</h2>
+<!-- backwards compatibility -->
+<a id="schemalistbooktranslatereq"></a>
+<a id="schema_ListBookTranslateReq"></a>
+<a id="tocSlistbooktranslatereq"></a>
+<a id="tocslistbooktranslatereq"></a>
+
+```json
+{
+  "source_lang": "string",
+  "target_lang": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|source_lang|string|true|none|eg: "en"|
+|target_lang|string|true|none|eg: "zh-CN"|
 
 <h2 id="tocS_ListBookTranslateResp">ListBookTranslateResp</h2>
 <!-- backwards compatibility -->
@@ -4863,32 +4907,6 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|string|false|none|本次推荐学习的卡片列表|
 |msg|string|false|none|none|
-
-<h2 id="tocS_api_service.BookTranslateReq">api_service.BookTranslateReq</h2>
-<!-- backwards compatibility -->
-<a id="schemaapi_service.booktranslatereq"></a>
-<a id="schema_api_service.BookTranslateReq"></a>
-<a id="tocSapi_service.booktranslatereq"></a>
-<a id="tocsapi_service.booktranslatereq"></a>
-
-```json
-{
-  "content": "string",
-  "paragraph_id": 0,
-  "source_lang": "string",
-  "target_lang": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|content|string|true|none|none|
-|paragraph_id|integer|true|none|段落id|
-|source_lang|string|true|none|eg: "en"|
-|target_lang|string|true|none|eg: "zh-CN"|
 
 <h2 id="tocS_commonResponse">commonResponse</h2>
 <!-- backwards compatibility -->
