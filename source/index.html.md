@@ -942,12 +942,7 @@ func main() {
       "tips": "string"
     }
   ],
-  "msg": "string",
-  "pagination": {
-    "current": 0,
-    "size": 0,
-    "total": 0
-  }
+  "msg": "string"
 }
 ```
 
@@ -1511,12 +1506,7 @@ func main() {
       "tips": "string"
     }
   ],
-  "msg": "string",
-  "pagination": {
-    "current": 0,
-    "size": 0,
-    "total": 0
-  }
+  "msg": "string"
 }
 ```
 
@@ -1556,7 +1546,7 @@ Authorization: string
 ```javascript
 const inputBody = '{
   "content": "string",
-  "paragraph_id": "string",
+  "paragraph_id": 0,
   "source_lang": "string",
   "target_lang": "string"
 }';
@@ -1698,7 +1688,7 @@ func main() {
 ```json
 {
   "content": "string",
-  "paragraph_id": "string",
+  "paragraph_id": 0,
   "source_lang": "string",
   "target_lang": "string"
 }
@@ -1726,7 +1716,12 @@ func main() {
       "index": 0
     }
   ],
-  "msg": "string"
+  "msg": "string",
+  "pagination": {
+    "current": 0,
+    "size": 0,
+    "total": 0
+  }
 }
 ```
 
@@ -1766,7 +1761,7 @@ Authorization: string
 ```javascript
 const inputBody = '{
   "content": "string",
-  "paragraph_id": "string",
+  "paragraph_id": 0,
   "source_lang": "string",
   "target_lang": "string"
 }';
@@ -1908,7 +1903,7 @@ func main() {
 ```json
 {
   "content": "string",
-  "paragraph_id": "string",
+  "paragraph_id": 0,
   "source_lang": "string",
   "target_lang": "string"
 }
@@ -2485,12 +2480,7 @@ func main() {
       "tips": "string"
     }
   ],
-  "msg": "string",
-  "pagination": {
-    "current": 0,
-    "size": 0,
-    "total": 0
-  }
+  "msg": "string"
 }
 ```
 
@@ -2844,12 +2834,7 @@ func main() {
       "tips": "string"
     }
   ],
-  "msg": "string",
-  "pagination": {
-    "current": 0,
-    "size": 0,
-    "total": 0
-  }
+  "msg": "string"
 }
 ```
 
@@ -4461,12 +4446,7 @@ This operation does not require authentication
       "tips": "string"
     }
   ],
-  "msg": "string",
-  "pagination": {
-    "current": 0,
-    "size": 0,
-    "total": 0
-  }
+  "msg": "string"
 }
 
 ```
@@ -4478,7 +4458,6 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|[[CardItem](#schemacarditem)]|false|none|book卡片列表|
 |msg|string|false|none|none|
-|pagination|[Pagination](#schemapagination)|false|none|none|
 
 <h2 id="tocS_GetBookInfoResp">GetBookInfoResp</h2>
 <!-- backwards compatibility -->
@@ -4619,7 +4598,12 @@ This operation does not require authentication
       "index": 0
     }
   ],
-  "msg": "string"
+  "msg": "string",
+  "pagination": {
+    "current": 0,
+    "size": 0,
+    "total": 0
+  }
 }
 
 ```
@@ -4631,6 +4615,7 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|[[TranslateItem](#schematranslateitem)]|false|none|none|
 |msg|string|false|none|none|
+|pagination|[Pagination](#schemapagination)|false|none|none|
 
 <h2 id="tocS_LoginReq">LoginReq</h2>
 <!-- backwards compatibility -->
@@ -4889,7 +4874,7 @@ This operation does not require authentication
 ```json
 {
   "content": "string",
-  "paragraph_id": "string",
+  "paragraph_id": 0,
   "source_lang": "string",
   "target_lang": "string"
 }
@@ -4901,7 +4886,7 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |content|string|true|none|none|
-|paragraph_id|string|false|none|段落id, 目前非必需|
+|paragraph_id|integer|true|none|段落id|
 |source_lang|string|true|none|eg: "en"|
 |target_lang|string|true|none|eg: "zh-CN"|
 

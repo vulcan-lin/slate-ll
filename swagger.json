@@ -1079,9 +1079,6 @@
                 },
                 "msg": {
                     "type": "string"
-                },
-                "pagination": {
-                    "$ref": "#/definitions/Pagination"
                 }
             }
         },
@@ -1162,6 +1159,9 @@
                 },
                 "msg": {
                     "type": "string"
+                },
+                "pagination": {
+                    "$ref": "#/definitions/Pagination"
                 }
             }
         },
@@ -1331,6 +1331,7 @@
             "type": "object",
             "required": [
                 "content",
+                "paragraph_id",
                 "source_lang",
                 "target_lang"
             ],
@@ -1339,8 +1340,8 @@
                     "type": "string"
                 },
                 "paragraph_id": {
-                    "description": "段落id, 目前非必需",
-                    "type": "string"
+                    "description": "段落id",
+                    "type": "integer"
                 },
                 "source_lang": {
                     "description": "eg: \"en\"",
