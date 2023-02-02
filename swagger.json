@@ -404,6 +404,87 @@
                 }
             }
         },
+        "/books/{book_id}/marks": {
+            "get": {
+                "description": "查看用户book高亮笔记列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ListBookMarkResp",
+                        "schema": {
+                            "$ref": "#/definitions/ListBookMarkResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "新增高亮笔记",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "BookMarkReq",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BookMarkReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/books/{book_id}/translate": {
             "get": {
                 "description": "查看用户book翻译列表",
@@ -437,13 +518,18 @@
                         "required": true
                     },
                     {
-                        "description": "ListBookTranslateReq",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ListBookTranslateReq"
-                        }
+                        "type": "string",
+                        "description": "en",
+                        "name": "source_lang",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "zh-CN",
+                        "name": "target_lang",
+                        "in": "query",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -1059,6 +1145,31 @@
                 }
             }
         },
+        "BookMarkReq": {
+            "type": "object",
+            "properties": {
+                "chapter_id": {
+                    "type": "string"
+                },
+                "mark_text": {
+                    "type": "string"
+                },
+                "range": {
+                    "type": "object",
+                    "properties": {
+                        "end_offset": {
+                            "type": "integer"
+                        },
+                        "start_offset": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "style": {
+                    "type": "string"
+                }
+            }
+        },
         "BookTranslateReq": {
             "type": "object",
             "required": [
@@ -1195,6 +1306,23 @@
                 }
             }
         },
+        "ListBookMarkResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/MarkItem"
+                    }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
         "ListBookResp": {
             "type": "object",
             "properties": {
@@ -1209,23 +1337,6 @@
                     }
                 },
                 "msg": {
-                    "type": "string"
-                }
-            }
-        },
-        "ListBookTranslateReq": {
-            "type": "object",
-            "required": [
-                "source_lang",
-                "target_lang"
-            ],
-            "properties": {
-                "source_lang": {
-                    "description": "eg: \"en\"",
-                    "type": "string"
-                },
-                "target_lang": {
-                    "description": "eg: \"zh-CN\"",
                     "type": "string"
                 }
             }
@@ -1302,6 +1413,31 @@
                     "$ref": "#/definitions/LoginResp"
                 },
                 "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "MarkItem": {
+            "type": "object",
+            "properties": {
+                "chapter_id": {
+                    "type": "string"
+                },
+                "mark_text": {
+                    "type": "string"
+                },
+                "range": {
+                    "type": "object",
+                    "properties": {
+                        "end_offset": {
+                            "type": "integer"
+                        },
+                        "start_offset": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "style": {
                     "type": "string"
                 }
             }

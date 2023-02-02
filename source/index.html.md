@@ -1701,13 +1701,202 @@ func main() {
 This operation does not require authentication
 </aside>
 
-## get__books_{book_id}_translate
+## get__books_{book_id}_marks
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate \
+curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /books/{book_id}/marks`
+
+查看用户book高亮笔记列表
+
+<h3 id="get__books_{book_id}_marks-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "chapter_id": "string",
+      "mark_text": "string",
+      "range": {
+        "end_offset": 0,
+        "start_offset": 0
+      },
+      "style": "string"
+    }
+  ],
+  "msg": "string"
+}
+```
+
+<h3 id="get__books_{book_id}_marks-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ListBookMarkResp|[ListBookMarkResp](#schemalistbookmarkresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__books_{book_id}_marks
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
@@ -1715,7 +1904,7 @@ curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate \
 ```
 
 ```http
-GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate HTTP/1.1
+POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks HTTP/1.1
 Host: test-api.learnbyuse.app
 Content-Type: application/json
 Accept: application/json
@@ -1725,8 +1914,13 @@ Authorization: string
 
 ```javascript
 const inputBody = '{
-  "source_lang": "string",
-  "target_lang": "string"
+  "chapter_id": "string",
+  "mark_text": "string",
+  "range": {
+    "end_offset": 0,
+    "start_offset": 0
+  },
+  "style": "string"
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -1734,9 +1928,9 @@ const headers = {
   'Authorization':'string'
 };
 
-fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks',
 {
-  method: 'GET',
+  method: 'POST',
   body: inputBody,
   headers: headers
 })
@@ -1758,7 +1952,7 @@ headers = {
   'Authorization' => 'string'
 }
 
-result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
+result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks',
   params: {
   }, headers: headers
 
@@ -1774,7 +1968,7 @@ headers = {
   'Authorization': 'string'
 }
 
-r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', headers = headers)
+r = requests.post('https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks', headers = headers)
 
 print(r.json())
 
@@ -1797,7 +1991,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', array(
+    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1814,9 +2008,9 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate");
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
+con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
 BufferedReader in = new BufferedReader(
     new InputStreamReader(con.getInputStream()));
@@ -1847,6 +2041,204 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /books/{book_id}/marks`
+
+新增高亮笔记
+
+> Body parameter
+
+```json
+{
+  "chapter_id": "string",
+  "mark_text": "string",
+  "range": {
+    "end_offset": 0,
+    "start_offset": 0
+  },
+  "style": "string"
+}
+```
+
+<h3 id="post__books_{book_id}_marks-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
+|body|body|[BookMarkReq](#schemabookmarkreq)|true|BookMarkReq|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="post__books_{book_id}_marks-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## get__books_{book_id}_translate
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
+  params: {
+  'source_lang' => 'string',
+'target_lang' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', params={
+  'source_lang': 'string',  'target_lang': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
     req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate", data)
     req.Header = headers
 
@@ -1861,15 +2253,6 @@ func main() {
 
 查看用户book翻译列表
 
-> Body parameter
-
-```json
-{
-  "source_lang": "string",
-  "target_lang": "string"
-}
-```
-
 <h3 id="get__books_{book_id}_translate-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
@@ -1877,7 +2260,8 @@ func main() {
 |page_current|query|integer|false|current page index, 从1开始|
 |page_size|query|integer|false|size of page, 默认值: 15|
 |Authorization|header|string|true|Authorization|
-|body|body|[ListBookTranslateReq](#schemalistbooktranslatereq)|true|ListBookTranslateReq|
+|source_lang|query|string|true|en|
+|target_lang|query|string|true|zh-CN|
 
 > Example responses
 
@@ -4545,6 +4929,37 @@ This operation does not require authentication
 |status|string|false|none|Book状态, BookNew, BookInBuilding, BookBuildEnd|
 |uri|string|false|none|Book's HTML URI'|
 
+<h2 id="tocS_BookMarkReq">BookMarkReq</h2>
+<!-- backwards compatibility -->
+<a id="schemabookmarkreq"></a>
+<a id="schema_BookMarkReq"></a>
+<a id="tocSbookmarkreq"></a>
+<a id="tocsbookmarkreq"></a>
+
+```json
+{
+  "chapter_id": "string",
+  "mark_text": "string",
+  "range": {
+    "end_offset": 0,
+    "start_offset": 0
+  },
+  "style": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|chapter_id|string|false|none|none|
+|mark_text|string|false|none|none|
+|range|object|false|none|none|
+|» end_offset|integer|false|none|none|
+|» start_offset|integer|false|none|none|
+|style|string|false|none|none|
+
 <h2 id="tocS_BookTranslateReq">BookTranslateReq</h2>
 <!-- backwards compatibility -->
 <a id="schemabooktranslatereq"></a>
@@ -4751,6 +5166,40 @@ This operation does not require authentication
 |data|[ShareBookInfo](#schemasharebookinfo)|false|none|none|
 |msg|string|false|none|none|
 
+<h2 id="tocS_ListBookMarkResp">ListBookMarkResp</h2>
+<!-- backwards compatibility -->
+<a id="schemalistbookmarkresp"></a>
+<a id="schema_ListBookMarkResp"></a>
+<a id="tocSlistbookmarkresp"></a>
+<a id="tocslistbookmarkresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "chapter_id": "string",
+      "mark_text": "string",
+      "range": {
+        "end_offset": 0,
+        "start_offset": 0
+      },
+      "style": "string"
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[MarkItem](#schemamarkitem)]|false|none|none|
+|msg|string|false|none|none|
+
 <h2 id="tocS_ListBookResp">ListBookResp</h2>
 <!-- backwards compatibility -->
 <a id="schemalistbookresp"></a>
@@ -4783,28 +5232,6 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|[[BookInfo](#schemabookinfo)]|false|none|Book列表|
 |msg|string|false|none|none|
-
-<h2 id="tocS_ListBookTranslateReq">ListBookTranslateReq</h2>
-<!-- backwards compatibility -->
-<a id="schemalistbooktranslatereq"></a>
-<a id="schema_ListBookTranslateReq"></a>
-<a id="tocSlistbooktranslatereq"></a>
-<a id="tocslistbooktranslatereq"></a>
-
-```json
-{
-  "source_lang": "string",
-  "target_lang": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|source_lang|string|true|none|eg: "en"|
-|target_lang|string|true|none|eg: "zh-CN"|
 
 <h2 id="tocS_ListBookTranslateResp">ListBookTranslateResp</h2>
 <!-- backwards compatibility -->
@@ -4917,6 +5344,37 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|[LoginResp](#schemaloginresp)|false|none|none|
 |msg|string|false|none|none|
+
+<h2 id="tocS_MarkItem">MarkItem</h2>
+<!-- backwards compatibility -->
+<a id="schemamarkitem"></a>
+<a id="schema_MarkItem"></a>
+<a id="tocSmarkitem"></a>
+<a id="tocsmarkitem"></a>
+
+```json
+{
+  "chapter_id": "string",
+  "mark_text": "string",
+  "range": {
+    "end_offset": 0,
+    "start_offset": 0
+  },
+  "style": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|chapter_id|string|false|none|none|
+|mark_text|string|false|none|none|
+|range|object|false|none|none|
+|» end_offset|integer|false|none|none|
+|» start_offset|integer|false|none|none|
+|style|string|false|none|none|
 
 <h2 id="tocS_Pagination">Pagination</h2>
 <!-- backwards compatibility -->
