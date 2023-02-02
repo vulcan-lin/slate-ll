@@ -4953,12 +4953,12 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|chapter_id|string|false|none|none|
-|mark_text|string|false|none|none|
-|range|object|false|none|none|
-|» end_offset|integer|false|none|none|
-|» start_offset|integer|false|none|none|
-|style|string|false|none|none|
+|chapter_id|string|true|none|none|
+|mark_text|string|true|none|none|
+|range|object|true|none|none|
+|» end_offset|integer|true|none|none|
+|» start_offset|integer|true|none|none|
+|style|string|true|none|none|
 
 <h2 id="tocS_BookTranslateReq">BookTranslateReq</h2>
 <!-- backwards compatibility -->
@@ -5369,12 +5369,12 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|chapter_id|string|false|none|none|
-|mark_text|string|false|none|none|
-|range|object|false|none|none|
-|» end_offset|integer|false|none|none|
-|» start_offset|integer|false|none|none|
-|style|string|false|none|none|
+|chapter_id|string|true|none|none|
+|mark_text|string|true|none|none|
+|range|object|true|none|none|
+|» end_offset|integer|true|none|none|
+|» start_offset|integer|true|none|none|
+|style|string|true|none|none|
 
 <h2 id="tocS_Pagination">Pagination</h2>
 <!-- backwards compatibility -->

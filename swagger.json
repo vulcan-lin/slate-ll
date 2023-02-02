@@ -1147,6 +1147,12 @@
         },
         "BookMarkReq": {
             "type": "object",
+            "required": [
+                "chapter_id",
+                "mark_text",
+                "range",
+                "style"
+            ],
             "properties": {
                 "chapter_id": {
                     "type": "string"
@@ -1156,6 +1162,10 @@
                 },
                 "range": {
                     "type": "object",
+                    "required": [
+                        "end_offset",
+                        "start_offset"
+                    ],
                     "properties": {
                         "end_offset": {
                             "type": "integer"
@@ -1419,6 +1429,12 @@
         },
         "MarkItem": {
             "type": "object",
+            "required": [
+                "chapter_id",
+                "mark_text",
+                "range",
+                "style"
+            ],
             "properties": {
                 "chapter_id": {
                     "type": "string"
@@ -1428,6 +1444,10 @@
                 },
                 "range": {
                     "type": "object",
+                    "required": [
+                        "end_offset",
+                        "start_offset"
+                    ],
                     "properties": {
                         "end_offset": {
                             "type": "integer"
