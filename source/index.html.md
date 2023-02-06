@@ -2124,20 +2124,20 @@ func main() {
 This operation does not require authentication
 </aside>
 
-## post__books_{book_id}_marks_{mark_id}
+## delete__books_{book_id}_marks_{mark_id}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id} \
+curl -X DELETE https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id} \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
 ```
 
 ```http
-POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id} HTTP/1.1
+DELETE https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id} HTTP/1.1
 Host: test-api.learnbyuse.app
 Accept: application/json
 Authorization: string
@@ -2153,7 +2153,7 @@ const headers = {
 
 fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}',
 {
-  method: 'POST',
+  method: 'DELETE',
 
   headers: headers
 })
@@ -2174,7 +2174,7 @@ headers = {
   'Authorization' => 'string'
 }
 
-result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}',
+result = RestClient.delete 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}',
   params: {
   }, headers: headers
 
@@ -2189,7 +2189,7 @@ headers = {
   'Authorization': 'string'
 }
 
-r = requests.post('https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}', headers = headers)
+r = requests.delete('https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}', headers = headers)
 
 print(r.json())
 
@@ -2211,7 +2211,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}', array(
+    $response = $client->request('DELETE','https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -2230,7 +2230,7 @@ try {
 ```java
 URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
+con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
 BufferedReader in = new BufferedReader(
     new InputStreamReader(con.getInputStream()));
@@ -2260,7 +2260,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}", data)
+    req, err := http.NewRequest("DELETE", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -2270,11 +2270,11 @@ func main() {
 
 ```
 
-`POST /books/{book_id}/marks/{mark_id}`
+`DELETE /books/{book_id}/marks/{mark_id}`
 
 删除高亮笔记
 
-<h3 id="post__books_{book_id}_marks_{mark_id}-parameters">Parameters</h3>
+<h3 id="delete__books_{book_id}_marks_{mark_id}-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -2292,7 +2292,7 @@ func main() {
 }
 ```
 
-<h3 id="post__books_{book_id}_marks_{mark_id}-responses">Responses</h3>
+<h3 id="delete__books_{book_id}_marks_{mark_id}-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|

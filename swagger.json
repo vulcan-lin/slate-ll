@@ -486,7 +486,7 @@
             }
         },
         "/books/{book_id}/marks/{mark_id}": {
-            "post": {
+            "delete": {
                 "description": "删除高亮笔记",
                 "consumes": [
                     "application/json"
