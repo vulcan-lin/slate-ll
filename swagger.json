@@ -532,7 +532,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Book"
+                    "Translate"
                 ],
                 "parameters": [
                     {
@@ -593,7 +593,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Book"
+                    "Translate"
                 ],
                 "parameters": [
                     {
