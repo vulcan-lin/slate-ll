@@ -1701,6 +1701,606 @@ func main() {
 This operation does not require authentication
 </aside>
 
+## get__books_{book_id}_translate
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
+  params: {
+  'source_lang' => 'string',
+'target_lang' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', params={
+  'source_lang': 'string',  'target_lang': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /books/{book_id}/translate`
+
+查看用户book翻译列表
+
+<h3 id="get__books_{book_id}_translate-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|page_current|query|integer|false|current page index, 从1开始|
+|page_size|query|integer|false|size of page, 默认值: 15|
+|Authorization|header|string|true|Authorization|
+|source_lang|query|string|true|en|
+|target_lang|query|string|true|zh-CN|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "content": "string",
+      "index": 0
+    }
+  ],
+  "msg": "string",
+  "pagination": {
+    "current": 0,
+    "size": 0,
+    "total": 0
+  }
+}
+```
+
+<h3 id="get__books_{book_id}_translate-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ListBookTranslateResp|[ListBookTranslateResp](#schemalistbooktranslateresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__books_{book_id}_translate
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate HTTP/1.1
+Host: test-api.learnbyuse.app
+Content-Type: application/json
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+const inputBody = '{
+  "content": "string",
+  "paragraph_id": 0,
+  "source_lang": "string",
+  "target_lang": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.post('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /books/{book_id}/translate`
+
+书本翻译
+
+> Body parameter
+
+```json
+{
+  "content": "string",
+  "paragraph_id": 0,
+  "source_lang": "string",
+  "target_lang": "string"
+}
+```
+
+<h3 id="post__books_{book_id}_translate-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
+|body|body|[BookTranslateReq](#schemabooktranslatereq)|true|BookTranslateReq|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": "string",
+  "msg": "string"
+}
+```
+
+<h3 id="post__books_{book_id}_translate-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|BookTranslateResp|[BookTranslateResp](#schemabooktranslateresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__cards_{card_id}_learn
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn HTTP/1.1
+Host: test-api.learnbyuse.app
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+const inputBody = '{
+  "proficiency": 0
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /cards/{card_id}/learn`
+
+[闪记卡片]卡片打分
+
+> Body parameter
+
+```json
+{
+  "proficiency": 0
+}
+```
+
+<h3 id="post__cards_{card_id}_learn-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|card_id|path|integer|true|card id|
+|body|body|[RatingCardsRequest](#schemaratingcardsrequest)|true|Rating card request|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "answer": "string",
+    "card_id": 0,
+    "frq": 0,
+    "learn_times": 0,
+    "proficiency": 0,
+    "question": "string",
+    "tips": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="post__cards_{card_id}_learn-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[RatingCardsResp](#schemaratingcardsresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="learnbyuse-api-mark">Mark</h1>
+
 ## get__books_{book_id}_marks
 
 > Code samples
@@ -2297,604 +2897,6 @@ func main() {
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__books_{book_id}_translate
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string \
-  -H 'Accept: application/json' \
-  -H 'Authorization: string'
-
-```
-
-```http
-GET https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string HTTP/1.1
-Host: test-api.learnbyuse.app
-Accept: application/json
-Authorization: string
-
-```
-
-```javascript
-
-const headers = {
-  'Accept':'application/json',
-  'Authorization':'string'
-};
-
-fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'string'
-}
-
-result = RestClient.get 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
-  params: {
-  'source_lang' => 'string',
-'target_lang' => 'string'
-}, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json',
-  'Authorization': 'string'
-}
-
-r = requests.get('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', params={
-  'source_lang': 'string',  'target_lang': 'string'
-}, headers = headers)
-
-print(r.json())
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-    'Authorization' => 'string',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('GET','https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate?source_lang=string&target_lang=string");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"string"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`GET /books/{book_id}/translate`
-
-查看用户book翻译列表
-
-<h3 id="get__books_{book_id}_translate-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|page_current|query|integer|false|current page index, 从1开始|
-|page_size|query|integer|false|size of page, 默认值: 15|
-|Authorization|header|string|true|Authorization|
-|source_lang|query|string|true|en|
-|target_lang|query|string|true|zh-CN|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "code": 0,
-  "data": [
-    {
-      "content": "string",
-      "index": 0
-    }
-  ],
-  "msg": "string",
-  "pagination": {
-    "current": 0,
-    "size": 0,
-    "total": 0
-  }
-}
-```
-
-<h3 id="get__books_{book_id}_translate-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ListBookTranslateResp|[ListBookTranslateResp](#schemalistbooktranslateresp)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__books_{book_id}_translate
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
-  -H 'Authorization: string'
-
-```
-
-```http
-POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate HTTP/1.1
-Host: test-api.learnbyuse.app
-Content-Type: application/json
-Accept: application/json
-Authorization: string
-
-```
-
-```javascript
-const inputBody = '{
-  "content": "string",
-  "paragraph_id": 0,
-  "source_lang": "string",
-  "target_lang": "string"
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json',
-  'Authorization':'string'
-};
-
-fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
-  'Authorization' => 'string'
-}
-
-result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'string'
-}
-
-r = requests.post('https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', headers = headers)
-
-print(r.json())
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Content-Type' => 'application/json',
-    'Accept' => 'application/json',
-    'Authorization' => 'string',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"string"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/translate", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`POST /books/{book_id}/translate`
-
-书本翻译
-
-> Body parameter
-
-```json
-{
-  "content": "string",
-  "paragraph_id": 0,
-  "source_lang": "string",
-  "target_lang": "string"
-}
-```
-
-<h3 id="post__books_{book_id}_translate-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Authorization|header|string|true|Authorization|
-|body|body|[BookTranslateReq](#schemabooktranslatereq)|true|BookTranslateReq|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "code": 0,
-  "data": "string",
-  "msg": "string"
-}
-```
-
-<h3 id="post__books_{book_id}_translate-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|BookTranslateResp|[BookTranslateResp](#schemabooktranslateresp)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__cards_{card_id}_learn
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```http
-POST https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn HTTP/1.1
-Host: test-api.learnbyuse.app
-Content-Type: application/json
-Accept: application/json
-
-```
-
-```javascript
-const inputBody = '{
-  "proficiency": 0
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-};
-
-fetch('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
-}
-
-result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.post('https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', headers = headers)
-
-print(r.json())
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Content-Type' => 'application/json',
-    'Accept' => 'application/json',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```java
-URL obj = new URL("https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/cards/{card_id}/learn", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`POST /cards/{card_id}/learn`
-
-[闪记卡片]卡片打分
-
-> Body parameter
-
-```json
-{
-  "proficiency": 0
-}
-```
-
-<h3 id="post__cards_{card_id}_learn-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|card_id|path|integer|true|card id|
-|body|body|[RatingCardsRequest](#schemaratingcardsrequest)|true|Rating card request|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "code": 0,
-  "data": {
-    "answer": "string",
-    "card_id": 0,
-    "frq": 0,
-    "learn_times": 0,
-    "proficiency": 0,
-    "question": "string",
-    "tips": "string"
-  },
-  "msg": "string"
-}
-```
-
-<h3 id="post__cards_{card_id}_learn-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[RatingCardsResp](#schemaratingcardsresp)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
