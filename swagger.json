@@ -485,6 +485,43 @@
                 }
             }
         },
+        "/books/{book_id}/marks/{mark_id}": {
+            "post": {
+                "description": "删除高亮笔记",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/books/{book_id}/translate": {
             "get": {
                 "description": "查看用户book翻译列表",
@@ -1163,15 +1200,43 @@
                 "range": {
                     "type": "object",
                     "required": [
-                        "end_offset",
-                        "start_offset"
+                        "end_meta",
+                        "start_meta"
                     ],
                     "properties": {
-                        "end_offset": {
-                            "type": "integer"
+                        "end_meta": {
+                            "type": "object",
+                            "required": [
+                                "parent_tag_name"
+                            ],
+                            "properties": {
+                                "parent_index": {
+                                    "type": "integer"
+                                },
+                                "parent_tag_name": {
+                                    "type": "string"
+                                },
+                                "text_offset": {
+                                    "type": "integer"
+                                }
+                            }
                         },
-                        "start_offset": {
-                            "type": "integer"
+                        "start_meta": {
+                            "type": "object",
+                            "required": [
+                                "parent_tag_name"
+                            ],
+                            "properties": {
+                                "parent_index": {
+                                    "type": "integer"
+                                },
+                                "parent_tag_name": {
+                                    "type": "string"
+                                },
+                                "text_offset": {
+                                    "type": "integer"
+                                }
+                            }
                         }
                     }
                 },
@@ -1439,21 +1504,52 @@
                 "chapter_id": {
                     "type": "string"
                 },
+                "mark_id": {
+                    "type": "integer"
+                },
                 "mark_text": {
                     "type": "string"
                 },
                 "range": {
                     "type": "object",
                     "required": [
-                        "end_offset",
-                        "start_offset"
+                        "end_meta",
+                        "start_meta"
                     ],
                     "properties": {
-                        "end_offset": {
-                            "type": "integer"
+                        "end_meta": {
+                            "type": "object",
+                            "required": [
+                                "parent_tag_name"
+                            ],
+                            "properties": {
+                                "parent_index": {
+                                    "type": "integer"
+                                },
+                                "parent_tag_name": {
+                                    "type": "string"
+                                },
+                                "text_offset": {
+                                    "type": "integer"
+                                }
+                            }
                         },
-                        "start_offset": {
-                            "type": "integer"
+                        "start_meta": {
+                            "type": "object",
+                            "required": [
+                                "parent_tag_name"
+                            ],
+                            "properties": {
+                                "parent_index": {
+                                    "type": "integer"
+                                },
+                                "parent_tag_name": {
+                                    "type": "string"
+                                },
+                                "text_offset": {
+                                    "type": "integer"
+                                }
+                            }
                         }
                     }
                 },

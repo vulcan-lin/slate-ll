@@ -1867,10 +1867,19 @@ func main() {
   "data": [
     {
       "chapter_id": "string",
+      "mark_id": 0,
       "mark_text": "string",
       "range": {
-        "end_offset": 0,
-        "start_offset": 0
+        "end_meta": {
+          "parent_index": 0,
+          "parent_tag_name": "string",
+          "text_offset": 0
+        },
+        "start_meta": {
+          "parent_index": 0,
+          "parent_tag_name": "string",
+          "text_offset": 0
+        }
       },
       "style": "string"
     }
@@ -1917,8 +1926,16 @@ const inputBody = '{
   "chapter_id": "string",
   "mark_text": "string",
   "range": {
-    "end_offset": 0,
-    "start_offset": 0
+    "end_meta": {
+      "parent_index": 0,
+      "parent_tag_name": "string",
+      "text_offset": 0
+    },
+    "start_meta": {
+      "parent_index": 0,
+      "parent_tag_name": "string",
+      "text_offset": 0
+    }
   },
   "style": "string"
 }';
@@ -2062,8 +2079,16 @@ func main() {
   "chapter_id": "string",
   "mark_text": "string",
   "range": {
-    "end_offset": 0,
-    "start_offset": 0
+    "end_meta": {
+      "parent_index": 0,
+      "parent_tag_name": "string",
+      "text_offset": 0
+    },
+    "start_meta": {
+      "parent_index": 0,
+      "parent_tag_name": "string",
+      "text_offset": 0
+    }
   },
   "style": "string"
 }
@@ -2089,6 +2114,185 @@ func main() {
 ```
 
 <h3 id="post__books_{book_id}_marks-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__books_{book_id}_marks_{mark_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id} \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+POST https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id} HTTP/1.1
+Host: test-api.learnbyuse.app
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.post 'https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.post('https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://test-api.learnbyuse.app/api/v2/books/{book_id}/marks/{mark_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /books/{book_id}/marks/{mark_id}`
+
+删除高亮笔记
+
+<h3 id="post__books_{book_id}_marks_{mark_id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="post__books_{book_id}_marks_{mark_id}-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -4941,8 +5145,16 @@ This operation does not require authentication
   "chapter_id": "string",
   "mark_text": "string",
   "range": {
-    "end_offset": 0,
-    "start_offset": 0
+    "end_meta": {
+      "parent_index": 0,
+      "parent_tag_name": "string",
+      "text_offset": 0
+    },
+    "start_meta": {
+      "parent_index": 0,
+      "parent_tag_name": "string",
+      "text_offset": 0
+    }
   },
   "style": "string"
 }
@@ -4956,8 +5168,14 @@ This operation does not require authentication
 |chapter_id|string|true|none|none|
 |mark_text|string|true|none|none|
 |range|object|true|none|none|
-|» end_offset|integer|true|none|none|
-|» start_offset|integer|true|none|none|
+|» end_meta|object|true|none|none|
+|»» parent_index|integer|false|none|none|
+|»» parent_tag_name|string|true|none|none|
+|»» text_offset|integer|false|none|none|
+|» start_meta|object|true|none|none|
+|»» parent_index|integer|false|none|none|
+|»» parent_tag_name|string|true|none|none|
+|»» text_offset|integer|false|none|none|
 |style|string|true|none|none|
 
 <h2 id="tocS_BookTranslateReq">BookTranslateReq</h2>
@@ -5179,10 +5397,19 @@ This operation does not require authentication
   "data": [
     {
       "chapter_id": "string",
+      "mark_id": 0,
       "mark_text": "string",
       "range": {
-        "end_offset": 0,
-        "start_offset": 0
+        "end_meta": {
+          "parent_index": 0,
+          "parent_tag_name": "string",
+          "text_offset": 0
+        },
+        "start_meta": {
+          "parent_index": 0,
+          "parent_tag_name": "string",
+          "text_offset": 0
+        }
       },
       "style": "string"
     }
@@ -5355,10 +5582,19 @@ This operation does not require authentication
 ```json
 {
   "chapter_id": "string",
+  "mark_id": 0,
   "mark_text": "string",
   "range": {
-    "end_offset": 0,
-    "start_offset": 0
+    "end_meta": {
+      "parent_index": 0,
+      "parent_tag_name": "string",
+      "text_offset": 0
+    },
+    "start_meta": {
+      "parent_index": 0,
+      "parent_tag_name": "string",
+      "text_offset": 0
+    }
   },
   "style": "string"
 }
@@ -5370,10 +5606,17 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |chapter_id|string|true|none|none|
+|mark_id|integer|false|none|none|
 |mark_text|string|true|none|none|
 |range|object|true|none|none|
-|» end_offset|integer|true|none|none|
-|» start_offset|integer|true|none|none|
+|» end_meta|object|true|none|none|
+|»» parent_index|integer|false|none|none|
+|»» parent_tag_name|string|true|none|none|
+|»» text_offset|integer|false|none|none|
+|» start_meta|object|true|none|none|
+|»» parent_index|integer|false|none|none|
+|»» parent_tag_name|string|true|none|none|
+|»» text_offset|integer|false|none|none|
 |style|string|true|none|none|
 
 <h2 id="tocS_Pagination">Pagination</h2>
