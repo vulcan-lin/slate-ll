@@ -312,10 +312,6 @@
                 "token": {
                     "description": "用户token",
                     "type": "string"
-                },
-                "vocablevel": {
-                    "description": "用户单词水平",
-                    "type": "integer"
                 }
             }
         },

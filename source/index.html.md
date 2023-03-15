@@ -184,8 +184,7 @@ robot list
   "data": {
     "email": "string",
     "nick_name": "string",
-    "token": "string",
-    "vocablevel": 0
+    "token": "string"
   },
   "msg": "string"
 }
@@ -948,8 +947,7 @@ user login
   "data": {
     "email": "string",
     "nick_name": "string",
-    "token": "string",
-    "vocablevel": 0
+    "token": "string"
   },
   "msg": "string"
 }
@@ -1337,8 +1335,7 @@ user list
   "data": {
     "email": "string",
     "nick_name": "string",
-    "token": "string",
-    "vocablevel": 0
+    "token": "string"
   },
   "msg": "string"
 }
@@ -1390,8 +1387,7 @@ This operation does not require authentication
 {
   "email": "string",
   "nick_name": "string",
-  "token": "string",
-  "vocablevel": 0
+  "token": "string"
 }
 
 ```
@@ -1403,7 +1399,6 @@ This operation does not require authentication
 |email|string|true|none|用户email地址|
 |nick_name|string|true|none|用户昵称|
 |token|string|false|none|用户token|
-|vocablevel|integer|false|none|用户单词水平|
 
 <h2 id="tocS_LoginResponse">LoginResponse</h2>
 <!-- backwards compatibility -->
@@ -1418,8 +1413,7 @@ This operation does not require authentication
   "data": {
     "email": "string",
     "nick_name": "string",
-    "token": "string",
-    "vocablevel": 0
+    "token": "string"
   },
   "msg": "string"
 }
