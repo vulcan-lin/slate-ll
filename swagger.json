@@ -7,9 +7,9 @@
         "description": "Welcome to the CyberMem  API! You can use our API to access CyberMem  API endpoints.",
         "title": "CyberMem API",
         "contact": {},
-        "version": "v2"
+        "version": "v1"
     },
-    "host": "test-api.cybermem.app",
+    "host": "api.dev.cybermem.com",
     "basePath": "/api/v1",
     "paths": {
         "/robots": {
