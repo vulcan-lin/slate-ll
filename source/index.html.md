@@ -1,5 +1,5 @@
 ---
-title: github.com/24h-purewater/CyberMem-Server API v2
+title: CyberMem API v2
 language_tabs:
   - shell: Shell
   - http: HTTP
@@ -19,17 +19,17 @@ headingLevel: 2
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="github-com-24h-purewater-cybermem-server-api">github.com/24h-purewater/CyberMem-Server API v2</h1>
+<h1 id="cybermem-api">CyberMem API v2</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-Welcome to the github.com/24h-purewater/CyberMem-Server  API! You can use our API to access github.com/24h-purewater/CyberMem-Server  API endpoints.
+Welcome to the CyberMem  API! You can use our API to access CyberMem  API endpoints.
 
 Base URLs:
 
 * <a href="https://test-api.cybermem.app/api/v1">https://test-api.cybermem.app/api/v1</a>
 
-<h1 id="github-com-24h-purewater-cybermem-server-api-robot">Robot</h1>
+<h1 id="cybermem-api-robot">Robot</h1>
 
 ## get__robots
 
@@ -181,11 +181,38 @@ robot list
 ```json
 {
   "code": 0,
-  "data": {
-    "email": "string",
-    "nick_name": "string",
-    "token": "string"
-  },
+  "data": [
+    {
+      "description": "string",
+      "edges": {
+        "files": [
+          {
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "name": "string",
+            "status": "string"
+          }
+        ],
+        "owner": {
+          "edges": {
+            "robots": [
+              {}
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "prompt": "string",
+      "share": "string"
+    }
+  ],
   "msg": "string"
 }
 ```
@@ -194,7 +221,7 @@ robot list
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[LoginResponse](#schemaloginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|RobotListResponse response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -223,9 +250,9 @@ Accept: application/json
 
 ```javascript
 const inputBody = '{
-  "email": "string",
-  "nick_name": "string",
-  "password": "string"
+  "description": "string",
+  "name": "string",
+  "prompt": "string"
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -359,9 +386,9 @@ create robot
 
 ```json
 {
-  "email": "string",
-  "nick_name": "string",
-  "password": "string"
+  "description": "string",
+  "name": "string",
+  "prompt": "string"
 }
 ```
 
@@ -369,7 +396,7 @@ create robot
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[UserRegisterReq](#schemauserregisterreq)|true|user register|
+|body|body|[RobotCreateReq](#schemarobotcreatereq)|true|user register|
 
 > Example responses
 
@@ -596,9 +623,9 @@ Accept: application/json
 
 ```javascript
 const inputBody = '{
-  "email": "string",
-  "nick_name": "string",
-  "password": "string"
+  "description": "string",
+  "name": "string",
+  "prompt": "string"
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -732,9 +759,9 @@ create robot
 
 ```json
 {
-  "email": "string",
-  "nick_name": "string",
-  "password": "string"
+  "description": "string",
+  "name": "string",
+  "prompt": "string"
 }
 ```
 
@@ -742,7 +769,8 @@ create robot
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[UserRegisterReq](#schemauserregisterreq)|true|user register|
+|robot_id|path|integer|true|robot id|
+|body|body|[RobotCreateReq](#schemarobotcreatereq)|true|update robot|
 
 > Example responses
 
@@ -767,7 +795,7 @@ create robot
 This operation does not require authentication
 </aside>
 
-<h1 id="github-com-24h-purewater-cybermem-server-api-user">User</h1>
+<h1 id="cybermem-api-user">User</h1>
 
 ## post__user_login
 
@@ -944,11 +972,38 @@ user login
 ```json
 {
   "code": 0,
-  "data": {
-    "email": "string",
-    "nick_name": "string",
-    "token": "string"
-  },
+  "data": [
+    {
+      "description": "string",
+      "edges": {
+        "files": [
+          {
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "name": "string",
+            "status": "string"
+          }
+        ],
+        "owner": {
+          "edges": {
+            "robots": [
+              {}
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "prompt": "string",
+      "share": "string"
+    }
+  ],
   "msg": "string"
 }
 ```
@@ -957,7 +1012,7 @@ user login
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[LoginResponse](#schemaloginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -1332,11 +1387,38 @@ user list
 ```json
 {
   "code": 0,
-  "data": {
-    "email": "string",
-    "nick_name": "string",
-    "token": "string"
-  },
+  "data": [
+    {
+      "description": "string",
+      "edges": {
+        "files": [
+          {
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "name": "string",
+            "status": "string"
+          }
+        ],
+        "owner": {
+          "edges": {
+            "robots": [
+              {}
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "prompt": "string",
+      "share": "string"
+    }
+  ],
   "msg": "string"
 }
 ```
@@ -1345,7 +1427,7 @@ user list
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[LoginResponse](#schemaloginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -1400,22 +1482,18 @@ This operation does not require authentication
 |nick_name|string|true|none|用户昵称|
 |token|string|false|none|用户token|
 
-<h2 id="tocS_LoginResponse">LoginResponse</h2>
+<h2 id="tocS_RobotCreateReq">RobotCreateReq</h2>
 <!-- backwards compatibility -->
-<a id="schemaloginresponse"></a>
-<a id="schema_LoginResponse"></a>
-<a id="tocSloginresponse"></a>
-<a id="tocsloginresponse"></a>
+<a id="schemarobotcreatereq"></a>
+<a id="schema_RobotCreateReq"></a>
+<a id="tocSrobotcreatereq"></a>
+<a id="tocsrobotcreatereq"></a>
 
 ```json
 {
-  "code": 0,
-  "data": {
-    "email": "string",
-    "nick_name": "string",
-    "token": "string"
-  },
-  "msg": "string"
+  "description": "string",
+  "name": "string",
+  "prompt": "string"
 }
 
 ```
@@ -1424,9 +1502,9 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|code|integer|false|none|none|
-|data|[LoginResp](#schemaloginresp)|false|none|none|
-|msg|string|false|none|none|
+|description|string|true|none|description|
+|name|string|true|none|name|
+|prompt|string|true|none|prompt|
 
 <h2 id="tocS_UserRegisterReq">UserRegisterReq</h2>
 <!-- backwards compatibility -->
@@ -1452,6 +1530,61 @@ This operation does not require authentication
 |nick_name|string|true|none|用户nick_named|
 |password|string|true|none|用户密码|
 
+<h2 id="tocS_api_service.LoginResponse">api_service.LoginResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemaapi_service.loginresponse"></a>
+<a id="schema_api_service.LoginResponse"></a>
+<a id="tocSapi_service.loginresponse"></a>
+<a id="tocsapi_service.loginresponse"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "description": "string",
+      "edges": {
+        "files": [
+          {
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "name": "string",
+            "status": "string"
+          }
+        ],
+        "owner": {
+          "edges": {
+            "robots": [
+              {}
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "prompt": "string",
+      "share": "string"
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[ent.Robot](#schemaent.robot)]|false|none|none|
+|msg|string|false|none|none|
+
 <h2 id="tocS_commonResponse">commonResponse</h2>
 <!-- backwards compatibility -->
 <a id="schemacommonresponse"></a>
@@ -1475,4 +1608,360 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|any|false|none|none|
 |msg|string|false|none|none|
+
+<h2 id="tocS_ent.File">ent.File</h2>
+<!-- backwards compatibility -->
+<a id="schemaent.file"></a>
+<a id="schema_ent.File"></a>
+<a id="tocSent.file"></a>
+<a id="tocsent.file"></a>
+
+```json
+{
+  "edges": {
+    "owner": {
+      "description": "string",
+      "edges": {
+        "files": [
+          {
+            "edges": {},
+            "id": 0,
+            "name": "string",
+            "status": "string"
+          }
+        ],
+        "owner": {
+          "edges": {
+            "robots": [
+              {}
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "prompt": "string",
+      "share": "string"
+    }
+  },
+  "id": 0,
+  "name": "string",
+  "status": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|edges|[ent.FileEdges](#schemaent.fileedges)|false|none|none|
+|id|integer|false|none|ID of the ent.|
+|name|string|false|none|Name holds the value of the "name" field.|
+|status|string|false|none|Status holds the value of the "status" field.|
+
+<h2 id="tocS_ent.FileEdges">ent.FileEdges</h2>
+<!-- backwards compatibility -->
+<a id="schemaent.fileedges"></a>
+<a id="schema_ent.FileEdges"></a>
+<a id="tocSent.fileedges"></a>
+<a id="tocsent.fileedges"></a>
+
+```json
+{
+  "owner": {
+    "description": "string",
+    "edges": {
+      "files": [
+        {
+          "edges": {
+            "owner": {}
+          },
+          "id": 0,
+          "name": "string",
+          "status": "string"
+        }
+      ],
+      "owner": {
+        "edges": {
+          "robots": [
+            {}
+          ]
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "password": "string"
+      }
+    },
+    "id": 0,
+    "name": "string",
+    "prompt": "string",
+    "share": "string"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|owner|[ent.Robot](#schemaent.robot)|false|none|none|
+
+<h2 id="tocS_ent.Robot">ent.Robot</h2>
+<!-- backwards compatibility -->
+<a id="schemaent.robot"></a>
+<a id="schema_ent.Robot"></a>
+<a id="tocSent.robot"></a>
+<a id="tocsent.robot"></a>
+
+```json
+{
+  "description": "string",
+  "edges": {
+    "files": [
+      {
+        "edges": {
+          "owner": {
+            "description": "string",
+            "edges": {},
+            "id": 0,
+            "name": "string",
+            "prompt": "string",
+            "share": "string"
+          }
+        },
+        "id": 0,
+        "name": "string",
+        "status": "string"
+      }
+    ],
+    "owner": {
+      "edges": {
+        "robots": [
+          {
+            "description": "string",
+            "edges": {},
+            "id": 0,
+            "name": "string",
+            "prompt": "string",
+            "share": "string"
+          }
+        ]
+      },
+      "email": "string",
+      "id": 0,
+      "nickname": "string",
+      "password": "string"
+    }
+  },
+  "id": 0,
+  "name": "string",
+  "prompt": "string",
+  "share": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|description|string|false|none|Description holds the value of the "description" field.|
+|edges|[ent.RobotEdges](#schemaent.robotedges)|false|none|none|
+|id|integer|false|none|ID of the ent.|
+|name|string|false|none|Name holds the value of the "name" field.|
+|prompt|string|false|none|Prompt holds the value of the "prompt" field.|
+|share|string|false|none|Share holds the value of the "share" field.|
+
+<h2 id="tocS_ent.RobotEdges">ent.RobotEdges</h2>
+<!-- backwards compatibility -->
+<a id="schemaent.robotedges"></a>
+<a id="schema_ent.RobotEdges"></a>
+<a id="tocSent.robotedges"></a>
+<a id="tocsent.robotedges"></a>
+
+```json
+{
+  "files": [
+    {
+      "edges": {
+        "owner": {
+          "description": "string",
+          "edges": {
+            "files": [],
+            "owner": {
+              "edges": {
+                "robots": [
+                  {}
+                ]
+              },
+              "email": "string",
+              "id": 0,
+              "nickname": "string",
+              "password": "string"
+            }
+          },
+          "id": 0,
+          "name": "string",
+          "prompt": "string",
+          "share": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "status": "string"
+    }
+  ],
+  "owner": {
+    "edges": {
+      "robots": [
+        {
+          "description": "string",
+          "edges": {
+            "files": [
+              {
+                "edges": {
+                  "owner": {}
+                },
+                "id": 0,
+                "name": "string",
+                "status": "string"
+              }
+            ],
+            "owner": {}
+          },
+          "id": 0,
+          "name": "string",
+          "prompt": "string",
+          "share": "string"
+        }
+      ]
+    },
+    "email": "string",
+    "id": 0,
+    "nickname": "string",
+    "password": "string"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|files|[[ent.File](#schemaent.file)]|false|none|Files holds the value of the files edge.|
+|owner|[ent.User](#schemaent.user)|false|none|none|
+
+<h2 id="tocS_ent.User">ent.User</h2>
+<!-- backwards compatibility -->
+<a id="schemaent.user"></a>
+<a id="schema_ent.User"></a>
+<a id="tocSent.user"></a>
+<a id="tocsent.user"></a>
+
+```json
+{
+  "edges": {
+    "robots": [
+      {
+        "description": "string",
+        "edges": {
+          "files": [
+            {
+              "edges": {
+                "owner": {}
+              },
+              "id": 0,
+              "name": "string",
+              "status": "string"
+            }
+          ],
+          "owner": {
+            "edges": {},
+            "email": "string",
+            "id": 0,
+            "nickname": "string",
+            "password": "string"
+          }
+        },
+        "id": 0,
+        "name": "string",
+        "prompt": "string",
+        "share": "string"
+      }
+    ]
+  },
+  "email": "string",
+  "id": 0,
+  "nickname": "string",
+  "password": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|edges|[ent.UserEdges](#schemaent.useredges)|false|none|none|
+|email|string|false|none|Email holds the value of the "email" field.|
+|id|integer|false|none|ID of the ent.|
+|nickname|string|false|none|Nickname holds the value of the "nickname" field.|
+|password|string|false|none|Password holds the value of the "password" field.|
+
+<h2 id="tocS_ent.UserEdges">ent.UserEdges</h2>
+<!-- backwards compatibility -->
+<a id="schemaent.useredges"></a>
+<a id="schema_ent.UserEdges"></a>
+<a id="tocSent.useredges"></a>
+<a id="tocsent.useredges"></a>
+
+```json
+{
+  "robots": [
+    {
+      "description": "string",
+      "edges": {
+        "files": [
+          {
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "name": "string",
+            "status": "string"
+          }
+        ],
+        "owner": {
+          "edges": {
+            "robots": []
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "prompt": "string",
+      "share": "string"
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|robots|[[ent.Robot](#schemaent.robot)]|false|none|Robots holds the value of the robots edge.|
 
