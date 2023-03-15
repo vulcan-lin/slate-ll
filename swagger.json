@@ -4,8 +4,8 @@
     ],
     "swagger": "2.0",
     "info": {
-        "description": "Welcome to the github.com/24h-purewater/CyberMem-Server  API! You can use our API to access github.com/24h-purewater/CyberMem-Server  API endpoints.",
-        "title": "github.com/24h-purewater/CyberMem-Server API",
+        "description": "Welcome to the CyberMem  API! You can use our API to access CyberMem  API endpoints.",
+        "title": "CyberMem API",
         "contact": {},
         "version": "v2"
     },
@@ -26,9 +26,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Login response",
+                        "description": "RobotListResponse response",
                         "schema": {
-                            "$ref": "#/definitions/LoginResponse"
+                            "$ref": "#/definitions/api_service.LoginResponse"
                         }
                     },
                     "400": {
@@ -57,7 +57,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/UserRegisterReq"
+                            "$ref": "#/definitions/RobotCreateReq"
                         }
                     }
                 ],
@@ -133,13 +133,20 @@
                 ],
                 "parameters": [
                     {
-                        "description": "user register",
+                        "description": "update robot",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/UserRegisterReq"
+                            "$ref": "#/definitions/RobotCreateReq"
                         }
+                    },
+                    {
+                        "type": "integer",
+                        "description": "robot id",
+                        "name": "robot_id",
+                        "in": "path",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -185,7 +192,7 @@
                     "200": {
                         "description": "Login response",
                         "schema": {
-                            "$ref": "#/definitions/LoginResponse"
+                            "$ref": "#/definitions/api_service.LoginResponse"
                         }
                     },
                     "400": {
@@ -263,7 +270,7 @@
                     "200": {
                         "description": "Login response",
                         "schema": {
-                            "$ref": "#/definitions/LoginResponse"
+                            "$ref": "#/definitions/api_service.LoginResponse"
                         }
                     },
                     "400": {
@@ -315,16 +322,24 @@
                 }
             }
         },
-        "LoginResponse": {
+        "RobotCreateReq": {
             "type": "object",
+            "required": [
+                "description",
+                "name",
+                "prompt"
+            ],
             "properties": {
-                "code": {
-                    "type": "integer"
+                "description": {
+                    "description": "description",
+                    "type": "string"
                 },
-                "data": {
-                    "$ref": "#/definitions/LoginResp"
+                "name": {
+                    "description": "name",
+                    "type": "string"
                 },
-                "msg": {
+                "prompt": {
+                    "description": "prompt",
                     "type": "string"
                 }
             }
@@ -351,6 +366,23 @@
                 }
             }
         },
+        "api_service.LoginResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.Robot"
+                    }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
         "commonResponse": {
             "type": "object",
             "properties": {
@@ -360,6 +392,118 @@
                 "data": {},
                 "msg": {
                     "type": "string"
+                }
+            }
+        },
+        "ent.File": {
+            "type": "object",
+            "properties": {
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the FileQuery when eager-loading is set.",
+                    "$ref": "#/definitions/ent.FileEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Name holds the value of the \"name\" field.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Status holds the value of the \"status\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "ent.FileEdges": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "description": "Owner holds the value of the owner edge.",
+                    "$ref": "#/definitions/ent.Robot"
+                }
+            }
+        },
+        "ent.Robot": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "description": "Description holds the value of the \"description\" field.",
+                    "type": "string"
+                },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the RobotQuery when eager-loading is set.",
+                    "$ref": "#/definitions/ent.RobotEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Name holds the value of the \"name\" field.",
+                    "type": "string"
+                },
+                "prompt": {
+                    "description": "Prompt holds the value of the \"prompt\" field.",
+                    "type": "string"
+                },
+                "share": {
+                    "description": "Share holds the value of the \"share\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "ent.RobotEdges": {
+            "type": "object",
+            "properties": {
+                "files": {
+                    "description": "Files holds the value of the files edge.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.File"
+                    }
+                },
+                "owner": {
+                    "description": "Owner holds the value of the owner edge.",
+                    "$ref": "#/definitions/ent.User"
+                }
+            }
+        },
+        "ent.User": {
+            "type": "object",
+            "properties": {
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the UserQuery when eager-loading is set.",
+                    "$ref": "#/definitions/ent.UserEdges"
+                },
+                "email": {
+                    "description": "Email holds the value of the \"email\" field.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "nickname": {
+                    "description": "Nickname holds the value of the \"nickname\" field.",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Password holds the value of the \"password\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "ent.UserEdges": {
+            "type": "object",
+            "properties": {
+                "robots": {
+                    "description": "Robots holds the value of the robots edge.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.Robot"
+                    }
                 }
             }
         }
