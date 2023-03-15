@@ -40,6 +40,43 @@
                 }
             }
         },
+        "/files/{fid}": {
+            "post": {
+                "description": "delete file",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Robot"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "file id",
+                        "name": "fid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/robots": {
             "get": {
                 "description": "robot list",
