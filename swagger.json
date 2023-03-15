@@ -255,17 +255,6 @@
                 "tags": [
                     "User"
                 ],
-                "parameters": [
-                    {
-                        "description": "list users",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/LoginReq"
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Login response",

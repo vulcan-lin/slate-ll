@@ -1219,7 +1219,6 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X GET https://api.dev.cybermem.com/api/v1/users \
-  -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
@@ -1227,25 +1226,20 @@ curl -X GET https://api.dev.cybermem.com/api/v1/users \
 ```http
 GET https://api.dev.cybermem.com/api/v1/users HTTP/1.1
 Host: api.dev.cybermem.com
-Content-Type: application/json
 Accept: application/json
 
 ```
 
 ```javascript
-const inputBody = '{
-  "email": "string",
-  "password": "string"
-}';
+
 const headers = {
-  'Content-Type':'application/json',
   'Accept':'application/json'
 };
 
 fetch('https://api.dev.cybermem.com/api/v1/users',
 {
   method: 'GET',
-  body: inputBody,
+
   headers: headers
 })
 .then(function(res) {
@@ -1261,7 +1255,6 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Content-Type' => 'application/json',
   'Accept' => 'application/json'
 }
 
@@ -1276,7 +1269,6 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
@@ -1292,7 +1284,6 @@ print(r.json())
 require 'vendor/autoload.php';
 
 $headers = array(
-    'Content-Type' => 'application/json',
     'Accept' => 'application/json',
 );
 
@@ -1346,7 +1337,6 @@ import (
 func main() {
 
     headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
         "Accept": []string{"application/json"},
     }
 
@@ -1364,21 +1354,6 @@ func main() {
 `GET /users`
 
 user list
-
-> Body parameter
-
-```json
-{
-  "email": "string",
-  "password": "string"
-}
-```
-
-<h3 id="get__users-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[LoginReq](#schemaloginreq)|true|list users|
 
 > Example responses
 
