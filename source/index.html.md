@@ -31,6 +31,174 @@ Base URLs:
 
 <h1 id="cybermem-api-robot">Robot</h1>
 
+## post__files
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.dev.cybermem.com/api/v1/files \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://api.dev.cybermem.com/api/v1/files HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/files',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://api.dev.cybermem.com/api/v1/files',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://api.dev.cybermem.com/api/v1/files', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/files', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/files");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/files", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /files`
+
+upload file
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    0
+  ],
+  "msg": "string"
+}
+```
+
+<h3 id="post__files-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|UploadFileResp response|[UploadFileResp](#schemauploadfileresp)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 ## get__robots
 
 > Code samples
@@ -251,6 +419,9 @@ Accept: application/json
 ```javascript
 const inputBody = '{
   "description": "string",
+  "files": [
+    0
+  ],
   "name": "string",
   "prompt": "string"
 }';
@@ -387,6 +558,9 @@ create robot
 ```json
 {
   "description": "string",
+  "files": [
+    0
+  ],
   "name": "string",
   "prompt": "string"
 }
@@ -624,6 +798,9 @@ Accept: application/json
 ```javascript
 const inputBody = '{
   "description": "string",
+  "files": [
+    0
+  ],
   "name": "string",
   "prompt": "string"
 }';
@@ -760,6 +937,9 @@ create robot
 ```json
 {
   "description": "string",
+  "files": [
+    0
+  ],
   "name": "string",
   "prompt": "string"
 }
@@ -1467,6 +1647,9 @@ This operation does not require authentication
 ```json
 {
   "description": "string",
+  "files": [
+    0
+  ],
   "name": "string",
   "prompt": "string"
 }
@@ -1478,8 +1661,35 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |description|string|true|none|description|
+|files|[integer]|true|none|files|
 |name|string|true|none|name|
 |prompt|string|true|none|prompt|
+
+<h2 id="tocS_UploadFileResp">UploadFileResp</h2>
+<!-- backwards compatibility -->
+<a id="schemauploadfileresp"></a>
+<a id="schema_UploadFileResp"></a>
+<a id="tocSuploadfileresp"></a>
+<a id="tocsuploadfileresp"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    0
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[integer]|false|none|none|
+|msg|string|false|none|none|
 
 <h2 id="tocS_UserRegisterReq">UserRegisterReq</h2>
 <!-- backwards compatibility -->

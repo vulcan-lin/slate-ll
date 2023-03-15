@@ -12,6 +12,34 @@
     "host": "api.dev.cybermem.com",
     "basePath": "/api/v1",
     "paths": {
+        "/files": {
+            "post": {
+                "description": "upload file",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Robot"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "UploadFileResp response",
+                        "schema": {
+                            "$ref": "#/definitions/UploadFileResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/robots": {
             "get": {
                 "description": "robot list",
@@ -315,6 +343,7 @@
             "type": "object",
             "required": [
                 "description",
+                "files",
                 "name",
                 "prompt"
             ],
@@ -323,12 +352,36 @@
                     "description": "description",
                     "type": "string"
                 },
+                "files": {
+                    "description": "files",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
                 "name": {
                     "description": "name",
                     "type": "string"
                 },
                 "prompt": {
                     "description": "prompt",
+                    "type": "string"
+                }
+            }
+        },
+        "UploadFileResp": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "msg": {
                     "type": "string"
                 }
             }
