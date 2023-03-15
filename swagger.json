@@ -10,7 +10,7 @@
         "version": "v2"
     },
     "host": "test-api.cybermem.app",
-    "basePath": "/api/v2",
+    "basePath": "/api/v1",
     "paths": {
         "/robots": {
             "get": {

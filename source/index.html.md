@@ -27,7 +27,7 @@ Welcome to the github.com/24h-purewater/CyberMem-Server  API! You can use our AP
 
 Base URLs:
 
-* <a href="https://test-api.cybermem.app/api/v2">https://test-api.cybermem.app/api/v2</a>
+* <a href="https://test-api.cybermem.app/api/v1">https://test-api.cybermem.app/api/v1</a>
 
 <h1 id="github-com-24h-purewater-cybermem-server-api-robot">Robot</h1>
 
@@ -37,13 +37,13 @@ Base URLs:
 
 ```shell
 # You can also use wget
-curl -X GET https://test-api.cybermem.app/api/v2/robots \
+curl -X GET https://test-api.cybermem.app/api/v1/robots \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://test-api.cybermem.app/api/v2/robots HTTP/1.1
+GET https://test-api.cybermem.app/api/v1/robots HTTP/1.1
 Host: test-api.cybermem.app
 Accept: application/json
 
@@ -55,7 +55,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.cybermem.app/api/v2/robots',
+fetch('https://test-api.cybermem.app/api/v1/robots',
 {
   method: 'GET',
 
@@ -77,7 +77,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://test-api.cybermem.app/api/v2/robots',
+result = RestClient.get 'https://test-api.cybermem.app/api/v1/robots',
   params: {
   }, headers: headers
 
@@ -91,7 +91,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://test-api.cybermem.app/api/v2/robots', headers = headers)
+r = requests.get('https://test-api.cybermem.app/api/v1/robots', headers = headers)
 
 print(r.json())
 
@@ -112,7 +112,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://test-api.cybermem.app/api/v2/robots', array(
+    $response = $client->request('GET','https://test-api.cybermem.app/api/v1/robots', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -129,7 +129,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.cybermem.app/api/v2/robots");
+URL obj = new URL("https://test-api.cybermem.app/api/v1/robots");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -160,7 +160,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://test-api.cybermem.app/api/v2/robots", data)
+    req, err := http.NewRequest("GET", "https://test-api.cybermem.app/api/v1/robots", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -207,14 +207,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://test-api.cybermem.app/api/v2/robots \
+curl -X POST https://test-api.cybermem.app/api/v1/robots \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://test-api.cybermem.app/api/v2/robots HTTP/1.1
+POST https://test-api.cybermem.app/api/v1/robots HTTP/1.1
 Host: test-api.cybermem.app
 Content-Type: application/json
 Accept: application/json
@@ -232,7 +232,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.cybermem.app/api/v2/robots',
+fetch('https://test-api.cybermem.app/api/v1/robots',
 {
   method: 'POST',
   body: inputBody,
@@ -255,7 +255,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://test-api.cybermem.app/api/v2/robots',
+result = RestClient.post 'https://test-api.cybermem.app/api/v1/robots',
   params: {
   }, headers: headers
 
@@ -270,7 +270,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://test-api.cybermem.app/api/v2/robots', headers = headers)
+r = requests.post('https://test-api.cybermem.app/api/v1/robots', headers = headers)
 
 print(r.json())
 
@@ -292,7 +292,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://test-api.cybermem.app/api/v2/robots', array(
+    $response = $client->request('POST','https://test-api.cybermem.app/api/v1/robots', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -309,7 +309,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.cybermem.app/api/v2/robots");
+URL obj = new URL("https://test-api.cybermem.app/api/v1/robots");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -341,7 +341,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://test-api.cybermem.app/api/v2/robots", data)
+    req, err := http.NewRequest("POST", "https://test-api.cybermem.app/api/v1/robots", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -400,14 +400,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X DELETE https://test-api.cybermem.app/api/v2/robots/{robot_id} \
+curl -X DELETE https://test-api.cybermem.app/api/v1/robots/{robot_id} \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
 ```
 
 ```http
-DELETE https://test-api.cybermem.app/api/v2/robots/{robot_id} HTTP/1.1
+DELETE https://test-api.cybermem.app/api/v1/robots/{robot_id} HTTP/1.1
 Host: test-api.cybermem.app
 Accept: application/json
 Authorization: string
@@ -421,7 +421,7 @@ const headers = {
   'Authorization':'string'
 };
 
-fetch('https://test-api.cybermem.app/api/v2/robots/{robot_id}',
+fetch('https://test-api.cybermem.app/api/v1/robots/{robot_id}',
 {
   method: 'DELETE',
 
@@ -444,7 +444,7 @@ headers = {
   'Authorization' => 'string'
 }
 
-result = RestClient.delete 'https://test-api.cybermem.app/api/v2/robots/{robot_id}',
+result = RestClient.delete 'https://test-api.cybermem.app/api/v1/robots/{robot_id}',
   params: {
   }, headers: headers
 
@@ -459,7 +459,7 @@ headers = {
   'Authorization': 'string'
 }
 
-r = requests.delete('https://test-api.cybermem.app/api/v2/robots/{robot_id}', headers = headers)
+r = requests.delete('https://test-api.cybermem.app/api/v1/robots/{robot_id}', headers = headers)
 
 print(r.json())
 
@@ -481,7 +481,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('DELETE','https://test-api.cybermem.app/api/v2/robots/{robot_id}', array(
+    $response = $client->request('DELETE','https://test-api.cybermem.app/api/v1/robots/{robot_id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -498,7 +498,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.cybermem.app/api/v2/robots/{robot_id}");
+URL obj = new URL("https://test-api.cybermem.app/api/v1/robots/{robot_id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -530,7 +530,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "https://test-api.cybermem.app/api/v2/robots/{robot_id}", data)
+    req, err := http.NewRequest("DELETE", "https://test-api.cybermem.app/api/v1/robots/{robot_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -580,14 +580,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X PATCH https://test-api.cybermem.app/api/v2/robots/{robot_id} \
+curl -X PATCH https://test-api.cybermem.app/api/v1/robots/{robot_id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-PATCH https://test-api.cybermem.app/api/v2/robots/{robot_id} HTTP/1.1
+PATCH https://test-api.cybermem.app/api/v1/robots/{robot_id} HTTP/1.1
 Host: test-api.cybermem.app
 Content-Type: application/json
 Accept: application/json
@@ -605,7 +605,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.cybermem.app/api/v2/robots/{robot_id}',
+fetch('https://test-api.cybermem.app/api/v1/robots/{robot_id}',
 {
   method: 'PATCH',
   body: inputBody,
@@ -628,7 +628,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.patch 'https://test-api.cybermem.app/api/v2/robots/{robot_id}',
+result = RestClient.patch 'https://test-api.cybermem.app/api/v1/robots/{robot_id}',
   params: {
   }, headers: headers
 
@@ -643,7 +643,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.patch('https://test-api.cybermem.app/api/v2/robots/{robot_id}', headers = headers)
+r = requests.patch('https://test-api.cybermem.app/api/v1/robots/{robot_id}', headers = headers)
 
 print(r.json())
 
@@ -665,7 +665,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('PATCH','https://test-api.cybermem.app/api/v2/robots/{robot_id}', array(
+    $response = $client->request('PATCH','https://test-api.cybermem.app/api/v1/robots/{robot_id}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -682,7 +682,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.cybermem.app/api/v2/robots/{robot_id}");
+URL obj = new URL("https://test-api.cybermem.app/api/v1/robots/{robot_id}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("PATCH");
 int responseCode = con.getResponseCode();
@@ -714,7 +714,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("PATCH", "https://test-api.cybermem.app/api/v2/robots/{robot_id}", data)
+    req, err := http.NewRequest("PATCH", "https://test-api.cybermem.app/api/v1/robots/{robot_id}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -775,14 +775,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://test-api.cybermem.app/api/v2/user/login \
+curl -X POST https://test-api.cybermem.app/api/v1/user/login \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://test-api.cybermem.app/api/v2/user/login HTTP/1.1
+POST https://test-api.cybermem.app/api/v1/user/login HTTP/1.1
 Host: test-api.cybermem.app
 Content-Type: application/json
 Accept: application/json
@@ -799,7 +799,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.cybermem.app/api/v2/user/login',
+fetch('https://test-api.cybermem.app/api/v1/user/login',
 {
   method: 'POST',
   body: inputBody,
@@ -822,7 +822,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://test-api.cybermem.app/api/v2/user/login',
+result = RestClient.post 'https://test-api.cybermem.app/api/v1/user/login',
   params: {
   }, headers: headers
 
@@ -837,7 +837,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://test-api.cybermem.app/api/v2/user/login', headers = headers)
+r = requests.post('https://test-api.cybermem.app/api/v1/user/login', headers = headers)
 
 print(r.json())
 
@@ -859,7 +859,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://test-api.cybermem.app/api/v2/user/login', array(
+    $response = $client->request('POST','https://test-api.cybermem.app/api/v1/user/login', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -876,7 +876,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.cybermem.app/api/v2/user/login");
+URL obj = new URL("https://test-api.cybermem.app/api/v1/user/login");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -908,7 +908,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://test-api.cybermem.app/api/v2/user/login", data)
+    req, err := http.NewRequest("POST", "https://test-api.cybermem.app/api/v1/user/login", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -970,14 +970,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://test-api.cybermem.app/api/v2/user/register \
+curl -X POST https://test-api.cybermem.app/api/v1/user/register \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://test-api.cybermem.app/api/v2/user/register HTTP/1.1
+POST https://test-api.cybermem.app/api/v1/user/register HTTP/1.1
 Host: test-api.cybermem.app
 Content-Type: application/json
 Accept: application/json
@@ -995,7 +995,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.cybermem.app/api/v2/user/register',
+fetch('https://test-api.cybermem.app/api/v1/user/register',
 {
   method: 'POST',
   body: inputBody,
@@ -1018,7 +1018,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://test-api.cybermem.app/api/v2/user/register',
+result = RestClient.post 'https://test-api.cybermem.app/api/v1/user/register',
   params: {
   }, headers: headers
 
@@ -1033,7 +1033,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://test-api.cybermem.app/api/v2/user/register', headers = headers)
+r = requests.post('https://test-api.cybermem.app/api/v1/user/register', headers = headers)
 
 print(r.json())
 
@@ -1055,7 +1055,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://test-api.cybermem.app/api/v2/user/register', array(
+    $response = $client->request('POST','https://test-api.cybermem.app/api/v1/user/register', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1072,7 +1072,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.cybermem.app/api/v2/user/register");
+URL obj = new URL("https://test-api.cybermem.app/api/v1/user/register");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -1104,7 +1104,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://test-api.cybermem.app/api/v2/user/register", data)
+    req, err := http.NewRequest("POST", "https://test-api.cybermem.app/api/v1/user/register", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1163,14 +1163,14 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X GET https://test-api.cybermem.app/api/v2/users \
+curl -X GET https://test-api.cybermem.app/api/v1/users \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://test-api.cybermem.app/api/v2/users HTTP/1.1
+GET https://test-api.cybermem.app/api/v1/users HTTP/1.1
 Host: test-api.cybermem.app
 Content-Type: application/json
 Accept: application/json
@@ -1187,7 +1187,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://test-api.cybermem.app/api/v2/users',
+fetch('https://test-api.cybermem.app/api/v1/users',
 {
   method: 'GET',
   body: inputBody,
@@ -1210,7 +1210,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://test-api.cybermem.app/api/v2/users',
+result = RestClient.get 'https://test-api.cybermem.app/api/v1/users',
   params: {
   }, headers: headers
 
@@ -1225,7 +1225,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://test-api.cybermem.app/api/v2/users', headers = headers)
+r = requests.get('https://test-api.cybermem.app/api/v1/users', headers = headers)
 
 print(r.json())
 
@@ -1247,7 +1247,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://test-api.cybermem.app/api/v2/users', array(
+    $response = $client->request('GET','https://test-api.cybermem.app/api/v1/users', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -1264,7 +1264,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://test-api.cybermem.app/api/v2/users");
+URL obj = new URL("https://test-api.cybermem.app/api/v1/users");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -1296,7 +1296,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://test-api.cybermem.app/api/v2/users", data)
+    req, err := http.NewRequest("GET", "https://test-api.cybermem.app/api/v1/users", data)
     req.Header = headers
 
     client := &http.Client{}
