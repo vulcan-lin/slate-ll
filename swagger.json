@@ -143,6 +143,48 @@
             }
         },
         "/robots/{robot_id}": {
+            "get": {
+                "description": "query Robot",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Robot"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "robot id",
+                        "name": "robot_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            },
             "delete": {
                 "description": "Delete Robot",
                 "consumes": [
