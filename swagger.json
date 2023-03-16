@@ -12,6 +12,59 @@
     "host": "api.dev.cybermem.com",
     "basePath": "/api/v1",
     "paths": {
+        "/chats": {
+            "post": {
+                "description": "chat",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Chat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "chat request",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ChatReq"
+                        }
+                    },
+                    {
+                        "type": "integer",
+                        "description": "robot id",
+                        "name": "robot_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/files": {
             "post": {
                 "description": "upload file",
@@ -380,6 +433,14 @@
         }
     },
     "definitions": {
+        "ChatReq": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
         "LoginReq": {
             "type": "object",
             "required": [
