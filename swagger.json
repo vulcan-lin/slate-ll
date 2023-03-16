@@ -14,6 +14,52 @@
     "paths": {
         "/chats": {
             "post": {
+                "description": "new chat",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Chat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "chat new request",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ChatNewReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "chat context id",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/chats/qa": {
+            "post": {
                 "description": "chat",
                 "consumes": [
                     "application/json"
@@ -40,13 +86,6 @@
                         "schema": {
                             "$ref": "#/definitions/ChatReq"
                         }
-                    },
-                    {
-                        "type": "integer",
-                        "description": "robot id",
-                        "name": "robot_id",
-                        "in": "path",
-                        "required": true
                     }
                 ],
                 "responses": {
@@ -54,6 +93,50 @@
                         "description": "common response",
                         "schema": {
                             "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/chats/{context_id}": {
+            "get": {
+                "description": "get chat",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Chat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "chat context id",
+                        "name": "context_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "chat",
+                        "schema": {
+                            "$ref": "#/definitions/api_service.LoginResponse"
                         }
                     },
                     "400": {
@@ -433,9 +516,26 @@
         }
     },
     "definitions": {
+        "ChatNewReq": {
+            "type": "object",
+            "required": [
+                "robot_id"
+            ],
+            "properties": {
+                "robot_id": {
+                    "type": "integer"
+                }
+            }
+        },
         "ChatReq": {
             "type": "object",
+            "required": [
+                "message"
+            ],
             "properties": {
+                "context_id": {
+                    "type": "string"
+                },
                 "message": {
                     "type": "string"
                 }
@@ -555,10 +655,7 @@
                     "type": "integer"
                 },
                 "data": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ent.Robot"
-                    }
+                    "$ref": "#/definitions/ent.Chat"
                 },
                 "msg": {
                     "type": "string"
@@ -574,6 +671,30 @@
                 "data": {},
                 "msg": {
                     "type": "string"
+                }
+            }
+        },
+        "ent.Chat": {
+            "type": "object",
+            "properties": {
+                "context_id": {
+                    "description": "ContextID holds the value of the \"context_id\" field.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "messages": {
+                    "description": "Messages holds the value of the \"messages\" field.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/schema.Message"
+                    }
+                },
+                "robot_id": {
+                    "description": "RobotID holds the value of the \"robot_id\" field.",
+                    "type": "integer"
                 }
             }
         },
@@ -686,6 +807,20 @@
                     "items": {
                         "$ref": "#/definitions/ent.Robot"
                     }
+                }
+            }
+        },
+        "schema.Message": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "created": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
                 }
             }
         }

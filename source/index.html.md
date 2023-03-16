@@ -55,7 +55,7 @@ Authorization: string
 
 ```javascript
 const inputBody = '{
-  "message": "string"
+  "robot_id": 0
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -188,13 +188,13 @@ func main() {
 
 `POST /chats`
 
-chat
+new chat
 
 > Body parameter
 
 ```json
 {
-  "message": "string"
+  "robot_id": 0
 }
 ```
 
@@ -203,8 +203,7 @@ chat
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |Authorization|header|string|true|Authorization|
-|robot_id|path|integer|true|robot id|
-|body|body|[ChatReq](#schemachatreq)|true|chat request|
+|body|body|[ChatNewReq](#schemachatnewreq)|true|chat new request|
 
 > Example responses
 
@@ -222,7 +221,397 @@ chat
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|chat context id|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__chats_qa
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.dev.cybermem.com/api/v1/chats/qa \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+POST https://api.dev.cybermem.com/api/v1/chats/qa HTTP/1.1
+Host: api.dev.cybermem.com
+Content-Type: application/json
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+const inputBody = '{
+  "context_id": "string",
+  "message": "string"
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/chats/qa',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.post 'https://api.dev.cybermem.com/api/v1/chats/qa',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.post('https://api.dev.cybermem.com/api/v1/chats/qa', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/chats/qa', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/chats/qa");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/chats/qa", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /chats/qa`
+
+chat
+
+> Body parameter
+
+```json
+{
+  "context_id": "string",
+  "message": "string"
+}
+```
+
+<h3 id="post__chats_qa-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
+|body|body|[ChatReq](#schemachatreq)|true|chat request|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="post__chats_qa-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## get__chats_{context_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.dev.cybermem.com/api/v1/chats/{context_id} \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+GET https://api.dev.cybermem.com/api/v1/chats/{context_id} HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/chats/{context_id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/chats/{context_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.get('https://api.dev.cybermem.com/api/v1/chats/{context_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/chats/{context_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/chats/{context_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/chats/{context_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /chats/{context_id}`
+
+get chat
+
+<h3 id="get__chats_{context_id}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
+|context_id|path|integer|true|chat context id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "context_id": "string",
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="get__chats_{context_id}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|chat|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -721,38 +1110,18 @@ robot list
 ```json
 {
   "code": 0,
-  "data": [
-    {
-      "description": "string",
-      "edges": {
-        "files": [
-          {
-            "edges": {
-              "owner": {}
-            },
-            "id": 0,
-            "name": "string",
-            "status": "string"
-          }
-        ],
-        "owner": {
-          "edges": {
-            "robots": [
-              {}
-            ]
-          },
-          "email": "string",
-          "id": 0,
-          "nickname": "string",
-          "password": "string"
-        }
-      },
-      "id": 0,
-      "name": "string",
-      "prompt": "string",
-      "share": "string"
-    }
-  ],
+  "data": {
+    "context_id": "string",
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0
+  },
   "msg": "string"
 }
 ```
@@ -1704,38 +2073,18 @@ user login
 ```json
 {
   "code": 0,
-  "data": [
-    {
-      "description": "string",
-      "edges": {
-        "files": [
-          {
-            "edges": {
-              "owner": {}
-            },
-            "id": 0,
-            "name": "string",
-            "status": "string"
-          }
-        ],
-        "owner": {
-          "edges": {
-            "robots": [
-              {}
-            ]
-          },
-          "email": "string",
-          "id": 0,
-          "nickname": "string",
-          "password": "string"
-        }
-      },
-      "id": 0,
-      "name": "string",
-      "prompt": "string",
-      "share": "string"
-    }
-  ],
+  "data": {
+    "context_id": "string",
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0
+  },
   "msg": "string"
 }
 ```
@@ -2094,38 +2443,18 @@ user list
 ```json
 {
   "code": 0,
-  "data": [
-    {
-      "description": "string",
-      "edges": {
-        "files": [
-          {
-            "edges": {
-              "owner": {}
-            },
-            "id": 0,
-            "name": "string",
-            "status": "string"
-          }
-        ],
-        "owner": {
-          "edges": {
-            "robots": [
-              {}
-            ]
-          },
-          "email": "string",
-          "id": 0,
-          "nickname": "string",
-          "password": "string"
-        }
-      },
-      "id": 0,
-      "name": "string",
-      "prompt": "string",
-      "share": "string"
-    }
-  ],
+  "data": {
+    "context_id": "string",
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0
+  },
   "msg": "string"
 }
 ```
@@ -2143,6 +2472,26 @@ This operation does not require authentication
 
 # Schemas
 
+<h2 id="tocS_ChatNewReq">ChatNewReq</h2>
+<!-- backwards compatibility -->
+<a id="schemachatnewreq"></a>
+<a id="schema_ChatNewReq"></a>
+<a id="tocSchatnewreq"></a>
+<a id="tocschatnewreq"></a>
+
+```json
+{
+  "robot_id": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|robot_id|integer|true|none|none|
+
 <h2 id="tocS_ChatReq">ChatReq</h2>
 <!-- backwards compatibility -->
 <a id="schemachatreq"></a>
@@ -2152,6 +2501,7 @@ This operation does not require authentication
 
 ```json
 {
+  "context_id": "string",
   "message": "string"
 }
 
@@ -2161,7 +2511,8 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|message|string|false|none|none|
+|context_id|string|false|none|none|
+|message|string|true|none|none|
 
 <h2 id="tocS_LoginReq">LoginReq</h2>
 <!-- backwards compatibility -->
@@ -2297,38 +2648,18 @@ This operation does not require authentication
 ```json
 {
   "code": 0,
-  "data": [
-    {
-      "description": "string",
-      "edges": {
-        "files": [
-          {
-            "edges": {
-              "owner": {}
-            },
-            "id": 0,
-            "name": "string",
-            "status": "string"
-          }
-        ],
-        "owner": {
-          "edges": {
-            "robots": [
-              {}
-            ]
-          },
-          "email": "string",
-          "id": 0,
-          "nickname": "string",
-          "password": "string"
-        }
-      },
-      "id": 0,
-      "name": "string",
-      "prompt": "string",
-      "share": "string"
-    }
-  ],
+  "data": {
+    "context_id": "string",
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0
+  },
   "msg": "string"
 }
 
@@ -2339,7 +2670,7 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |code|integer|false|none|none|
-|data|[[ent.Robot](#schemaent.robot)]|false|none|none|
+|data|[ent.Chat](#schemaent.chat)|false|none|none|
 |msg|string|false|none|none|
 
 <h2 id="tocS_commonResponse">commonResponse</h2>
@@ -2365,6 +2696,38 @@ This operation does not require authentication
 |code|integer|false|none|none|
 |data|any|false|none|none|
 |msg|string|false|none|none|
+
+<h2 id="tocS_ent.Chat">ent.Chat</h2>
+<!-- backwards compatibility -->
+<a id="schemaent.chat"></a>
+<a id="schema_ent.Chat"></a>
+<a id="tocSent.chat"></a>
+<a id="tocsent.chat"></a>
+
+```json
+{
+  "context_id": "string",
+  "id": 0,
+  "messages": [
+    {
+      "content": "string",
+      "created": "string",
+      "role": "string"
+    }
+  ],
+  "robot_id": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|context_id|string|false|none|ContextID holds the value of the "context_id" field.|
+|id|integer|false|none|ID of the ent.|
+|messages|[[schema.Message](#schemaschema.message)]|false|none|Messages holds the value of the "messages" field.|
+|robot_id|integer|false|none|RobotID holds the value of the "robot_id" field.|
 
 <h2 id="tocS_ent.File">ent.File</h2>
 <!-- backwards compatibility -->
@@ -2721,4 +3084,28 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |robots|[[ent.Robot](#schemaent.robot)]|false|none|Robots holds the value of the robots edge.|
+
+<h2 id="tocS_schema.Message">schema.Message</h2>
+<!-- backwards compatibility -->
+<a id="schemaschema.message"></a>
+<a id="schema_schema.Message"></a>
+<a id="tocSschema.message"></a>
+<a id="tocsschema.message"></a>
+
+```json
+{
+  "content": "string",
+  "created": "string",
+  "role": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|content|string|false|none|none|
+|created|string|false|none|none|
+|role|string|false|none|none|
 
