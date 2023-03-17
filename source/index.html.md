@@ -1213,8 +1213,7 @@ This operation does not require authentication
 # You can also use wget
 curl -X POST https://api.dev.cybermem.com/api/v1/s/chats/stream-qa \
   -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
-  -H 'Authorization: string'
+  -H 'Accept: application/json'
 
 ```
 
@@ -1223,7 +1222,6 @@ POST https://api.dev.cybermem.com/api/v1/s/chats/stream-qa HTTP/1.1
 Host: api.dev.cybermem.com
 Content-Type: application/json
 Accept: application/json
-Authorization: string
 
 ```
 
@@ -1234,8 +1232,7 @@ const inputBody = '{
 }';
 const headers = {
   'Content-Type':'application/json',
-  'Accept':'application/json',
-  'Authorization':'string'
+  'Accept':'application/json'
 };
 
 fetch('https://api.dev.cybermem.com/api/v1/s/chats/stream-qa',
@@ -1258,8 +1255,7 @@ require 'json'
 
 headers = {
   'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
-  'Authorization' => 'string'
+  'Accept' => 'application/json'
 }
 
 result = RestClient.post 'https://api.dev.cybermem.com/api/v1/s/chats/stream-qa',
@@ -1274,8 +1270,7 @@ p JSON.parse(result)
 import requests
 headers = {
   'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'string'
+  'Accept': 'application/json'
 }
 
 r = requests.post('https://api.dev.cybermem.com/api/v1/s/chats/stream-qa', headers = headers)
@@ -1292,7 +1287,6 @@ require 'vendor/autoload.php';
 $headers = array(
     'Content-Type' => 'application/json',
     'Accept' => 'application/json',
-    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -1347,7 +1341,6 @@ func main() {
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
         "Accept": []string{"application/json"},
-        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -1378,7 +1371,6 @@ func main() {
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|Authorization|header|string|true|Authorization|
 |body|body|[ChatReq](#schemachatreq)|true|chat request|
 
 > Example responses
