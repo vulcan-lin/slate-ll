@@ -1975,6 +1975,226 @@ domain user login
 This operation does not require authentication
 </aside>
 
+<h1 id="cybermem-api-doamin">Doamin</h1>
+
+## get__domains_{domain_id}_users
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /domains/{domain_id}/users`
+
+domain user list
+
+<h3 id="get__domains_{domain_id}_users-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|domain_id|path|integer|true|domain id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "created_at": "string",
+      "edges": {
+        "owner": {
+          "created_at": "string",
+          "domain_id": "string",
+          "edges": {
+            "owner": {
+              "created_at": "string",
+              "edges": {
+                "domain": {},
+                "robots": [
+                  {
+                    "created_at": "string",
+                    "description": "string",
+                    "edges": {},
+                    "id": 0,
+                    "name": "string",
+                    "prompt": "string",
+                    "share": "string",
+                    "updated_at": "string"
+                  }
+                ]
+              },
+              "email": "string",
+              "id": 0,
+              "nickname": "string",
+              "password": "string",
+              "updated_at": "string"
+            },
+            "users": [
+              {}
+            ]
+          },
+          "id": 0,
+          "name": "string",
+          "updated_at": "string"
+        }
+      },
+      "email": "string",
+      "id": 0,
+      "nickname": "string",
+      "password": "string",
+      "updated_at": "string"
+    }
+  ],
+  "msg": "string"
+}
+```
+
+<h3 id="get__domains_{domain_id}_users-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|domain list response|[DomainUserListResponse](#schemadomainuserlistresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 <h1 id="cybermem-api-robot">Robot</h1>
 
 ## post__files
@@ -4111,6 +4331,76 @@ This operation does not require authentication
 |---|---|---|---|---|
 |robot_uuid|string|true|none|none|
 
+<h2 id="tocS_DomainUserListResponse">DomainUserListResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemadomainuserlistresponse"></a>
+<a id="schema_DomainUserListResponse"></a>
+<a id="tocSdomainuserlistresponse"></a>
+<a id="tocsdomainuserlistresponse"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "created_at": "string",
+      "edges": {
+        "owner": {
+          "created_at": "string",
+          "domain_id": "string",
+          "edges": {
+            "owner": {
+              "created_at": "string",
+              "edges": {
+                "domain": {},
+                "robots": [
+                  {
+                    "created_at": "string",
+                    "description": "string",
+                    "edges": {},
+                    "id": 0,
+                    "name": "string",
+                    "prompt": "string",
+                    "share": "string",
+                    "updated_at": "string"
+                  }
+                ]
+              },
+              "email": "string",
+              "id": 0,
+              "nickname": "string",
+              "password": "string",
+              "updated_at": "string"
+            },
+            "users": [
+              {}
+            ]
+          },
+          "id": 0,
+          "name": "string",
+          "updated_at": "string"
+        }
+      },
+      "email": "string",
+      "id": 0,
+      "nickname": "string",
+      "password": "string",
+      "updated_at": "string"
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[ent.DomainUser](#schemaent.domainuser)]|false|none|none|
+|msg|string|false|none|none|
+
 <h2 id="tocS_LoginReq">LoginReq</h2>
 <!-- backwards compatibility -->
 <a id="schemaloginreq"></a>
@@ -4142,6 +4432,81 @@ This operation does not require authentication
 
 ```json
 {
+  "domain": {
+    "created_at": "string",
+    "domain_id": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "edges": {
+          "domain": {},
+          "robots": [
+            {
+              "created_at": "string",
+              "description": "string",
+              "edges": {
+                "config": {
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "openai_config": {
+                    "model": "string"
+                  },
+                  "openai_content": {
+                    "index_name": "string",
+                    "index_namespace": "string"
+                  },
+                  "updated_at": "string",
+                  "welcome": [
+                    {}
+                  ]
+                },
+                "files": [
+                  {
+                    "created_at": "string",
+                    "edges": {},
+                    "id": 0,
+                    "name": "string",
+                    "status": "string",
+                    "updated_at": "string"
+                  }
+                ],
+                "owner": {}
+              },
+              "id": 0,
+              "name": "string",
+              "prompt": "string",
+              "share": "string",
+              "updated_at": "string"
+            }
+          ]
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "password": "string",
+        "updated_at": "string"
+      },
+      "users": [
+        {
+          "created_at": "string",
+          "edges": {
+            "owner": {}
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string",
+          "updated_at": "string"
+        }
+      ]
+    },
+    "id": 0,
+    "name": "string",
+    "updated_at": "string"
+  },
   "email": "string",
   "nick_name": "string",
   "token": "string"
@@ -4153,8 +4518,9 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|email|string|true|none|用户email地址|
-|nick_name|string|true|none|用户昵称|
+|domain|[ent.Domain](#schemaent.domain)|false|none|none|
+|email|string|false|none|用户email地址|
+|nick_name|string|false|none|用户昵称|
 |token|string|false|none|用户token|
 
 <h2 id="tocS_RobotConfigReq">RobotConfigReq</h2>
@@ -4381,16 +4747,14 @@ This operation does not require authentication
     "owner": {
       "created_at": "string",
       "edges": {
-        "domain": [
-          {
-            "created_at": "string",
-            "domain_id": "string",
-            "edges": {},
-            "id": 0,
-            "name": "string",
-            "updated_at": "string"
-          }
-        ],
+        "domain": {
+          "created_at": "string",
+          "domain_id": "string",
+          "edges": {},
+          "id": 0,
+          "name": "string",
+          "updated_at": "string"
+        },
         "robots": [
           {
             "created_at": "string",
@@ -4496,31 +4860,29 @@ This operation does not require authentication
   "owner": {
     "created_at": "string",
     "edges": {
-      "domain": [
-        {
-          "created_at": "string",
-          "domain_id": "string",
-          "edges": {
-            "owner": {},
-            "users": [
-              {
-                "created_at": "string",
-                "edges": {
-                  "owner": {}
-                },
-                "email": "string",
-                "id": 0,
-                "nickname": "string",
-                "password": "string",
-                "updated_at": "string"
-              }
-            ]
-          },
-          "id": 0,
-          "name": "string",
-          "updated_at": "string"
-        }
-      ],
+      "domain": {
+        "created_at": "string",
+        "domain_id": "string",
+        "edges": {
+          "owner": {},
+          "users": [
+            {
+              "created_at": "string",
+              "edges": {
+                "owner": {}
+              },
+              "email": "string",
+              "id": 0,
+              "nickname": "string",
+              "password": "string",
+              "updated_at": "string"
+            }
+          ]
+        },
+        "id": 0,
+        "name": "string",
+        "updated_at": "string"
+      },
       "robots": [
         {
           "created_at": "string",
@@ -4586,9 +4948,7 @@ This operation does not require authentication
             "owner": {
               "created_at": "string",
               "edges": {
-                "domain": [
-                  {}
-                ],
+                "domain": {},
                 "robots": [
                   {
                     "created_at": "string",
@@ -4651,9 +5011,7 @@ This operation does not require authentication
         "owner": {
           "created_at": "string",
           "edges": {
-            "domain": [
-              {}
-            ],
+            "domain": {},
             "robots": [
               {
                 "created_at": "string",
@@ -4741,9 +5099,7 @@ This operation does not require authentication
       "owner": {
         "created_at": "string",
         "edges": {
-          "domain": [
-            {}
-          ],
+          "domain": {},
           "robots": [
             {
               "created_at": "string",
@@ -4870,21 +5226,27 @@ This operation does not require authentication
         "owner": {
           "created_at": "string",
           "edges": {
-            "domain": [
-              {
-                "created_at": "string",
-                "domain_id": "string",
-                "edges": {
-                  "owner": {},
-                  "users": [
-                    {}
-                  ]
-                },
-                "id": 0,
-                "name": "string",
-                "updated_at": "string"
-              }
-            ],
+            "domain": {
+              "created_at": "string",
+              "domain_id": "string",
+              "edges": {
+                "owner": {},
+                "users": [
+                  {
+                    "created_at": "string",
+                    "edges": {},
+                    "email": "string",
+                    "id": 0,
+                    "nickname": "string",
+                    "password": "string",
+                    "updated_at": "string"
+                  }
+                ]
+              },
+              "id": 0,
+              "name": "string",
+              "updated_at": "string"
+            },
             "robots": [
               {}
             ]
@@ -4971,29 +5333,29 @@ This operation does not require authentication
       "owner": {
         "created_at": "string",
         "edges": {
-          "domain": [
-            {
-              "created_at": "string",
-              "domain_id": "string",
-              "edges": {
-                "owner": {},
-                "users": [
-                  {
-                    "created_at": "string",
-                    "edges": {},
-                    "email": "string",
-                    "id": 0,
-                    "nickname": "string",
-                    "password": "string",
-                    "updated_at": "string"
-                  }
-                ]
-              },
-              "id": 0,
-              "name": "string",
-              "updated_at": "string"
-            }
-          ],
+          "domain": {
+            "created_at": "string",
+            "domain_id": "string",
+            "edges": {
+              "owner": {},
+              "users": [
+                {
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "email": "string",
+                  "id": 0,
+                  "nickname": "string",
+                  "password": "string",
+                  "updated_at": "string"
+                }
+              ]
+            },
+            "id": 0,
+            "name": "string",
+            "updated_at": "string"
+          },
           "robots": [
             {}
           ]
@@ -5087,31 +5449,29 @@ This operation does not require authentication
     "owner": {
       "created_at": "string",
       "edges": {
-        "domain": [
-          {
-            "created_at": "string",
-            "domain_id": "string",
-            "edges": {
-              "owner": {},
-              "users": [
-                {
-                  "created_at": "string",
-                  "edges": {
-                    "owner": {}
-                  },
-                  "email": "string",
-                  "id": 0,
-                  "nickname": "string",
-                  "password": "string",
-                  "updated_at": "string"
-                }
-              ]
-            },
-            "id": 0,
-            "name": "string",
-            "updated_at": "string"
-          }
-        ],
+        "domain": {
+          "created_at": "string",
+          "domain_id": "string",
+          "edges": {
+            "owner": {},
+            "users": [
+              {
+                "created_at": "string",
+                "edges": {
+                  "owner": {}
+                },
+                "email": "string",
+                "id": 0,
+                "nickname": "string",
+                "password": "string",
+                "updated_at": "string"
+              }
+            ]
+          },
+          "id": 0,
+          "name": "string",
+          "updated_at": "string"
+        },
         "robots": [
           {
             "created_at": "string",
@@ -5203,21 +5563,27 @@ This operation does not require authentication
         "owner": {
           "created_at": "string",
           "edges": {
-            "domain": [
-              {
-                "created_at": "string",
-                "domain_id": "string",
-                "edges": {
-                  "owner": {},
-                  "users": [
-                    {}
-                  ]
-                },
-                "id": 0,
-                "name": "string",
-                "updated_at": "string"
-              }
-            ],
+            "domain": {
+              "created_at": "string",
+              "domain_id": "string",
+              "edges": {
+                "owner": {},
+                "users": [
+                  {
+                    "created_at": "string",
+                    "edges": {},
+                    "email": "string",
+                    "id": 0,
+                    "nickname": "string",
+                    "password": "string",
+                    "updated_at": "string"
+                  }
+                ]
+              },
+              "id": 0,
+              "name": "string",
+              "updated_at": "string"
+            },
             "robots": [
               {}
             ]
@@ -5316,29 +5682,29 @@ This operation does not require authentication
       "owner": {
         "created_at": "string",
         "edges": {
-          "domain": [
-            {
-              "created_at": "string",
-              "domain_id": "string",
-              "edges": {
-                "owner": {},
-                "users": [
-                  {
-                    "created_at": "string",
-                    "edges": {},
-                    "email": "string",
-                    "id": 0,
-                    "nickname": "string",
-                    "password": "string",
-                    "updated_at": "string"
-                  }
-                ]
-              },
-              "id": 0,
-              "name": "string",
-              "updated_at": "string"
-            }
-          ],
+          "domain": {
+            "created_at": "string",
+            "domain_id": "string",
+            "edges": {
+              "owner": {},
+              "users": [
+                {
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "email": "string",
+                  "id": 0,
+                  "nickname": "string",
+                  "password": "string",
+                  "updated_at": "string"
+                }
+              ]
+            },
+            "id": 0,
+            "name": "string",
+            "updated_at": "string"
+          },
           "robots": [
             {}
           ]
@@ -5398,19 +5764,19 @@ This operation does not require authentication
           "owner": {
             "created_at": "string",
             "edges": {
-              "domain": [
-                {
-                  "created_at": "string",
-                  "domain_id": "string",
-                  "edges": {
-                    "owner": {},
-                    "users": []
-                  },
-                  "id": 0,
-                  "name": "string",
-                  "updated_at": "string"
-                }
-              ],
+              "domain": {
+                "created_at": "string",
+                "domain_id": "string",
+                "edges": {
+                  "owner": {},
+                  "users": [
+                    {}
+                  ]
+                },
+                "id": 0,
+                "name": "string",
+                "updated_at": "string"
+              },
               "robots": [
                 {}
               ]
@@ -5478,16 +5844,17 @@ This operation does not require authentication
             "owner": {
               "created_at": "string",
               "edges": {
-                "domain": [
-                  {
-                    "created_at": "string",
-                    "domain_id": "string",
-                    "edges": {},
-                    "id": 0,
-                    "name": "string",
-                    "updated_at": "string"
-                  }
-                ],
+                "domain": {
+                  "created_at": "string",
+                  "domain_id": "string",
+                  "edges": {
+                    "owner": {},
+                    "users": []
+                  },
+                  "id": 0,
+                  "name": "string",
+                  "updated_at": "string"
+                },
                 "robots": [
                   {}
                 ]
@@ -5515,31 +5882,29 @@ This operation does not require authentication
   "owner": {
     "created_at": "string",
     "edges": {
-      "domain": [
-        {
-          "created_at": "string",
-          "domain_id": "string",
-          "edges": {
-            "owner": {},
-            "users": [
-              {
-                "created_at": "string",
-                "edges": {
-                  "owner": {}
-                },
-                "email": "string",
-                "id": 0,
-                "nickname": "string",
-                "password": "string",
-                "updated_at": "string"
-              }
-            ]
-          },
-          "id": 0,
-          "name": "string",
-          "updated_at": "string"
-        }
-      ],
+      "domain": {
+        "created_at": "string",
+        "domain_id": "string",
+        "edges": {
+          "owner": {},
+          "users": [
+            {
+              "created_at": "string",
+              "edges": {
+                "owner": {}
+              },
+              "email": "string",
+              "id": 0,
+              "nickname": "string",
+              "password": "string",
+              "updated_at": "string"
+            }
+          ]
+        },
+        "id": 0,
+        "name": "string",
+        "updated_at": "string"
+      },
       "robots": [
         {
           "created_at": "string",
@@ -5617,39 +5982,37 @@ This operation does not require authentication
 {
   "created_at": "string",
   "edges": {
-    "domain": [
-      {
-        "created_at": "string",
-        "domain_id": "string",
-        "edges": {
-          "owner": {
+    "domain": {
+      "created_at": "string",
+      "domain_id": "string",
+      "edges": {
+        "owner": {
+          "created_at": "string",
+          "edges": {},
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string",
+          "updated_at": "string"
+        },
+        "users": [
+          {
             "created_at": "string",
-            "edges": {},
+            "edges": {
+              "owner": {}
+            },
             "email": "string",
             "id": 0,
             "nickname": "string",
             "password": "string",
             "updated_at": "string"
-          },
-          "users": [
-            {
-              "created_at": "string",
-              "edges": {
-                "owner": {}
-              },
-              "email": "string",
-              "id": 0,
-              "nickname": "string",
-              "password": "string",
-              "updated_at": "string"
-            }
-          ]
-        },
-        "id": 0,
-        "name": "string",
-        "updated_at": "string"
-      }
-    ],
+          }
+        ]
+      },
+      "id": 0,
+      "name": "string",
+      "updated_at": "string"
+    },
     "robots": [
       {
         "created_at": "string",
@@ -5736,67 +6099,81 @@ This operation does not require authentication
 
 ```json
 {
-  "domain": [
-    {
-      "created_at": "string",
-      "domain_id": "string",
-      "edges": {
-        "owner": {
-          "created_at": "string",
-          "edges": {
-            "domain": [],
-            "robots": [
-              {
-                "created_at": "string",
-                "description": "string",
-                "edges": {
-                  "config": {
+  "domain": {
+    "created_at": "string",
+    "domain_id": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "edges": {
+          "domain": {},
+          "robots": [
+            {
+              "created_at": "string",
+              "description": "string",
+              "edges": {
+                "config": {
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "openai_config": {
+                    "model": "string"
+                  },
+                  "openai_content": {
+                    "index_name": "string",
+                    "index_namespace": "string"
+                  },
+                  "updated_at": "string",
+                  "welcome": [
+                    {}
+                  ]
+                },
+                "files": [
+                  {
                     "created_at": "string",
                     "edges": {},
                     "id": 0,
-                    "openai_config": {},
-                    "openai_content": {},
-                    "updated_at": "string",
-                    "welcome": []
-                  },
-                  "files": [
-                    {}
-                  ],
-                  "owner": {}
-                },
-                "id": 0,
-                "name": "string",
-                "prompt": "string",
-                "share": "string",
-                "updated_at": "string"
-              }
-            ]
+                    "name": "string",
+                    "status": "string",
+                    "updated_at": "string"
+                  }
+                ],
+                "owner": {}
+              },
+              "id": 0,
+              "name": "string",
+              "prompt": "string",
+              "share": "string",
+              "updated_at": "string"
+            }
+          ]
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "password": "string",
+        "updated_at": "string"
+      },
+      "users": [
+        {
+          "created_at": "string",
+          "edges": {
+            "owner": {}
           },
           "email": "string",
           "id": 0,
           "nickname": "string",
           "password": "string",
           "updated_at": "string"
-        },
-        "users": [
-          {
-            "created_at": "string",
-            "edges": {
-              "owner": {}
-            },
-            "email": "string",
-            "id": 0,
-            "nickname": "string",
-            "password": "string",
-            "updated_at": "string"
-          }
-        ]
-      },
-      "id": 0,
-      "name": "string",
-      "updated_at": "string"
-    }
-  ],
+        }
+      ]
+    },
+    "id": 0,
+    "name": "string",
+    "updated_at": "string"
+  },
   "robots": [
     {
       "created_at": "string",
@@ -5838,21 +6215,27 @@ This operation does not require authentication
         "owner": {
           "created_at": "string",
           "edges": {
-            "domain": [
-              {
-                "created_at": "string",
-                "domain_id": "string",
-                "edges": {
-                  "owner": {},
-                  "users": [
-                    {}
-                  ]
-                },
-                "id": 0,
-                "name": "string",
-                "updated_at": "string"
-              }
-            ],
+            "domain": {
+              "created_at": "string",
+              "domain_id": "string",
+              "edges": {
+                "owner": {},
+                "users": [
+                  {
+                    "created_at": "string",
+                    "edges": {},
+                    "email": "string",
+                    "id": 0,
+                    "nickname": "string",
+                    "password": "string",
+                    "updated_at": "string"
+                  }
+                ]
+              },
+              "id": 0,
+              "name": "string",
+              "updated_at": "string"
+            },
             "robots": []
           },
           "email": "string",
@@ -5877,7 +6260,7 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|domain|[[ent.Domain](#schemaent.domain)]|false|none|Domain holds the value of the domain edge.|
+|domain|[ent.Domain](#schemaent.domain)|false|none|none|
 |robots|[[ent.Robot](#schemaent.robot)]|false|none|Robots holds the value of the robots edge.|
 
 <h2 id="tocS_schema.Message">schema.Message</h2>

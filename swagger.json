@@ -239,6 +239,41 @@
             }
         },
         "/domains/{domain_id}/users": {
+            "get": {
+                "description": "domain user list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Doamin"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "domain id",
+                        "name": "domain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "domain list response",
+                        "schema": {
+                            "$ref": "#/definitions/DomainUserListResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            },
             "post": {
                 "description": "user register",
                 "consumes": [
@@ -904,6 +939,23 @@
                 }
             }
         },
+        "DomainUserListResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.DomainUser"
+                    }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
         "LoginReq": {
             "type": "object",
             "required": [
@@ -923,11 +975,11 @@
         },
         "LoginResp": {
             "type": "object",
-            "required": [
-                "email",
-                "nick_name"
-            ],
             "properties": {
+                "domain": {
+                    "description": "关联的domain信息",
+                    "$ref": "#/definitions/ent.Domain"
+                },
                 "email": {
                     "description": "用户email地址",
                     "type": "string"
@@ -1351,10 +1403,7 @@
             "properties": {
                 "domain": {
                     "description": "Domain holds the value of the domain edge.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ent.Domain"
-                    }
+                    "$ref": "#/definitions/ent.Domain"
                 },
                 "robots": {
                     "description": "Robots holds the value of the robots edge.",
