@@ -546,6 +546,52 @@
                 }
             }
         },
+        "/robots/{robot_id}/config": {
+            "patch": {
+                "description": "update robot config",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Robot"
+                ],
+                "parameters": [
+                    {
+                        "description": "update robot config",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RobotConfigReq"
+                        }
+                    },
+                    {
+                        "type": "integer",
+                        "description": "robot id",
+                        "name": "robot_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/s/chats": {
             "post": {
                 "description": "无认证 匿名 new chat",
@@ -849,6 +895,23 @@
                 "token": {
                     "description": "用户token",
                     "type": "string"
+                }
+            }
+        },
+        "RobotConfigReq": {
+            "type": "object",
+            "properties": {
+                "openai_config": {
+                    "$ref": "#/definitions/schema.OpenAIConfig"
+                },
+                "openai_content": {
+                    "$ref": "#/definitions/schema.OpenAIContent"
+                },
+                "welcome_messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/schema.WelcomeMessage"
+                    }
                 }
             }
         },
@@ -1187,10 +1250,7 @@
             "properties": {
                 "config": {
                     "description": "Config holds the value of the config edge.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ent.RobotConfig"
-                    }
+                    "$ref": "#/definitions/ent.RobotConfig"
                 },
                 "files": {
                     "description": "Files holds the value of the files edge.",
@@ -1285,7 +1345,7 @@
                 "index_name": {
                     "type": "string"
                 },
-                "index_name_space": {
+                "index_namespace": {
                     "type": "string"
                 }
             }

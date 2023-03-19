@@ -3079,6 +3079,220 @@ create robot
 This operation does not require authentication
 </aside>
 
+## patch__robots_{robot_id}_config
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X PATCH https://api.dev.cybermem.com/api/v1/robots/{robot_id}/config \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```http
+PATCH https://api.dev.cybermem.com/api/v1/robots/{robot_id}/config HTTP/1.1
+Host: api.dev.cybermem.com
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```javascript
+const inputBody = '{
+  "openai_config": {
+    "model": "string"
+  },
+  "openai_content": {
+    "index_name": "string",
+    "index_namespace": "string"
+  },
+  "welcome_messages": [
+    {
+      "ai": "string",
+      "id": 0
+    }
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/robots/{robot_id}/config',
+{
+  method: 'PATCH',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.patch 'https://api.dev.cybermem.com/api/v1/robots/{robot_id}/config',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.patch('https://api.dev.cybermem.com/api/v1/robots/{robot_id}/config', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('PATCH','https://api.dev.cybermem.com/api/v1/robots/{robot_id}/config', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/robots/{robot_id}/config");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PATCH");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("PATCH", "https://api.dev.cybermem.com/api/v1/robots/{robot_id}/config", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`PATCH /robots/{robot_id}/config`
+
+update robot config
+
+> Body parameter
+
+```json
+{
+  "openai_config": {
+    "model": "string"
+  },
+  "openai_content": {
+    "index_name": "string",
+    "index_namespace": "string"
+  },
+  "welcome_messages": [
+    {
+      "ai": "string",
+      "id": 0
+    }
+  ]
+}
+```
+
+<h3 id="patch__robots_{robot_id}_config-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|robot_id|path|integer|true|robot id|
+|body|body|[RobotConfigReq](#schemarobotconfigreq)|true|update robot config|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="patch__robots_{robot_id}_config-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 <h1 id="cybermem-api-user">User</h1>
 
 ## post__user_login
@@ -3767,6 +3981,40 @@ This operation does not require authentication
 |nick_name|string|true|none|用户昵称|
 |token|string|false|none|用户token|
 
+<h2 id="tocS_RobotConfigReq">RobotConfigReq</h2>
+<!-- backwards compatibility -->
+<a id="schemarobotconfigreq"></a>
+<a id="schema_RobotConfigReq"></a>
+<a id="tocSrobotconfigreq"></a>
+<a id="tocsrobotconfigreq"></a>
+
+```json
+{
+  "openai_config": {
+    "model": "string"
+  },
+  "openai_content": {
+    "index_name": "string",
+    "index_namespace": "string"
+  },
+  "welcome_messages": [
+    {
+      "ai": "string",
+      "id": 0
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|openai_config|[schema.OpenAIConfig](#schemaschema.openaiconfig)|false|none|none|
+|openai_content|[schema.OpenAIContent](#schemaschema.openaicontent)|false|none|none|
+|welcome_messages|[[schema.WelcomeMessage](#schemaschema.welcomemessage)]|false|none|none|
+
 <h2 id="tocS_RobotCreateReq">RobotCreateReq</h2>
 <!-- backwards compatibility -->
 <a id="schemarobotcreatereq"></a>
@@ -3970,26 +4218,27 @@ This operation does not require authentication
             "created_at": "string",
             "description": "string",
             "edges": {
-              "config": [
-                {
-                  "created_at": "string",
-                  "edges": {
-                    "owner": {}
-                  },
-                  "id": 0,
-                  "openai_config": {
-                    "model": "string"
-                  },
-                  "openai_content": {
-                    "index_name": "string",
-                    "index_name_space": "string"
-                  },
-                  "updated_at": "string",
-                  "welcome": [
-                    {}
-                  ]
-                }
-              ],
+              "config": {
+                "created_at": "string",
+                "edges": {
+                  "owner": {}
+                },
+                "id": 0,
+                "openai_config": {
+                  "model": "string"
+                },
+                "openai_content": {
+                  "index_name": "string",
+                  "index_namespace": "string"
+                },
+                "updated_at": "string",
+                "welcome": [
+                  {
+                    "ai": "string",
+                    "id": 0
+                  }
+                ]
+              },
               "files": [
                 {
                   "created_at": "string",
@@ -4096,29 +4345,27 @@ This operation does not require authentication
           "created_at": "string",
           "description": "string",
           "edges": {
-            "config": [
-              {
-                "created_at": "string",
-                "edges": {
-                  "owner": {}
-                },
-                "id": 0,
-                "openai_config": {
-                  "model": "string"
-                },
-                "openai_content": {
-                  "index_name": "string",
-                  "index_name_space": "string"
-                },
-                "updated_at": "string",
-                "welcome": [
-                  {
-                    "ai": "string",
-                    "id": 0
-                  }
-                ]
-              }
-            ],
+            "config": {
+              "created_at": "string",
+              "edges": {
+                "owner": {}
+              },
+              "id": 0,
+              "openai_config": {
+                "model": "string"
+              },
+              "openai_content": {
+                "index_name": "string",
+                "index_namespace": "string"
+              },
+              "updated_at": "string",
+              "welcome": [
+                {
+                  "ai": "string",
+                  "id": 0
+                }
+              ]
+            },
             "files": [
               {
                 "created_at": "string",
@@ -4229,9 +4476,15 @@ This operation does not require authentication
                 "created_at": "string",
                 "description": "string",
                 "edges": {
-                  "config": [
-                    {}
-                  ],
+                  "config": {
+                    "created_at": "string",
+                    "edges": {},
+                    "id": 0,
+                    "openai_config": {},
+                    "openai_content": {},
+                    "updated_at": "string",
+                    "welcome": []
+                  },
                   "files": [
                     {}
                   ],
@@ -4312,17 +4565,24 @@ This operation does not require authentication
               "created_at": "string",
               "description": "string",
               "edges": {
-                "config": [
-                  {
-                    "created_at": "string",
-                    "edges": {},
-                    "id": 0,
-                    "openai_config": {},
-                    "openai_content": {},
-                    "updated_at": "string",
-                    "welcome": []
-                  }
-                ],
+                "config": {
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "openai_config": {
+                    "model": "string"
+                  },
+                  "openai_content": {
+                    "index_name": "string",
+                    "index_namespace": "string"
+                  },
+                  "updated_at": "string",
+                  "welcome": [
+                    {}
+                  ]
+                },
                 "files": [
                   {
                     "created_at": "string",
@@ -4392,29 +4652,27 @@ This operation does not require authentication
       "created_at": "string",
       "description": "string",
       "edges": {
-        "config": [
-          {
-            "created_at": "string",
-            "edges": {
-              "owner": {}
-            },
-            "id": 0,
-            "openai_config": {
-              "model": "string"
-            },
-            "openai_content": {
-              "index_name": "string",
-              "index_name_space": "string"
-            },
-            "updated_at": "string",
-            "welcome": [
-              {
-                "ai": "string",
-                "id": 0
-              }
-            ]
-          }
-        ],
+        "config": {
+          "created_at": "string",
+          "edges": {
+            "owner": {}
+          },
+          "id": 0,
+          "openai_config": {
+            "model": "string"
+          },
+          "openai_content": {
+            "index_name": "string",
+            "index_namespace": "string"
+          },
+          "updated_at": "string",
+          "welcome": [
+            {
+              "ai": "string",
+              "id": 0
+            }
+          ]
+        },
         "files": [
           {
             "created_at": "string",
@@ -4492,29 +4750,27 @@ This operation does not require authentication
     "created_at": "string",
     "description": "string",
     "edges": {
-      "config": [
-        {
-          "created_at": "string",
-          "edges": {
-            "owner": {}
-          },
-          "id": 0,
-          "openai_config": {
-            "model": "string"
-          },
-          "openai_content": {
-            "index_name": "string",
-            "index_name_space": "string"
-          },
-          "updated_at": "string",
-          "welcome": [
-            {
-              "ai": "string",
-              "id": 0
-            }
-          ]
-        }
-      ],
+      "config": {
+        "created_at": "string",
+        "edges": {
+          "owner": {}
+        },
+        "id": 0,
+        "openai_config": {
+          "model": "string"
+        },
+        "openai_content": {
+          "index_name": "string",
+          "index_namespace": "string"
+        },
+        "updated_at": "string",
+        "welcome": [
+          {
+            "ai": "string",
+            "id": 0
+          }
+        ]
+      },
       "files": [
         {
           "created_at": "string",
@@ -4591,38 +4847,36 @@ This operation does not require authentication
   "created_at": "string",
   "description": "string",
   "edges": {
-    "config": [
-      {
-        "created_at": "string",
-        "edges": {
-          "owner": {
-            "created_at": "string",
-            "description": "string",
-            "edges": {},
-            "id": 0,
-            "name": "string",
-            "prompt": "string",
-            "share": "string",
-            "updated_at": "string"
-          }
-        },
-        "id": 0,
-        "openai_config": {
-          "model": "string"
-        },
-        "openai_content": {
-          "index_name": "string",
-          "index_name_space": "string"
-        },
-        "updated_at": "string",
-        "welcome": [
-          {
-            "ai": "string",
-            "id": 0
-          }
-        ]
-      }
-    ],
+    "config": {
+      "created_at": "string",
+      "edges": {
+        "owner": {
+          "created_at": "string",
+          "description": "string",
+          "edges": {},
+          "id": 0,
+          "name": "string",
+          "prompt": "string",
+          "share": "string",
+          "updated_at": "string"
+        }
+      },
+      "id": 0,
+      "openai_config": {
+        "model": "string"
+      },
+      "openai_content": {
+        "index_name": "string",
+        "index_namespace": "string"
+      },
+      "updated_at": "string",
+      "welcome": [
+        {
+          "ai": "string",
+          "id": 0
+        }
+      ]
+    },
     "files": [
       {
         "created_at": "string",
@@ -4728,27 +4982,25 @@ This operation does not require authentication
       "created_at": "string",
       "description": "string",
       "edges": {
-        "config": [
-          {
-            "created_at": "string",
-            "edges": {},
-            "id": 0,
-            "openai_config": {
-              "model": "string"
-            },
-            "openai_content": {
-              "index_name": "string",
-              "index_name_space": "string"
-            },
-            "updated_at": "string",
-            "welcome": [
-              {
-                "ai": "string",
-                "id": 0
-              }
-            ]
-          }
-        ],
+        "config": {
+          "created_at": "string",
+          "edges": {},
+          "id": 0,
+          "openai_config": {
+            "model": "string"
+          },
+          "openai_content": {
+            "index_name": "string",
+            "index_namespace": "string"
+          },
+          "updated_at": "string",
+          "welcome": [
+            {
+              "ai": "string",
+              "id": 0
+            }
+          ]
+        },
         "files": [
           {
             "created_at": "string",
@@ -4802,7 +5054,7 @@ This operation does not require authentication
   },
   "openai_content": {
     "index_name": "string",
-    "index_name_space": "string"
+    "index_namespace": "string"
   },
   "updated_at": "string",
   "welcome": [
@@ -4840,29 +5092,27 @@ This operation does not require authentication
     "created_at": "string",
     "description": "string",
     "edges": {
-      "config": [
-        {
-          "created_at": "string",
-          "edges": {
-            "owner": {}
-          },
-          "id": 0,
-          "openai_config": {
-            "model": "string"
-          },
-          "openai_content": {
-            "index_name": "string",
-            "index_name_space": "string"
-          },
-          "updated_at": "string",
-          "welcome": [
-            {
-              "ai": "string",
-              "id": 0
-            }
-          ]
-        }
-      ],
+      "config": {
+        "created_at": "string",
+        "edges": {
+          "owner": {}
+        },
+        "id": 0,
+        "openai_config": {
+          "model": "string"
+        },
+        "openai_content": {
+          "index_name": "string",
+          "index_namespace": "string"
+        },
+        "updated_at": "string",
+        "welcome": [
+          {
+            "ai": "string",
+            "id": 0
+          }
+        ]
+      },
       "files": [
         {
           "created_at": "string",
@@ -4936,74 +5186,75 @@ This operation does not require authentication
 
 ```json
 {
-  "config": [
-    {
-      "created_at": "string",
-      "edges": {
-        "owner": {
-          "created_at": "string",
-          "description": "string",
-          "edges": {
-            "config": [],
-            "files": [
-              {
-                "created_at": "string",
-                "edges": {
-                  "owner": {}
-                },
-                "id": 0,
-                "name": "string",
-                "status": "string",
-                "updated_at": "string"
-              }
-            ],
-            "owner": {
+  "config": {
+    "created_at": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "description": "string",
+        "edges": {
+          "config": {},
+          "files": [
+            {
               "created_at": "string",
               "edges": {
-                "domain": [
-                  {
-                    "created_at": "string",
-                    "edges": {},
-                    "id": 0,
-                    "name": "string",
-                    "updated_at": "string"
-                  }
-                ],
-                "robots": [
-                  {}
-                ]
+                "owner": {}
               },
-              "email": "string",
               "id": 0,
-              "nickname": "string",
-              "password": "string",
+              "name": "string",
+              "status": "string",
               "updated_at": "string"
             }
-          },
-          "id": 0,
-          "name": "string",
-          "prompt": "string",
-          "share": "string",
-          "updated_at": "string"
-        }
-      },
-      "id": 0,
-      "openai_config": {
-        "model": "string"
-      },
-      "openai_content": {
-        "index_name": "string",
-        "index_name_space": "string"
-      },
-      "updated_at": "string",
-      "welcome": [
-        {
-          "ai": "string",
-          "id": 0
-        }
-      ]
-    }
-  ],
+          ],
+          "owner": {
+            "created_at": "string",
+            "edges": {
+              "domain": [
+                {
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {},
+                    "users": []
+                  },
+                  "id": 0,
+                  "name": "string",
+                  "updated_at": "string"
+                }
+              ],
+              "robots": [
+                {}
+              ]
+            },
+            "email": "string",
+            "id": 0,
+            "nickname": "string",
+            "password": "string",
+            "updated_at": "string"
+          }
+        },
+        "id": 0,
+        "name": "string",
+        "prompt": "string",
+        "share": "string",
+        "updated_at": "string"
+      }
+    },
+    "id": 0,
+    "openai_config": {
+      "model": "string"
+    },
+    "openai_content": {
+      "index_name": "string",
+      "index_namespace": "string"
+    },
+    "updated_at": "string",
+    "welcome": [
+      {
+        "ai": "string",
+        "id": 0
+      }
+    ]
+  },
   "files": [
     {
       "created_at": "string",
@@ -5012,29 +5263,27 @@ This operation does not require authentication
           "created_at": "string",
           "description": "string",
           "edges": {
-            "config": [
-              {
-                "created_at": "string",
-                "edges": {
-                  "owner": {}
-                },
-                "id": 0,
-                "openai_config": {
-                  "model": "string"
-                },
-                "openai_content": {
-                  "index_name": "string",
-                  "index_name_space": "string"
-                },
-                "updated_at": "string",
-                "welcome": [
-                  {
-                    "ai": "string",
-                    "id": 0
-                  }
-                ]
-              }
-            ],
+            "config": {
+              "created_at": "string",
+              "edges": {
+                "owner": {}
+              },
+              "id": 0,
+              "openai_config": {
+                "model": "string"
+              },
+              "openai_content": {
+                "index_name": "string",
+                "index_namespace": "string"
+              },
+              "updated_at": "string",
+              "welcome": [
+                {
+                  "ai": "string",
+                  "id": 0
+                }
+              ]
+            },
             "files": [],
             "owner": {
               "created_at": "string",
@@ -5104,29 +5353,27 @@ This operation does not require authentication
           "created_at": "string",
           "description": "string",
           "edges": {
-            "config": [
-              {
-                "created_at": "string",
-                "edges": {
-                  "owner": {}
-                },
-                "id": 0,
-                "openai_config": {
-                  "model": "string"
-                },
-                "openai_content": {
-                  "index_name": "string",
-                  "index_name_space": "string"
-                },
-                "updated_at": "string",
-                "welcome": [
-                  {
-                    "ai": "string",
-                    "id": 0
-                  }
-                ]
-              }
-            ],
+            "config": {
+              "created_at": "string",
+              "edges": {
+                "owner": {}
+              },
+              "id": 0,
+              "openai_config": {
+                "model": "string"
+              },
+              "openai_content": {
+                "index_name": "string",
+                "index_namespace": "string"
+              },
+              "updated_at": "string",
+              "welcome": [
+                {
+                  "ai": "string",
+                  "id": 0
+                }
+              ]
+            },
             "files": [
               {
                 "created_at": "string",
@@ -5163,7 +5410,7 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|config|[[ent.RobotConfig](#schemaent.robotconfig)]|false|none|Config holds the value of the config edge.|
+|config|[ent.RobotConfig](#schemaent.robotconfig)|false|none|none|
 |files|[[ent.File](#schemaent.file)]|false|none|Files holds the value of the files edge.|
 |owner|[ent.User](#schemaent.user)|false|none|none|
 
@@ -5215,29 +5462,27 @@ This operation does not require authentication
         "created_at": "string",
         "description": "string",
         "edges": {
-          "config": [
-            {
-              "created_at": "string",
-              "edges": {
-                "owner": {}
-              },
-              "id": 0,
-              "openai_config": {
-                "model": "string"
-              },
-              "openai_content": {
-                "index_name": "string",
-                "index_name_space": "string"
-              },
-              "updated_at": "string",
-              "welcome": [
-                {
-                  "ai": "string",
-                  "id": 0
-                }
-              ]
-            }
-          ],
+          "config": {
+            "created_at": "string",
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "openai_config": {
+              "model": "string"
+            },
+            "openai_content": {
+              "index_name": "string",
+              "index_namespace": "string"
+            },
+            "updated_at": "string",
+            "welcome": [
+              {
+                "ai": "string",
+                "id": 0
+              }
+            ]
+          },
           "files": [
             {
               "created_at": "string",
@@ -5311,9 +5556,15 @@ This operation does not require authentication
                 "created_at": "string",
                 "description": "string",
                 "edges": {
-                  "config": [
-                    {}
-                  ],
+                  "config": {
+                    "created_at": "string",
+                    "edges": {},
+                    "id": 0,
+                    "openai_config": {},
+                    "openai_content": {},
+                    "updated_at": "string",
+                    "welcome": []
+                  },
                   "files": [
                     {}
                   ],
@@ -5357,29 +5608,27 @@ This operation does not require authentication
       "created_at": "string",
       "description": "string",
       "edges": {
-        "config": [
-          {
-            "created_at": "string",
-            "edges": {
-              "owner": {}
-            },
-            "id": 0,
-            "openai_config": {
-              "model": "string"
-            },
-            "openai_content": {
-              "index_name": "string",
-              "index_name_space": "string"
-            },
-            "updated_at": "string",
-            "welcome": [
-              {
-                "ai": "string",
-                "id": 0
-              }
-            ]
-          }
-        ],
+        "config": {
+          "created_at": "string",
+          "edges": {
+            "owner": {}
+          },
+          "id": 0,
+          "openai_config": {
+            "model": "string"
+          },
+          "openai_content": {
+            "index_name": "string",
+            "index_namespace": "string"
+          },
+          "updated_at": "string",
+          "welcome": [
+            {
+              "ai": "string",
+              "id": 0
+            }
+          ]
+        },
         "files": [
           {
             "created_at": "string",
@@ -5490,7 +5739,7 @@ This operation does not require authentication
 ```json
 {
   "index_name": "string",
-  "index_name_space": "string"
+  "index_namespace": "string"
 }
 
 ```
@@ -5500,7 +5749,7 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |index_name|string|false|none|none|
-|index_name_space|string|false|none|none|
+|index_namespace|string|false|none|none|
 
 <h2 id="tocS_schema.WelcomeMessage">schema.WelcomeMessage</h2>
 <!-- backwards compatibility -->
