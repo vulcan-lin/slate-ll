@@ -194,7 +194,51 @@
                 }
             }
         },
-        "/domain/{domain_id}/users": {
+        "/domains/{domain_id}": {
+            "patch": {
+                "description": "update domain site name",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Domain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "domain id",
+                        "name": "domain_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "new site name",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/domains/{domain_id}/users": {
             "post": {
                 "description": "user register",
                 "consumes": [
@@ -240,7 +284,7 @@
                 }
             }
         },
-        "/domain/{domain_id}/users/login": {
+        "/domains/{domain_id}/users/login": {
             "post": {
                 "description": "domain user login",
                 "consumes": [
@@ -1047,6 +1091,10 @@
             "properties": {
                 "created_at": {
                     "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
+                "domain_id": {
+                    "description": "DomainID holds the value of the \"domain_id\" field.",
                     "type": "string"
                 },
                 "edges": {
