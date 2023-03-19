@@ -352,6 +352,14 @@
               </ul>
           </li>
           <li>
+            <a href="#cybermem-api-doamin" class="toc-h1 toc-link" data-title="Doamin">Doamin</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get_domains-domain_id-_users" class="toc-h2 toc-link" data-title="get_domains{domain_id}_users">get_<em>domains</em>{domain_id}_users</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#cybermem-api-robot" class="toc-h1 toc-link" data-title="Robot">Robot</a>
               <ul class="toc-list-h2">
                   <li>
@@ -405,6 +413,9 @@
                   </li>
                   <li>
                     <a href="#tocS_ChatShareNewReq" class="toc-h2 toc-link" data-title="ChatShareNewReq">ChatShareNewReq</a>
+                  </li>
+                  <li>
+                    <a href="#tocS_DomainUserListResponse" class="toc-h2 toc-link" data-title="DomainUserListResponse">DomainUserListResponse</a>
                   </li>
                   <li>
                     <a href="#tocS_LoginReq" class="toc-h2 toc-link" data-title="LoginReq">LoginReq</a>
@@ -2539,6 +2550,232 @@ curl <span class="nt">-X</span> POST https://api.dev.cybermem.com/api/v1/domains
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
 <td>Login response</td>
 <td><a href="#schemaapi_service.loginresponse">api_service.LoginResponse</a></td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Common response</td>
+<td><a href="#schemacommonresponse">commonResponse</a></td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="cybermem-api-doamin">Doamin</h1>
+<h2 id='get_domains-domain_id-_users'>get_<em>domains</em>{domain_id}_users</h2>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> GET https://api.dev.cybermem.com/api/v1/domains/<span class="o">{</span>domain_id<span class="o">}</span>/users <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.dev.cybermem.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">Accept</span><span class="dl">'</span><span class="p">:</span><span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+
+  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users'</span><span class="p">,</span>
+  <span class="ss">params: </span><span class="p">{</span>
+  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
+
+<span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users'</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+
+<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="err">\</span><span class="nf">GuzzleHttp\Client</span><span class="p">();</span>
+
+<span class="c1">// Define array of request body.</span>
+<span class="nv">$request_body</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="nf">request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span><span class="s1">'https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="nv">$headers</span><span class="p">,</span>
+        <span class="s1">'json'</span> <span class="o">=&gt;</span> <span class="nv">$request_body</span><span class="p">,</span>
+       <span class="p">)</span>
+    <span class="p">);</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="nf">getBody</span><span class="p">()</span><span class="o">-&gt;</span><span class="nf">getContents</span><span class="p">());</span>
+ <span class="p">}</span>
+ <span class="k">catch</span> <span class="p">(</span><span class="err">\</span><span class="nc">GuzzleHttp\Exception\BadResponseException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// handle exception or api errors.</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="nf">getMessage</span><span class="p">());</span>
+ <span class="p">}</span>
+
+ <span class="c1">// ...</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users"</span><span class="o">);</span>
+<span class="nc">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+<span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"GET"</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
+<span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span>
+    <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">con</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+<span class="nc">String</span> <span class="n">inputLine</span><span class="o">;</span>
+<span class="nc">StringBuffer</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuffer</span><span class="o">();</span>
+<span class="k">while</span> <span class="o">((</span><span class="n">inputLine</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">response</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">inputLine</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+       <span class="s">"bytes"</span>
+       <span class="s">"net/http"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="n">headers</span> <span class="o">:=</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span><span class="p">{</span>
+        <span class="s">"Accept"</span><span class="o">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"application/json"</span><span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="n">data</span> <span class="o">:=</span> <span class="n">bytes</span><span class="o">.</span><span class="n">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{</span><span class="n">jsonReq</span><span class="p">})</span>
+    <span class="n">req</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="s">"https://api.dev.cybermem.com/api/v1/domains/{domain_id}/users"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">Header</span> <span class="o">=</span> <span class="n">headers</span>
+
+    <span class="n">client</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span>
+    <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+    <span class="c">// ...</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p><code>GET /domains/{domain_id}/users</code></p>
+
+<p>domain user list</p>
+
+<h3 id="get__domains_{domain_id}_users-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>domain_id</td>
+<td>path</td>
+<td>integer</td>
+<td>true</td>
+<td>domain id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<h3 id="get__domains_{domain_id}_users-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>domain list response</td>
+<td><a href="#schemadomainuserlistresponse">DomainUserListResponse</a></td>
 </tr>
 <tr>
 <td>400</td>
@@ -4768,6 +5005,99 @@ This operation does not require authentication
 </tr>
 </tbody></table>
 
+<h2 id="tocS_DomainUserListResponse">DomainUserListResponse</h2>
+
+<!-- backwards compatibility -->
+
+<p><a id="schemadomainuserlistresponse"></a>
+<a id="schema_DomainUserListResponse"></a>
+<a id="tocSdomainuserlistresponse"></a>
+<a id="tocsdomainuserlistresponse"></a></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='properties-4'>Properties</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>data</td>
+<td>[<a href="#schemaent.domainuser">ent.DomainUser</a>]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody></table>
+
 <h2 id="tocS_LoginReq">LoginReq</h2>
 
 <!-- backwards compatibility -->
@@ -4781,7 +5111,7 @@ This operation does not require authentication
   </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-4'>Properties</h3>
+</span></code></pre></div><h3 id='properties-5'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4816,12 +5146,87 @@ This operation does not require authentication
 <a id="tocSloginresp"></a>
 <a id="tocsloginresp"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+          </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"openai_config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"openai_content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"index_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"index_namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"welcome"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"nick_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-5'>Properties</h3>
+</span></code></pre></div><h3 id='properties-6'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4832,16 +5237,23 @@ This operation does not require authentication
 </tr>
 </thead><tbody>
 <tr>
+<td>domain</td>
+<td><a href="#schemaent.domain">ent.Domain</a></td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
 <td>email</td>
 <td>string</td>
-<td>true</td>
+<td>false</td>
 <td>none</td>
 <td>用户email地址</td>
 </tr>
 <tr>
 <td>nick_name</td>
 <td>string</td>
-<td>true</td>
+<td>false</td>
 <td>none</td>
 <td>用户昵称</td>
 </tr>
@@ -4878,7 +5290,7 @@ This operation does not require authentication
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-6'>Properties</h3>
+</span></code></pre></div><h3 id='properties-7'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4928,7 +5340,7 @@ This operation does not require authentication
   </span><span class="nl">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-7'>Properties</h3>
+</span></code></pre></div><h3 id='properties-8'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4984,7 +5396,7 @@ This operation does not require authentication
   </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-8'>Properties</h3>
+</span></code></pre></div><h3 id='properties-9'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5031,7 +5443,7 @@ This operation does not require authentication
   </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-9'>Properties</h3>
+</span></code></pre></div><h3 id='properties-10'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5091,7 +5503,7 @@ This operation does not require authentication
   </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-10'>Properties</h3>
+</span></code></pre></div><h3 id='properties-11'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5138,7 +5550,7 @@ This operation does not require authentication
   </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-11'>Properties</h3>
+</span></code></pre></div><h3 id='properties-12'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5194,7 +5606,7 @@ This operation does not require authentication
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-12'>Properties</h3>
+</span></code></pre></div><h3 id='properties-13'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5263,16 +5675,14 @@ This operation does not require authentication
     </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5353,7 +5763,7 @@ This operation does not require authentication
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-13'>Properties</h3>
+</span></code></pre></div><h3 id='properties-14'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5419,31 +5829,29 @@ This operation does not require authentication
   </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+          </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5509,9 +5917,7 @@ This operation does not require authentication
             </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
               </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                  </span><span class="p">{}</span><span class="w">
-                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
                 </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                   </span><span class="p">{</span><span class="w">
                     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5547,7 +5953,7 @@ This operation does not require authentication
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-14'>Properties</h3>
+</span></code></pre></div><h3 id='properties-15'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5591,9 +5997,7 @@ This operation does not require authentication
         </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
             </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
               </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5651,7 +6055,7 @@ This operation does not require authentication
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-15'>Properties</h3>
+</span></code></pre></div><h3 id='properties-16'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5728,9 +6132,7 @@ This operation does not require authentication
       </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{}</span><span class="w">
-          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
           </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5800,7 +6202,7 @@ This operation does not require authentication
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-16'>Properties</h3>
+</span></code></pre></div><h3 id='properties-17'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -5868,21 +6270,27 @@ This operation does not require authentication
         </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                  </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{}</span><span class="w">
-                  </span><span class="p">]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
               </span><span class="p">{}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -5907,7 +6315,7 @@ This operation does not require authentication
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-17'>Properties</h3>
+</span></code></pre></div><h3 id='properties-18'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -6010,29 +6418,29 @@ This operation does not require authentication
       </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                  </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-                  </span><span class="p">}</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
           </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{}</span><span class="w">
           </span><span class="p">]</span><span class="w">
@@ -6052,7 +6460,7 @@ This operation does not require authentication
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-18'>Properties</h3>
+</span></code></pre></div><h3 id='properties-19'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -6137,31 +6545,29 @@ This operation does not require authentication
     </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-              </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">]</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6189,7 +6595,7 @@ This operation does not require authentication
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-19'>Properties</h3>
+</span></code></pre></div><h3 id='properties-20'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -6306,21 +6712,27 @@ This operation does not require authentication
         </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                  </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{}</span><span class="w">
-                  </span><span class="p">]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
               </span><span class="p">{}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -6356,7 +6768,7 @@ This operation does not require authentication
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-20'>Properties</h3>
+</span></code></pre></div><h3 id='properties-21'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -6466,29 +6878,29 @@ This operation does not require authentication
       </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                  </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-                  </span><span class="p">}</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
           </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{}</span><span class="w">
           </span><span class="p">]</span><span class="w">
@@ -6508,7 +6920,7 @@ This operation does not require authentication
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-21'>Properties</h3>
+</span></code></pre></div><h3 id='properties-22'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -6559,19 +6971,19 @@ This operation does not require authentication
           </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                    </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">],</span><span class="w">
+              </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                  </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
               </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{}</span><span class="w">
               </span><span class="p">]</span><span class="w">
@@ -6639,16 +7051,17 @@ This operation does not require authentication
             </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
               </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                  </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-                  </span><span class="p">}</span><span class="w">
-                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                    </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
                 </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                   </span><span class="p">{}</span><span class="w">
                 </span><span class="p">]</span><span class="w">
@@ -6676,31 +7089,29 @@ This operation does not require authentication
   </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-            </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+          </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6757,7 +7168,7 @@ This operation does not require authentication
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-22'>Properties</h3>
+</span></code></pre></div><h3 id='properties-23'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -6801,39 +7212,37 @@ This operation does not require authentication
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
             </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+            </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -6897,7 +7306,7 @@ This operation does not require authentication
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-23'>Properties</h3>
+</span></code></pre></div><h3 id='properties-24'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -6967,67 +7376,81 @@ This operation does not require authentication
 <a id="tocSent.useredges"></a>
 <a id="tocsent.useredges"></a></p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+          </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"openai_config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"openai_content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"index_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"index_namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"welcome"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
                     </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
                     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"openai_config"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                    </span><span class="nl">"openai_content"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"welcome"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="nl">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{}</span><span class="w">
-                  </span><span class="p">],</span><span class="w">
-                  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -7069,21 +7492,27 @@ This operation does not require authentication
         </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-                  </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{}</span><span class="w">
-                  </span><span class="p">]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nl">"robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -7102,7 +7531,7 @@ This operation does not require authentication
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-24'>Properties</h3>
+</span></code></pre></div><h3 id='properties-25'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -7114,10 +7543,10 @@ This operation does not require authentication
 </thead><tbody>
 <tr>
 <td>domain</td>
-<td>[<a href="#schemaent.domain">ent.Domain</a>]</td>
+<td><a href="#schemaent.domain">ent.Domain</a></td>
 <td>false</td>
 <td>none</td>
-<td>Domain holds the value of the domain edge.</td>
+<td>none</td>
 </tr>
 <tr>
 <td>robots</td>
@@ -7142,7 +7571,7 @@ This operation does not require authentication
   </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-25'>Properties</h3>
+</span></code></pre></div><h3 id='properties-26'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -7187,7 +7616,7 @@ This operation does not require authentication
   </span><span class="nl">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-26'>Properties</h3>
+</span></code></pre></div><h3 id='properties-27'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -7219,7 +7648,7 @@ This operation does not require authentication
   </span><span class="nl">"index_namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-27'>Properties</h3>
+</span></code></pre></div><h3 id='properties-28'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -7258,7 +7687,7 @@ This operation does not require authentication
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h3 id='properties-28'>Properties</h3>
+</span></code></pre></div><h3 id='properties-29'>Properties</h3>
 <table><thead>
 <tr>
 <th>Name</th>
