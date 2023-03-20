@@ -194,6 +194,177 @@
                 }
             }
         },
+        "/domains/{domain_id}": {
+            "patch": {
+                "description": "update domain site name",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Domain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "domain id",
+                        "name": "domain_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "new site name",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/domains/{domain_id}/users": {
+            "get": {
+                "description": "domain user list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Domain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "domain id",
+                        "name": "domain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "domain list response",
+                        "schema": {
+                            "$ref": "#/definitions/DomainUserListResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "user register",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Domain"
+                ],
+                "parameters": [
+                    {
+                        "description": "domain user register",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserRegisterReq"
+                        }
+                    },
+                    {
+                        "type": "integer",
+                        "description": "domain id",
+                        "name": "domain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/domains/{domain_id}/users/login": {
+            "post": {
+                "description": "domain user login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Domain"
+                ],
+                "parameters": [
+                    {
+                        "description": "login with email and password",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LoginReq"
+                        }
+                    },
+                    {
+                        "type": "integer",
+                        "description": "domain id",
+                        "name": "domain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login response",
+                        "schema": {
+                            "$ref": "#/definitions/api_service.LoginResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/files": {
             "post": {
                 "description": "upload file",
@@ -428,6 +599,52 @@
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/RobotCreateReq"
+                        }
+                    },
+                    {
+                        "type": "integer",
+                        "description": "robot id",
+                        "name": "robot_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/robots/{robot_id}/config": {
+            "patch": {
+                "description": "update robot config",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Robot"
+                ],
+                "parameters": [
+                    {
+                        "description": "update robot config",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RobotConfigReq"
                         }
                     },
                     {
@@ -722,6 +939,23 @@
                 }
             }
         },
+        "DomainUserListResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.DomainUser"
+                    }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
         "LoginReq": {
             "type": "object",
             "required": [
@@ -741,11 +975,11 @@
         },
         "LoginResp": {
             "type": "object",
-            "required": [
-                "email",
-                "nick_name"
-            ],
             "properties": {
+                "domain": {
+                    "description": "关联的domain信息",
+                    "$ref": "#/definitions/ent.Domain"
+                },
                 "email": {
                     "description": "用户email地址",
                     "type": "string"
@@ -757,6 +991,23 @@
                 "token": {
                     "description": "用户token",
                     "type": "string"
+                }
+            }
+        },
+        "RobotConfigReq": {
+            "type": "object",
+            "properties": {
+                "openai_config": {
+                    "$ref": "#/definitions/schema.OpenAIConfig"
+                },
+                "openai_content": {
+                    "$ref": "#/definitions/schema.OpenAIContent"
+                },
+                "welcome_messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/schema.WelcomeMessage"
+                    }
                 }
             }
         },
@@ -862,6 +1113,10 @@
                     "description": "ContextID holds the value of the \"context_id\" field.",
                     "type": "string"
                 },
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
                 "id": {
                     "description": "ID of the ent.",
                     "type": "integer"
@@ -876,12 +1131,107 @@
                 "robot_id": {
                     "description": "RobotID holds the value of the \"robot_id\" field.",
                     "type": "integer"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "ent.Domain": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
+                "domain_id": {
+                    "description": "DomainID holds the value of the \"domain_id\" field.",
+                    "type": "string"
+                },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the DomainQuery when eager-loading is set.",
+                    "$ref": "#/definitions/ent.DomainEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Name holds the value of the \"name\" field.",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "ent.DomainEdges": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "description": "Owner holds the value of the owner edge.",
+                    "$ref": "#/definitions/ent.User"
+                },
+                "users": {
+                    "description": "Users holds the value of the users edge.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.DomainUser"
+                    }
+                }
+            }
+        },
+        "ent.DomainUser": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the DomainUserQuery when eager-loading is set.",
+                    "$ref": "#/definitions/ent.DomainUserEdges"
+                },
+                "email": {
+                    "description": "Email holds the value of the \"email\" field.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "nickname": {
+                    "description": "Nickname holds the value of the \"nickname\" field.",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Password holds the value of the \"password\" field.",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "ent.DomainUserEdges": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "description": "Owner holds the value of the owner edge.",
+                    "$ref": "#/definitions/ent.Domain"
                 }
             }
         },
         "ent.File": {
             "type": "object",
             "properties": {
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
                 "edges": {
                     "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the FileQuery when eager-loading is set.",
                     "$ref": "#/definitions/ent.FileEdges"
@@ -896,6 +1246,10 @@
                 },
                 "status": {
                     "description": "Status holds the value of the \"status\" field.",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
                     "type": "string"
                 }
             }
@@ -912,6 +1266,10 @@
         "ent.Robot": {
             "type": "object",
             "properties": {
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
                 "description": {
                     "description": "Description holds the value of the \"description\" field.",
                     "type": "string"
@@ -935,12 +1293,65 @@
                 "share": {
                     "description": "Share holds the value of the \"share\" field.",
                     "type": "string"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "ent.RobotConfig": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the RobotConfigQuery when eager-loading is set.",
+                    "$ref": "#/definitions/ent.RobotConfigEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "openai_config": {
+                    "description": "OpenaiConfig holds the value of the \"openai_config\" field.",
+                    "$ref": "#/definitions/schema.OpenAIConfig"
+                },
+                "openai_content": {
+                    "description": "OpenaiContent holds the value of the \"openai_content\" field.",
+                    "$ref": "#/definitions/schema.OpenAIContent"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                },
+                "welcome": {
+                    "description": "Welcome holds the value of the \"welcome\" field.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/schema.WelcomeMessage"
+                    }
+                }
+            }
+        },
+        "ent.RobotConfigEdges": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "description": "Owner holds the value of the owner edge.",
+                    "$ref": "#/definitions/ent.Robot"
                 }
             }
         },
         "ent.RobotEdges": {
             "type": "object",
             "properties": {
+                "config": {
+                    "description": "Config holds the value of the config edge.",
+                    "$ref": "#/definitions/ent.RobotConfig"
+                },
                 "files": {
                     "description": "Files holds the value of the files edge.",
                     "type": "array",
@@ -957,6 +1368,10 @@
         "ent.User": {
             "type": "object",
             "properties": {
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
                 "edges": {
                     "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the UserQuery when eager-loading is set.",
                     "$ref": "#/definitions/ent.UserEdges"
@@ -976,12 +1391,20 @@
                 "password": {
                     "description": "Password holds the value of the \"password\" field.",
                     "type": "string"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
                 }
             }
         },
         "ent.UserEdges": {
             "type": "object",
             "properties": {
+                "domain": {
+                    "description": "Domain holds the value of the domain edge.",
+                    "$ref": "#/definitions/ent.Domain"
+                },
                 "robots": {
                     "description": "Robots holds the value of the robots edge.",
                     "type": "array",
@@ -1002,6 +1425,36 @@
                 },
                 "role": {
                     "type": "string"
+                }
+            }
+        },
+        "schema.OpenAIConfig": {
+            "type": "object",
+            "properties": {
+                "model": {
+                    "type": "string"
+                }
+            }
+        },
+        "schema.OpenAIContent": {
+            "type": "object",
+            "properties": {
+                "index_name": {
+                    "type": "string"
+                },
+                "index_namespace": {
+                    "type": "string"
+                }
+            }
+        },
+        "schema.WelcomeMessage": {
+            "type": "object",
+            "properties": {
+                "ai": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 }
             }
         }
