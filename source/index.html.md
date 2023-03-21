@@ -4440,19 +4440,19 @@ user list
 This operation does not require authentication
 </aside>
 
-## get__users_{user_id}
+## get__users_detail
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://api.dev.cybermem.com/api/v1/users/{user_id} \
+curl -X GET https://api.dev.cybermem.com/api/v1/users/detail \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://api.dev.cybermem.com/api/v1/users/{user_id} HTTP/1.1
+GET https://api.dev.cybermem.com/api/v1/users/detail HTTP/1.1
 Host: api.dev.cybermem.com
 Accept: application/json
 
@@ -4464,7 +4464,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.dev.cybermem.com/api/v1/users/{user_id}',
+fetch('https://api.dev.cybermem.com/api/v1/users/detail',
 {
   method: 'GET',
 
@@ -4486,7 +4486,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://api.dev.cybermem.com/api/v1/users/{user_id}',
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/users/detail',
   params: {
   }, headers: headers
 
@@ -4500,7 +4500,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://api.dev.cybermem.com/api/v1/users/{user_id}', headers = headers)
+r = requests.get('https://api.dev.cybermem.com/api/v1/users/detail', headers = headers)
 
 print(r.json())
 
@@ -4521,7 +4521,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/users/{user_id}', array(
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/users/detail', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -4538,7 +4538,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://api.dev.cybermem.com/api/v1/users/{user_id}");
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/users/detail");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -4569,7 +4569,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/users/{user_id}", data)
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/users/detail", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -4579,9 +4579,9 @@ func main() {
 
 ```
 
-`GET /users/{user_id}`
+`GET /users/detail`
 
-get info
+get user detail
 
 > Example responses
 
@@ -4590,29 +4590,16 @@ get info
 ```json
 {
   "code": 0,
-  "data": {
-    "context_id": "string",
-    "created_at": "string",
-    "id": 0,
-    "messages": [
-      {
-        "content": "string",
-        "created": "string",
-        "role": "string"
-      }
-    ],
-    "robot_id": 0,
-    "updated_at": "string"
-  },
+  "data": null,
   "msg": "string"
 }
 ```
 
-<h3 id="get__users_{user_id}-responses">Responses</h3>
+<h3 id="get__users_detail-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Get user detail response|[commonResponse](#schemacommonresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">

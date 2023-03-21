@@ -936,9 +936,9 @@
                 }
             }
         },
-        "/users/{user_id}": {
+        "/users/detail": {
             "get": {
-                "description": "get info",
+                "description": "get user detail",
                 "consumes": [
                     "application/json"
                 ],
@@ -950,9 +950,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Login response",
+                        "description": "Get user detail response",
                         "schema": {
-                            "$ref": "#/definitions/api_service.LoginResponse"
+                            "$ref": "#/definitions/commonResponse"
                         }
                     },
                     "400": {
