@@ -1775,8 +1775,11 @@ domain user list
       "email": "string",
       "id": 0,
       "nickname": "string",
+      "openid": "string",
       "password": "string",
-      "updated_at": "string"
+      "unionid": "string",
+      "updated_at": "string",
+      "user_type": "string"
     }
   ],
   "msg": "string"
@@ -4265,6 +4268,362 @@ user list
 This operation does not require authentication
 </aside>
 
+## get__users_{user_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.dev.cybermem.com/api/v1/users/{user_id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://api.dev.cybermem.com/api/v1/users/{user_id} HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/users/{user_id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/users/{user_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://api.dev.cybermem.com/api/v1/users/{user_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/users/{user_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/users/{user_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/users/{user_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /users/{user_id}`
+
+get info
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "context_id": "string",
+    "created_at": "string",
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0,
+    "updated_at": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="get__users_{user_id}-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="cybermem-api-wechat">WeChat</h1>
+
+## post__wx_{domain_id}_auth
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/auth?code=string \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/auth?code=string HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/auth?code=string',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/auth',
+  params: {
+  'code' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/auth', params={
+  'code': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/wx/{domain_id}/auth', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/auth?code=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/wx/{domain_id}/auth", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /wx/{domain_id}/auth`
+
+get openid
+
+<h3 id="post__wx_{domain_id}_auth-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|code|query|string|true|wechat code|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="post__wx_{domain_id}_auth-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ResponseCode2Session response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 # Schemas
 
 <h2 id="tocS_ChatNewReq">ChatNewReq</h2>
@@ -4382,8 +4741,11 @@ This operation does not require authentication
       "email": "string",
       "id": 0,
       "nickname": "string",
+      "openid": "string",
       "password": "string",
-      "updated_at": "string"
+      "unionid": "string",
+      "updated_at": "string",
+      "user_type": "string"
     }
   ],
   "msg": "string"
@@ -4496,8 +4858,11 @@ This operation does not require authentication
           "email": "string",
           "id": 0,
           "nickname": "string",
+          "openid": "string",
           "password": "string",
-          "updated_at": "string"
+          "unionid": "string",
+          "updated_at": "string",
+          "user_type": "string"
         }
       ]
     },
@@ -4823,8 +5188,11 @@ This operation does not require authentication
         "email": "string",
         "id": 0,
         "nickname": "string",
+        "openid": "string",
         "password": "string",
-        "updated_at": "string"
+        "unionid": "string",
+        "updated_at": "string",
+        "user_type": "string"
       }
     ]
   },
@@ -4872,8 +5240,11 @@ This operation does not require authentication
               "email": "string",
               "id": 0,
               "nickname": "string",
+              "openid": "string",
               "password": "string",
-              "updated_at": "string"
+              "unionid": "string",
+              "updated_at": "string",
+              "user_type": "string"
             }
           ]
         },
@@ -4976,8 +5347,11 @@ This operation does not require authentication
       "email": "string",
       "id": 0,
       "nickname": "string",
+      "openid": "string",
       "password": "string",
-      "updated_at": "string"
+      "unionid": "string",
+      "updated_at": "string",
+      "user_type": "string"
     }
   ]
 }
@@ -5050,8 +5424,11 @@ This operation does not require authentication
             "email": "string",
             "id": 0,
             "nickname": "string",
+            "openid": "string",
             "password": "string",
-            "updated_at": "string"
+            "unionid": "string",
+            "updated_at": "string",
+            "user_type": "string"
           }
         ]
       },
@@ -5063,8 +5440,11 @@ This operation does not require authentication
   "email": "string",
   "id": 0,
   "nickname": "string",
+  "openid": "string",
   "password": "string",
-  "updated_at": "string"
+  "unionid": "string",
+  "updated_at": "string",
+  "user_type": "string"
 }
 
 ```
@@ -5078,8 +5458,11 @@ This operation does not require authentication
 |email|string|false|none|Email holds the value of the "email" field.|
 |id|integer|false|none|ID of the ent.|
 |nickname|string|false|none|Nickname holds the value of the "nickname" field.|
+|openid|string|false|none|Openid holds the value of the "openid" field.|
 |password|string|false|none|Password holds the value of the "password" field.|
+|unionid|string|false|none|Unionid holds the value of the "unionid" field.|
 |updated_at|string|false|none|UpdatedAt holds the value of the "updated_at" field.|
+|user_type|string|false|none|UserType holds the value of the "user_type" field.|
 
 <h2 id="tocS_ent.DomainUserEdges">ent.DomainUserEdges</h2>
 <!-- backwards compatibility -->
@@ -5156,8 +5539,11 @@ This operation does not require authentication
           "email": "string",
           "id": 0,
           "nickname": "string",
+          "openid": "string",
           "password": "string",
-          "updated_at": "string"
+          "unionid": "string",
+          "updated_at": "string",
+          "user_type": "string"
         }
       ]
     },
@@ -5236,8 +5622,11 @@ This operation does not require authentication
                     "email": "string",
                     "id": 0,
                     "nickname": "string",
+                    "openid": "string",
                     "password": "string",
-                    "updated_at": "string"
+                    "unionid": "string",
+                    "updated_at": "string",
+                    "user_type": "string"
                   }
                 ]
               },
@@ -5345,8 +5734,11 @@ This operation does not require authentication
                   "email": "string",
                   "id": 0,
                   "nickname": "string",
+                  "openid": "string",
                   "password": "string",
-                  "updated_at": "string"
+                  "unionid": "string",
+                  "updated_at": "string",
+                  "user_type": "string"
                 }
               ]
             },
@@ -5461,8 +5853,11 @@ This operation does not require authentication
                 "email": "string",
                 "id": 0,
                 "nickname": "string",
+                "openid": "string",
                 "password": "string",
-                "updated_at": "string"
+                "unionid": "string",
+                "updated_at": "string",
+                "user_type": "string"
               }
             ]
           },
@@ -5573,8 +5968,11 @@ This operation does not require authentication
                     "email": "string",
                     "id": 0,
                     "nickname": "string",
+                    "openid": "string",
                     "password": "string",
-                    "updated_at": "string"
+                    "unionid": "string",
+                    "updated_at": "string",
+                    "user_type": "string"
                   }
                 ]
               },
@@ -5694,8 +6092,11 @@ This operation does not require authentication
                   "email": "string",
                   "id": 0,
                   "nickname": "string",
+                  "openid": "string",
                   "password": "string",
-                  "updated_at": "string"
+                  "unionid": "string",
+                  "updated_at": "string",
+                  "user_type": "string"
                 }
               ]
             },
@@ -5894,8 +6295,11 @@ This operation does not require authentication
               "email": "string",
               "id": 0,
               "nickname": "string",
+              "openid": "string",
               "password": "string",
-              "updated_at": "string"
+              "unionid": "string",
+              "updated_at": "string",
+              "user_type": "string"
             }
           ]
         },
@@ -6002,8 +6406,11 @@ This operation does not require authentication
             "email": "string",
             "id": 0,
             "nickname": "string",
+            "openid": "string",
             "password": "string",
-            "updated_at": "string"
+            "unionid": "string",
+            "updated_at": "string",
+            "user_type": "string"
           }
         ]
       },
@@ -6163,8 +6570,11 @@ This operation does not require authentication
           "email": "string",
           "id": 0,
           "nickname": "string",
+          "openid": "string",
           "password": "string",
-          "updated_at": "string"
+          "unionid": "string",
+          "updated_at": "string",
+          "user_type": "string"
         }
       ]
     },
@@ -6225,8 +6635,11 @@ This operation does not require authentication
                     "email": "string",
                     "id": 0,
                     "nickname": "string",
+                    "openid": "string",
                     "password": "string",
-                    "updated_at": "string"
+                    "unionid": "string",
+                    "updated_at": "string",
+                    "user_type": "string"
                   }
                 ]
               },

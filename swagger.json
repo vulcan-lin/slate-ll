@@ -900,6 +900,71 @@
                     }
                 }
             }
+        },
+        "/users/{user_id}": {
+            "get": {
+                "description": "get info",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login response",
+                        "schema": {
+                            "$ref": "#/definitions/api_service.LoginResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/wx/{domain_id}/auth": {
+            "post": {
+                "description": "get openid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "WeChat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "wechat code",
+                        "name": "code",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ResponseCode2Session response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -1206,12 +1271,24 @@
                     "description": "Nickname holds the value of the \"nickname\" field.",
                     "type": "string"
                 },
+                "openid": {
+                    "description": "Openid holds the value of the \"openid\" field.",
+                    "type": "string"
+                },
                 "password": {
                     "description": "Password holds the value of the \"password\" field.",
                     "type": "string"
                 },
+                "unionid": {
+                    "description": "Unionid holds the value of the \"unionid\" field.",
+                    "type": "string"
+                },
                 "updated_at": {
                     "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                },
+                "user_type": {
+                    "description": "UserType holds the value of the \"user_type\" field.",
                     "type": "string"
                 }
             }
