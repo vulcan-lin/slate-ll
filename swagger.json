@@ -832,7 +832,7 @@
         },
         "/s/robots/{robot_id}": {
             "get": {
-                "description": "query Robot",
+                "description": "无认证查询 Robot",
                 "consumes": [
                     "application/json"
                 ],

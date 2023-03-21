@@ -4012,7 +4012,7 @@ func main() {
 
 `GET /s/robots/{robot_id}`
 
-query Robot
+无认证查询 Robot
 
 <h3 id="get__s_robots_{robot_id}-parameters">Parameters</h3>
 
