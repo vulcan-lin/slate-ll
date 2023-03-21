@@ -3674,6 +3674,7 @@ const inputBody = '{
     "model": "string"
   },
   "openai_content": {
+    "chat_with_db": true,
     "index_name": "string",
     "index_namespace": "string"
   },
@@ -3820,6 +3821,7 @@ update robot config
     "model": "string"
   },
   "openai_content": {
+    "chat_with_db": true,
     "index_name": "string",
     "index_namespace": "string"
   },
@@ -5154,6 +5156,7 @@ This operation does not require authentication
                     "model": "string"
                   },
                   "openai_content": {
+                    "chat_with_db": true,
                     "index_name": "string",
                     "index_namespace": "string"
                   },
@@ -5238,6 +5241,7 @@ This operation does not require authentication
     "model": "string"
   },
   "openai_content": {
+    "chat_with_db": true,
     "index_name": "string",
     "index_namespace": "string"
   },
@@ -5472,6 +5476,7 @@ This operation does not require authentication
                   "model": "string"
                 },
                 "openai_content": {
+                  "chat_with_db": true,
                   "index_name": "string",
                   "index_namespace": "string"
                 },
@@ -5606,6 +5611,7 @@ This operation does not require authentication
                 "model": "string"
               },
               "openai_content": {
+                "chat_with_db": true,
                 "index_name": "string",
                 "index_namespace": "string"
               },
@@ -5835,6 +5841,7 @@ This operation does not require authentication
                     "model": "string"
                   },
                   "openai_content": {
+                    "chat_with_db": true,
                     "index_name": "string",
                     "index_namespace": "string"
                   },
@@ -5925,6 +5932,7 @@ This operation does not require authentication
             "model": "string"
           },
           "openai_content": {
+            "chat_with_db": true,
             "index_name": "string",
             "index_namespace": "string"
           },
@@ -6033,6 +6041,7 @@ This operation does not require authentication
           "model": "string"
         },
         "openai_content": {
+          "chat_with_db": true,
           "index_name": "string",
           "index_namespace": "string"
         },
@@ -6143,6 +6152,7 @@ This operation does not require authentication
         "model": "string"
       },
       "openai_content": {
+        "chat_with_db": true,
         "index_name": "string",
         "index_namespace": "string"
       },
@@ -6269,6 +6279,7 @@ This operation does not require authentication
             "model": "string"
           },
           "openai_content": {
+            "chat_with_db": true,
             "index_name": "string",
             "index_namespace": "string"
           },
@@ -6342,6 +6353,7 @@ This operation does not require authentication
     "model": "string"
   },
   "openai_content": {
+    "chat_with_db": true,
     "index_name": "string",
     "index_namespace": "string"
   },
@@ -6391,6 +6403,7 @@ This operation does not require authentication
           "model": "string"
         },
         "openai_content": {
+          "chat_with_db": true,
           "index_name": "string",
           "index_namespace": "string"
         },
@@ -6538,6 +6551,7 @@ This operation does not require authentication
       "model": "string"
     },
     "openai_content": {
+      "chat_with_db": true,
       "index_name": "string",
       "index_namespace": "string"
     },
@@ -6567,6 +6581,7 @@ This operation does not require authentication
                 "model": "string"
               },
               "openai_content": {
+                "chat_with_db": true,
                 "index_name": "string",
                 "index_namespace": "string"
               },
@@ -6661,6 +6676,7 @@ This operation does not require authentication
                 "model": "string"
               },
               "openai_content": {
+                "chat_with_db": true,
                 "index_name": "string",
                 "index_namespace": "string"
               },
@@ -6772,6 +6788,7 @@ This operation does not require authentication
               "model": "string"
             },
             "openai_content": {
+              "chat_with_db": true,
               "index_name": "string",
               "index_namespace": "string"
             },
@@ -6866,6 +6883,7 @@ This operation does not require authentication
                     "model": "string"
                   },
                   "openai_content": {
+                    "chat_with_db": true,
                     "index_name": "string",
                     "index_namespace": "string"
                   },
@@ -6936,6 +6954,7 @@ This operation does not require authentication
             "model": "string"
           },
           "openai_content": {
+            "chat_with_db": true,
             "index_name": "string",
             "index_namespace": "string"
           },
@@ -7066,6 +7085,7 @@ This operation does not require authentication
 
 ```json
 {
+  "chat_with_db": true,
   "index_name": "string",
   "index_namespace": "string"
 }
@@ -7076,6 +7096,7 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|chat_with_db|boolean|false|none|none|
 |index_name|string|false|none|none|
 |index_namespace|string|false|none|none|
 

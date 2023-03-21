@@ -1595,6 +1595,9 @@
         "schema.OpenAIContent": {
             "type": "object",
             "properties": {
+                "chat_with_db": {
+                    "type": "boolean"
+                },
                 "index_name": {
                     "type": "string"
                 },
