@@ -3871,8 +3871,7 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X GET https://api.dev.cybermem.com/api/v1/s/robots/{robot_id} \
-  -H 'Accept: application/json' \
-  -H 'Authorization: string'
+  -H 'Accept: application/json'
 
 ```
 
@@ -3880,15 +3879,13 @@ curl -X GET https://api.dev.cybermem.com/api/v1/s/robots/{robot_id} \
 GET https://api.dev.cybermem.com/api/v1/s/robots/{robot_id} HTTP/1.1
 Host: api.dev.cybermem.com
 Accept: application/json
-Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'string'
+  'Accept':'application/json'
 };
 
 fetch('https://api.dev.cybermem.com/api/v1/s/robots/{robot_id}',
@@ -3910,8 +3907,7 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'string'
+  'Accept' => 'application/json'
 }
 
 result = RestClient.get 'https://api.dev.cybermem.com/api/v1/s/robots/{robot_id}',
@@ -3925,8 +3921,7 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'string'
+  'Accept': 'application/json'
 }
 
 r = requests.get('https://api.dev.cybermem.com/api/v1/s/robots/{robot_id}', headers = headers)
@@ -3942,7 +3937,6 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
-    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -3996,7 +3990,6 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
-        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -4018,7 +4011,6 @@ func main() {
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|Authorization|header|string|true|Authorization|
 |robot_id|path|integer|true|robot id|
 
 > Example responses
