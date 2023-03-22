@@ -793,6 +793,50 @@ get chat
   "data": {
     "context_id": "string",
     "created_at": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "edges": {
+          "chats": [
+            {}
+          ],
+          "owner": {
+            "created_at": "string",
+            "domain_id": "string",
+            "edges": {
+              "owner": {
+                "created_at": "string",
+                "edges": {
+                  "domain": {},
+                  "robots": [
+                    {}
+                  ]
+                },
+                "email": "string",
+                "id": 0,
+                "nickname": "string",
+                "password": "string",
+                "updated_at": "string"
+              },
+              "users": [
+                {}
+              ]
+            },
+            "id": 0,
+            "name": "string",
+            "updated_at": "string"
+          }
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "openid": "string",
+        "password": "string",
+        "unionid": "string",
+        "updated_at": "string",
+        "user_type": "string"
+      }
+    },
     "id": 0,
     "messages": [
       {
@@ -2329,6 +2373,25 @@ domain user list
     {
       "created_at": "string",
       "edges": {
+        "chats": [
+          {
+            "context_id": "string",
+            "created_at": "string",
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "messages": [
+              {
+                "content": "string",
+                "created": "string",
+                "role": "string"
+              }
+            ],
+            "robot_id": 0,
+            "updated_at": "string"
+          }
+        ],
         "owner": {
           "created_at": "string",
           "domain_id": "string",
@@ -2763,6 +2826,50 @@ domain user login
   "data": {
     "context_id": "string",
     "created_at": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "edges": {
+          "chats": [
+            {}
+          ],
+          "owner": {
+            "created_at": "string",
+            "domain_id": "string",
+            "edges": {
+              "owner": {
+                "created_at": "string",
+                "edges": {
+                  "domain": {},
+                  "robots": [
+                    {}
+                  ]
+                },
+                "email": "string",
+                "id": 0,
+                "nickname": "string",
+                "password": "string",
+                "updated_at": "string"
+              },
+              "users": [
+                {}
+              ]
+            },
+            "id": 0,
+            "name": "string",
+            "updated_at": "string"
+          }
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "openid": "string",
+        "password": "string",
+        "unionid": "string",
+        "updated_at": "string",
+        "user_type": "string"
+      }
+    },
     "id": 0,
     "messages": [
       {
@@ -4707,6 +4814,50 @@ user login
   "data": {
     "context_id": "string",
     "created_at": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "edges": {
+          "chats": [
+            {}
+          ],
+          "owner": {
+            "created_at": "string",
+            "domain_id": "string",
+            "edges": {
+              "owner": {
+                "created_at": "string",
+                "edges": {
+                  "domain": {},
+                  "robots": [
+                    {}
+                  ]
+                },
+                "email": "string",
+                "id": 0,
+                "nickname": "string",
+                "password": "string",
+                "updated_at": "string"
+              },
+              "users": [
+                {}
+              ]
+            },
+            "id": 0,
+            "name": "string",
+            "updated_at": "string"
+          }
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "openid": "string",
+        "password": "string",
+        "unionid": "string",
+        "updated_at": "string",
+        "user_type": "string"
+      }
+    },
     "id": 0,
     "messages": [
       {
@@ -5079,6 +5230,50 @@ user list
   "data": {
     "context_id": "string",
     "created_at": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "edges": {
+          "chats": [
+            {}
+          ],
+          "owner": {
+            "created_at": "string",
+            "domain_id": "string",
+            "edges": {
+              "owner": {
+                "created_at": "string",
+                "edges": {
+                  "domain": {},
+                  "robots": [
+                    {}
+                  ]
+                },
+                "email": "string",
+                "id": 0,
+                "nickname": "string",
+                "password": "string",
+                "updated_at": "string"
+              },
+              "users": [
+                {}
+              ]
+            },
+            "id": 0,
+            "name": "string",
+            "updated_at": "string"
+          }
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "openid": "string",
+        "password": "string",
+        "unionid": "string",
+        "updated_at": "string",
+        "user_type": "string"
+      }
+    },
     "id": 0,
     "messages": [
       {
@@ -5526,6 +5721,25 @@ This operation does not require authentication
     {
       "created_at": "string",
       "edges": {
+        "chats": [
+          {
+            "context_id": "string",
+            "created_at": "string",
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "messages": [
+              {
+                "content": "string",
+                "created": "string",
+                "role": "string"
+              }
+            ],
+            "robot_id": 0,
+            "updated_at": "string"
+          }
+        ],
         "owner": {
           "created_at": "string",
           "domain_id": "string",
@@ -5678,6 +5892,25 @@ This operation does not require authentication
         {
           "created_at": "string",
           "edges": {
+            "chats": [
+              {
+                "context_id": "string",
+                "created_at": "string",
+                "edges": {
+                  "owner": {}
+                },
+                "id": 0,
+                "messages": [
+                  {
+                    "content": "string",
+                    "created": "string",
+                    "role": "string"
+                  }
+                ],
+                "robot_id": 0,
+                "updated_at": "string"
+              }
+            ],
             "owner": {}
           },
           "email": "string",
@@ -5944,6 +6177,50 @@ This operation does not require authentication
   "data": {
     "context_id": "string",
     "created_at": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "edges": {
+          "chats": [
+            {}
+          ],
+          "owner": {
+            "created_at": "string",
+            "domain_id": "string",
+            "edges": {
+              "owner": {
+                "created_at": "string",
+                "edges": {
+                  "domain": {},
+                  "robots": [
+                    {}
+                  ]
+                },
+                "email": "string",
+                "id": 0,
+                "nickname": "string",
+                "password": "string",
+                "updated_at": "string"
+              },
+              "users": [
+                {}
+              ]
+            },
+            "id": 0,
+            "name": "string",
+            "updated_at": "string"
+          }
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "openid": "string",
+        "password": "string",
+        "unionid": "string",
+        "updated_at": "string",
+        "user_type": "string"
+      }
+    },
     "id": 0,
     "messages": [
       {
@@ -6003,6 +6280,73 @@ This operation does not require authentication
 {
   "context_id": "string",
   "created_at": "string",
+  "edges": {
+    "owner": {
+      "created_at": "string",
+      "edges": {
+        "chats": [
+          {
+            "context_id": "string",
+            "created_at": "string",
+            "edges": {},
+            "id": 0,
+            "messages": [
+              {
+                "content": "string",
+                "created": "string",
+                "role": "string"
+              }
+            ],
+            "robot_id": 0,
+            "updated_at": "string"
+          }
+        ],
+        "owner": {
+          "created_at": "string",
+          "domain_id": "string",
+          "edges": {
+            "owner": {
+              "created_at": "string",
+              "edges": {
+                "domain": {},
+                "robots": [
+                  {
+                    "created_at": "string",
+                    "description": "string",
+                    "edges": {},
+                    "id": 0,
+                    "name": "string",
+                    "prompt": "string",
+                    "share": "string",
+                    "updated_at": "string"
+                  }
+                ]
+              },
+              "email": "string",
+              "id": 0,
+              "nickname": "string",
+              "password": "string",
+              "updated_at": "string"
+            },
+            "users": [
+              {}
+            ]
+          },
+          "id": 0,
+          "name": "string",
+          "updated_at": "string"
+        }
+      },
+      "email": "string",
+      "id": 0,
+      "nickname": "string",
+      "openid": "string",
+      "password": "string",
+      "unionid": "string",
+      "updated_at": "string",
+      "user_type": "string"
+    }
+  },
   "id": 0,
   "messages": [
     {
@@ -6023,10 +6367,101 @@ This operation does not require authentication
 |---|---|---|---|---|
 |context_id|string|false|none|ContextID holds the value of the "context_id" field.|
 |created_at|string|false|none|CreatedAt holds the value of the "created_at" field.|
+|edges|[ent.ChatEdges](#schemaent.chatedges)|false|none|none|
 |id|integer|false|none|ID of the ent.|
 |messages|[[schema.Message](#schemaschema.message)]|false|none|Messages holds the value of the "messages" field.|
 |robot_id|integer|false|none|RobotID holds the value of the "robot_id" field.|
 |updated_at|string|false|none|UpdatedAt holds the value of the "updated_at" field.|
+
+<h2 id="tocS_ent.ChatEdges">ent.ChatEdges</h2>
+<!-- backwards compatibility -->
+<a id="schemaent.chatedges"></a>
+<a id="schema_ent.ChatEdges"></a>
+<a id="tocSent.chatedges"></a>
+<a id="tocsent.chatedges"></a>
+
+```json
+{
+  "owner": {
+    "created_at": "string",
+    "edges": {
+      "chats": [
+        {
+          "context_id": "string",
+          "created_at": "string",
+          "edges": {
+            "owner": {}
+          },
+          "id": 0,
+          "messages": [
+            {
+              "content": "string",
+              "created": "string",
+              "role": "string"
+            }
+          ],
+          "robot_id": 0,
+          "updated_at": "string"
+        }
+      ],
+      "owner": {
+        "created_at": "string",
+        "domain_id": "string",
+        "edges": {
+          "owner": {
+            "created_at": "string",
+            "edges": {
+              "domain": {},
+              "robots": [
+                {
+                  "created_at": "string",
+                  "description": "string",
+                  "edges": {
+                    "config": {},
+                    "files": [],
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "name": "string",
+                  "prompt": "string",
+                  "share": "string",
+                  "updated_at": "string"
+                }
+              ]
+            },
+            "email": "string",
+            "id": 0,
+            "nickname": "string",
+            "password": "string",
+            "updated_at": "string"
+          },
+          "users": [
+            {}
+          ]
+        },
+        "id": 0,
+        "name": "string",
+        "updated_at": "string"
+      }
+    },
+    "email": "string",
+    "id": 0,
+    "nickname": "string",
+    "openid": "string",
+    "password": "string",
+    "unionid": "string",
+    "updated_at": "string",
+    "user_type": "string"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|owner|[ent.DomainUser](#schemaent.domainuser)|false|none|none|
 
 <h2 id="tocS_ent.Domain">ent.Domain</h2>
 <!-- backwards compatibility -->
@@ -6110,6 +6545,25 @@ This operation does not require authentication
       {
         "created_at": "string",
         "edges": {
+          "chats": [
+            {
+              "context_id": "string",
+              "created_at": "string",
+              "edges": {
+                "owner": {}
+              },
+              "id": 0,
+              "messages": [
+                {
+                  "content": "string",
+                  "created": "string",
+                  "role": "string"
+                }
+              ],
+              "robot_id": 0,
+              "updated_at": "string"
+            }
+          ],
           "owner": {
             "created_at": "string",
             "domain_id": "string",
@@ -6169,6 +6623,17 @@ This operation does not require authentication
             {
               "created_at": "string",
               "edges": {
+                "chats": [
+                  {
+                    "context_id": "string",
+                    "created_at": "string",
+                    "edges": {},
+                    "id": 0,
+                    "messages": [],
+                    "robot_id": 0,
+                    "updated_at": "string"
+                  }
+                ],
                 "owner": {}
               },
               "email": "string",
@@ -6245,6 +6710,25 @@ This operation does not require authentication
     {
       "created_at": "string",
       "edges": {
+        "chats": [
+          {
+            "context_id": "string",
+            "created_at": "string",
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "messages": [
+              {
+                "content": "string",
+                "created": "string",
+                "role": "string"
+              }
+            ],
+            "robot_id": 0,
+            "updated_at": "string"
+          }
+        ],
         "owner": {
           "created_at": "string",
           "domain_id": "string",
@@ -6311,6 +6795,36 @@ This operation does not require authentication
 {
   "created_at": "string",
   "edges": {
+    "chats": [
+      {
+        "context_id": "string",
+        "created_at": "string",
+        "edges": {
+          "owner": {
+            "created_at": "string",
+            "edges": {},
+            "email": "string",
+            "id": 0,
+            "nickname": "string",
+            "openid": "string",
+            "password": "string",
+            "unionid": "string",
+            "updated_at": "string",
+            "user_type": "string"
+          }
+        },
+        "id": 0,
+        "messages": [
+          {
+            "content": "string",
+            "created": "string",
+            "role": "string"
+          }
+        ],
+        "robot_id": 0,
+        "updated_at": "string"
+      }
+    ],
     "owner": {
       "created_at": "string",
       "domain_id": "string",
@@ -6408,6 +6922,62 @@ This operation does not require authentication
 
 ```json
 {
+  "chats": [
+    {
+      "context_id": "string",
+      "created_at": "string",
+      "edges": {
+        "owner": {
+          "created_at": "string",
+          "edges": {
+            "chats": [],
+            "owner": {
+              "created_at": "string",
+              "domain_id": "string",
+              "edges": {
+                "owner": {
+                  "created_at": "string",
+                  "edges": {
+                    "domain": {},
+                    "robots": []
+                  },
+                  "email": "string",
+                  "id": 0,
+                  "nickname": "string",
+                  "password": "string",
+                  "updated_at": "string"
+                },
+                "users": [
+                  {}
+                ]
+              },
+              "id": 0,
+              "name": "string",
+              "updated_at": "string"
+            }
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "openid": "string",
+          "password": "string",
+          "unionid": "string",
+          "updated_at": "string",
+          "user_type": "string"
+        }
+      },
+      "id": 0,
+      "messages": [
+        {
+          "content": "string",
+          "created": "string",
+          "role": "string"
+        }
+      ],
+      "robot_id": 0,
+      "updated_at": "string"
+    }
+  ],
   "owner": {
     "created_at": "string",
     "domain_id": "string",
@@ -6470,6 +7040,25 @@ This operation does not require authentication
         {
           "created_at": "string",
           "edges": {
+            "chats": [
+              {
+                "context_id": "string",
+                "created_at": "string",
+                "edges": {
+                  "owner": {}
+                },
+                "id": 0,
+                "messages": [
+                  {
+                    "content": "string",
+                    "created": "string",
+                    "role": "string"
+                  }
+                ],
+                "robot_id": 0,
+                "updated_at": "string"
+              }
+            ],
             "owner": {}
           },
           "email": "string",
@@ -6495,6 +7084,7 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|chats|[[ent.Chat](#schemaent.chat)]|false|none|Chats holds the value of the chats edge.|
 |owner|[ent.Domain](#schemaent.domain)|false|none|none|
 
 <h2 id="tocS_ent.File">ent.File</h2>
@@ -6667,6 +7257,7 @@ This operation does not require authentication
                 {
                   "created_at": "string",
                   "edges": {
+                    "chats": [],
                     "owner": {}
                   },
                   "email": "string",
@@ -6787,6 +7378,9 @@ This operation does not require authentication
               {
                 "created_at": "string",
                 "edges": {
+                  "chats": [
+                    {}
+                  ],
                   "owner": {}
                 },
                 "email": "string",
@@ -7029,6 +7623,7 @@ This operation does not require authentication
                 {
                   "created_at": "string",
                   "edges": {
+                    "chats": [],
                     "owner": {}
                   },
                   "email": "string",
@@ -7234,6 +7829,17 @@ This operation does not require authentication
             {
               "created_at": "string",
               "edges": {
+                "chats": [
+                  {
+                    "context_id": "string",
+                    "created_at": "string",
+                    "edges": {},
+                    "id": 0,
+                    "messages": [],
+                    "robot_id": 0,
+                    "updated_at": "string"
+                  }
+                ],
                 "owner": {}
               },
               "email": "string",
@@ -7346,6 +7952,21 @@ This operation does not require authentication
           {
             "created_at": "string",
             "edges": {
+              "chats": [
+                {
+                  "context_id": "string",
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "messages": [
+                    {}
+                  ],
+                  "robot_id": 0,
+                  "updated_at": "string"
+                }
+              ],
               "owner": {}
             },
             "email": "string",
@@ -7512,6 +8133,25 @@ This operation does not require authentication
         {
           "created_at": "string",
           "edges": {
+            "chats": [
+              {
+                "context_id": "string",
+                "created_at": "string",
+                "edges": {
+                  "owner": {}
+                },
+                "id": 0,
+                "messages": [
+                  {
+                    "content": "string",
+                    "created": "string",
+                    "role": "string"
+                  }
+                ],
+                "robot_id": 0,
+                "updated_at": "string"
+              }
+            ],
             "owner": {}
           },
           "email": "string",

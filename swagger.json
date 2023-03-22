@@ -1336,6 +1336,10 @@
                     "description": "CreatedAt holds the value of the \"created_at\" field.",
                     "type": "string"
                 },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the ChatQuery when eager-loading is set.",
+                    "$ref": "#/definitions/ent.ChatEdges"
+                },
                 "id": {
                     "description": "ID of the ent.",
                     "type": "integer"
@@ -1354,6 +1358,15 @@
                 "updated_at": {
                     "description": "UpdatedAt holds the value of the \"updated_at\" field.",
                     "type": "string"
+                }
+            }
+        },
+        "ent.ChatEdges": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "description": "Owner holds the value of the owner edge.",
+                    "$ref": "#/definitions/ent.DomainUser"
                 }
             }
         },
@@ -1450,6 +1463,13 @@
         "ent.DomainUserEdges": {
             "type": "object",
             "properties": {
+                "chats": {
+                    "description": "Chats holds the value of the chats edge.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.Chat"
+                    }
+                },
                 "owner": {
                     "description": "Owner holds the value of the owner edge.",
                     "$ref": "#/definitions/ent.Domain"
