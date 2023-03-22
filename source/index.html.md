@@ -2571,7 +2571,9 @@ domain robot list
           "openai_content": {
             "chat_with_db": true,
             "index_name": "string",
-            "index_namespace": "string"
+            "index_namespace": "string",
+            "method": "string",
+            "top_k": 0
           },
           "updated_at": "string",
           "welcome": [
@@ -3845,7 +3847,9 @@ robot list
           "openai_content": {
             "chat_with_db": true,
             "index_name": "string",
-            "index_namespace": "string"
+            "index_namespace": "string",
+            "method": "string",
+            "top_k": 0
           },
           "updated_at": "string",
           "welcome": [
@@ -4714,7 +4718,9 @@ const inputBody = '{
   "openai_content": {
     "chat_with_db": true,
     "index_name": "string",
-    "index_namespace": "string"
+    "index_namespace": "string",
+    "method": "string",
+    "top_k": 0
   },
   "welcome_messages": [
     {
@@ -4861,7 +4867,9 @@ update robot config
   "openai_content": {
     "chat_with_db": true,
     "index_name": "string",
-    "index_namespace": "string"
+    "index_namespace": "string",
+    "method": "string",
+    "top_k": 0
   },
   "welcome_messages": [
     {
@@ -6347,7 +6355,9 @@ This operation does not require authentication
                   "openai_content": {
                     "chat_with_db": true,
                     "index_name": "string",
-                    "index_namespace": "string"
+                    "index_namespace": "string",
+                    "method": "string",
+                    "top_k": 0
                   },
                   "updated_at": "string",
                   "welcome": [
@@ -6451,7 +6461,9 @@ This operation does not require authentication
   "openai_content": {
     "chat_with_db": true,
     "index_name": "string",
-    "index_namespace": "string"
+    "index_namespace": "string",
+    "method": "string",
+    "top_k": 0
   },
   "welcome_messages": [
     {
@@ -6526,7 +6538,9 @@ This operation does not require authentication
           "openai_content": {
             "chat_with_db": true,
             "index_name": "string",
-            "index_namespace": "string"
+            "index_namespace": "string",
+            "method": "string",
+            "top_k": 0
           },
           "updated_at": "string",
           "welcome": [
@@ -6995,7 +7009,9 @@ This operation does not require authentication
                 "openai_content": {
                   "chat_with_db": true,
                   "index_name": "string",
-                  "index_namespace": "string"
+                  "index_namespace": "string",
+                  "method": "string",
+                  "top_k": 0
                 },
                 "updated_at": "string",
                 "welcome": [
@@ -7160,7 +7176,9 @@ This operation does not require authentication
               "openai_content": {
                 "chat_with_db": true,
                 "index_name": "string",
-                "index_namespace": "string"
+                "index_namespace": "string",
+                "method": "string",
+                "top_k": 0
               },
               "updated_at": "string",
               "welcome": [
@@ -7495,7 +7513,9 @@ This operation does not require authentication
                   "openai_content": {
                     "chat_with_db": true,
                     "index_name": "string",
-                    "index_namespace": "string"
+                    "index_namespace": "string",
+                    "method": "string",
+                    "top_k": 0
                   },
                   "updated_at": "string",
                   "welcome": [
@@ -7606,7 +7626,9 @@ This operation does not require authentication
           "openai_content": {
             "chat_with_db": true,
             "index_name": "string",
-            "index_namespace": "string"
+            "index_namespace": "string",
+            "method": "string",
+            "top_k": 0
           },
           "updated_at": "string",
           "welcome": [
@@ -7715,7 +7737,9 @@ This operation does not require authentication
         "openai_content": {
           "chat_with_db": true,
           "index_name": "string",
-          "index_namespace": "string"
+          "index_namespace": "string",
+          "method": "string",
+          "top_k": 0
         },
         "updated_at": "string",
         "welcome": [
@@ -7827,7 +7851,9 @@ This operation does not require authentication
       "openai_content": {
         "chat_with_db": true,
         "index_name": "string",
-        "index_namespace": "string"
+        "index_namespace": "string",
+        "method": "string",
+        "top_k": 0
       },
       "updated_at": "string",
       "welcome": [
@@ -7957,7 +7983,9 @@ This operation does not require authentication
           "openai_content": {
             "chat_with_db": true,
             "index_name": "string",
-            "index_namespace": "string"
+            "index_namespace": "string",
+            "method": "string",
+            "top_k": 0
           },
           "updated_at": "string",
           "welcome": [
@@ -8031,7 +8059,9 @@ This operation does not require authentication
   "openai_content": {
     "chat_with_db": true,
     "index_name": "string",
-    "index_namespace": "string"
+    "index_namespace": "string",
+    "method": "string",
+    "top_k": 0
   },
   "updated_at": "string",
   "welcome": [
@@ -8081,7 +8111,9 @@ This operation does not require authentication
         "openai_content": {
           "chat_with_db": true,
           "index_name": "string",
-          "index_namespace": "string"
+          "index_namespace": "string",
+          "method": "string",
+          "top_k": 0
         },
         "updated_at": "string",
         "welcome": [
@@ -8230,7 +8262,9 @@ This operation does not require authentication
     "openai_content": {
       "chat_with_db": true,
       "index_name": "string",
-      "index_namespace": "string"
+      "index_namespace": "string",
+      "method": "string",
+      "top_k": 0
     },
     "updated_at": "string",
     "welcome": [
@@ -8260,7 +8294,9 @@ This operation does not require authentication
               "openai_content": {
                 "chat_with_db": true,
                 "index_name": "string",
-                "index_namespace": "string"
+                "index_namespace": "string",
+                "method": "string",
+                "top_k": 0
               },
               "updated_at": "string",
               "welcome": [
@@ -8366,7 +8402,9 @@ This operation does not require authentication
               "openai_content": {
                 "chat_with_db": true,
                 "index_name": "string",
-                "index_namespace": "string"
+                "index_namespace": "string",
+                "method": "string",
+                "top_k": 0
               },
               "updated_at": "string",
               "welcome": [
@@ -8493,7 +8531,9 @@ This operation does not require authentication
             "openai_content": {
               "chat_with_db": true,
               "index_name": "string",
-              "index_namespace": "string"
+              "index_namespace": "string",
+              "method": "string",
+              "top_k": 0
             },
             "updated_at": "string",
             "welcome": [
@@ -8588,7 +8628,9 @@ This operation does not require authentication
                   "openai_content": {
                     "chat_with_db": true,
                     "index_name": "string",
-                    "index_namespace": "string"
+                    "index_namespace": "string",
+                    "method": "string",
+                    "top_k": 0
                   },
                   "updated_at": "string",
                   "welcome": [
@@ -8678,7 +8720,9 @@ This operation does not require authentication
           "openai_content": {
             "chat_with_db": true,
             "index_name": "string",
-            "index_namespace": "string"
+            "index_namespace": "string",
+            "method": "string",
+            "top_k": 0
           },
           "updated_at": "string",
           "welcome": [
@@ -8809,7 +8853,9 @@ This operation does not require authentication
 {
   "chat_with_db": true,
   "index_name": "string",
-  "index_namespace": "string"
+  "index_namespace": "string",
+  "method": "string",
+  "top_k": 0
 }
 
 ```
@@ -8821,6 +8867,8 @@ This operation does not require authentication
 |chat_with_db|boolean|false|none|none|
 |index_name|string|false|none|none|
 |index_namespace|string|false|none|none|
+|method|string|false|none|none|
+|top_k|integer|false|none|none|
 
 <h2 id="tocS_schema.WelcomeMessage">schema.WelcomeMessage</h2>
 <!-- backwards compatibility -->
