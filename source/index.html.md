@@ -666,6 +666,247 @@ get chat
 This operation does not require authentication
 </aside>
 
+## get__domains_{domain_id}_chats
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats?robot_id=0 \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+```http
+GET https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats?robot_id=0 HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+Authorization: string
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'string'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats?robot_id=0',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'string'
+}
+
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats',
+  params: {
+  'robot_id' => 'integer'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'string'
+}
+
+r = requests.get('https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats', params={
+  'robot_id': '0'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'Authorization' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats?robot_id=0");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /domains/{domain_id}/chats`
+
+get chat
+
+<h3 id="get__domains_{domain_id}_chats-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|Authorization|
+|domain_id|path|integer|true|domain id|
+|robot_id|query|integer|true|robot id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "context_id": "string",
+    "created_at": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "edges": {
+          "chats": [
+            {}
+          ],
+          "owner": {
+            "created_at": "string",
+            "domain_id": "string",
+            "edges": {
+              "owner": {
+                "created_at": "string",
+                "edges": {
+                  "domain": {},
+                  "robots": [
+                    {}
+                  ]
+                },
+                "email": "string",
+                "id": 0,
+                "nickname": "string",
+                "password": "string",
+                "updated_at": "string"
+              },
+              "users": [
+                {}
+              ]
+            },
+            "id": 0,
+            "name": "string",
+            "updated_at": "string"
+          }
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "openid": "string",
+        "password": "string",
+        "unionid": "string",
+        "updated_at": "string",
+        "user_type": "string"
+      }
+    },
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0,
+    "updated_at": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="get__domains_{domain_id}_chats-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|chat|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 ## post__domains_{domain_id}_chats
 
 > Code samples
