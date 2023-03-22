@@ -830,9 +830,46 @@
                 }
             }
         },
+        "/s/robots": {
+            "get": {
+                "description": "domain robot list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Domain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "domain id",
+                        "name": "domain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "RobotListResponse response",
+                        "schema": {
+                            "$ref": "#/definitions/api_service.LoginResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/s/robots/{robot_id}": {
             "get": {
-                "description": "query Robot",
+                "description": "无认证查询 Robot",
                 "consumes": [
                     "application/json"
                 ],
@@ -843,13 +880,6 @@
                     "Robot"
                 ],
                 "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Authorization",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    },
                     {
                         "type": "integer",
                         "description": "robot id",
@@ -1595,6 +1625,9 @@
         "schema.OpenAIContent": {
             "type": "object",
             "properties": {
+                "chat_with_db": {
+                    "type": "boolean"
+                },
                 "index_name": {
                     "type": "string"
                 },

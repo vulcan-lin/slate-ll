@@ -2368,6 +2368,191 @@ domain user login
 This operation does not require authentication
 </aside>
 
+## get__s_robots
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.dev.cybermem.com/api/v1/s/robots \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://api.dev.cybermem.com/api/v1/s/robots HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/s/robots',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/s/robots',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://api.dev.cybermem.com/api/v1/s/robots', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/s/robots', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/s/robots");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/s/robots", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /s/robots`
+
+domain robot list
+
+<h3 id="get__s_robots-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|domain_id|path|integer|true|domain id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "context_id": "string",
+    "created_at": "string",
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0,
+    "updated_at": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="get__s_robots-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|RobotListResponse response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 <h1 id="cybermem-api-robot">Robot</h1>
 
 ## post__files
@@ -3674,6 +3859,7 @@ const inputBody = '{
     "model": "string"
   },
   "openai_content": {
+    "chat_with_db": true,
     "index_name": "string",
     "index_namespace": "string"
   },
@@ -3820,6 +4006,7 @@ update robot config
     "model": "string"
   },
   "openai_content": {
+    "chat_with_db": true,
     "index_name": "string",
     "index_namespace": "string"
   },
@@ -3869,8 +4056,7 @@ This operation does not require authentication
 ```shell
 # You can also use wget
 curl -X GET https://api.dev.cybermem.com/api/v1/s/robots/{robot_id} \
-  -H 'Accept: application/json' \
-  -H 'Authorization: string'
+  -H 'Accept: application/json'
 
 ```
 
@@ -3878,15 +4064,13 @@ curl -X GET https://api.dev.cybermem.com/api/v1/s/robots/{robot_id} \
 GET https://api.dev.cybermem.com/api/v1/s/robots/{robot_id} HTTP/1.1
 Host: api.dev.cybermem.com
 Accept: application/json
-Authorization: string
 
 ```
 
 ```javascript
 
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'string'
+  'Accept':'application/json'
 };
 
 fetch('https://api.dev.cybermem.com/api/v1/s/robots/{robot_id}',
@@ -3908,8 +4092,7 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'string'
+  'Accept' => 'application/json'
 }
 
 result = RestClient.get 'https://api.dev.cybermem.com/api/v1/s/robots/{robot_id}',
@@ -3923,8 +4106,7 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'string'
+  'Accept': 'application/json'
 }
 
 r = requests.get('https://api.dev.cybermem.com/api/v1/s/robots/{robot_id}', headers = headers)
@@ -3940,7 +4122,6 @@ require 'vendor/autoload.php';
 
 $headers = array(
     'Accept' => 'application/json',
-    'Authorization' => 'string',
 );
 
 $client = new \GuzzleHttp\Client();
@@ -3994,7 +4175,6 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
-        "Authorization": []string{"string"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -4010,13 +4190,12 @@ func main() {
 
 `GET /s/robots/{robot_id}`
 
-query Robot
+无认证查询 Robot
 
 <h3 id="get__s_robots_{robot_id}-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|Authorization|header|string|true|Authorization|
 |robot_id|path|integer|true|robot id|
 
 > Example responses
@@ -5154,6 +5333,7 @@ This operation does not require authentication
                     "model": "string"
                   },
                   "openai_content": {
+                    "chat_with_db": true,
                     "index_name": "string",
                     "index_namespace": "string"
                   },
@@ -5238,6 +5418,7 @@ This operation does not require authentication
     "model": "string"
   },
   "openai_content": {
+    "chat_with_db": true,
     "index_name": "string",
     "index_namespace": "string"
   },
@@ -5472,6 +5653,7 @@ This operation does not require authentication
                   "model": "string"
                 },
                 "openai_content": {
+                  "chat_with_db": true,
                   "index_name": "string",
                   "index_namespace": "string"
                 },
@@ -5606,6 +5788,7 @@ This operation does not require authentication
                 "model": "string"
               },
               "openai_content": {
+                "chat_with_db": true,
                 "index_name": "string",
                 "index_namespace": "string"
               },
@@ -5835,6 +6018,7 @@ This operation does not require authentication
                     "model": "string"
                   },
                   "openai_content": {
+                    "chat_with_db": true,
                     "index_name": "string",
                     "index_namespace": "string"
                   },
@@ -5925,6 +6109,7 @@ This operation does not require authentication
             "model": "string"
           },
           "openai_content": {
+            "chat_with_db": true,
             "index_name": "string",
             "index_namespace": "string"
           },
@@ -6033,6 +6218,7 @@ This operation does not require authentication
           "model": "string"
         },
         "openai_content": {
+          "chat_with_db": true,
           "index_name": "string",
           "index_namespace": "string"
         },
@@ -6143,6 +6329,7 @@ This operation does not require authentication
         "model": "string"
       },
       "openai_content": {
+        "chat_with_db": true,
         "index_name": "string",
         "index_namespace": "string"
       },
@@ -6269,6 +6456,7 @@ This operation does not require authentication
             "model": "string"
           },
           "openai_content": {
+            "chat_with_db": true,
             "index_name": "string",
             "index_namespace": "string"
           },
@@ -6342,6 +6530,7 @@ This operation does not require authentication
     "model": "string"
   },
   "openai_content": {
+    "chat_with_db": true,
     "index_name": "string",
     "index_namespace": "string"
   },
@@ -6391,6 +6580,7 @@ This operation does not require authentication
           "model": "string"
         },
         "openai_content": {
+          "chat_with_db": true,
           "index_name": "string",
           "index_namespace": "string"
         },
@@ -6538,6 +6728,7 @@ This operation does not require authentication
       "model": "string"
     },
     "openai_content": {
+      "chat_with_db": true,
       "index_name": "string",
       "index_namespace": "string"
     },
@@ -6567,6 +6758,7 @@ This operation does not require authentication
                 "model": "string"
               },
               "openai_content": {
+                "chat_with_db": true,
                 "index_name": "string",
                 "index_namespace": "string"
               },
@@ -6661,6 +6853,7 @@ This operation does not require authentication
                 "model": "string"
               },
               "openai_content": {
+                "chat_with_db": true,
                 "index_name": "string",
                 "index_namespace": "string"
               },
@@ -6772,6 +6965,7 @@ This operation does not require authentication
               "model": "string"
             },
             "openai_content": {
+              "chat_with_db": true,
               "index_name": "string",
               "index_namespace": "string"
             },
@@ -6866,6 +7060,7 @@ This operation does not require authentication
                     "model": "string"
                   },
                   "openai_content": {
+                    "chat_with_db": true,
                     "index_name": "string",
                     "index_namespace": "string"
                   },
@@ -6936,6 +7131,7 @@ This operation does not require authentication
             "model": "string"
           },
           "openai_content": {
+            "chat_with_db": true,
             "index_name": "string",
             "index_namespace": "string"
           },
@@ -7066,6 +7262,7 @@ This operation does not require authentication
 
 ```json
 {
+  "chat_with_db": true,
   "index_name": "string",
   "index_namespace": "string"
 }
@@ -7076,6 +7273,7 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|chat_with_db|boolean|false|none|none|
 |index_name|string|false|none|none|
 |index_namespace|string|false|none|none|
 
