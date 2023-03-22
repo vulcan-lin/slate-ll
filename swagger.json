@@ -12,52 +12,6 @@
     "host": "api.dev.cybermem.com",
     "basePath": "/api/v1",
     "paths": {
-        "/chats": {
-            "post": {
-                "description": "new chat",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Chat"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Authorization",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "description": "chat new request",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ChatNewReq"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "chat context id",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    },
-                    "400": {
-                        "description": "Common response",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    }
-                }
-            }
-        },
         "/chats/qa": {
             "post": {
                 "description": "chat",
@@ -288,6 +242,52 @@
                 "responses": {
                     "200": {
                         "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/domains/{domain_id}/chats": {
+            "post": {
+                "description": "new chat",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Chat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "chat new request",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ChatNewReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "chat context id",
                         "schema": {
                             "$ref": "#/definitions/commonResponse"
                         }
