@@ -194,6 +194,34 @@
                 }
             }
         },
+        "/domains": {
+            "get": {
+                "description": "list domain",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Domain"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/domains/{domain_id}": {
             "get": {
                 "description": "get domain info",
@@ -262,6 +290,43 @@
                         "description": "Common response",
                         "schema": {
                             "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/domains/{domain_id}/robots": {
+            "get": {
+                "description": "domain robot list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Domain"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "domain id",
+                        "name": "domain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "RobotListResponse response",
+                        "schema": {
+                            "$ref": "#/definitions/api_service.LoginResponse"
                         }
                     },
                     "400": {
@@ -819,43 +884,6 @@
                         "description": "common response",
                         "schema": {
                             "$ref": "#/definitions/commonResponse"
-                        }
-                    },
-                    "400": {
-                        "description": "Common response",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    }
-                }
-            }
-        },
-        "/s/robots": {
-            "get": {
-                "description": "domain robot list",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Domain"
-                ],
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "description": "domain id",
-                        "name": "domain_id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "RobotListResponse response",
-                        "schema": {
-                            "$ref": "#/definitions/api_service.LoginResponse"
                         }
                     },
                     "400": {

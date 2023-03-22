@@ -1400,6 +1400,172 @@ This operation does not require authentication
 
 <h1 id="cybermem-api-domain">Domain</h1>
 
+## get__domains
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.dev.cybermem.com/api/v1/domains \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://api.dev.cybermem.com/api/v1/domains HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/domains',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/domains',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://api.dev.cybermem.com/api/v1/domains', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/domains', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/domains");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/domains", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /domains`
+
+list domain
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__domains-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 ## get__domains_{domain_id}
 
 > Code samples
@@ -1742,6 +1908,191 @@ update domain site name
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## get__domains_{domain_id}_robots
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.dev.cybermem.com/api/v1/domains/{domain_id}/robots \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://api.dev.cybermem.com/api/v1/domains/{domain_id}/robots HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/domains/{domain_id}/robots',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/domains/{domain_id}/robots',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://api.dev.cybermem.com/api/v1/domains/{domain_id}/robots', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/domains/{domain_id}/robots', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/domains/{domain_id}/robots");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/domains/{domain_id}/robots", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /domains/{domain_id}/robots`
+
+domain robot list
+
+<h3 id="get__domains_{domain_id}_robots-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|domain_id|path|integer|true|domain id|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "context_id": "string",
+    "created_at": "string",
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0,
+    "updated_at": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="get__domains_{domain_id}_robots-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|RobotListResponse response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -2362,191 +2713,6 @@ domain user login
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## get__s_robots
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X GET https://api.dev.cybermem.com/api/v1/s/robots \
-  -H 'Accept: application/json'
-
-```
-
-```http
-GET https://api.dev.cybermem.com/api/v1/s/robots HTTP/1.1
-Host: api.dev.cybermem.com
-Accept: application/json
-
-```
-
-```javascript
-
-const headers = {
-  'Accept':'application/json'
-};
-
-fetch('https://api.dev.cybermem.com/api/v1/s/robots',
-{
-  method: 'GET',
-
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Accept' => 'application/json'
-}
-
-result = RestClient.get 'https://api.dev.cybermem.com/api/v1/s/robots',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json'
-}
-
-r = requests.get('https://api.dev.cybermem.com/api/v1/s/robots', headers = headers)
-
-print(r.json())
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Accept' => 'application/json',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/s/robots', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```java
-URL obj = new URL("https://api.dev.cybermem.com/api/v1/s/robots");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Accept": []string{"application/json"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/s/robots", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`GET /s/robots`
-
-domain robot list
-
-<h3 id="get__s_robots-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|domain_id|path|integer|true|domain id|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "code": 0,
-  "data": {
-    "context_id": "string",
-    "created_at": "string",
-    "id": 0,
-    "messages": [
-      {
-        "content": "string",
-        "created": "string",
-        "role": "string"
-      }
-    ],
-    "robot_id": 0,
-    "updated_at": "string"
-  },
-  "msg": "string"
-}
-```
-
-<h3 id="get__s_robots-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|RobotListResponse response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
