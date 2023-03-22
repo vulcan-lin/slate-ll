@@ -5826,7 +5826,10 @@ get openid
 ```json
 {
   "code": 0,
-  "data": null,
+  "data": {
+    "openid": "string",
+    "token": "string"
+  },
   "msg": "string"
 }
 ```
@@ -5835,7 +5838,7 @@ get openid
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ResponseCode2Session response|[commonResponse](#schemacommonresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ResponseCode2Session response|[Code2SessionResponse](#schemacode2sessionresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -5905,6 +5908,55 @@ This operation does not require authentication
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |robot_uuid|string|true|none|none|
+
+<h2 id="tocS_Code2SessionResp">Code2SessionResp</h2>
+<!-- backwards compatibility -->
+<a id="schemacode2sessionresp"></a>
+<a id="schema_Code2SessionResp"></a>
+<a id="tocScode2sessionresp"></a>
+<a id="tocscode2sessionresp"></a>
+
+```json
+{
+  "openid": "string",
+  "token": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|openid|string|false|none|用户openid|
+|token|string|false|none|用户token|
+
+<h2 id="tocS_Code2SessionResponse">Code2SessionResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemacode2sessionresponse"></a>
+<a id="schema_Code2SessionResponse"></a>
+<a id="tocScode2sessionresponse"></a>
+<a id="tocscode2sessionresponse"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "openid": "string",
+    "token": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[Code2SessionResp](#schemacode2sessionresp)|false|none|none|
+|msg|string|false|none|none|
 
 <h2 id="tocS_DomainUserListResponse">DomainUserListResponse</h2>
 <!-- backwards compatibility -->

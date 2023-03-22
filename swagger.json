@@ -1137,7 +1137,7 @@
                     "200": {
                         "description": "ResponseCode2Session response",
                         "schema": {
-                            "$ref": "#/definitions/commonResponse"
+                            "$ref": "#/definitions/Code2SessionResponse"
                         }
                     },
                     "400": {
@@ -1183,6 +1183,33 @@
             ],
             "properties": {
                 "robot_uuid": {
+                    "type": "string"
+                }
+            }
+        },
+        "Code2SessionResp": {
+            "type": "object",
+            "properties": {
+                "openid": {
+                    "description": "用户openid",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "用户token",
+                    "type": "string"
+                }
+            }
+        },
+        "Code2SessionResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/Code2SessionResp"
+                },
+                "msg": {
                     "type": "string"
                 }
             }
