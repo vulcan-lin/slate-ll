@@ -326,7 +326,7 @@
                     "200": {
                         "description": "RobotListResponse response",
                         "schema": {
-                            "$ref": "#/definitions/api_service.LoginResponse"
+                            "$ref": "#/definitions/RobotListResponse"
                         }
                     },
                     "400": {
@@ -546,7 +546,7 @@
                     "200": {
                         "description": "RobotListResponse response",
                         "schema": {
-                            "$ref": "#/definitions/api_service.LoginResponse"
+                            "$ref": "#/definitions/RobotListResponse"
                         }
                     },
                     "400": {
@@ -1239,6 +1239,23 @@
                 },
                 "prompt": {
                     "description": "prompt",
+                    "type": "string"
+                }
+            }
+        },
+        "RobotListResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.Robot"
+                    }
+                },
+                "msg": {
                     "type": "string"
                 }
             }

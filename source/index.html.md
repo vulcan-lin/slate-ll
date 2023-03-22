@@ -2070,20 +2070,90 @@ domain robot list
 ```json
 {
   "code": 0,
-  "data": {
-    "context_id": "string",
-    "created_at": "string",
-    "id": 0,
-    "messages": [
-      {
-        "content": "string",
-        "created": "string",
-        "role": "string"
-      }
-    ],
-    "robot_id": 0,
-    "updated_at": "string"
-  },
+  "data": [
+    {
+      "created_at": "string",
+      "description": "string",
+      "edges": {
+        "config": {
+          "created_at": "string",
+          "edges": {
+            "owner": {}
+          },
+          "id": 0,
+          "openai_config": {
+            "model": "string"
+          },
+          "openai_content": {
+            "chat_with_db": true,
+            "index_name": "string",
+            "index_namespace": "string"
+          },
+          "updated_at": "string",
+          "welcome": [
+            {
+              "ai": "string",
+              "id": 0
+            }
+          ]
+        },
+        "files": [
+          {
+            "created_at": "string",
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "name": "string",
+            "status": "string",
+            "updated_at": "string"
+          }
+        ],
+        "owner": {
+          "created_at": "string",
+          "edges": {
+            "domain": {
+              "created_at": "string",
+              "domain_id": "string",
+              "edges": {
+                "owner": {},
+                "users": [
+                  {
+                    "created_at": "string",
+                    "edges": {},
+                    "email": "string",
+                    "id": 0,
+                    "nickname": "string",
+                    "openid": "string",
+                    "password": "string",
+                    "unionid": "string",
+                    "updated_at": "string",
+                    "user_type": "string"
+                  }
+                ]
+              },
+              "id": 0,
+              "name": "string",
+              "updated_at": "string"
+            },
+            "robots": [
+              {}
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string",
+          "updated_at": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "prompt": "string",
+      "share": "string",
+      "updated_at": "string"
+    }
+  ],
   "msg": "string"
 }
 ```
@@ -2092,7 +2162,7 @@ domain robot list
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|RobotListResponse response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|RobotListResponse response|[RobotListResponse](#schemarobotlistresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -3211,20 +3281,90 @@ robot list
 ```json
 {
   "code": 0,
-  "data": {
-    "context_id": "string",
-    "created_at": "string",
-    "id": 0,
-    "messages": [
-      {
-        "content": "string",
-        "created": "string",
-        "role": "string"
-      }
-    ],
-    "robot_id": 0,
-    "updated_at": "string"
-  },
+  "data": [
+    {
+      "created_at": "string",
+      "description": "string",
+      "edges": {
+        "config": {
+          "created_at": "string",
+          "edges": {
+            "owner": {}
+          },
+          "id": 0,
+          "openai_config": {
+            "model": "string"
+          },
+          "openai_content": {
+            "chat_with_db": true,
+            "index_name": "string",
+            "index_namespace": "string"
+          },
+          "updated_at": "string",
+          "welcome": [
+            {
+              "ai": "string",
+              "id": 0
+            }
+          ]
+        },
+        "files": [
+          {
+            "created_at": "string",
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "name": "string",
+            "status": "string",
+            "updated_at": "string"
+          }
+        ],
+        "owner": {
+          "created_at": "string",
+          "edges": {
+            "domain": {
+              "created_at": "string",
+              "domain_id": "string",
+              "edges": {
+                "owner": {},
+                "users": [
+                  {
+                    "created_at": "string",
+                    "edges": {},
+                    "email": "string",
+                    "id": 0,
+                    "nickname": "string",
+                    "openid": "string",
+                    "password": "string",
+                    "unionid": "string",
+                    "updated_at": "string",
+                    "user_type": "string"
+                  }
+                ]
+              },
+              "id": 0,
+              "name": "string",
+              "updated_at": "string"
+            },
+            "robots": [
+              {}
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string",
+          "updated_at": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "prompt": "string",
+      "share": "string",
+      "updated_at": "string"
+    }
+  ],
   "msg": "string"
 }
 ```
@@ -3233,7 +3373,7 @@ robot list
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|RobotListResponse response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|RobotListResponse response|[RobotListResponse](#schemarobotlistresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -5633,6 +5773,113 @@ This operation does not require authentication
 |files|[integer]|true|none|files|
 |name|string|true|none|name|
 |prompt|string|true|none|prompt|
+
+<h2 id="tocS_RobotListResponse">RobotListResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemarobotlistresponse"></a>
+<a id="schema_RobotListResponse"></a>
+<a id="tocSrobotlistresponse"></a>
+<a id="tocsrobotlistresponse"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "created_at": "string",
+      "description": "string",
+      "edges": {
+        "config": {
+          "created_at": "string",
+          "edges": {
+            "owner": {}
+          },
+          "id": 0,
+          "openai_config": {
+            "model": "string"
+          },
+          "openai_content": {
+            "chat_with_db": true,
+            "index_name": "string",
+            "index_namespace": "string"
+          },
+          "updated_at": "string",
+          "welcome": [
+            {
+              "ai": "string",
+              "id": 0
+            }
+          ]
+        },
+        "files": [
+          {
+            "created_at": "string",
+            "edges": {
+              "owner": {}
+            },
+            "id": 0,
+            "name": "string",
+            "status": "string",
+            "updated_at": "string"
+          }
+        ],
+        "owner": {
+          "created_at": "string",
+          "edges": {
+            "domain": {
+              "created_at": "string",
+              "domain_id": "string",
+              "edges": {
+                "owner": {},
+                "users": [
+                  {
+                    "created_at": "string",
+                    "edges": {},
+                    "email": "string",
+                    "id": 0,
+                    "nickname": "string",
+                    "openid": "string",
+                    "password": "string",
+                    "unionid": "string",
+                    "updated_at": "string",
+                    "user_type": "string"
+                  }
+                ]
+              },
+              "id": 0,
+              "name": "string",
+              "updated_at": "string"
+            },
+            "robots": [
+              {}
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string",
+          "updated_at": "string"
+        }
+      },
+      "id": 0,
+      "name": "string",
+      "prompt": "string",
+      "share": "string",
+      "updated_at": "string"
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[ent.Robot](#schemaent.robot)]|false|none|none|
+|msg|string|false|none|none|
 
 <h2 id="tocS_UploadFileResp">UploadFileResp</h2>
 <!-- backwards compatibility -->
