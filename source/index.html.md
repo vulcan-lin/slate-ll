@@ -2560,6 +2560,9 @@ domain robot list
       "description": "string",
       "edges": {
         "config": {
+          "chat_config": {
+            "limit": 0
+          },
           "created_at": "string",
           "edges": {
             "owner": {}
@@ -3280,6 +3283,7 @@ domain user login
                 "description": "string",
                 "edges": {
                   "config": {
+                    "chat_config": {},
                     "created_at": "string",
                     "edges": {},
                     "id": 0,
@@ -3860,6 +3864,9 @@ robot list
       "description": "string",
       "edges": {
         "config": {
+          "chat_config": {
+            "limit": 0
+          },
           "created_at": "string",
           "edges": {
             "owner": {}
@@ -4736,6 +4743,9 @@ Accept: application/json
 
 ```javascript
 const inputBody = '{
+  "chat_config": {
+    "limit": 0
+  },
   "openai_config": {
     "model": "string"
   },
@@ -4885,6 +4895,9 @@ update robot config
 
 ```json
 {
+  "chat_config": {
+    "limit": 0
+  },
   "openai_config": {
     "model": "string"
   },
@@ -5298,6 +5311,7 @@ user login
                 "description": "string",
                 "edges": {
                   "config": {
+                    "chat_config": {},
                     "created_at": "string",
                     "edges": {},
                     "id": 0,
@@ -5738,6 +5752,7 @@ user list
                 "description": "string",
                 "edges": {
                   "config": {
+                    "chat_config": {},
                     "created_at": "string",
                     "edges": {},
                     "id": 0,
@@ -6497,6 +6512,9 @@ This operation does not require authentication
               "description": "string",
               "edges": {
                 "config": {
+                  "chat_config": {
+                    "limit": 0
+                  },
                   "created_at": "string",
                   "edges": {
                     "owner": {}
@@ -6624,6 +6642,7 @@ This operation does not require authentication
                 "description": "string",
                 "edges": {
                   "config": {
+                    "chat_config": {},
                     "created_at": "string",
                     "edges": {},
                     "id": 0,
@@ -6713,6 +6732,9 @@ This operation does not require authentication
 
 ```json
 {
+  "chat_config": {
+    "limit": 0
+  },
   "openai_config": {
     "model": "string"
   },
@@ -6737,6 +6759,7 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|chat_config|[schema.ChatConfig](#schemaschema.chatconfig)|false|none|none|
 |openai_config|[schema.OpenAIConfig](#schemaschema.openaiconfig)|false|none|none|
 |openai_content|[schema.OpenAIContent](#schemaschema.openaicontent)|false|none|none|
 |welcome_messages|[[schema.WelcomeMessage](#schemaschema.welcomemessage)]|false|none|none|
@@ -6785,6 +6808,9 @@ This operation does not require authentication
       "description": "string",
       "edges": {
         "config": {
+          "chat_config": {
+            "limit": 0
+          },
           "created_at": "string",
           "edges": {
             "owner": {}
@@ -7175,6 +7201,9 @@ This operation does not require authentication
             "description": "string",
             "edges": {
               "config": {
+                "chat_config": {
+                  "limit": 0
+                },
                 "created_at": "string",
                 "edges": {
                   "owner": {}
@@ -7342,6 +7371,9 @@ This operation does not require authentication
           "description": "string",
           "edges": {
             "config": {
+              "chat_config": {
+                "limit": 0
+              },
               "created_at": "string",
               "edges": {
                 "owner": {}
@@ -7526,6 +7558,7 @@ This operation does not require authentication
                 "description": "string",
                 "edges": {
                   "config": {
+                    "chat_config": {},
                     "created_at": "string",
                     "edges": {},
                     "id": 0,
@@ -7679,6 +7712,9 @@ This operation does not require authentication
               "description": "string",
               "edges": {
                 "config": {
+                  "chat_config": {
+                    "limit": 0
+                  },
                   "created_at": "string",
                   "edges": {
                     "owner": {}
@@ -7792,6 +7828,9 @@ This operation does not require authentication
       "description": "string",
       "edges": {
         "config": {
+          "chat_config": {
+            "limit": 0
+          },
           "created_at": "string",
           "edges": {
             "owner": {}
@@ -7903,6 +7942,9 @@ This operation does not require authentication
     "description": "string",
     "edges": {
       "config": {
+        "chat_config": {
+          "limit": 0
+        },
         "created_at": "string",
         "edges": {
           "owner": {}
@@ -8008,6 +8050,9 @@ This operation does not require authentication
   "description": "string",
   "edges": {
     "config": {
+      "chat_config": {
+        "limit": 0
+      },
       "created_at": "string",
       "edges": {
         "owner": {
@@ -8144,6 +8189,9 @@ This operation does not require authentication
 
 ```json
 {
+  "chat_config": {
+    "limit": 0
+  },
   "created_at": "string",
   "edges": {
     "owner": {
@@ -8151,6 +8199,9 @@ This operation does not require authentication
       "description": "string",
       "edges": {
         "config": {
+          "chat_config": {
+            "limit": 0
+          },
           "created_at": "string",
           "edges": {},
           "id": 0,
@@ -8255,6 +8306,7 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|chat_config|[schema.ChatConfig](#schemaschema.chatconfig)|false|none|none|
 |created_at|string|false|none|CreatedAt holds the value of the "created_at" field.|
 |edges|[ent.RobotConfigEdges](#schemaent.robotconfigedges)|false|none|none|
 |id|integer|false|none|ID of the ent.|
@@ -8277,6 +8329,9 @@ This operation does not require authentication
     "description": "string",
     "edges": {
       "config": {
+        "chat_config": {
+          "limit": 0
+        },
         "created_at": "string",
         "edges": {
           "owner": {}
@@ -8379,6 +8434,9 @@ This operation does not require authentication
 ```json
 {
   "config": {
+    "chat_config": {
+      "limit": 0
+    },
     "created_at": "string",
     "edges": {
       "owner": {
@@ -8460,6 +8518,9 @@ This operation does not require authentication
           "description": "string",
           "edges": {
             "config": {
+              "chat_config": {
+                "limit": 0
+              },
               "created_at": "string",
               "edges": {
                 "owner": {}
@@ -8568,6 +8629,9 @@ This operation does not require authentication
           "description": "string",
           "edges": {
             "config": {
+              "chat_config": {
+                "limit": 0
+              },
               "created_at": "string",
               "edges": {
                 "owner": {}
@@ -8697,6 +8761,9 @@ This operation does not require authentication
         "description": "string",
         "edges": {
           "config": {
+            "chat_config": {
+              "limit": 0
+            },
             "created_at": "string",
             "edges": {
               "owner": {}
@@ -8794,6 +8861,9 @@ This operation does not require authentication
               "description": "string",
               "edges": {
                 "config": {
+                  "chat_config": {
+                    "limit": 0
+                  },
                   "created_at": "string",
                   "edges": {
                     "owner": {}
@@ -8886,6 +8956,9 @@ This operation does not require authentication
       "description": "string",
       "edges": {
         "config": {
+          "chat_config": {
+            "limit": 0
+          },
           "created_at": "string",
           "edges": {
             "owner": {}
@@ -8974,6 +9047,26 @@ This operation does not require authentication
 |---|---|---|---|---|
 |domain|[ent.Domain](#schemaent.domain)|false|none|none|
 |robots|[[ent.Robot](#schemaent.robot)]|false|none|Robots holds the value of the robots edge.|
+
+<h2 id="tocS_schema.ChatConfig">schema.ChatConfig</h2>
+<!-- backwards compatibility -->
+<a id="schemaschema.chatconfig"></a>
+<a id="schema_schema.ChatConfig"></a>
+<a id="tocSschema.chatconfig"></a>
+<a id="tocsschema.chatconfig"></a>
+
+```json
+{
+  "limit": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|limit|integer|false|none|none|
 
 <h2 id="tocS_schema.Message">schema.Message</h2>
 <!-- backwards compatibility -->

@@ -1349,6 +1349,9 @@
         "RobotConfigReq": {
             "type": "object",
             "properties": {
+                "chat_config": {
+                    "$ref": "#/definitions/schema.ChatConfig"
+                },
                 "openai_config": {
                     "$ref": "#/definitions/schema.OpenAIConfig"
                 },
@@ -1690,6 +1693,10 @@
         "ent.RobotConfig": {
             "type": "object",
             "properties": {
+                "chat_config": {
+                    "description": "ChatConfig holds the value of the \"chat_config\" field.",
+                    "$ref": "#/definitions/schema.ChatConfig"
+                },
                 "created_at": {
                     "description": "CreatedAt holds the value of the \"created_at\" field.",
                     "type": "string"
@@ -1798,6 +1805,14 @@
                     "items": {
                         "$ref": "#/definitions/ent.Robot"
                     }
+                }
+            }
+        },
+        "schema.ChatConfig": {
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer"
                 }
             }
         },
