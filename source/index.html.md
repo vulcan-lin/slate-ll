@@ -659,7 +659,7 @@ get chat
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|chat|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|chat|[ChatGetResponse](#schemachatgetresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -900,7 +900,7 @@ get chat
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|chat|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|chat|[ChatGetResponse](#schemachatgetresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -3266,62 +3266,86 @@ domain user login
 {
   "code": 0,
   "data": {
-    "context_id": "string",
-    "created_at": "string",
-    "edges": {
-      "owner": {
-        "created_at": "string",
-        "edges": {
-          "chats": [
-            {}
-          ],
-          "owner": {
-            "created_at": "string",
-            "domain_id": "string",
-            "edges": {
-              "owner": {
+    "domain": {
+      "created_at": "string",
+      "domain_id": "string",
+      "edges": {
+        "owner": {
+          "created_at": "string",
+          "edges": {
+            "domain": {},
+            "robots": [
+              {
                 "created_at": "string",
+                "description": "string",
                 "edges": {
-                  "domain": {},
-                  "robots": [
+                  "config": {
+                    "created_at": "string",
+                    "edges": {},
+                    "id": 0,
+                    "openai_config": {},
+                    "openai_content": {},
+                    "updated_at": "string",
+                    "welcome": []
+                  },
+                  "files": [
                     {}
-                  ]
+                  ],
+                  "owner": {}
                 },
-                "email": "string",
                 "id": 0,
-                "nickname": "string",
-                "password": "string",
+                "name": "string",
+                "prompt": "string",
+                "share": "string",
                 "updated_at": "string"
-              },
-              "users": [
-                {}
-              ]
-            },
-            "id": 0,
-            "name": "string",
-            "updated_at": "string"
-          }
+              }
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string",
+          "updated_at": "string"
         },
-        "email": "string",
-        "id": 0,
-        "nickname": "string",
-        "openid": "string",
-        "password": "string",
-        "unionid": "string",
-        "updated_at": "string",
-        "user_type": "string"
-      }
+        "users": [
+          {
+            "created_at": "string",
+            "edges": {
+              "chats": [
+                {
+                  "context_id": "string",
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "messages": [
+                    {}
+                  ],
+                  "robot_id": 0,
+                  "updated_at": "string"
+                }
+              ],
+              "owner": {}
+            },
+            "email": "string",
+            "id": 0,
+            "nickname": "string",
+            "openid": "string",
+            "password": "string",
+            "unionid": "string",
+            "updated_at": "string",
+            "user_type": "string"
+          }
+        ]
+      },
+      "id": 0,
+      "name": "string",
+      "updated_at": "string"
     },
-    "id": 0,
-    "messages": [
-      {
-        "content": "string",
-        "created": "string",
-        "role": "string"
-      }
-    ],
-    "robot_id": 0,
-    "updated_at": "string"
+    "email": "string",
+    "nick_name": "string",
+    "token": "string"
   },
   "msg": "string"
 }
@@ -3331,7 +3355,7 @@ domain user login
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[LoginResponse](#schemaloginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -5260,62 +5284,86 @@ user login
 {
   "code": 0,
   "data": {
-    "context_id": "string",
-    "created_at": "string",
-    "edges": {
-      "owner": {
-        "created_at": "string",
-        "edges": {
-          "chats": [
-            {}
-          ],
-          "owner": {
-            "created_at": "string",
-            "domain_id": "string",
-            "edges": {
-              "owner": {
+    "domain": {
+      "created_at": "string",
+      "domain_id": "string",
+      "edges": {
+        "owner": {
+          "created_at": "string",
+          "edges": {
+            "domain": {},
+            "robots": [
+              {
                 "created_at": "string",
+                "description": "string",
                 "edges": {
-                  "domain": {},
-                  "robots": [
+                  "config": {
+                    "created_at": "string",
+                    "edges": {},
+                    "id": 0,
+                    "openai_config": {},
+                    "openai_content": {},
+                    "updated_at": "string",
+                    "welcome": []
+                  },
+                  "files": [
                     {}
-                  ]
+                  ],
+                  "owner": {}
                 },
-                "email": "string",
                 "id": 0,
-                "nickname": "string",
-                "password": "string",
+                "name": "string",
+                "prompt": "string",
+                "share": "string",
                 "updated_at": "string"
-              },
-              "users": [
-                {}
-              ]
-            },
-            "id": 0,
-            "name": "string",
-            "updated_at": "string"
-          }
+              }
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string",
+          "updated_at": "string"
         },
-        "email": "string",
-        "id": 0,
-        "nickname": "string",
-        "openid": "string",
-        "password": "string",
-        "unionid": "string",
-        "updated_at": "string",
-        "user_type": "string"
-      }
+        "users": [
+          {
+            "created_at": "string",
+            "edges": {
+              "chats": [
+                {
+                  "context_id": "string",
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "messages": [
+                    {}
+                  ],
+                  "robot_id": 0,
+                  "updated_at": "string"
+                }
+              ],
+              "owner": {}
+            },
+            "email": "string",
+            "id": 0,
+            "nickname": "string",
+            "openid": "string",
+            "password": "string",
+            "unionid": "string",
+            "updated_at": "string",
+            "user_type": "string"
+          }
+        ]
+      },
+      "id": 0,
+      "name": "string",
+      "updated_at": "string"
     },
-    "id": 0,
-    "messages": [
-      {
-        "content": "string",
-        "created": "string",
-        "role": "string"
-      }
-    ],
-    "robot_id": 0,
-    "updated_at": "string"
+    "email": "string",
+    "nick_name": "string",
+    "token": "string"
   },
   "msg": "string"
 }
@@ -5325,7 +5373,7 @@ user login
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[LoginResponse](#schemaloginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -5676,62 +5724,86 @@ user list
 {
   "code": 0,
   "data": {
-    "context_id": "string",
-    "created_at": "string",
-    "edges": {
-      "owner": {
-        "created_at": "string",
-        "edges": {
-          "chats": [
-            {}
-          ],
-          "owner": {
-            "created_at": "string",
-            "domain_id": "string",
-            "edges": {
-              "owner": {
+    "domain": {
+      "created_at": "string",
+      "domain_id": "string",
+      "edges": {
+        "owner": {
+          "created_at": "string",
+          "edges": {
+            "domain": {},
+            "robots": [
+              {
                 "created_at": "string",
+                "description": "string",
                 "edges": {
-                  "domain": {},
-                  "robots": [
+                  "config": {
+                    "created_at": "string",
+                    "edges": {},
+                    "id": 0,
+                    "openai_config": {},
+                    "openai_content": {},
+                    "updated_at": "string",
+                    "welcome": []
+                  },
+                  "files": [
                     {}
-                  ]
+                  ],
+                  "owner": {}
                 },
-                "email": "string",
                 "id": 0,
-                "nickname": "string",
-                "password": "string",
+                "name": "string",
+                "prompt": "string",
+                "share": "string",
                 "updated_at": "string"
-              },
-              "users": [
-                {}
-              ]
-            },
-            "id": 0,
-            "name": "string",
-            "updated_at": "string"
-          }
+              }
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string",
+          "updated_at": "string"
         },
-        "email": "string",
-        "id": 0,
-        "nickname": "string",
-        "openid": "string",
-        "password": "string",
-        "unionid": "string",
-        "updated_at": "string",
-        "user_type": "string"
-      }
+        "users": [
+          {
+            "created_at": "string",
+            "edges": {
+              "chats": [
+                {
+                  "context_id": "string",
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "messages": [
+                    {}
+                  ],
+                  "robot_id": 0,
+                  "updated_at": "string"
+                }
+              ],
+              "owner": {}
+            },
+            "email": "string",
+            "id": 0,
+            "nickname": "string",
+            "openid": "string",
+            "password": "string",
+            "unionid": "string",
+            "updated_at": "string",
+            "user_type": "string"
+          }
+        ]
+      },
+      "id": 0,
+      "name": "string",
+      "updated_at": "string"
     },
-    "id": 0,
-    "messages": [
-      {
-        "content": "string",
-        "created": "string",
-        "role": "string"
-      }
-    ],
-    "robot_id": 0,
-    "updated_at": "string"
+    "email": "string",
+    "nick_name": "string",
+    "token": "string"
   },
   "msg": "string"
 }
@@ -5741,7 +5813,7 @@ user list
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[api_service.LoginResponse](#schemaapi_service.loginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[LoginResponse](#schemaloginresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -6096,6 +6168,87 @@ This operation does not require authentication
 
 # Schemas
 
+<h2 id="tocS_ChatGetResponse">ChatGetResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemachatgetresponse"></a>
+<a id="schema_ChatGetResponse"></a>
+<a id="tocSchatgetresponse"></a>
+<a id="tocschatgetresponse"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "context_id": "string",
+    "created_at": "string",
+    "edges": {
+      "owner": {
+        "created_at": "string",
+        "edges": {
+          "chats": [
+            {}
+          ],
+          "owner": {
+            "created_at": "string",
+            "domain_id": "string",
+            "edges": {
+              "owner": {
+                "created_at": "string",
+                "edges": {
+                  "domain": {},
+                  "robots": [
+                    {}
+                  ]
+                },
+                "email": "string",
+                "id": 0,
+                "nickname": "string",
+                "password": "string",
+                "updated_at": "string"
+              },
+              "users": [
+                {}
+              ]
+            },
+            "id": 0,
+            "name": "string",
+            "updated_at": "string"
+          }
+        },
+        "email": "string",
+        "id": 0,
+        "nickname": "string",
+        "openid": "string",
+        "password": "string",
+        "unionid": "string",
+        "updated_at": "string",
+        "user_type": "string"
+      }
+    },
+    "id": 0,
+    "messages": [
+      {
+        "content": "string",
+        "created": "string",
+        "role": "string"
+      }
+    ],
+    "robot_id": 0,
+    "updated_at": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[ent.Chat](#schemaent.chat)|false|none|none|
+|msg|string|false|none|none|
+
 <h2 id="tocS_ChatNewReq">ChatNewReq</h2>
 <!-- backwards compatibility -->
 <a id="schemachatnewreq"></a>
@@ -6446,6 +6599,111 @@ This operation does not require authentication
 |nick_name|string|false|none|用户昵称|
 |token|string|false|none|用户token|
 
+<h2 id="tocS_LoginResponse">LoginResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemaloginresponse"></a>
+<a id="schema_LoginResponse"></a>
+<a id="tocSloginresponse"></a>
+<a id="tocsloginresponse"></a>
+
+```json
+{
+  "code": 0,
+  "data": {
+    "domain": {
+      "created_at": "string",
+      "domain_id": "string",
+      "edges": {
+        "owner": {
+          "created_at": "string",
+          "edges": {
+            "domain": {},
+            "robots": [
+              {
+                "created_at": "string",
+                "description": "string",
+                "edges": {
+                  "config": {
+                    "created_at": "string",
+                    "edges": {},
+                    "id": 0,
+                    "openai_config": {},
+                    "openai_content": {},
+                    "updated_at": "string",
+                    "welcome": []
+                  },
+                  "files": [
+                    {}
+                  ],
+                  "owner": {}
+                },
+                "id": 0,
+                "name": "string",
+                "prompt": "string",
+                "share": "string",
+                "updated_at": "string"
+              }
+            ]
+          },
+          "email": "string",
+          "id": 0,
+          "nickname": "string",
+          "password": "string",
+          "updated_at": "string"
+        },
+        "users": [
+          {
+            "created_at": "string",
+            "edges": {
+              "chats": [
+                {
+                  "context_id": "string",
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "messages": [
+                    {}
+                  ],
+                  "robot_id": 0,
+                  "updated_at": "string"
+                }
+              ],
+              "owner": {}
+            },
+            "email": "string",
+            "id": 0,
+            "nickname": "string",
+            "openid": "string",
+            "password": "string",
+            "unionid": "string",
+            "updated_at": "string",
+            "user_type": "string"
+          }
+        ]
+      },
+      "id": 0,
+      "name": "string",
+      "updated_at": "string"
+    },
+    "email": "string",
+    "nick_name": "string",
+    "token": "string"
+  },
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[LoginResp](#schemaloginresp)|false|none|none|
+|msg|string|false|none|none|
+
 <h2 id="tocS_RobotConfigReq">RobotConfigReq</h2>
 <!-- backwards compatibility -->
 <a id="schemarobotconfigreq"></a>
@@ -6669,87 +6927,6 @@ This operation does not require authentication
 |email|string|true|none|用户email地址|
 |nick_name|string|true|none|用户nick_named|
 |password|string|true|none|用户密码|
-
-<h2 id="tocS_api_service.LoginResponse">api_service.LoginResponse</h2>
-<!-- backwards compatibility -->
-<a id="schemaapi_service.loginresponse"></a>
-<a id="schema_api_service.LoginResponse"></a>
-<a id="tocSapi_service.loginresponse"></a>
-<a id="tocsapi_service.loginresponse"></a>
-
-```json
-{
-  "code": 0,
-  "data": {
-    "context_id": "string",
-    "created_at": "string",
-    "edges": {
-      "owner": {
-        "created_at": "string",
-        "edges": {
-          "chats": [
-            {}
-          ],
-          "owner": {
-            "created_at": "string",
-            "domain_id": "string",
-            "edges": {
-              "owner": {
-                "created_at": "string",
-                "edges": {
-                  "domain": {},
-                  "robots": [
-                    {}
-                  ]
-                },
-                "email": "string",
-                "id": 0,
-                "nickname": "string",
-                "password": "string",
-                "updated_at": "string"
-              },
-              "users": [
-                {}
-              ]
-            },
-            "id": 0,
-            "name": "string",
-            "updated_at": "string"
-          }
-        },
-        "email": "string",
-        "id": 0,
-        "nickname": "string",
-        "openid": "string",
-        "password": "string",
-        "unionid": "string",
-        "updated_at": "string",
-        "user_type": "string"
-      }
-    },
-    "id": 0,
-    "messages": [
-      {
-        "content": "string",
-        "created": "string",
-        "role": "string"
-      }
-    ],
-    "robot_id": 0,
-    "updated_at": "string"
-  },
-  "msg": "string"
-}
-
-```
-
-### Properties
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|code|integer|false|none|none|
-|data|[ent.Chat](#schemaent.chat)|false|none|none|
-|msg|string|false|none|none|
 
 <h2 id="tocS_commonResponse">commonResponse</h2>
 <!-- backwards compatibility -->

@@ -136,7 +136,7 @@
                     "200": {
                         "description": "chat",
                         "schema": {
-                            "$ref": "#/definitions/api_service.LoginResponse"
+                            "$ref": "#/definitions/ChatGetResponse"
                         }
                     },
                     "400": {
@@ -294,7 +294,7 @@
                     "200": {
                         "description": "chat",
                         "schema": {
-                            "$ref": "#/definitions/api_service.LoginResponse"
+                            "$ref": "#/definitions/ChatGetResponse"
                         }
                     },
                     "400": {
@@ -548,7 +548,7 @@
                     "200": {
                         "description": "Login response",
                         "schema": {
-                            "$ref": "#/definitions/api_service.LoginResponse"
+                            "$ref": "#/definitions/LoginResponse"
                         }
                     },
                     "400": {
@@ -1054,7 +1054,7 @@
                     "200": {
                         "description": "Login response",
                         "schema": {
-                            "$ref": "#/definitions/api_service.LoginResponse"
+                            "$ref": "#/definitions/LoginResponse"
                         }
                     },
                     "400": {
@@ -1121,7 +1121,7 @@
                     "200": {
                         "description": "Login response",
                         "schema": {
-                            "$ref": "#/definitions/api_service.LoginResponse"
+                            "$ref": "#/definitions/LoginResponse"
                         }
                     },
                     "400": {
@@ -1200,6 +1200,20 @@
         }
     },
     "definitions": {
+        "ChatGetResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/ent.Chat"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
         "ChatNewReq": {
             "type": "object",
             "required": [
@@ -1318,6 +1332,20 @@
                 }
             }
         },
+        "LoginResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/LoginResp"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
         "RobotConfigReq": {
             "type": "object",
             "properties": {
@@ -1417,20 +1445,6 @@
                 },
                 "password": {
                     "description": "用户密码",
-                    "type": "string"
-                }
-            }
-        },
-        "api_service.LoginResponse": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "integer"
-                },
-                "data": {
-                    "$ref": "#/definitions/ent.Chat"
-                },
-                "msg": {
                     "type": "string"
                 }
             }
