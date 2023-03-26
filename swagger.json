@@ -350,52 +350,6 @@
                 }
             }
         },
-        "/domains/{domain_id}/chats/stream-qa": {
-            "post": {
-                "description": "stream chat",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Domain"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Authorization",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "description": "chat request",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ChatReq"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "common response",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    },
-                    "400": {
-                        "description": "Common response",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    }
-                }
-            }
-        },
         "/domains/{domain_id}/robots": {
             "get": {
                 "description": "domain robot list",
@@ -614,6 +568,34 @@
                         "description": "Common response",
                         "schema": {
                             "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/history": {
+            "get": {
+                "description": "cybermem history",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "History"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "HistoryResponse",
+                        "schema": {
+                            "$ref": "#/definitions/HistoryResponse"
                         }
                     },
                     "400": {
@@ -892,91 +874,6 @@
                 "responses": {
                     "200": {
                         "description": "chat context id",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    },
-                    "400": {
-                        "description": "Common response",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    }
-                }
-            }
-        },
-        "/s/chats/qa": {
-            "post": {
-                "description": "无认证 anonymous chat",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Chat"
-                ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Authorization",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "description": "chat request",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ChatReq"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "common response",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    },
-                    "400": {
-                        "description": "Common response",
-                        "schema": {
-                            "$ref": "#/definitions/commonResponse"
-                        }
-                    }
-                }
-            }
-        },
-        "/s/chats/stream-qa": {
-            "post": {
-                "description": "无认证匿名 stream chat",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Chat"
-                ],
-                "parameters": [
-                    {
-                        "description": "chat request",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ChatReq"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "common response",
                         "schema": {
                             "$ref": "#/definitions/commonResponse"
                         }
@@ -1291,6 +1188,57 @@
                 },
                 "msg": {
                     "type": "string"
+                }
+            }
+        },
+        "HistoryItem": {
+            "type": "object",
+            "properties": {
+                "robot_name": {
+                    "type": "string"
+                },
+                "total_messages": {
+                    "type": "integer"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/HistoryUserItem"
+                    }
+                }
+            }
+        },
+        "HistoryResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/HistoryItem"
+                    }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "HistoryUserItem": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "total_messages": {
+                    "type": "integer"
                 }
             }
         },
@@ -1811,7 +1759,12 @@
         "schema.ChatConfig": {
             "type": "object",
             "properties": {
+                "context_limit": {
+                    "description": "上下文限制",
+                    "type": "integer"
+                },
                 "limit": {
+                    "description": "总条数限制",
                     "type": "integer"
                 }
             }

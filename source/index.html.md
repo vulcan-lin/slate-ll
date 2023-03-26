@@ -1293,396 +1293,6 @@ func main() {
 This operation does not require authentication
 </aside>
 
-## post__s_chats_qa
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.dev.cybermem.com/api/v1/s/chats/qa \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
-  -H 'Authorization: string'
-
-```
-
-```http
-POST https://api.dev.cybermem.com/api/v1/s/chats/qa HTTP/1.1
-Host: api.dev.cybermem.com
-Content-Type: application/json
-Accept: application/json
-Authorization: string
-
-```
-
-```javascript
-const inputBody = '{
-  "context_id": "string",
-  "message": "string"
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json',
-  'Authorization':'string'
-};
-
-fetch('https://api.dev.cybermem.com/api/v1/s/chats/qa',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
-  'Authorization' => 'string'
-}
-
-result = RestClient.post 'https://api.dev.cybermem.com/api/v1/s/chats/qa',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'string'
-}
-
-r = requests.post('https://api.dev.cybermem.com/api/v1/s/chats/qa', headers = headers)
-
-print(r.json())
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Content-Type' => 'application/json',
-    'Accept' => 'application/json',
-    'Authorization' => 'string',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/s/chats/qa', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```java
-URL obj = new URL("https://api.dev.cybermem.com/api/v1/s/chats/qa");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"string"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/s/chats/qa", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`POST /s/chats/qa`
-
-无认证 anonymous chat
-
-> Body parameter
-
-```json
-{
-  "context_id": "string",
-  "message": "string"
-}
-```
-
-<h3 id="post__s_chats_qa-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Authorization|header|string|true|Authorization|
-|body|body|[ChatReq](#schemachatreq)|true|chat request|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "code": 0,
-  "data": null,
-  "msg": "string"
-}
-```
-
-<h3 id="post__s_chats_qa-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|common response|[commonResponse](#schemacommonresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## post__s_chats_stream-qa
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.dev.cybermem.com/api/v1/s/chats/stream-qa \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```http
-POST https://api.dev.cybermem.com/api/v1/s/chats/stream-qa HTTP/1.1
-Host: api.dev.cybermem.com
-Content-Type: application/json
-Accept: application/json
-
-```
-
-```javascript
-const inputBody = '{
-  "context_id": "string",
-  "message": "string"
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-};
-
-fetch('https://api.dev.cybermem.com/api/v1/s/chats/stream-qa',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
-}
-
-result = RestClient.post 'https://api.dev.cybermem.com/api/v1/s/chats/stream-qa',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.post('https://api.dev.cybermem.com/api/v1/s/chats/stream-qa', headers = headers)
-
-print(r.json())
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Content-Type' => 'application/json',
-    'Accept' => 'application/json',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/s/chats/stream-qa', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```java
-URL obj = new URL("https://api.dev.cybermem.com/api/v1/s/chats/stream-qa");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/s/chats/stream-qa", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`POST /s/chats/stream-qa`
-
-无认证匿名 stream chat
-
-> Body parameter
-
-```json
-{
-  "context_id": "string",
-  "message": "string"
-}
-```
-
-<h3 id="post__s_chats_stream-qa-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[ChatReq](#schemachatreq)|true|chat request|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "code": 0,
-  "data": null,
-  "msg": "string"
-}
-```
-
-<h3 id="post__s_chats_stream-qa-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|common response|[commonResponse](#schemacommonresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
 <h1 id="cybermem-api-domain">Domain</h1>
 
 ## get__domains
@@ -2199,205 +1809,6 @@ update domain site name
 This operation does not require authentication
 </aside>
 
-## post__domains_{domain_id}_chats_stream-qa
-
-> Code samples
-
-```shell
-# You can also use wget
-curl -X POST https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats/stream-qa \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
-  -H 'Authorization: string'
-
-```
-
-```http
-POST https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats/stream-qa HTTP/1.1
-Host: api.dev.cybermem.com
-Content-Type: application/json
-Accept: application/json
-Authorization: string
-
-```
-
-```javascript
-const inputBody = '{
-  "context_id": "string",
-  "message": "string"
-}';
-const headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json',
-  'Authorization':'string'
-};
-
-fetch('https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats/stream-qa',
-{
-  method: 'POST',
-  body: inputBody,
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json',
-  'Authorization' => 'string'
-}
-
-result = RestClient.post 'https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats/stream-qa',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json',
-  'Authorization': 'string'
-}
-
-r = requests.post('https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats/stream-qa', headers = headers)
-
-print(r.json())
-
-```
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-$headers = array(
-    'Content-Type' => 'application/json',
-    'Accept' => 'application/json',
-    'Authorization' => 'string',
-);
-
-$client = new \GuzzleHttp\Client();
-
-// Define array of request body.
-$request_body = array();
-
-try {
-    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats/stream-qa', array(
-        'headers' => $headers,
-        'json' => $request_body,
-       )
-    );
-    print_r($response->getBody()->getContents());
- }
- catch (\GuzzleHttp\Exception\BadResponseException $e) {
-    // handle exception or api errors.
-    print_r($e->getMessage());
- }
-
- // ...
-
-```
-
-```java
-URL obj = new URL("https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats/stream-qa");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
-        "Authorization": []string{"string"},
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/domains/{domain_id}/chats/stream-qa", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-`POST /domains/{domain_id}/chats/stream-qa`
-
-stream chat
-
-> Body parameter
-
-```json
-{
-  "context_id": "string",
-  "message": "string"
-}
-```
-
-<h3 id="post__domains_{domain_id}_chats_stream-qa-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Authorization|header|string|true|Authorization|
-|body|body|[ChatReq](#schemachatreq)|true|chat request|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "code": 0,
-  "data": null,
-  "msg": "string"
-}
-```
-
-<h3 id="post__domains_{domain_id}_chats_stream-qa-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|common response|[commonResponse](#schemacommonresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
 ## get__domains_{domain_id}_robots
 
 > Code samples
@@ -2561,6 +1972,7 @@ domain robot list
       "edges": {
         "config": {
           "chat_config": {
+            "context_limit": 0,
             "limit": 0
           },
           "created_at": "string",
@@ -3865,6 +3277,7 @@ robot list
       "edges": {
         "config": {
           "chat_config": {
+            "context_limit": 0,
             "limit": 0
           },
           "created_at": "string",
@@ -4744,6 +4157,7 @@ Accept: application/json
 ```javascript
 const inputBody = '{
   "chat_config": {
+    "context_limit": 0,
     "limit": 0
   },
   "openai_config": {
@@ -4896,6 +4310,7 @@ update robot config
 ```json
 {
   "chat_config": {
+    "context_limit": 0,
     "limit": 0
   },
   "openai_config": {
@@ -5113,6 +4528,187 @@ func main() {
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="cybermem-api-history">History</h1>
+
+## get__history
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.dev.cybermem.com/api/v1/history \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://api.dev.cybermem.com/api/v1/history HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/history',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/history',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://api.dev.cybermem.com/api/v1/history', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/history', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/history");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/history", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /history`
+
+cybermem history
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "robot_name": "string",
+      "total_messages": 0,
+      "users": [
+        {
+          "email": "string",
+          "id": 0,
+          "name": "string",
+          "total_messages": 0
+        }
+      ]
+    }
+  ],
+  "msg": "string"
+}
+```
+
+<h3 id="get__history-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|HistoryResponse|[HistoryResponse](#schemahistoryresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -6467,6 +6063,100 @@ This operation does not require authentication
 |data|[[ent.DomainUser](#schemaent.domainuser)]|false|none|none|
 |msg|string|false|none|none|
 
+<h2 id="tocS_HistoryItem">HistoryItem</h2>
+<!-- backwards compatibility -->
+<a id="schemahistoryitem"></a>
+<a id="schema_HistoryItem"></a>
+<a id="tocShistoryitem"></a>
+<a id="tocshistoryitem"></a>
+
+```json
+{
+  "robot_name": "string",
+  "total_messages": 0,
+  "users": [
+    {
+      "email": "string",
+      "id": 0,
+      "name": "string",
+      "total_messages": 0
+    }
+  ]
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|robot_name|string|false|none|none|
+|total_messages|integer|false|none|none|
+|users|[[HistoryUserItem](#schemahistoryuseritem)]|false|none|none|
+
+<h2 id="tocS_HistoryResponse">HistoryResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemahistoryresponse"></a>
+<a id="schema_HistoryResponse"></a>
+<a id="tocShistoryresponse"></a>
+<a id="tocshistoryresponse"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "robot_name": "string",
+      "total_messages": 0,
+      "users": [
+        {
+          "email": "string",
+          "id": 0,
+          "name": "string",
+          "total_messages": 0
+        }
+      ]
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[HistoryItem](#schemahistoryitem)]|false|none|none|
+|msg|string|false|none|none|
+
+<h2 id="tocS_HistoryUserItem">HistoryUserItem</h2>
+<!-- backwards compatibility -->
+<a id="schemahistoryuseritem"></a>
+<a id="schema_HistoryUserItem"></a>
+<a id="tocShistoryuseritem"></a>
+<a id="tocshistoryuseritem"></a>
+
+```json
+{
+  "email": "string",
+  "id": 0,
+  "name": "string",
+  "total_messages": 0
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|email|string|false|none|none|
+|id|integer|false|none|none|
+|name|string|false|none|none|
+|total_messages|integer|false|none|none|
+
 <h2 id="tocS_LoginReq">LoginReq</h2>
 <!-- backwards compatibility -->
 <a id="schemaloginreq"></a>
@@ -6513,6 +6203,7 @@ This operation does not require authentication
               "edges": {
                 "config": {
                   "chat_config": {
+                    "context_limit": 0,
                     "limit": 0
                   },
                   "created_at": "string",
@@ -6733,6 +6424,7 @@ This operation does not require authentication
 ```json
 {
   "chat_config": {
+    "context_limit": 0,
     "limit": 0
   },
   "openai_config": {
@@ -6809,6 +6501,7 @@ This operation does not require authentication
       "edges": {
         "config": {
           "chat_config": {
+            "context_limit": 0,
             "limit": 0
           },
           "created_at": "string",
@@ -7202,6 +6895,7 @@ This operation does not require authentication
             "edges": {
               "config": {
                 "chat_config": {
+                  "context_limit": 0,
                   "limit": 0
                 },
                 "created_at": "string",
@@ -7372,6 +7066,7 @@ This operation does not require authentication
           "edges": {
             "config": {
               "chat_config": {
+                "context_limit": 0,
                 "limit": 0
               },
               "created_at": "string",
@@ -7713,6 +7408,7 @@ This operation does not require authentication
               "edges": {
                 "config": {
                   "chat_config": {
+                    "context_limit": 0,
                     "limit": 0
                   },
                   "created_at": "string",
@@ -7829,6 +7525,7 @@ This operation does not require authentication
       "edges": {
         "config": {
           "chat_config": {
+            "context_limit": 0,
             "limit": 0
           },
           "created_at": "string",
@@ -7943,6 +7640,7 @@ This operation does not require authentication
     "edges": {
       "config": {
         "chat_config": {
+          "context_limit": 0,
           "limit": 0
         },
         "created_at": "string",
@@ -8051,6 +7749,7 @@ This operation does not require authentication
   "edges": {
     "config": {
       "chat_config": {
+        "context_limit": 0,
         "limit": 0
       },
       "created_at": "string",
@@ -8190,6 +7889,7 @@ This operation does not require authentication
 ```json
 {
   "chat_config": {
+    "context_limit": 0,
     "limit": 0
   },
   "created_at": "string",
@@ -8200,6 +7900,7 @@ This operation does not require authentication
       "edges": {
         "config": {
           "chat_config": {
+            "context_limit": 0,
             "limit": 0
           },
           "created_at": "string",
@@ -8330,6 +8031,7 @@ This operation does not require authentication
     "edges": {
       "config": {
         "chat_config": {
+          "context_limit": 0,
           "limit": 0
         },
         "created_at": "string",
@@ -8435,6 +8137,7 @@ This operation does not require authentication
 {
   "config": {
     "chat_config": {
+      "context_limit": 0,
       "limit": 0
     },
     "created_at": "string",
@@ -8519,6 +8222,7 @@ This operation does not require authentication
           "edges": {
             "config": {
               "chat_config": {
+                "context_limit": 0,
                 "limit": 0
               },
               "created_at": "string",
@@ -8630,6 +8334,7 @@ This operation does not require authentication
           "edges": {
             "config": {
               "chat_config": {
+                "context_limit": 0,
                 "limit": 0
               },
               "created_at": "string",
@@ -8762,6 +8467,7 @@ This operation does not require authentication
         "edges": {
           "config": {
             "chat_config": {
+              "context_limit": 0,
               "limit": 0
             },
             "created_at": "string",
@@ -8862,6 +8568,7 @@ This operation does not require authentication
               "edges": {
                 "config": {
                   "chat_config": {
+                    "context_limit": 0,
                     "limit": 0
                   },
                   "created_at": "string",
@@ -8957,6 +8664,7 @@ This operation does not require authentication
       "edges": {
         "config": {
           "chat_config": {
+            "context_limit": 0,
             "limit": 0
           },
           "created_at": "string",
@@ -9057,6 +8765,7 @@ This operation does not require authentication
 
 ```json
 {
+  "context_limit": 0,
   "limit": 0
 }
 
@@ -9066,7 +8775,8 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
-|limit|integer|false|none|none|
+|context_limit|integer|false|none|上下文限制|
+|limit|integer|false|none|总条数限制|
 
 <h2 id="tocS_schema.Message">schema.Message</h2>
 <!-- backwards compatibility -->
