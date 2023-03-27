@@ -4688,6 +4688,7 @@ cybermem history
   "code": 0,
   "data": [
     {
+      "robot_id": 0,
       "robot_name": "string",
       "total_messages": 0,
       "users": [
@@ -6072,6 +6073,7 @@ This operation does not require authentication
 
 ```json
 {
+  "robot_id": 0,
   "robot_name": "string",
   "total_messages": 0,
   "users": [
@@ -6090,6 +6092,7 @@ This operation does not require authentication
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
+|robot_id|integer|false|none|none|
 |robot_name|string|false|none|none|
 |total_messages|integer|false|none|none|
 |users|[[HistoryUserItem](#schemahistoryuseritem)]|false|none|none|
@@ -6106,6 +6109,7 @@ This operation does not require authentication
   "code": 0,
   "data": [
     {
+      "robot_id": 0,
       "robot_name": "string",
       "total_messages": 0,
       "users": [

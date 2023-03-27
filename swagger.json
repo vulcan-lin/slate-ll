@@ -1194,6 +1194,9 @@
         "HistoryItem": {
             "type": "object",
             "properties": {
+                "robot_id": {
+                    "type": "integer"
+                },
                 "robot_name": {
                     "type": "string"
                 },
