@@ -6375,34 +6375,43 @@ get openid[小程序使用]
 This operation does not require authentication
 </aside>
 
-## post__wx_{domain_id}_checklogin
+## post__wx_{domain_id}_users
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin?code=string \
+curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users \
+  -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin?code=string HTTP/1.1
+POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users HTTP/1.1
 Host: api.dev.cybermem.com
+Content-Type: application/json
 Accept: application/json
 
 ```
 
 ```javascript
-
+const inputBody = '{
+  "code": "string",
+  "email": "string",
+  "nick_name": "string",
+  "open_id": "string",
+  "password": "string"
+}';
 const headers = {
+  'Content-Type':'application/json',
   'Accept':'application/json'
 };
 
-fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin?code=string',
+fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users',
 {
   method: 'POST',
-
+  body: inputBody,
   headers: headers
 })
 .then(function(res) {
@@ -6418,13 +6427,13 @@ require 'rest-client'
 require 'json'
 
 headers = {
+  'Content-Type' => 'application/json',
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin',
+result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users',
   params: {
-  'code' => 'string'
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 
@@ -6433,12 +6442,11 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
+  'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin', params={
-  'code': 'string'
-}, headers = headers)
+r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users', headers = headers)
 
 print(r.json())
 
@@ -6450,6 +6458,7 @@ print(r.json())
 require 'vendor/autoload.php';
 
 $headers = array(
+    'Content-Type' => 'application/json',
     'Accept' => 'application/json',
 );
 
@@ -6459,7 +6468,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin', array(
+    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -6476,7 +6485,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin?code=string");
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6503,11 +6512,12 @@ import (
 func main() {
 
     headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
         "Accept": []string{"application/json"},
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin", data)
+    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6517,15 +6527,27 @@ func main() {
 
 ```
 
-`POST /wx/{domain_id}/checklogin`
+`POST /wx/{domain_id}/users`
 
-check user login
+user register
 
-<h3 id="post__wx_{domain_id}_checklogin-parameters">Parameters</h3>
+> Body parameter
+
+```json
+{
+  "code": "string",
+  "email": "string",
+  "nick_name": "string",
+  "open_id": "string",
+  "password": "string"
+}
+```
+
+<h3 id="post__wx_{domain_id}_users-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|code|query|string|true|wechat code|
+|body|body|[WxUserRegisterReq](#schemawxuserregisterreq)|true|wechat register/update request|
 
 > Example responses
 
@@ -6539,7 +6561,7 @@ check user login
 }
 ```
 
-<h3 id="post__wx_{domain_id}_checklogin-responses">Responses</h3>
+<h3 id="post__wx_{domain_id}_users-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -6550,19 +6572,19 @@ check user login
 This operation does not require authentication
 </aside>
 
-## post__wx_{domain_id}_register
+## post__wx_{domain_id}_users_{openid}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register \
+curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users/{openid} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register HTTP/1.1
+POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users/{openid} HTTP/1.1
 Host: api.dev.cybermem.com
 Accept: application/json
 
@@ -6574,7 +6596,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register',
+fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users/{openid}',
 {
   method: 'POST',
 
@@ -6596,7 +6618,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register',
+result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users/{openid}',
   params: {
   }, headers: headers
 
@@ -6610,7 +6632,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register', headers = headers)
+r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users/{openid}', headers = headers)
 
 print(r.json())
 
@@ -6631,7 +6653,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register', array(
+    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users/{openid}', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -6648,7 +6670,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register");
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users/{openid}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6679,7 +6701,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register", data)
+    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/wx/{domain_id}/users/{openid}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -6689,9 +6711,15 @@ func main() {
 
 ```
 
-`POST /wx/{domain_id}/register`
+`POST /wx/{domain_id}/users/{openid}`
 
-user register
+check user subscribe status
+
+<h3 id="post__wx_{domain_id}_users_{openid}-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|openid|path|string|true|wechat user openid|
 
 > Example responses
 
@@ -6699,17 +6727,16 @@ user register
 
 ```json
 {
-  "code": 0,
-  "data": null,
-  "msg": "string"
+  "register": true,
+  "subscribe": true
 }
 ```
 
-<h3 id="post__wx_{domain_id}_register-responses">Responses</h3>
+<h3 id="post__wx_{domain_id}_users_{openid}-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|WeChatGetUserResponse|[WeChatGetUserResponse](#schemawechatgetuserresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -7705,6 +7732,56 @@ This operation does not require authentication
 |---|---|---|---|---|
 |email|string|true|none|用户email地址|
 |nick_name|string|true|none|用户nick_named|
+|password|string|true|none|用户密码|
+
+<h2 id="tocS_WeChatGetUserResponse">WeChatGetUserResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemawechatgetuserresponse"></a>
+<a id="schema_WeChatGetUserResponse"></a>
+<a id="tocSwechatgetuserresponse"></a>
+<a id="tocswechatgetuserresponse"></a>
+
+```json
+{
+  "register": true,
+  "subscribe": true
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|register|boolean|false|none|是否已注册|
+|subscribe|boolean|false|none|是否已关注|
+
+<h2 id="tocS_WxUserRegisterReq">WxUserRegisterReq</h2>
+<!-- backwards compatibility -->
+<a id="schemawxuserregisterreq"></a>
+<a id="schema_WxUserRegisterReq"></a>
+<a id="tocSwxuserregisterreq"></a>
+<a id="tocswxuserregisterreq"></a>
+
+```json
+{
+  "code": "string",
+  "email": "string",
+  "nick_name": "string",
+  "open_id": "string",
+  "password": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|string|true|none|email验证码|
+|email|string|true|none|用户email地址|
+|nick_name|string|true|none|用户nick_named|
+|open_id|string|true|none|openid|
 |password|string|true|none|用户密码|
 
 <h2 id="tocS_commonResponse">commonResponse</h2>

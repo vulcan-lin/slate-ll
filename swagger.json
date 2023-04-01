@@ -1218,9 +1218,9 @@
                 }
             }
         },
-        "/wx/{domain_id}/checklogin": {
+        "/wx/{domain_id}/users": {
             "post": {
-                "description": "check user login",
+                "description": "user register",
                 "consumes": [
                     "application/json"
                 ],
@@ -1232,11 +1232,13 @@
                 ],
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "wechat code",
-                        "name": "code",
-                        "in": "query",
-                        "required": true
+                        "description": "wechat register/update request",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/WxUserRegisterReq"
+                        }
                     }
                 ],
                 "responses": {
@@ -1255,9 +1257,9 @@
                 }
             }
         },
-        "/wx/{domain_id}/register": {
+        "/wx/{domain_id}/users/{openid}": {
             "post": {
-                "description": "user register",
+                "description": "check user subscribe status",
                 "consumes": [
                     "application/json"
                 ],
@@ -1267,11 +1269,20 @@
                 "tags": [
                     "WeChat"
                 ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "wechat user openid",
+                        "name": "openid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "Common response",
+                        "description": "WeChatGetUserResponse ",
                         "schema": {
-                            "$ref": "#/definitions/commonResponse"
+                            "$ref": "#/definitions/WeChatGetUserResponse"
                         }
                     },
                     "400": {
@@ -1600,6 +1611,51 @@
                 },
                 "nick_name": {
                     "description": "用户nick_named",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "用户密码",
+                    "type": "string"
+                }
+            }
+        },
+        "WeChatGetUserResponse": {
+            "type": "object",
+            "properties": {
+                "register": {
+                    "description": "是否已注册",
+                    "type": "boolean"
+                },
+                "subscribe": {
+                    "description": "是否已关注",
+                    "type": "boolean"
+                }
+            }
+        },
+        "WxUserRegisterReq": {
+            "type": "object",
+            "required": [
+                "code",
+                "email",
+                "nick_name",
+                "open_id",
+                "password"
+            ],
+            "properties": {
+                "code": {
+                    "description": "email验证码",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "用户email地址",
+                    "type": "string"
+                },
+                "nick_name": {
+                    "description": "用户nick_named",
+                    "type": "string"
+                },
+                "open_id": {
+                    "description": "openid",
                     "type": "string"
                 },
                 "password": {
