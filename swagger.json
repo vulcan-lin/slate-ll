@@ -1074,9 +1074,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Login response",
+                        "description": "user list response",
                         "schema": {
-                            "$ref": "#/definitions/LoginResponse"
+                            "$ref": "#/definitions/UserListResponse"
                         }
                     },
                     "400": {
@@ -1116,9 +1116,111 @@
                 }
             }
         },
+        "/users/{user_id}": {
+            "get": {
+                "description": "get user by id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get user detail response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/wx/{domain_id}/auth": {
             "post": {
                 "description": "get openid",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "WeChat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "wechat code",
+                        "name": "code",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ResponseCode2Session response",
+                        "schema": {
+                            "$ref": "#/definitions/Code2SessionResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/wx/{domain_id}/checklogin": {
+            "post": {
+                "description": "check user login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "WeChat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "wechat code",
+                        "name": "code",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ResponseCode2Session response",
+                        "schema": {
+                            "$ref": "#/definitions/Code2SessionResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/wx/{domain_id}/register": {
+            "post": {
+                "description": "check user login",
                 "consumes": [
                     "application/json"
                 ],
@@ -1432,6 +1534,23 @@
                     "type": "array",
                     "items": {
                         "type": "integer"
+                    }
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "UserListResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.User"
                     }
                 },
                 "msg": {

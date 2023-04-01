@@ -5578,89 +5578,101 @@ user list
 ```json
 {
   "code": 0,
-  "data": {
-    "domain": {
+  "data": [
+    {
       "created_at": "string",
-      "domain_id": "string",
       "edges": {
-        "owner": {
+        "domain": {
           "created_at": "string",
+          "domain_id": "string",
           "edges": {
-            "domain": {},
-            "robots": [
+            "owner": {},
+            "users": [
               {
                 "created_at": "string",
-                "description": "string",
                 "edges": {
-                  "config": {
-                    "chat_config": {},
-                    "created_at": "string",
-                    "edges": {},
-                    "id": 0,
-                    "openai_config": {},
-                    "openai_content": {},
-                    "updated_at": "string",
-                    "welcome": []
-                  },
-                  "files": [
+                  "chats": [
                     {}
                   ],
                   "owner": {}
                 },
+                "email": "string",
                 "id": 0,
-                "name": "string",
-                "prompt": "string",
-                "share": "string",
-                "updated_at": "string"
+                "nickname": "string",
+                "openid": "string",
+                "password": "string",
+                "unionid": "string",
+                "updated_at": "string",
+                "user_type": "string"
               }
             ]
           },
-          "email": "string",
           "id": 0,
-          "nickname": "string",
-          "password": "string",
+          "name": "string",
           "updated_at": "string"
         },
-        "users": [
+        "robots": [
           {
             "created_at": "string",
+            "description": "string",
             "edges": {
-              "chats": [
+              "config": {
+                "chat_config": {
+                  "context_limit": 0,
+                  "limit": 0
+                },
+                "created_at": "string",
+                "edges": {
+                  "owner": {}
+                },
+                "id": 0,
+                "openai_config": {
+                  "model": "string"
+                },
+                "openai_content": {
+                  "chat_with_db": true,
+                  "index_name": "string",
+                  "index_namespace": "string",
+                  "method": "string",
+                  "top_k": 0
+                },
+                "updated_at": "string",
+                "welcome": [
+                  {
+                    "ai": "string",
+                    "id": 0
+                  }
+                ]
+              },
+              "files": [
                 {
-                  "context_id": "string",
                   "created_at": "string",
                   "edges": {
                     "owner": {}
                   },
                   "id": 0,
-                  "messages": [
-                    {}
-                  ],
-                  "robot_id": 0,
+                  "name": "string",
+                  "status": "string",
                   "updated_at": "string"
                 }
               ],
               "owner": {}
             },
-            "email": "string",
             "id": 0,
-            "nickname": "string",
-            "openid": "string",
-            "password": "string",
-            "unionid": "string",
-            "updated_at": "string",
-            "user_type": "string"
+            "name": "string",
+            "prompt": "string",
+            "share": "string",
+            "updated_at": "string"
           }
         ]
       },
+      "email": "string",
       "id": 0,
-      "name": "string",
+      "nickname": "string",
+      "password": "string",
       "updated_at": "string"
-    },
-    "email": "string",
-    "nick_name": "string",
-    "token": "string"
-  },
+    }
+  ],
   "msg": "string"
 }
 ```
@@ -5669,7 +5681,7 @@ user list
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Login response|[LoginResponse](#schemaloginresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|user list response|[UserListResponse](#schemauserlistresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -5832,6 +5844,172 @@ get user detail
 ```
 
 <h3 id="get__users_detail-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Get user detail response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## get__users_{user_id}
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.dev.cybermem.com/api/v1/users/{user_id} \
+  -H 'Accept: application/json'
+
+```
+
+```http
+GET https://api.dev.cybermem.com/api/v1/users/{user_id} HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/users/{user_id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'https://api.dev.cybermem.com/api/v1/users/{user_id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('https://api.dev.cybermem.com/api/v1/users/{user_id}', headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.dev.cybermem.com/api/v1/users/{user_id}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/users/{user_id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.dev.cybermem.com/api/v1/users/{user_id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /users/{user_id}`
+
+get user by id
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="get__users_{user_id}-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -6012,6 +6190,362 @@ get openid
 ```
 
 <h3 id="post__wx_{domain_id}_auth-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ResponseCode2Session response|[Code2SessionResponse](#schemacode2sessionresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__wx_{domain_id}_checklogin
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin?code=string \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin?code=string HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin?code=string',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin',
+  params: {
+  'code' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin', params={
+  'code': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin?code=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/wx/{domain_id}/checklogin", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /wx/{domain_id}/checklogin`
+
+check user login
+
+<h3 id="post__wx_{domain_id}_checklogin-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|code|query|string|true|wechat code|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "openid": "string",
+    "token": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="post__wx_{domain_id}_checklogin-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ResponseCode2Session response|[Code2SessionResponse](#schemacode2sessionresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## post__wx_{domain_id}_register
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register?code=string \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register?code=string HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register?code=string',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register',
+  params: {
+  'code' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register', params={
+  'code': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register?code=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /wx/{domain_id}/register`
+
+check user login
+
+<h3 id="post__wx_{domain_id}_register-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|code|query|string|true|wechat code|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": {
+    "openid": "string",
+    "token": "string"
+  },
+  "msg": "string"
+}
+```
+
+<h3 id="post__wx_{domain_id}_register-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -6869,6 +7403,124 @@ This operation does not require authentication
 |---|---|---|---|---|
 |code|integer|false|none|none|
 |data|[integer]|false|none|none|
+|msg|string|false|none|none|
+
+<h2 id="tocS_UserListResponse">UserListResponse</h2>
+<!-- backwards compatibility -->
+<a id="schemauserlistresponse"></a>
+<a id="schema_UserListResponse"></a>
+<a id="tocSuserlistresponse"></a>
+<a id="tocsuserlistresponse"></a>
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "created_at": "string",
+      "edges": {
+        "domain": {
+          "created_at": "string",
+          "domain_id": "string",
+          "edges": {
+            "owner": {},
+            "users": [
+              {
+                "created_at": "string",
+                "edges": {
+                  "chats": [
+                    {}
+                  ],
+                  "owner": {}
+                },
+                "email": "string",
+                "id": 0,
+                "nickname": "string",
+                "openid": "string",
+                "password": "string",
+                "unionid": "string",
+                "updated_at": "string",
+                "user_type": "string"
+              }
+            ]
+          },
+          "id": 0,
+          "name": "string",
+          "updated_at": "string"
+        },
+        "robots": [
+          {
+            "created_at": "string",
+            "description": "string",
+            "edges": {
+              "config": {
+                "chat_config": {
+                  "context_limit": 0,
+                  "limit": 0
+                },
+                "created_at": "string",
+                "edges": {
+                  "owner": {}
+                },
+                "id": 0,
+                "openai_config": {
+                  "model": "string"
+                },
+                "openai_content": {
+                  "chat_with_db": true,
+                  "index_name": "string",
+                  "index_namespace": "string",
+                  "method": "string",
+                  "top_k": 0
+                },
+                "updated_at": "string",
+                "welcome": [
+                  {
+                    "ai": "string",
+                    "id": 0
+                  }
+                ]
+              },
+              "files": [
+                {
+                  "created_at": "string",
+                  "edges": {
+                    "owner": {}
+                  },
+                  "id": 0,
+                  "name": "string",
+                  "status": "string",
+                  "updated_at": "string"
+                }
+              ],
+              "owner": {}
+            },
+            "id": 0,
+            "name": "string",
+            "prompt": "string",
+            "share": "string",
+            "updated_at": "string"
+          }
+        ]
+      },
+      "email": "string",
+      "id": 0,
+      "nickname": "string",
+      "password": "string",
+      "updated_at": "string"
+    }
+  ],
+  "msg": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer|false|none|none|
+|data|[[ent.User](#schemaent.user)]|false|none|none|
 |msg|string|false|none|none|
 
 <h2 id="tocS_UserRegisterReq">UserRegisterReq</h2>
