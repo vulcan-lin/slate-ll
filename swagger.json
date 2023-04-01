@@ -1146,7 +1146,7 @@
         },
         "/wx/{domain_id}/auth": {
             "post": {
-                "description": "get openid",
+                "description": "get openid[小程序使用]",
                 "consumes": [
                     "application/json"
                 ],
@@ -1220,7 +1220,7 @@
         },
         "/wx/{domain_id}/register": {
             "post": {
-                "description": "check user login",
+                "description": "user register",
                 "consumes": [
                     "application/json"
                 ],

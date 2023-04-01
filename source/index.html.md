@@ -6166,7 +6166,7 @@ func main() {
 
 `POST /wx/{domain_id}/auth`
 
-get openid
+get openid[小程序使用]
 
 <h3 id="post__wx_{domain_id}_auth-parameters">Parameters</h3>
 
@@ -6522,7 +6522,7 @@ func main() {
 
 `POST /wx/{domain_id}/register`
 
-check user login
+user register
 
 <h3 id="post__wx_{domain_id}_register-parameters">Parameters</h3>
 
