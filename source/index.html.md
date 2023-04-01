@@ -6022,6 +6022,181 @@ This operation does not require authentication
 
 <h1 id="cybermem-api-wechat">WeChat</h1>
 
+## post__wx_email_verification
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST https://api.dev.cybermem.com/api/v1/wx/email/verification?email=string \
+  -H 'Accept: application/json'
+
+```
+
+```http
+POST https://api.dev.cybermem.com/api/v1/wx/email/verification?email=string HTTP/1.1
+Host: api.dev.cybermem.com
+Accept: application/json
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json'
+};
+
+fetch('https://api.dev.cybermem.com/api/v1/wx/email/verification?email=string',
+{
+  method: 'POST',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/email/verification',
+  params: {
+  'email' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.post('https://api.dev.cybermem.com/api/v1/wx/email/verification', params={
+  'email': 'string'
+}, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','https://api.dev.cybermem.com/api/v1/wx/email/verification', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/email/verification?email=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "https://api.dev.cybermem.com/api/v1/wx/email/verification", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`POST /wx/email/verification`
+
+send user email verification code
+
+<h3 id="post__wx_email_verification-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|email|query|string|true|user's email address|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "string"
+}
+```
+
+<h3 id="post__wx_email_verification-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|common response|[commonResponse](#schemacommonresponse)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 ## post__wx_{domain_id}_auth
 
 > Code samples
@@ -6359,10 +6534,7 @@ check user login
 ```json
 {
   "code": 0,
-  "data": {
-    "openid": "string",
-    "token": "string"
-  },
+  "data": null,
   "msg": "string"
 }
 ```
@@ -6371,7 +6543,7 @@ check user login
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ResponseCode2Session response|[Code2SessionResponse](#schemacode2sessionresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">
@@ -6384,13 +6556,13 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register?code=string \
+curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register?code=string HTTP/1.1
+POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register HTTP/1.1
 Host: api.dev.cybermem.com
 Accept: application/json
 
@@ -6402,7 +6574,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register?code=string',
+fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register',
 {
   method: 'POST',
 
@@ -6426,8 +6598,7 @@ headers = {
 
 result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register',
   params: {
-  'code' => 'string'
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 
@@ -6439,9 +6610,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register', params={
-  'code': 'string'
-}, headers = headers)
+r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register', headers = headers)
 
 print(r.json())
 
@@ -6479,7 +6648,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register?code=string");
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/register");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -6524,12 +6693,6 @@ func main() {
 
 user register
 
-<h3 id="post__wx_{domain_id}_register-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|code|query|string|true|wechat code|
-
 > Example responses
 
 > 200 Response
@@ -6537,10 +6700,7 @@ user register
 ```json
 {
   "code": 0,
-  "data": {
-    "openid": "string",
-    "token": "string"
-  },
+  "data": null,
   "msg": "string"
 }
 ```
@@ -6549,7 +6709,7 @@ user register
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|ResponseCode2Session response|[Code2SessionResponse](#schemacode2sessionresponse)|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Common response|[commonResponse](#schemacommonresponse)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Common response|[commonResponse](#schemacommonresponse)|
 
 <aside class="success">

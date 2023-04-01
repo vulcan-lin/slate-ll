@@ -1144,6 +1144,43 @@
                 }
             }
         },
+        "/wx/email/verification": {
+            "post": {
+                "description": "send user email verification code",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "WeChat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "user's email address",
+                        "name": "email",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/wx/{domain_id}/auth": {
             "post": {
                 "description": "get openid[小程序使用]",
@@ -1204,9 +1241,9 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "ResponseCode2Session response",
+                        "description": "Common response",
                         "schema": {
-                            "$ref": "#/definitions/Code2SessionResponse"
+                            "$ref": "#/definitions/commonResponse"
                         }
                     },
                     "400": {
@@ -1230,20 +1267,11 @@
                 "tags": [
                     "WeChat"
                 ],
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "wechat code",
-                        "name": "code",
-                        "in": "query",
-                        "required": true
-                    }
-                ],
                 "responses": {
                     "200": {
-                        "description": "ResponseCode2Session response",
+                        "description": "Common response",
                         "schema": {
-                            "$ref": "#/definitions/Code2SessionResponse"
+                            "$ref": "#/definitions/commonResponse"
                         }
                     },
                     "400": {
