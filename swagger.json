@@ -1218,6 +1218,43 @@
                 }
             }
         },
+        "/wx/{domain_id}/tickets/{ticket_id}": {
+            "get": {
+                "description": "check tick subscribe status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "WeChat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ticket id",
+                        "name": "ticket_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response ",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/wx/{domain_id}/users": {
             "post": {
                 "description": "user register",
@@ -1259,7 +1296,7 @@
         },
         "/wx/{domain_id}/users/{openid}": {
             "post": {
-                "description": "check user subscribe status",
+                "description": "get user",
                 "consumes": [
                     "application/json"
                 ],
