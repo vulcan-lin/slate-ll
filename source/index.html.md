@@ -6921,13 +6921,13 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?open_id=string&ticket_id=string \
+curl -X POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?unionid_id=string&ticket_id=string \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?open_id=string&ticket_id=string HTTP/1.1
+POST https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?unionid_id=string&ticket_id=string HTTP/1.1
 Host: api.dev.cybermem.com
 Accept: application/json
 
@@ -6939,7 +6939,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?open_id=string&ticket_id=string',
+fetch('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?unionid_id=string&ticket_id=string',
 {
   method: 'POST',
 
@@ -6963,7 +6963,7 @@ headers = {
 
 result = RestClient.post 'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth',
   params: {
-  'open_id' => 'string',
+  'unionid_id' => 'string',
 'ticket_id' => 'string'
 }, headers: headers
 
@@ -6978,7 +6978,7 @@ headers = {
 }
 
 r = requests.post('https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth', params={
-  'open_id': 'string',  'ticket_id': 'string'
+  'unionid_id': 'string',  'ticket_id': 'string'
 }, headers = headers)
 
 print(r.json())
@@ -7017,7 +7017,7 @@ try {
 ```
 
 ```java
-URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?open_id=string&ticket_id=string");
+URL obj = new URL("https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?unionid_id=string&ticket_id=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("POST");
 int responseCode = con.getResponseCode();
@@ -7066,7 +7066,7 @@ get jwt token by openid[web前端使用]
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|open_id|query|string|true|wechat user open id|
+|unionid_id|query|string|true|wechat user unionid id|
 |ticket_id|query|string|true| ticket id|
 
 > Example responses

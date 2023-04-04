@@ -1346,8 +1346,8 @@
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "wechat user open id",
-                        "name": "open_id",
+                        "description": "wechat user unionid id",
+                        "name": "unionid_id",
                         "in": "query",
                         "required": true
                     },
