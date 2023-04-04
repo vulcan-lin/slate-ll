@@ -7677,10 +7677,10 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> POST https://api.dev.cybermem.com/api/v1/wx/<span class="o">{</span>domain_id<span class="o">}</span>/webauth?open_id<span class="o">=</span>string&amp;ticket_id<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> POST https://api.dev.cybermem.com/api/v1/wx/<span class="o">{</span>domain_id<span class="o">}</span>/webauth?unionid_id<span class="o">=</span>string&amp;ticket_id<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?open_id=string&amp;ticket_id=string</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre></div><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?unionid_id=string&amp;ticket_id=string</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.dev.cybermem.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -7689,7 +7689,7 @@ curl <span class="nt">-X</span> POST https://api.dev.cybermem.com/api/v1/wx/<spa
   <span class="dl">'</span><span class="s1">Accept</span><span class="dl">'</span><span class="p">:</span><span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
 <span class="p">};</span>
 
-<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?open_id=string&amp;ticket_id=string</span><span class="dl">'</span><span class="p">,</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?unionid_id=string&amp;ticket_id=string</span><span class="dl">'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
 
@@ -7710,7 +7710,7 @@ curl <span class="nt">-X</span> POST https://api.dev.cybermem.com/api/v1/wx/<spa
 
 <span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
-  <span class="s1">'open_id'</span> <span class="o">=&gt;</span> <span class="s1">'string'</span><span class="p">,</span>
+  <span class="s1">'unionid_id'</span> <span class="o">=&gt;</span> <span class="s1">'string'</span><span class="p">,</span>
 <span class="s1">'ticket_id'</span> <span class="o">=&gt;</span> <span class="s1">'string'</span>
 <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
 
@@ -7722,7 +7722,7 @@ curl <span class="nt">-X</span> POST https://api.dev.cybermem.com/api/v1/wx/<spa
 <span class="p">}</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'open_id'</span><span class="p">:</span> <span class="s">'string'</span><span class="p">,</span>  <span class="s">'ticket_id'</span><span class="p">:</span> <span class="s">'string'</span>
+  <span class="s">'unionid_id'</span><span class="p">:</span> <span class="s">'string'</span><span class="p">,</span>  <span class="s">'ticket_id'</span><span class="p">:</span> <span class="s">'string'</span>
 <span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
@@ -7755,7 +7755,7 @@ curl <span class="nt">-X</span> POST https://api.dev.cybermem.com/api/v1/wx/<spa
 
  <span class="c1">// ...</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?open_id=string&amp;ticket_id=string"</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="no">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="no">URL</span><span class="o">(</span><span class="s">"https://api.dev.cybermem.com/api/v1/wx/{domain_id}/webauth?unionid_id=string&amp;ticket_id=string"</span><span class="o">);</span>
 <span class="nc">HttpURLConnection</span> <span class="n">con</span> <span class="o">=</span> <span class="o">(</span><span class="nc">HttpURLConnection</span><span class="o">)</span> <span class="n">obj</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
 <span class="n">con</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="s">"POST"</span><span class="o">);</span>
 <span class="kt">int</span> <span class="n">responseCode</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="na">getResponseCode</span><span class="o">();</span>
@@ -7808,11 +7808,11 @@ curl <span class="nt">-X</span> POST https://api.dev.cybermem.com/api/v1/wx/<spa
 </tr>
 </thead><tbody>
 <tr>
-<td>open_id</td>
+<td>unionid_id</td>
 <td>query</td>
 <td>string</td>
 <td>true</td>
-<td>wechat user open id</td>
+<td>wechat user unionid id</td>
 </tr>
 <tr>
 <td>ticket_id</td>
