@@ -1218,6 +1218,43 @@
                 }
             }
         },
+        "/wx/{domain_id}/tickets/{ticket_id}": {
+            "get": {
+                "description": "check tick subscribe status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "WeChat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ticket id",
+                        "name": "ticket_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Common response ",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/wx/{domain_id}/users": {
             "post": {
                 "description": "user register",
@@ -1259,7 +1296,7 @@
         },
         "/wx/{domain_id}/users/{openid}": {
             "post": {
-                "description": "check user subscribe status",
+                "description": "get user",
                 "consumes": [
                     "application/json"
                 ],
@@ -1283,6 +1320,50 @@
                         "description": "WeChatGetUserResponse ",
                         "schema": {
                             "$ref": "#/definitions/WeChatGetUserResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Common response",
+                        "schema": {
+                            "$ref": "#/definitions/commonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/wx/{domain_id}/webauth": {
+            "post": {
+                "description": "get jwt token by openid[web前端使用]",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "WeChat"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "wechat user open id",
+                        "name": "open_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": " ticket id",
+                        "name": "ticket_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "jwt token response",
+                        "schema": {
+                            "$ref": "#/definitions/Code2SessionResponse"
                         }
                     },
                     "400": {
